@@ -1,0 +1,54 @@
+get:
+  tags:
+  - catalogs
+  summary: Get details of a specific feed processed for the catalog.
+  description: Returns details of the specific feed processed for the catalog.
+  operationId: get_feed_by_id
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - required: true
+    schema:
+      title: Catalog Id
+      type: string
+    name: catalog_id
+    in: path
+  - required: true
+    schema:
+      title: Feed Id
+      type: string
+    name: feed_id
+    in: path
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+            - $ref: '../../schemas/ResponseTemplateSuccessNoData.yaml'
+            - type: object
+              properties:
+                data:
+                  $ref: '../../schemas/FeedResponse.yaml'
+    '400':
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'

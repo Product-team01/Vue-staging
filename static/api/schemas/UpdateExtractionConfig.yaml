@@ -1,0 +1,8 @@
+type: object
+properties:
+  active:
+    type: boolean
+    description: indicates if the config is in use or not
+  preset:
+    type: boolean
+    description: indicates if the config is set as global presets or not

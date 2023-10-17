@@ -1,0 +1,24 @@
+post:
+  tags:
+    - affinity
+  summary: Discover Affinity Use Cases for a Client
+  operationId: discover_affinity
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/starfire/affinity_discover.yaml'
+    '404':
+      description: Config does not exist
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/ErrorResponse.yaml'

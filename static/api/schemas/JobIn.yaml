@@ -1,0 +1,32 @@
+title: JobIn
+required:
+- name
+- source
+- destination
+- wait_for_completion
+type: object
+properties:
+  name:
+    title: Name
+    type: string
+  client:
+    title: Client
+    type: string
+  api_key:
+    title: Api Key
+    type: string
+  source:
+    title: Source
+    type: string
+  destination:
+    title: Destination
+    type: string
+  destination_dp:
+    title: Destination Dp
+    type: string
+  wait_for_completion:
+    title: Wait For Completion
+    type: boolean
+  config:
+    title: Config
+    type: object

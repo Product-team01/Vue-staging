@@ -1,0 +1,24 @@
+properties:
+  data_type:
+    allOf:
+    - $ref: ../workflows/ColumnDataType.yaml
+    description: This field describes the data type of the column in the dataset.
+  field_description:
+    description: This field provides a short description about the corresponding column
+      in the dataset.
+    title: Field Description
+    type: string
+  field_name:
+    description: This field describes the name of the column in the dataset.
+    title: Field Name
+    type: string
+  field_validation:
+    description: This field is used to define the various validations applied on a
+      column in the dataset.
+    title: Field Validation
+    type: string
+required:
+- field_name
+- data_type
+title: DatasetColumnRequest
+type: object

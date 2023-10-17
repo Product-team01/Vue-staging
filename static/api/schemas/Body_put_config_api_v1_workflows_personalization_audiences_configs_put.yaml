@@ -1,0 +1,25 @@
+title: Body_put_config_api_v1_workflows_personalization_audiences_configs_put
+required:
+  - client
+  - use_case
+  - config
+type: object
+properties:
+  client:
+    title: Client
+    type: string
+    description: unique identifier for the client (currently it is <client_id>_<client_name>)
+  use_case:
+    title: Use Case
+    type: string
+    description: unique identifier for the client's usecase e.g. audience_segmentation_1, segmentation_2
+  config:
+    title: Config
+    allOf:
+      - $ref: 'AudienceConfigLite.yaml'
+    description: AudienceConfig
+  lite:
+    title: Lite
+    type: boolean
+    description: create using lite config or the complete config
+    default: true

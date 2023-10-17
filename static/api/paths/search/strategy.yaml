@@ -1,0 +1,152 @@
+parameters:
+  - required: true
+    schema:
+      title: Strategy Id
+      type: string
+    name: strategy_id
+    in: path
+get:
+  tags:
+    - search
+  summary: Get Strategy
+  description: Get the strategy config for the given id
+  operationId: get_strategy_by_id
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  responses:
+    "200":
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "../../schemas/ResponseTemplateSuccessNoData.yaml"
+              - type: object
+                properties:
+                  data:
+                    $ref: "../../schemas/search/strategy.yaml"
+                required:
+                  - data
+          examples:
+            auto bundling:
+              value:
+                $ref: "../../examples/strategies/response/auto_bundling.yaml"
+            bundling:
+              value:
+                $ref: "../../examples/strategies/response/bundling.yaml"
+            collaborative filtering:
+              value:
+                $ref: "../../examples/strategies/response/collaborative_filtering.yaml"
+            inspired by browsing history:
+              value:
+                $ref: "../../examples/strategies/response/inspired_by_browsing_history.yaml"
+            recently viewed:
+              value:
+                $ref: "../../examples/strategies/response/recently_viewed.yaml"
+            recommended for you:
+              value:
+                $ref: "../../examples/strategies/response/recommended_for_you.yaml"
+            sampling products:
+              value:
+                $ref: "../../examples/strategies/response/sampling_products.yaml"
+            simillar products:
+              value:
+                $ref: "../../examples/strategies/response/simillar_products.yaml"
+            text search:
+              value:
+                $ref: "../../examples/strategies/response/text_search.yaml"
+            trending:
+              value:
+                $ref: "../../examples/strategies/response/trending.yaml"
+    "404":
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/error_response.yaml"
+patch:
+  tags:
+    - search
+  summary: Update strategy
+  description:
+    "Update a strategy config for a given id. Supports partial update.
+    Passing only a subset of first level keys with their values updates only those
+    keys. "
+  operationId: update_strategy
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas/search/strategy.yaml"
+    required: true
+  responses:
+    "200":
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "../../schemas/ResponseTemplateSuccessNoData.yaml"
+              - type: object
+                properties:
+                  data:
+                    $ref: "../../schemas/search/strategy.yaml"
+                required:
+                  - data
+
+    "404":
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/error_response.yaml"
+    "422":
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/validation_error_response.yaml"
+delete:
+  tags:
+    - search
+  summary: Delete Strategy
+  description:
+    Deletes the given strategy id and returns its config. Deleting a non
+    existent strategy id, will throw a 404
+  operationId: delete_strategy
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  responses:
+    "200":
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "../../schemas/ResponseTemplateSuccessNoData.yaml"
+              - type: object
+                properties:
+                  data:
+                    $ref: "../../schemas/search/strategy.yaml"
+                required:
+                  - data
+    "404":
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/error_response.yaml"

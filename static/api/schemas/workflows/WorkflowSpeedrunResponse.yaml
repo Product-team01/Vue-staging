@@ -1,0 +1,26 @@
+properties:
+  correlation_id:
+    description: This field describes the correlation ID of input payload.
+    title: Correlation Id
+    type: string
+  data:
+    description: This field describes the response data of the speedrun API. The output
+      contains all the metadata about the models and/or datasets that were generated
+      during the workflow execution.
+    title: Data
+    type: object
+  request_id:
+    description: This field describes the request ID of input payload.
+    title: Request Id
+    type: string
+  status:
+    description: This field describes the update API response status.
+    title: Status
+    type: string
+required:
+- status
+- request_id
+- correlation_id
+- data
+title: WorkflowSpeedrunResponse
+type: object

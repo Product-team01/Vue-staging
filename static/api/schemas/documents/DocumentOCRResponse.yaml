@@ -1,0 +1,30 @@
+type: object
+properties:
+  result:
+    type: object
+    description: OCR result 
+    properties:
+      <page_number>:
+        type: array
+        items:
+          type: object
+          properties:
+            confidence: 
+              type: number
+              description: Confidence score of the OCR result
+            data:
+              type: object
+              description: OCR result data
+            label:
+              type: string
+              description: OCR result label
+            sections:
+              type: array
+              description: OCR result section co-ordinates
+            type:
+              type: string
+              description: OCR result type (e.g., 'Free Form text', 'table')
+
+required:
+  - status
+  - message

@@ -1,0 +1,153 @@
+get:
+  tags:
+    - search
+  summary: List Strategies
+  description:
+    List all created strategies or global strategies (based on the `preset`
+    flag)
+  operationId: get_strategy
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+    - name: preset
+      in: query
+      description:
+        A optional flag, when set to true, will return only preset strategies.
+        Default is false
+      required: false
+      schema:
+        type: boolean
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+            - $ref: '../../schemas/ResponseTemplateSuccessNoData.yaml'
+            - type: object
+              properties:
+                data:
+                  type: array
+                  items:
+                    $ref: '../../schemas/search/strategy.yaml'
+              required:
+                  - data
+
+post:
+  tags:
+    - search
+  summary: Create Strategy
+  description: Create a strategy. The strategy `name` is expected to be unique
+  operationId: set_strategy
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas/search/strategy.yaml"
+        examples:
+          Bundling:
+            value:
+              workflow_id: 02b397d5-b225-405a-a582-6665804f698e
+              catalog_id: string
+              name: string
+              description: Recommends products from each theme
+              config:
+              - params:
+                - field: curation_id
+                  type: curations
+                  value: 1
+          AutoBundling:
+            value:
+              workflow_id: 02b397d5-b225-405a-a582-6665804f698e
+              catalog_id: string
+              name: string
+              description: Recommends products from each theme
+              config:
+              - params:
+                - field: curation_id
+                  type: curations
+                  value: 0.8
+                - field: curation_id
+                  type: curations
+                  value: 0.2
+                - field: total_num_candidates
+                  type: total_num_candidates
+                  value: 5
+          Strategy:
+            value:
+              name: string
+              workflow_id: string
+              catalog_id: string
+              config:
+              - params:
+                - field: string
+                  value:
+                  - string
+                  type: string
+                conditions:
+                - field: string
+                  value:
+                  - string
+                  operator: string
+              business_rules:
+              - rules:
+                - field: string
+                  value:
+                  - string
+                  operator: eq
+                  source_dependent: false
+                catalog_id: string
+                rules_relation: AND
+                conditions:
+                - field: string
+                  value:
+                  - string
+                  operator: eq
+                conditions_relation: AND
+              preset: false
+              description: string
+              metadata:
+                max_content: 0
+                min_content: 0
+                max_bundles: 0
+                min_bundles: 0
+                unbundle: false
+
+    required: true
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+            - $ref: '../../schemas/ResponseTemplateSuccessNoData.yaml'
+            - type: object
+              properties:
+                data:
+                  $ref: '../../schemas/search/strategy.yaml'
+              required:
+                  - data
+
+    "400":
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/error_response.yaml"
+      description: Bad Request
+    "422":
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/validation_error_response.yaml"

@@ -1,0 +1,26 @@
+type: object
+description: This response is returned when the inference request is submitted for asynchronous processing and is not completed yet
+properties:
+  status:
+    description: |
+      Status of the request
+      1. SUCCESS - Indicates the request is successfully submitted for inference processing
+      2. FAILURE - Indicates the request failed for some reason.
+    type: string
+    enum:
+    - SUCCESS
+    - FAILURE
+  request_id:
+    description: Unique identifier attached to the request by the blox system
+    type: string
+  correlation_id:
+    description: Unique identifier attached to the request from the source
+    type: string
+  data:
+    type: object
+    properties:
+      status:
+        type: string
+        description: Status of the request.
+        enum:
+        - IN_PROGRESS

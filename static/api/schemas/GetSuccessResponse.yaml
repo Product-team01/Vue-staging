@@ -1,0 +1,19 @@
+title: Successful GET Response
+required:
+- request_id
+- correlation_id
+- status
+type: object
+properties:
+  request_id:
+    title: Request ID
+    type: string
+    example: fa5d8a25-3e3d-409d-adb6-f1c3c2000915
+  correlation_id:
+    title: Correlation ID
+    type: string
+    example: fa5d8a25-3e3d-409d-adb6-f1c3c2000915
+  status:
+    title: Status
+    type: string
+    example: SUCCESS

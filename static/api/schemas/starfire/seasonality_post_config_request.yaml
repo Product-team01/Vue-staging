@@ -1,0 +1,15 @@
+title: Seasonality post config request
+required:
+  - use_case_id
+  - config
+type: object
+properties:
+  use_case_id:
+    title: Use Case
+    type: string
+    description: unique identifier for the client's use case
+  config:
+    title: Config
+    allOf:
+      - $ref: seasonality_lite.yaml
+    description: Seasonality config

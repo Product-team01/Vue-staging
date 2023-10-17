@@ -1,0 +1,5 @@
+oneOf:
+  - $ref: search_request_strategy_name.yaml
+  - $ref: search_request_module_name.yaml
+  - $ref: search_request_page_name.yaml
+  - $ref: search_request_text.yaml

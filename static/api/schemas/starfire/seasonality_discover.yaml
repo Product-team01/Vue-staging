@@ -1,0 +1,22 @@
+type: object
+properties:
+  request_id:
+    type: string
+  correlation_id:
+    type: string
+  status:
+    type: string
+  data:
+    type: array
+    items:
+      type: object
+      properties:
+        use_case_id:
+          type: string
+          title: Use Case id
+          description: Use case name
+        aggregation_level:
+          type: string
+          title: Aggregation Level
+  status_code:
+    type: integer

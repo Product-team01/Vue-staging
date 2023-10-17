@@ -1,0 +1,59 @@
+get:
+  tags:
+  - analytics
+  summary: Return analytics data
+  description: Return analytics data aggregated over time as time-series for charting
+    or aggregated values
+  operationId: list_analytics_data
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - required: true
+    schema:
+      title: Api Key
+      type: string
+    name: api_key
+    in: query
+  - required: true
+    schema:
+      title: Report Id
+      type: string
+    name: report_id
+    in: path
+  - required: true
+    schema:
+      title: Start Time
+      type: string
+    name: start_time
+    in: query
+  - required: true
+    schema:
+      title: End Time
+      type: string
+    name: end_time
+    in: query
+  - required: false
+    schema:
+      title: Charting
+      type: boolean
+    name: chart
+    in: query
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            title: Response List Clients Api V1 Clients Get
+            type: array
+            items:
+              $ref: '../../schemas/AnalyticsReportOut.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'

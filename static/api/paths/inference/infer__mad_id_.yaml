@@ -1,0 +1,150 @@
+get:
+  tags:
+  - inference
+  summary: Asynchronous Inference GET
+  description: Retrieves status of inference request and if successfully complete returns the inference result
+  operationId: getInferenceData
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: Unique identifier attached to the request from the source
+    schema:
+      type: string
+  - name: msd_id
+    in: path
+    description: Represents the unique identifier of a specific input
+    required: true
+    schema:
+      type: string  
+  - name: catalog_id
+    in: path
+    description: unique identifier of the catalog
+    required: true
+    schema:
+      type: string  
+  responses:
+    '200':
+      description: Successfully processed the inference request
+      content:
+        application/json:
+          schema:
+            oneOf:
+              - $ref: '../../schemas/inference/InferPostResponse.yaml'
+              - $ref: '../../schemas/inference/InferAsyncInprogressResponse.yaml'
+    '400':
+      description: |
+        Bad request:
+        - If given msd_id is not valid
+        - If given catalog_id is not valid
+        - If given input payload does not match with the msd_id
+        - If output is invalid structure or information that cannot be processed
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'
+    '401':
+      description: If the api_key passed is invalid
+    '404':
+      description: |
+        Returned while:
+        - If given msd_id is not valid
+        - If given catalog_id is not valid
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'
+    '422':
+      description: Returned if we are unable to process the request due to internal issues. This is a temporary state and our support team will fix this as and when we encounter these issues.
+    '500':
+      description: Something went wrong on Blox's end. (These are rare, will be identified, fixed and communicated within a reasonable SLA based on complexity.)
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'
+    '502':
+      description: Indicates Bad Gateway
+    '504':
+      description: Indicates Gateway Timeout
+
+put:
+  tags:
+  - inference
+  summary: Feedback
+  description: Our systems are fairly robust and do provide a certain high degree of accuracy, as with every ML system, the models that are built also improve over time with feedback. While our teams regularly iterate on the models and keep training them with new data, and indeed keep improving on the available tags, customer feedback is also a key component of the engagement. Hence, we provide customers with this API to provide periodic feedback based on their QA process.
+  operationId: inferenceFeedback
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: Unique identifier attached to the request from the source
+    schema:
+      type: string
+  - name: msd_id
+    in: path
+    description: Represents the unique identifier of a specific input
+    required: true
+    schema:
+      type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/inference/InferFeedback.yaml'
+    required: true
+  responses:
+    '200':
+      description: Successfully accepted the feedback
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                description: |
+                  Status of the request
+                  1. SUCCESS - Indicates the request is successfully submitted for inference processing
+                  2. FAILURE - Indicates the request failed for some reason.
+                type: string
+                enum:
+                - SUCCESS
+                - FAILURE
+              request_id:
+                description: Unique identifier attached to the request by the blox system
+                type: string
+              correlation_id:
+                description: Unique identifier attached to the request from the source
+                type: string
+    '400':
+      description: |
+        Bad request:
+        - If given msd_id is not valid
+        - If given catalog_id is not valid
+        - If given input payload does not match with the msd_id
+        - If output is invalid structure or information that cannot be processed
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'
+    '401':
+      description: If the api_key passed is invalid
+    '404':
+      description: |
+        Returned while:
+        - If given msd_id is not valid
+        - If given catalog_id is not valid
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'
+    '422':
+      description: Returned if we are unable to process the request due to internal issues. This is a temporary state and our support team will fix this as and when we encounter these issues.
+    '500':
+      description: Something went wrong on Blox's end. (These are rare, will be identified, fixed and communicated within a reasonable SLA based on complexity.)
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'
+    '502':
+      description: Indicates Bad Gateway
+    '504':
+      description: Indicates Gateway Timeout
+

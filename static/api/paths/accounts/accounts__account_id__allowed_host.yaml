@@ -1,0 +1,115 @@
+get:
+  tags:
+  - accounts
+  summary: Allowed host Account
+  description: 'Fetching all allowed host for a particular account'
+  operationId: get_all_allowed_host_account
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - required: true
+    schema:
+      title: Account Id
+      type: string
+    name: account_id
+    in: path
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+            - $ref: '../../schemas/ResponseTemplateSuccessNoData.yaml'
+            - type: object
+              properties:
+                data:
+                  type: array
+                  items:
+                    $ref: "../../schemas/AccountAllowedHostOut.yaml"
+              required:
+                  - data
+          example:
+            request_id: 3ccea3ba7a0a11eda3780ea7570d814d
+            correlation_id: 3ccea3ba7a0a11eda3780ea7570d814d
+            status: SUCCESS
+            data:
+              - allowed_host: testDomain1.com
+                active: true
+                id: 32f9c74c-6755-457a-8335-888d89302ef0
+                client: 85f89538-20f3-55e5-9b61-5886cb490052
+                created_ts: '2022-12-12T14:35:23.495058'
+                updated_ts: '2022-12-12T14:35:23.495069'
+
+
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'
+
+post:
+  tags:
+  - accounts
+  summary: Allowed host Account
+  description: |
+    allowed_host creation with the active flag stating wether the allowed host is active one or not
+    Contents in payload
+      - allowed_host should entire url not the specific domain check example for reference
+      - active is flag that would make a allowed host to be accessible for authentication
+  operationId: create_allowed_host_account
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - required: true
+    schema:
+      title: Account Id
+      type: string
+    name: account_id
+    in: path
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/AccountAllowedHostIn.yaml'
+    required: true
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+            - $ref: '../../schemas/ResponseTemplateSuccessNoData.yaml'
+            - type: object
+              properties:
+                data:
+                  $ref: "../../schemas/AccountAllowedHostOut.yaml"
+              required:
+                  - data
+          example:
+            request_id: 361616f07a2a11ed906d0ea7570d814d
+            correlation_id: 361616f07a2a11ed906d0ea7570d814d
+            status: SUCCESS
+            data:
+              allowed_host: testDomain1.com
+              active: true
+              id: 32f9c74c-6755-457a-8335-888d89302ef0
+              client: 85f89538-20f3-55e5-9b61-5886cb490052
+              created_ts: '2022-12-12T14:35:23.495058'
+              updated_ts: '2022-12-12T14:35:23.495069'
+
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'
+

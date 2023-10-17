@@ -1,0 +1,4 @@
+type: object
+properties:
+  job_id:
+    type: string

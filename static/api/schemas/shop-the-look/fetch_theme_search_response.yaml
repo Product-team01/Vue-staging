@@ -1,0 +1,78 @@
+title: ShopTheLookResponse
+required:
+  - request_id
+  - correlation_id
+  - status
+type: object
+properties:
+  request_id:
+    title: Request Id
+    type: string
+    description: request_id generated internally
+    example: 180cfc2c143111eeaa6026f900dd2367
+  correlation_id:
+    title: Correlation Id
+    type: string
+    description: correlation_id for the request
+    example: shop-the-look
+  status:
+    title: Status
+    type: string
+    description: status for the request
+    example: SUCCESS
+  data:
+    type: array
+    items:
+      type: object
+
+
+example:
+  request_id: 5c3b8e3e1f0a11eeb876f66802ca4381
+  correlation_id:
+  status: SUCCESS
+  data:
+  - https://api.diesel.com/on/demandware.static/-/Sites-diesel-master-catalog/default/dw8b0fd320/images/large/A03627_09G21_02_C.jpg:
+    user_edited: 'true'
+    products:
+    - Bags:
+      - facet: Bags
+        title: D-VINA-XXS
+        price: 350
+        image_link: https://api.diesel.com/on/demandware.static/-/Sites-diesel-master-catalog/default/dwe711bb5d/images/large/X09594_P5573_T8013_F.jpg
+        parent_id: X09594
+        link: https://uk.diesel.com/en/handbags/d-vina-xxs/8059038349409.html
+        product_id: X09594P5573T8013
+    - Jeans:
+      - facet: Jeans
+        title: Bootcut and Flare Jeans 2000 Widee 09G21
+        price: 195
+        image_link: https://api.diesel.com/on/demandware.static/-/Sites-diesel-master-catalog/default/dw543ffa59/images/large/A03627_09G21_02_F.jpg
+        parent_id: A03627
+        link: https://uk.diesel.com/en/bootcut/bootcut-and-flare-jeans-2000-widee-09g21/8059038346729.html
+        product_id: A0362709G2102
+    - Footwear:
+      - facet: Footwear
+        title: D-VENUS SA
+        price: 350
+        image_link: https://api.diesel.com/on/demandware.static/-/Sites-diesel-master-catalog/default/dw1f94937c/images/large/Y02990_PS764_H9535_F.jpg
+        parent_id: Y02990
+        link: https://uk.diesel.com/en/sandals/d-venus-sa/8052105788521.html
+        product_id: Y02990PS764H9535
+    - Jackets:
+      - facet: Jackets
+        title: L-FOX
+        price: 447
+        image_link: https://api.diesel.com/on/demandware.static/-/Sites-diesel-master-catalog/default/dwc59352f1/images/large/A08800_0QWTQ_9BL_F.jpg
+        parent_id: A08800
+        link: https://uk.diesel.com/en/outerwear-%26-jackets/l-fox/8052105753024.html
+        product_id: A088000QWTQ9BL
+    - Glasses:
+      - facet: Glasses
+        title: DM0362
+        price: 210
+        image_link: https://api.diesel.com/on/demandware.static/-/Sites-diesel-master-catalog/default/dw5ed7ad10/images/large/DM0362_00LEN_RT0OY_F.jpg
+        parent_id: DM0362
+        link: https://shop.diesel.com/en/sunglasses/dm0362/8051385501417.html
+        product_id: DM036200LENRT0OY
+    ext_id: A0362709G2102
+

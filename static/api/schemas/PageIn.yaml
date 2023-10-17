@@ -1,0 +1,66 @@
+title: PageIn
+required:
+- name
+- type
+type: object
+properties:
+  name:
+    title: Page_name
+    type: string
+    example: Product Details page
+  type:
+    title: Page_type
+    type: string
+    example: pdp
+  desktop:
+    title: page config for platform desktop
+    type: object
+    properties:
+      url:
+        title: url of the page
+        type: string
+        example: www.example.com
+      preview_url:
+        title: preview url of the page
+        type: string
+        example: https://s3.amazonaws.com/blox/example.jpg
+      page_identifier:
+        title: preview url of the page
+        type: object
+      user_identifier:
+        title: user identifier in the page
+        type: object
+      field_identifiers:
+        title: Field identifiers in the page
+        type: object
+      analytics:
+        title: Events configuration in the page
+        type: object
+      event_listeners:
+        title: Event listeners in the page
+        type: object
+      slots:
+        title: Slots configured with placements in the page
+        type: array
+        items:
+          type: object
+          $ref: 'SlotConfig.yaml'
+  mobile:
+    title: page config for platform mobile
+    type: object
+  android:
+    title: page config for platform mobile
+    type: object
+    properties:
+      slots:
+        title: Slots configured with placements in the page
+        type: array
+        items:
+          type: object
+          $ref: 'SlotConfig.yaml'
+  ios:
+    title: page config for platform mobile
+    type: object
+  targeting_input_params:
+    title: targets of associated experience
+    type: object

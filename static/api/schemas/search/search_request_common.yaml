@@ -1,0 +1,68 @@
+type: object
+properties:
+  blox_uuid:
+    description: MSD Unique User ID
+    type: string
+  user_id:
+    description: Logged in User ID
+    type: string
+  max_content:
+    description: Maximum no of recommendation to be served
+    type: integer
+  min_content:
+    description: Minimum no of recommendation to be served  
+    type: integer
+  page_num:
+    description: page number for the results
+    type: integer
+  skip_cache:
+    type: boolean
+    description: |
+      - By default all configs we be cached for a time period of 10 min
+      - Setting this true will make the search call to skip the cache and take the config from actual DB(stephanie)
+  explain:
+    type: boolean
+    description: By setting this true you will get score explanation information about why a specific document matches in the search response
+  config:
+    type: array
+    items:
+      type: object
+      properties:
+        params:
+          type: array
+          items:
+            type: object
+            properties:
+              field:
+                type: string
+              value:
+                anyOf:
+                  - type: array
+                    items:
+                      anyOf:
+                        - type: string
+                        - type: number
+                        - type: integer
+                  - type: boolean
+                  - type: string
+                  - type: number
+              type:
+                type: string
+        conditions:
+          type: array
+          items:
+            type: object
+            properties:
+              field:
+                type: string
+              value:
+                type: array
+                items:
+                  anyOf:
+                    - type: string
+                    - type: integer
+                    - type: number
+              operator:
+                type: string
+  
+

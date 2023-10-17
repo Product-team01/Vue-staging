@@ -1,0 +1,43 @@
+title: Account Resources
+type: object
+properties:
+  status:
+    description: status of the request
+    type: string
+    enum:
+      - SUCCESS
+      - FAILURE
+  request_id:
+    description: id to backtrack the request in internal services
+    type: string
+  correlation_id:
+    description: id sent by the caller to backtrack the request
+    type: string
+  data:
+    type: object
+    properties:
+      resource:
+        title: id
+        description: name of the account resource  
+        type: string
+      status:
+        title: status
+        description: status of the delete pipeline for the respective resource
+        type: string
+      url:
+        title: status
+        description: delete url which was used for invoking the delete pipeline for the resource
+        type: string
+      delete_status_url:
+        title: status
+        description: delete_status url which was used for checking the status of the job_id returned from invoking the delete pipeling for respective resource
+        type: string
+      job_id:
+        title: status
+        description: In case of async api job_id is returned to track the status of delete pipleine
+        type: string
+      task_id:
+        title: status
+        description: task_id for the resource
+        type: string
+  

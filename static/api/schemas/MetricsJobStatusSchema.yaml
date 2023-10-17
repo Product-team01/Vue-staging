@@ -1,0 +1,22 @@
+title: MetricsJobStatusSchema
+required:
+- start_datetime
+- end_datetime
+- state
+type: object
+properties:
+  start_datetime:
+    title: Start Datetime
+    type: string
+    description: Date and Time when the Job started
+    example: '2023-01-17T03:00:00.810656+00:00'
+  end_datetime:
+    title: End Datetime
+    type: string
+    description: Date and Time when the Job ended
+    example: '2023-01-17T10:00:00.810656+00:00'
+  state:
+    title: State
+    type: string
+    description: Field to denote if the job succeeded or not.
+    example: 'success'

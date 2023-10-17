@@ -1,0 +1,25 @@
+type: object
+required:
+  - attribute_id
+  - action
+  - datapoint_ids
+properties:
+  attribute_id:
+    type: string
+    description: unique identifier of the attribute
+  action:
+    type: string
+    description: Approve action or Ignore action on the datapoint
+    enum:
+      - approve
+      - ignore
+  datapoint_ids:
+    type: array
+    description: list of datapoints to be reviewed
+    items:
+      type: string
+  annotation_ids:
+    type: array
+    description: list of annotations selected
+    items:
+      type: string

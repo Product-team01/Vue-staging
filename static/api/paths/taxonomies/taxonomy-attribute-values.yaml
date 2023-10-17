@@ -1,0 +1,82 @@
+---
+post:
+  tags:
+    - taxonomies
+  summary: Delete values under attributes
+  description: Delete values under attributes
+  operationId: deleteValuesUnderAttribute
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+    - name: Accept-Encoding
+      in: header
+      description: indicates the content encoding that the client can understand
+      schema:
+        type: string
+        default: gzip
+    - name: taxonomy_id
+      in: path
+      description: unique identifier of the taxonomy
+      required: true
+      schema:
+        type: string
+    - name: attribute_id
+      in: path
+      description: unique identifier of the attribute
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            value_ids:
+              type: array
+              description: Represents all unique values under the attribute
+              items:
+                type: string
+    required: true
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                description: status of the request
+                type: string
+                enum:
+                  - SUCCESS
+                  - FAILURE
+              request_id:
+                description: id to backtrack the request in internal services
+                type: string
+              correlation_id:
+                description: id sent by the caller to backtrack the request
+                type: string
+    '400':
+      description: if values list is empty
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'
+    '404':
+      description: returned when taxonomy and/or attribute does not exists
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'
+  x-codegen-request-body-name: body

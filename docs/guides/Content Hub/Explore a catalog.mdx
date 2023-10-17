@@ -1,0 +1,259 @@
+---
+title: Explore a catalog
+sidebar_label: Explore a catalog
+sidebar_position: 4
+---
+
+<head>
+  <title>Explore a catalog</title>
+</head>
+
+### <a name="_iore20ggusx2"></a>Introduction
+
+The Catalog Explore section provides a comprehensive overview of your catalog and allows you to manage its content. This includes managing upload, sync, and mapped field settings, accessing content that failed to sync, viewing individual data points and editing metadata or predicted tags, and accessing enriched tags for each content individually.
+
+Additionally, you can view the taxonomy linked to the catalog and provide feedback. In this document, we'll explore the various features of the Catalog Explore section, including how to access it and navigate its different components.
+
+### <a name="_7c6mfldesrdv"></a>Getting to Catalog Explore
+
+**Navigation**
+
+- From the Catalog Listing table in the Explore Screen, either click on any Catalog name (that is not in a draft state) or click on the 'info' icon in the actions column to access the Catalog's details (Explore screen).
+  ![Alt text](https://d1r1e7xjkfj7nz.cloudfront.net/exp1.png 'a title')
+
+### <a name="_gowex2vajnsi"></a>**Catalog Details**
+
+This section allows you to view a summary of the Catalog’s sync status and Content. It also provides quick access to the catalog’s settings, enrich projects, and content list.
+![Alt text](https://d1r1e7xjkfj7nz.cloudfront.net/exp2.png 'a title')
+
+### <a name="_zdi01js1qm2m"></a>Last Index Time Stamp
+
+To get an overview of the latest sync details, you can refer to the Sync Status Summary section.
+
+1. The ‘Latest Timestamp’ section provides the following details of the last synced feed:
+   1. Date - The date when the latest feed synced
+   1. Start Time - The time when the latest feed began sync process.
+   1. End Time - The time when the latest feed finished the sync process
+   1. Duration - Total amount of time taken to sync the latest feed.
+1. Click on the ‘Update Catalog Settings’ CTA, to access the catalog’s settings where you can:
+   1. Add or manage Catalog Connectors
+   1. Map Fields and enable any relevant fields that are to be used for Indexing, Faceting, Search or Personalization.
+
+### <a name="_m86ny14mqn8n"></a>Enrich
+
+To view, create and navigate to the Enriched Projects using this catalog, you can refer to the Enrich section.
+
+1. The ‘Enrich’ section provides an overview of:
+   1. All Enriched Project created using this catalog
+   1. Segment of each Enriched Project
+   1. Created Date
+   1. To view all enriched projects or navigate to the Enrich Screen, click on the ‘View all Enrich Projects’ CTA
+   1. Click on ‘Create New’, to create a new project using the catalog.
+
+### <a name="_q6vle1u94h3a"></a>Catalog Summary
+
+For a quick glance into the Catalog’s Content details, you can refer to the Catalog Summary section.
+
+1. The Catalog Summary section provides an overview of:
+   1. Total Records - Total number of Content data points (product/banner/document/bundle)
+   1. Available Records - Number of available Content data points
+   1. Unavailable Records - Number of unavailable Content data points
+1. Click on ‘View Product List’, to access all the content within the Catalog.
+
+### <a name="_xl2gmo6p85yk"></a>Taxonomy
+
+1. A taxonomy is a hierarchical structure used to tag data with attributes.
+1. The taxonomy offers a structured and organized approach to categorizing data, from the main categories down to specific subcategories. For example, "color" is an attribute, and the actual colors like "red," "blue," etc., are the possible values for that attribute.
+1. By clicking on the 'View Taxonomy' button, you can access the complete taxonomy in a full-screen, read-only mode. In this mode, you can navigate through different levels of the taxonomy to explore various attribute-values. However, no other actions will be available during this viewing mode.
+
+**Note:** Only if ‘Enrich’ is subscribed, the Enrich card will be available. Only if the tags are generated, the the taxonomy card will be available.
+![Alt text](https://d1r1e7xjkfj7nz.cloudfront.net/3.png 'a title')
+
+### <a name="_tez9zlf6vzzp"></a>Feeds
+
+A Catalog Feed is a file or sequence of data that is uploaded to add or update items in bulk.
+
+Click on the Feeds Tab of the Catalog Explore screen to view details and navigate to each Feed within your Catalog
+
+1. Within the Feeds Tab, you can access or view all the feeds synced as part of the Catalog.
+   1. Feed listing provides you with the following details:
+      1. Feed Name - The ID used to identify each feed
+         1. To access content within each feed, click on the feed name.
+      1. Status - Indicates the sync status of each feed
+      1. Total Rows - Displays the total number of content in each feed
+      1. Created Date - Indicates the data at which each feed was created
+
+#### <a name="_en18e1omun9o"></a>Download Feed Error
+
+Download Feed Error - If any feed is synced with errors or warning (typically due to content data validation), then the content or records with these errors can be downloaded as a csv file. You can use this file to fix any issues and re-uploaded to the catalog.
+
+1. Error file contains details of the
+   1. Field Names & Values with errors
+   1. Error Reasons
+      1. Missing Primary Key - Primary Key is missing from the source data
+      1. Missing Mandatory Field - Any field configured as mandatory true as part of catalog onboarding is missing from the source data
+      1. Data type mismatch - Data Type/Field Type configured for the field during catalog onboarding is different from the source data
+
+#### <a name="_8brm9ud90e8o"></a>Upload New Feed
+
+Upload New Feed - To any existing catalog, you can now upload content on an ad-hoc basis a csv file.
+
+1. Upload Method Name - Displays the name of the Manual connector configured during catalog create (Read only)
+   1. Connector - Display the connector type configured during catalog create (Read only)
+   1. File Format - select the format of the upload file
+   1. Download Sample File - download a sample feed file with a recommended format.
+   1. Sync Mode - Display the sync mode configured during catalog create (Read only).
+   1. Upload section - Drag & drop the file or select file from your local system.
+
+**Note:** This option is only available when the connector type configured in catalog is of type ‘Manual’
+![Alt text](https://d1r1e7xjkfj7nz.cloudfront.net/4.png 'a title')
+
+### <a name="_uroj32jfh5pw"></a>Catalog Content
+
+To view all content in the catalog, click on the CTA on the Catalog Summary section
+
+1. **Feeds:** Use ‘Feeds’ to filter and view only the content within each feed. By default, the content is displayed for All Feeds combined together.
+1. **Search**: Search for particular content. Note: Search is enabled for all fields mapped as searchable during the catalog creation process.
+1. **Filter**: Use filters on the left panel to find content. Note: All fields mapped as facet during the catalog creation process are available as filters.
+1. **Pagination** - Allows the user to choose number of content to be displayed per page and total number of records, navigating to next page or choosing the page number they want to navigate. It also shows the total number of pages
+1. **Toggle** - Use the toggle to switch between table & grid views.
+
+#### <a name="_5ne3wzwt9jxf"></a>Grid View
+
+1. **Slider** - Use the slider to
+   1. change the number of content displayed in the grid
+   1. switch between grid & single content view
+1. **Select All:** Selects all the content cards.
+1. **Export:** Allows to export the catalog content as a CSV file
+   ![Alt text](https://d1r1e7xjkfj7nz.cloudfront.net/5.png 'a title')
+
+#### <a name="_s3jbe5xbur"></a>Bulk Content Actions
+
+Click on more than one content checkbox or ‘Select All’ CTA to edit/approve the predicted tags for the content in bulk:
+
+1. All the common predicted tags for the selected content are displayed for you to review.
+   1. Note: If there are any conflicting tag values for the same attribute are present, then an information prompt for conflicting values is displayed
+1. You can select only the tag/attribute you wish to approve and click on ‘‘Approve All Tags’ CTA
+1. You can edit and change the value of any tag, by either (i) hovering over the tag and click on ‘Edit’ icon, or (ii) click on the ‘Edit Tags'.
+1. Clicking on the ‘Deselect’ CTA deselects the selected content.
+   ![Alt text](https://d1r1e7xjkfj7nz.cloudfront.net/6.png 'a title')
+
+#### <a name="_vfh77tebz5wb"></a>Conflicting Values
+
+1. When more than one content is selected, there can be different values for the same attributes for the contents selected. Those are called conflicting values.
+1. The user cannot approve conflicting values. The user can edit and change the value to be common for all contents selected. Then it can be approved.
+1. 'Edit Tags' CTA: When clicked, it displays the entire taxonomy hierarchy, allowing the user to edit any attribute value.
+1. ‘Approve All Tags’ CTA: When clicked, it approves all attributes in the panel.
+1. If the user approves empty/null values, then it will be considered as user edited.
+1. Once 'Approve All Tags' is clicked, the ‘Updating’ label will be displayed on the item(s) and the message “Changes will be reflected in a while” will be shown in the panel.
+
+In the below example, multiple products are selected and tags are generated for all the products on the Tags panel. Since all the tags for all the products have different values, there are conflicting values. The user cannot approve them. The tags can be edited using ‘Edit Tags’ CTA or hovering on the tag’s row and clicking on ‘Edit’ icon. Now once they have common values, they will not have conflicting values.
+
+The Tags can then be approved by selecting all the corresponding checkboxes and clicking on the ‘Approve All Tags’ CTA.
+![Alt text](https://d1r1e7xjkfj7nz.cloudfront.net/7.png 'a title')
+
+In the below example, the attributes "Base Color," "Type," and "Color" for the Bags product have conflicting values and will not be approved. Once the user edits and changes the values of these attributes to be common for all selected products, the Tags can be approved by selecting all the checkboxes and clicking on the 'Approve All Tags' CTA.
+![Alt text](https://d1r1e7xjkfj7nz.cloudfront.net/8.png 'a title')
+
+#### <a name="_ngq8yshifjwu"></a>**Single Content View**
+
+1. Single content will be shown in the screen. The user can zoom in or zoom out using the respective icons to view the content.
+1. Carousel: Ten contents will be shown. The user can click on any content to see it. On clicking the next or previous icons in the carousel, ten more contents will be shown to select.
+   ![Alt text](https://d1r1e7xjkfj7nz.cloudfront.net/9.png 'a title')
+
+#### <a name="_myzsiy76e94g"></a>Single Content Actions
+
+Click on content or ‘Edit’ within the More Actions menu on each card to view or edit metadata and/or the predicted tags for each individual content
+
+1. All the uploaded content metadata and predicted tags for the selected content are displayed for you to review.
+1. Within the ‘Metadata’ tab, you can view/edit each metadata field individually and save changes all at once, by clicking on ‘Save’.
+   ![Alt text](https://d1r1e7xjkfj7nz.cloudfront.net/10.png 'a title')
+1. Within the ‘Tags’ tab, you can view the predicted values and their confidence scores.
+   1. If you wish to edit the predictions, click on the dropdown of the tag/attribute you wish to edit and select the desired value.
+   1. ‘Edit Tags' CTA: You can also edit tags by clicking on 'Edit Tags’ CTA
+   1. If you want to approve the predicted tags, click on the checkbox of the tags that you want to approve and click on ‘Approve All Tags’ CTA
+
+In the below example, tags are generated for the bag along with confidence scores displayed in the Tags panel. The user has the option to approve or edit the values. The tags can be edited by using the 'Edit Tags' CTA or by hovering over the tag's row and clicking on the 'Edit' icon.
+
+The tags can be approved by selecting all the corresponding checkboxes and clicking on the 'Approve All Tags' CTA.
+![Alt text](https://d1r1e7xjkfj7nz.cloudfront.net/11.png 'a title')
+
+#### <a name="_7t5lvrxkiwmy"></a>Table view
+
+1. **Column Settings** - You can select/unselect the columns to be displayed in the table.
+   1. Reset CTA: Removes all the
+   1. Apply CTA: Applies the columns chosen in the table
+   1. Cancel CTA: Closes the Column Settings panel.
+1. **Metadata and Tags:** The user could see the metadata and tags and edit them if required. Clicking on Save button saves the changes made for Metadata and Apply button in case of Tags. Clicking on Discard Changes clears the changes made.
+   ![Alt text](https://d1r1e7xjkfj7nz.cloudfront.net/12.png 'a title')
+
+#### <a name="_gfjyltthsp2c"></a>Table Content Actions
+
+1. ‘Manage Columns' or 'Gear’ icon - use this option to configure the columns to be displayed or hidden from the table.
+1. ‘Checkbox’ icon - use this option to view the details of the content.
+1. Click on the any content’s metadata column’s cell and edit the value if required.
+1. Click on any content’s Tags column’s cell and edit the value if required. The confidence score of the tag will be shown.
+1. The metadata and Tags panel on the right will be similar to single and bulk content actions.
+
+In the below example, the metadata and tags can be edited both in the table and in the side panel. The panel operation is similar to bulk content actions and in the table, click on the cell of the metadata that you want to edit and edit the content.
+
+For Tags, click on the tags cell dropdown and edit the values that you want to edit. Select the values, if you want to clear the selected checkboxes, click on ‘Reset’ button. Click on ‘Apply’ button to apply the changes.
+![Alt text](https://d1r1e7xjkfj7nz.cloudfront.net/13.png 'a title')
+
+### <a name="_4dl6dgdo07n1"></a>Filters
+
+You can filter the content by using the metadata and taxonomy filters separately. Here are the details on how to use these filters:
+
+1. **Metadata filter:** This filter allows you to select a combination of values from different fields and apply the filter. The result of items shown should be based on the combination of values, and all values should match.
+   1. Reset CTA: Clears all the filters that are chosen
+   1. Apply CTA: Applies the chosen filters
+1. **Tags filter:** This filter allows you to select a combination of values from different fields and apply the filter. The result of items shown should be based on the combination of values, and all values should match. The filter options and values of Taxonomy are based on the tags predicted for the catalog items. Additionally, there is a status filter available, which includes Reviewed, Unreviewed, Partially Reviewed, No Predictions, Updating
+   1. Reset CTA: Clears all the filters that are chosen
+   1. Apply CTA: Applies the chosen filters
+
+**Note:** You cannot combine filter options from metadata and taxonomy together. If you try to filter either using metadata or taxonomy after already applying a filter or selecting filter options, then the filter already applied or selected will be reset and replaced with the new/latest filter selection.
+
+### <a name="_3sv9dlcyyeup"></a>Content cards
+
+The content card consists of:
+
+1. **Content image:** The image of the content.
+1. **Content status:** This label indicates the status of the Content in terms of its metadata and tags. The labels are as follows:
+   1. Reviewed: This label indicates that all tags for the item have been approved or edited.
+   1. Unreviewed: This label indicates that all predictions for the item are still in the system generated state.
+   1. Partially Reviewed: This label indicates that there are more than one prediction for a content and at least one of the predictions is still system-generated, and/or at least one tag has no predicted value.
+   1. No Predictions: This label indicates that the content has no system-generated predictions.
+   1. Updating: This label indicates that changes to metadata, tags, are being synced with the back-end system. In this state, you cannot make further edits to the values until the update is complete for that item.
+1. **Metadata fields:** The metadata fields describe the content.
+
+### <a name="_tkzzlvm9zwwf"></a>Metadata Panel
+
+1. **Panel Expansion:** The user can expand or collapse the panel to access metadata, tags, for the selected items.
+1. **Metadata:** This section displays all the indexed fields for the selected items. The user can edit any field by clicking on it and updating the value. The panel will display the following CTAs:
+1. **Cancel CTA:** This button will discard any changes made to field values.
+1. **Save CTA:** This button will save any changes made to field values and display the updating status message “Changes will be reflected in a while” and the ‘Updating’ label on the item.
+
+### <a name="_xdjjdzmky43b"></a>Tags Panel
+
+This section displays all the predicted tags for the selected items. The user can view, edit, and delete any tag as needed
+
+1. **Switching between Metadata & Tags:** Click on the desired tab to switch between Metadata, Tags.
+1. **Expand and Collapse the Panel:** Click on the arrow icon to expand or collapse the panel.
+1. **Viewing All Predicted and Labelled Tags:** The user can view all the predicted and labelled tags for the selected items in a flat list.
+1. All Predicted Tags will be collated for Multiple Selected Items Based on Attribute at the Root Level
+1. If there are no predictions, the attribute will be displayed with value as empty/null/select values.
+1. If conflicting values are present for any attribute, the text will be displayed as “Conflicting Values” and the checkbox will be disabled next to conflicting tag until the conflict is resolved.
+1. The user can edit the conflicting tag values, and the checkbox will be enabled after the conflict is resolved.
+1. If the parent level tag itself has a conflict, the associated child tags will not be displayed.
+
+![Alt text](https://d1r1e7xjkfj7nz.cloudfront.net/14.png 'a title')
+
+### <a name="_yy3mayb6ouf"></a>**Glossary**
+
+|      **Term**      |                                                                        **Definition**                                                                         |
+| :----------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|      Taxonomy      |                                           A taxonomy is a hierarchical structure used to tag data with attributes.                                            |
+|        Feed        |                                 A Catalog Feed is a file or sequence of data that is uploaded to add or update items in bulk.                                 |
+|      Metadata      |                                              Metadata are the fields that are indexed during catalog Onboarding                                               |
+|        Tags        |                                        Tags are the Predicted values of attributes along with their confidence scores.                                        |
+| Conflicting Values | When more than one content is selected, there can be different values for the same attributes for the contents selected. Those are called conflicting values. |

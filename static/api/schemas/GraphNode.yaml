@@ -1,0 +1,27 @@
+type: object
+properties:
+  name:
+    type: string
+    pattern: ^[a-z0-9A-Z_-]*$
+    maxLength: 55
+  attributes:
+    type: array
+    items:
+      enum:
+      - NODE_JOIN
+      - NODE_BRANCH
+      type: string
+  deployment:
+    allOf:
+    - $ref: 'ModelDeploymentDeploy.yaml'
+    writeOnly: true
+  deployment_data:
+    type: array
+    items:
+      $ref: 'DeploymentDataGraphGet.yaml'
+    readOnly: true
+required:
+- attributes
+- deployment
+- deployment_data
+- name

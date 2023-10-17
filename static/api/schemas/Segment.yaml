@@ -1,0 +1,20 @@
+title: Segment
+required:
+  - metadata
+type: object
+properties:
+  file:
+    title: File
+    type: string
+    description: csv file path to read
+  filters:
+    title: Filters
+    type: array
+    items:
+      $ref: 'Filter.yaml'
+    description: filters to apply in add form to create this segment
+  metadata:
+    title: Metadata
+    allOf:
+      - $ref: 'Metadata.yaml'
+    description: name acting as unique identifier for this segment

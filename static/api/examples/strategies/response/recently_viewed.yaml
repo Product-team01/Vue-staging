@@ -1,0 +1,22 @@
+request_id: 7d1030767b8411edae01f28c070c22cc
+correlation_id: 7d1030767b8411edae01f28c070c22cc
+status: SUCCESS
+data:
+  id: 1d763dec-c944-4555-ba39-4edc799bebb0
+  workflow_id: 93161fc3-5deb-436b-9c05-03b0042b619d
+  description: Recommends products last engaged by the user with the most recently engaged
+    appearing first.
+  name: Recently Engaged
+  preset: true
+  client: global
+  metadata:
+    max_content: 16
+  catalog_id: test_catalog
+  config:
+  - params:
+    - value: daily
+      type: temporal
+      field: lookback
+    - value: 2
+      type: events
+      field: pageView

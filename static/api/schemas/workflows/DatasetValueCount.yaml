@@ -1,0 +1,20 @@
+properties:
+  count:
+    description: This field describes the number of occurences of that corresponding
+      value in the dataset.
+    title: Count
+    type: integer
+  value:
+    anyOf:
+    - items:
+        type: string
+      type: array
+    - type: string
+    description: This field describes a unique value that is part of a column in the
+      dataset.
+    title: Value
+required:
+- value
+- count
+title: DatasetValueCount
+type: object

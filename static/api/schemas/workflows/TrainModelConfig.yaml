@@ -1,0 +1,10 @@
+properties:
+  model_name:
+    description: This field describes the model that will be trained with the provided
+      data. For example, Logistic Regression, SVM etc.
+    title: Model Name
+    type: string
+required:
+- model_name
+title: TrainModelConfig
+type: object

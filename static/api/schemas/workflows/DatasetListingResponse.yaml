@@ -1,0 +1,27 @@
+properties:
+  correlation_id:
+    description: This field describes the correlation ID of input payload.
+    title: Correlation Id
+    type: string
+  data:
+    allOf:
+    - $ref: ../workflows/DatasetListingResponseValidation.yaml
+    description: This field describes the response data of the list API. The output
+      contains data about all datasets registered and their corresponding dataset
+      IDs.
+    title: Data
+  request_id:
+    description: This field describes the request ID of input payload.
+    title: Request Id
+    type: string
+  status:
+    description: This field describes the list API response status.
+    title: Status
+    type: string
+required:
+- status
+- request_id
+- correlation_id
+- data
+title: DatasetListingResponse
+type: object

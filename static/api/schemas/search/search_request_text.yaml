@@ -1,0 +1,68 @@
+allOf:
+  - $ref: search_request_common.yaml
+  - type: object
+    title: "Text Search Request"
+    properties:
+      blox_uuid:
+        description: MSD Unique User ID
+        type: string
+      user_id:
+        description: Logged in User ID
+        type: string
+      catalogs:
+        type: object
+        description: "`catalogs` has one entry per `catalog-id` to its respective associated `fields`, `filters`, and page `context`"
+        additionalProperties:
+          type: object
+          properties:
+            fields:
+              description: metadata fields that needs to be sent in the response
+              type: array
+              items:
+                type: string
+            filters:
+              description: filters to be applied while serving recommendations
+              $ref: search_filter.yaml
+            facets:
+              description:  list of facet that are considered while serving text search recommendations
+              type: array
+              items:
+                type: string
+            facet_limit:
+              description: upper cap for limiting the facets used while serving recommendations 
+              type: integer
+            search_query:
+              description: text used for searching  in specific fields for serving recommendations 
+              type: string
+            search_fields:
+              description: fields upon which search needs to be done
+              type: array
+              items:
+                type: string
+            sort_by:
+              description: Ordering of recommendations based on certain fields and order mechanism
+              type: array
+              items:
+                type: object
+                properties:
+                  field:
+                    type: string
+                  order:
+                    type: string
+                    enum:
+                      - desc
+                      - asc
+      page_num:
+        description: In case of pagination this denotes the no of page user has navigated to
+        type: integer
+      max_content:
+        description: maximum no of recommendations needs to be served
+        type: integer
+        minimum: 1
+      min_content:
+        description: minimum no of recommendations needs to be served
+        type: integer
+      module_name:
+        description: Name of the module
+        type: string
+      

@@ -1,0 +1,10 @@
+properties:
+  node_config:
+    $ref: ../workflows/Node.yaml
+  workflow_config:
+    $ref: ../workflows/Workflow.yaml
+required:
+- node_config
+- workflow_config
+title: Body_update_node_api_v1_nodes__node_id__put
+type: object

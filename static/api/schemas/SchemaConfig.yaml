@@ -1,0 +1,42 @@
+title: SchemaConfig
+type: object
+properties:
+  name:
+    title: Name
+    type: string
+    example: product_id
+  type:
+    title: type
+    type: string
+    example: string
+  primary_key:
+    title: primary_key
+    type: boolean
+    example: true
+  mandatory:
+    title: mandatory
+    type: boolean
+    example: true
+  index:
+    title: index
+    type: boolean
+    example: true
+  facet:
+    title: facet
+    type: boolean
+    example: false
+  search:
+    title: search
+    type: boolean
+    example: true
+  personalize:
+    title: search
+    type: boolean
+    example: true
+  meta:
+    title: meta
+    type: string
+    example: gender
+required:
+- name
+- type

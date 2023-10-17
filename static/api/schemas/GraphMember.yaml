@@ -1,0 +1,19 @@
+type: object
+properties:
+  node:
+    $ref: 'GraphNode.yaml'
+  dependencies:
+    type: array
+    items:
+      type: string
+    writeOnly: true
+    nullable: true
+  dependency:
+    allOf:
+    - $ref: 'GraphNodeName.yaml'
+    readOnly: true
+    nullable: true
+required:
+- dependencies
+- dependency
+- node

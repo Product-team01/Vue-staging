@@ -1,0 +1,8 @@
+properties:
+  connection_id:
+    title: Connection Id
+    type: string
+required:
+- connection_id
+title: CreateConnectorResponse
+type: object

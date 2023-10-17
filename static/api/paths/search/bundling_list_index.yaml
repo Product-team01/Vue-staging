@@ -1,0 +1,25 @@
+get:
+  tags:
+    - bundling apis
+  summary: Bundling APIs List
+  description: API to List curation_model and tag_weight index mapping
+  operationId: bundling_api_list
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  responses:
+    "200":
+      "description": "Successful Response, This will list bundle model and tag weights catalogs"
+      "content":
+        application/json:
+          schema:
+            $ref: "../../schemas/search/bundle_list_mapping_response.yaml"
+    "404":
+      "description": "Error Response, If bundle catalogs does not exists"
+      "content":
+        application/json:
+          schema:
+            $ref: "../../schemas/search/bundle_error_response.yaml"

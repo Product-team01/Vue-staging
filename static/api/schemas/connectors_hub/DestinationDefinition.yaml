@@ -1,0 +1,23 @@
+properties:
+  dockerImageTag:
+    title: Dockerimagetag
+    type: string
+  dockerRepository:
+    title: Dockerrepository
+    type: string
+  documentationUrl:
+    title: Documentationurl
+    type: string
+  icon:
+    title: Icon
+    type: string
+  name:
+    title: Name
+    type: string
+required:
+- name
+- dockerRepository
+- dockerImageTag
+- documentationUrl
+title: DestinationDefinition
+type: object

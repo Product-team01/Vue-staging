@@ -1,0 +1,19 @@
+---
+title: AddEmbeddingConfig
+required:
+  - name
+  - graph_id
+type: object
+properties:
+  name:
+    type: string
+    example: ''
+  graph_id:
+    type: string
+    example: ''
+  default_train_config:
+    $ref: './default-train-config.yaml'
+  model_layers:
+    type: array
+    items:
+      $ref: './model-layers.yaml'

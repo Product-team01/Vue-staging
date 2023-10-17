@@ -1,0 +1,30 @@
+request_id: 7d1030767b8411edae01f28c070c22cc
+correlation_id: 7d1030767b8411edae01f28c070c22cc
+status: SUCCESS
+data:
+  id: a583a4e9-e5f6-4090-9425-6d2e90309eea
+  workflow_id: 72cfb22f-be63-46e1-852c-14e27cbf34ee
+  name: Similar Products
+  description: Recommends products with similar attributes as the product currently
+    in view for fashion segment. For example, if you are viewing a red-colored, floral
+    pattern dress, this model will recommend other red-colored, floral pattern dresses
+    from the catalog.
+  preset: true
+  client: global
+  catalog_id: test_catalog
+  metadata:
+    max_content: 16
+  config:
+  - params:
+    - value: false
+      type: personalisation
+      field: personalisation
+    - field: rarity_use_case_id
+      value: rarity_use_case_from_starfire
+      type: rarity_use_case
+    - field: exploration_rarity
+      value: 0.5
+      type: exploration_rarity
+    - field: seasonality_use_case_id
+      value: seasonality-test-usecase
+      type: seasonality_use_case

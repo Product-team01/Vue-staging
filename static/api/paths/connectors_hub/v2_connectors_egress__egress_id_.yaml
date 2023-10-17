@@ -1,0 +1,60 @@
+delete:
+  operationId: delete_egress_api_v2_connectors_egress__egress_id__delete
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - in: path
+    name: egress_id
+    required: true
+    schema:
+      title: Egress Id
+      type: string
+  responses:
+    '200':
+      content:
+        application/json:
+          schema: {}
+      description: Successful Response
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/connectors_hub/HTTPValidationError.yaml
+      description: Validation Error
+  summary: Delete Egress
+  tags:
+  - connectors
+get:
+  description: Get a egress by id
+  operationId: get_egress_api_v2_connectors_egress__egress_id__get
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - in: path
+    name: egress_id
+    required: true
+    schema:
+      title: Egress Id
+      type: string
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/connectors_hub/Egress.yaml
+      description: Successful Response
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/connectors_hub/HTTPValidationError.yaml
+      description: Validation Error
+  summary: Get Egress
+  tags:
+  - connectors

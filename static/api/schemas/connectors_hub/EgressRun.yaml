@@ -1,0 +1,22 @@
+properties:
+  egress_id:
+    title: Egress Id
+    type: string
+  end_time:
+    title: End Time
+    type: string
+  run_id:
+    title: Run Id
+    type: string
+  start_time:
+    title: Start Time
+    type: string
+  status:
+    title: Status
+    type: string
+required:
+- run_id
+- egress_id
+- status
+title: EgressRun
+type: object

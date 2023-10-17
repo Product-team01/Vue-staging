@@ -1,0 +1,12 @@
+type: object
+properties:
+  project_id:
+    type: string
+  num_results:
+    type: integer
+  fields:
+    type: array
+    items:
+      type: string
+  filters:
+    $ref: search/search_filter.yaml

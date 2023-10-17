@@ -1,0 +1,30 @@
+get:
+  description: Tests connection foe the given source_id
+  operationId: infer_source_schema_api_v2_connectors_sources__source_id__infer_schema_get
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - in: path
+    name: source_id
+    required: true
+    schema:
+      title: Source Id
+      type: string
+  responses:
+    '200':
+      content:
+        application/json:
+          schema: {}
+      description: Successful Response
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/connectors_hub/HTTPValidationError.yaml
+      description: Validation Error
+  summary: Infer Source Schema
+  tags:
+  - connectors

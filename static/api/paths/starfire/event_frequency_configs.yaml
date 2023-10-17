@@ -1,0 +1,89 @@
+post:
+  tags:
+    - event-frequency
+  summary: Create a new event-frequency use case
+  description: Create new event-frequency use case
+  operationId: post_event_frequency_config
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas/starfire/event_frequency_config.yaml"
+    required: true
+  responses:
+    "200":
+      description: "Creation of a new event frequency use case has succeded"
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "../../schemas/ResponseTemplateSuccessNoData.yaml"
+              - type: object
+                properties:
+                  data:
+                    $ref: "../../schemas/starfire/event_frequency_config.yaml"
+                required:
+                  - data
+    "400":
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/error_response.yaml"
+      description: Bad Request
+    "422":
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/validation_error_response.yaml"
+get:
+  tags:
+    - event-frequency
+  summary: List use cases
+  description: List all the uses that have been created for a given client
+  operationId: list_event_frequency_configs
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+    - name: internal
+      in: query
+      description:
+        A optional flag, when set to true, will return expanded internal config.
+        Default is false
+      required: false
+      schema:
+        type: boolean
+    - name: lite
+      in: query
+      description:
+        An optional flag, when set to false, fetches and expands the starfire
+        workflow config (and also client and catalog config) associated to this
+        use case
+      required: false
+      schema:
+        type: boolean
+  responses:
+    "200":
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "../../schemas/ResponseTemplateSuccessNoData.yaml"
+              - type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: "../../schemas/starfire/event_frequency_config.yaml"
+                required:
+                  - data

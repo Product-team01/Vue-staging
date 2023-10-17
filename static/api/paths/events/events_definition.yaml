@@ -1,0 +1,75 @@
+get:
+  tags:
+  - events
+  summary: Get Events Definition
+  operationId: get_events_definition_api_v1_events_definition_get
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - required: false
+    schema:
+      title: Is Preset
+      type: boolean
+      example: False
+      default: false
+    name: is_preset
+    in: query
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../../schemas/EventsDefinition.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'
+post:
+  tags:
+  - events
+  summary: Add Events Definition
+  operationId: add_events_definition_api_v1_events_definition_post
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/EventsDefinition.yaml'
+    required: true
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema: {}
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'

@@ -1,0 +1,30 @@
+get:
+  description: Returns destination defintion for a given destination
+  operationId: get_destination_definition_api_v2_connectors_destinations_definitions__destination_definition_id__get
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - in: path
+    name: destination_definition_id
+    required: true
+    schema:
+      title: Destination Definition Id
+      type: string
+  responses:
+    '200':
+      content:
+        application/json:
+          schema: {}
+      description: Successful Response
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/connectors_hub/HTTPValidationError.yaml
+      description: Validation Error
+  summary: Get Destination Definition
+  tags:
+  - connectors

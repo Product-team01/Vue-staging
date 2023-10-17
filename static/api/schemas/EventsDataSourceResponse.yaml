@@ -1,0 +1,53 @@
+title: EventsDataSourceResponse
+required:
+- request_id
+- correlation_id
+- status
+- data
+type: object
+properties:
+  request_id:
+    title: Request ID
+    type: string
+    example: fa5d8a25-3e3d-409d-adb6-f1c3c2000915
+  correlation_id:
+    title: Correlation ID
+    type: string
+    example: 879b0717-182b-4faa-a9ed-d864d1f50af0
+  status:
+    title: Status
+    type: string
+    example: SUCCESS
+  data:
+    title: Data
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        example: s3_source
+      type:
+        title: connector_type
+        type: string
+        example: s3
+      config:
+        title: config_type
+        type: object
+        example:
+          path: s3://events/data
+          format: csv
+      mode:
+        type: string
+        enum:
+          - incremental
+        example: incremental
+      schedule:
+        type: string
+        example: 0 0/30 * * * ?
+      client:
+        type: string
+        example: 2f5b62e6-982e-43e8-894c-5439fd479eed
+      created_ts:
+        type: string
+      updated_ts:
+        type: string

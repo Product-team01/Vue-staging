@@ -1,0 +1,11 @@
+type: object
+properties:
+  fields:
+    type: array
+    items:
+      type: string
+  filters:
+    $ref: search/search_filter.yaml
+  filename:
+    type: string
+    example: Export File 1

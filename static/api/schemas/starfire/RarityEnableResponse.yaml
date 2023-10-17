@@ -1,0 +1,29 @@
+title: RarityEnableResponse
+type: object
+properties:
+  request_id:
+    description: id to backtrack the request in internal services
+    type: string
+  correlation_id:
+    description: id sent by the caller to backtrack the request
+    type: string
+  status:
+    description: status of the request
+    type: string
+    enum:
+      - SUCCESS
+      - FAILURE
+  data:
+    type: object
+    properties:
+      message:
+        description: details about the jobid for the use_case
+        type: string
+
+example:
+  request_id: 96ee690675f611edae9722bc82d1a906
+  correlation_id: r96ee690675f611edae9722bc82d1a906
+  status: SUCCESS 
+  data:
+    message: 
+      status: Rarity Enabled for use_case 'rarity-4' with DAG ID as 'k8s_dag' with JOB ID AS '64d64786-bf0d-462c-806b-27c197821114

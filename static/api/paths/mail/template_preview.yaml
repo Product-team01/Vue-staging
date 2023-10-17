@@ -1,0 +1,41 @@
+post:
+  tags:
+    - mail
+  summary: Template Preview API
+  description: API to preview the image using html template, This will be decommisioned once tool migrates to api/v1/mail/preview API.
+  operationId: template_preview_api
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/MailPreviewRequest.yaml'
+        example:
+          template: "<html><body><img src=data:image/png;base64,iVBORw0KGgoAAAANSUhEU></body</html>"
+    required: true
+  responses:
+    "200":
+      description: Successful Response, This will return the image requested in the image/png format
+      content:
+        image/png:
+          schema:
+            type: string
+            format: binary
+    "401":
+      description: If the api_key passed is invalid
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+              request_id:
+                type: string
+              correlation_id:
+                type: string

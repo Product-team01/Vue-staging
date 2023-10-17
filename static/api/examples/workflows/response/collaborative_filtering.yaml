@@ -1,0 +1,72 @@
+request_id: 7d1030767b8411edae01f28c070c22cc
+correlation_id: 7d1030767b8411edae01f28c070c22cc
+status: SUCCESS
+data:
+  id: 307ece49-b607-48e4-9042-df0f3aa05b11
+  name: Collaborative Filtering
+  type: Contextual
+  inputs:
+  - name: __primary_key__
+    meta: true
+    required: true
+    description: Identifier of the item from the catalog (primary key attribute) to
+      be used as source for the similarity
+  config_schema:
+    type: array
+    items:
+      type: object
+      properties:
+        params:
+          type: array
+          items:
+            anyOf:
+            - type: object
+              properties:
+                value:
+                  description:
+                  type: number
+                  format: float
+                  minimum: 0
+                  maximum: 1
+                type:
+                  const: collaborative_filtering_model
+                field:
+                  decription: Use case name for fetching trending field from starfire
+                  type: string
+            - type: object
+              properties:
+                value:
+                  description: Weightage given to the field when boosting the result
+                  type: number
+                  format: float
+                  minimum: 0
+                  maximum: 1
+                type:
+                  description: exploration field
+                  const: exploration
+                field:
+                  description: exploration field
+                  const: exploration
+            - type: object
+              properties:
+                value:
+                  type: string
+                type:
+                  description: Parameter used to personalise the result
+                  const: trending_use_case
+                field:
+                  decription: Use case name for fetching trending field from starfire.
+                  const: trending_use_case_name
+  DAG:
+    members:
+    - node:
+        name: fetch_cf_dynamo
+      dependencies: []
+    - node:
+        name: fetch_metadata
+      dependencies:
+      - fetch_cf_dynamo
+    - node:
+        name: cf_assembly
+      dependencies:
+      - fetch_metadata

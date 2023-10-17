@@ -1,0 +1,78 @@
+request_id: 7d1030767b8411edae01f28c070c22cc
+correlation_id: 7d1030767b8411edae01f28c070c22cc
+status: SUCCESS
+data:
+  id: 064c0897-70ac-438f-a32a-19cb42d61d43
+  name: Text Search
+  type: Contextual
+  inputs:
+  - name: query_string
+    required: false
+  - name: facets
+    required: false
+  - name: facet_limit
+    required: false
+  config_schema:
+    type: array
+    items:
+      type: object
+      properties:
+        params:
+          type: array
+          items:
+            anyOf:
+            - type: object
+              properties:
+                value:
+                  type: string
+                  default: asc
+                  enum:
+                  - asc
+                  - desc
+                type:
+                  description: Parameter used to order the results
+                  const: ordering
+                field:
+                  decription: Order by Field
+            - type: object
+              properties:
+                value:
+                  type: boolean
+                  default: 'false'
+                type:
+                  description: Parameter used to personalise the result
+                  const: personalisation
+                field:
+                  decription: When enabled, the result will be personalized based on
+                    the user history
+                  const: personalisation
+            - type: rarity_use_case
+              field:
+                enum:
+                  - rarity_use_case_id
+              value:
+                type: string
+                default: rarity_score_hm
+                discoverable: true
+            - type: exploration_rarity
+              field:
+                enum:
+                  - exploration_rarity
+                max: 1
+                min: 0
+              value:
+                type: float
+                discoverable: true
+  DAG:
+    members:
+    - node:
+        name: get_text_search_query
+      dependencies: []
+    - node:
+        name: get_es_results
+      dependencies:
+      - get_text_search_query
+    - node:
+        name: text_search_assembly
+      dependencies:
+      - get_es_results

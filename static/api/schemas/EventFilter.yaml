@@ -1,0 +1,20 @@
+title: event_table_filter
+required:
+- event_table
+type: object
+properties:
+  filter_condition:
+    title: Filter Condition
+    type: string
+    description: Provide condition for filtering
+    example: in
+  filter_column:
+    title: Filter Column
+    type: string
+    description: Provide field to be filtered
+    example: event_type
+  filter_value:
+    title: Filter Value
+    type: string
+    description: Provide value to be filtered from field
+    example: buys

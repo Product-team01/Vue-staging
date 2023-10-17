@@ -1,0 +1,41 @@
+type: object
+properties:
+  hull_min_max_coordinates:
+    type: object
+    properties:
+      min_x:
+        type: integer
+        description: min value of x coordinate
+        format: int64
+      max_x:
+        type: integer
+        description: max value of x coordinate
+        format: int64
+      min_y:
+        type: integer
+        description: min value of y coordinate
+        format: int64
+      max_y:
+        type: integer
+        description: max value of y coordinate
+        format: int64
+  attributes:
+    type: array
+    description: attribute information
+    items:
+      type: object
+      properties:
+        attribute_id:
+          type: integer
+          description: uniqueidentifier of the attribute
+          format: int64
+        hull_circle:
+          type: array
+          description: definition of the hull circle
+          items:
+            type: object
+            description: key is identified by attribute id and value.
+            additionalProperties:
+              type: array
+              items:
+                type: string

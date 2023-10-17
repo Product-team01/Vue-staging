@@ -1,0 +1,12 @@
+title: FieldMapping
+required:
+  - field_in_data
+  - field_it_should_be
+type: object
+properties:
+  field_in_data:
+    title: Field In Data
+    type: string
+  field_it_should_be:
+    title: Field It Should Be
+    type: string

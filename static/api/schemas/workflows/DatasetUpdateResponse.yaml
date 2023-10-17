@@ -1,0 +1,26 @@
+properties:
+  config:
+    allOf:
+    - $ref: ../workflows/DatasetConfigValidation.yaml
+    description: This field describes all the metadata sent in the input payload,
+      along with a dataset ID that can be used as a unique reference to this dataset.
+    title: Config
+  correlation_id:
+    description: This field describes the correlation ID of input payload.
+    title: Correlation Id
+    type: string
+  request_id:
+    description: This field describes the request ID of input payload.
+    title: Request Id
+    type: string
+  status:
+    description: This field describes the update API response status.
+    title: Status
+    type: string
+required:
+- status
+- request_id
+- correlation_id
+- config
+title: DatasetUpdateResponse
+type: object

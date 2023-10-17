@@ -1,0 +1,36 @@
+title: Metrics Query Results
+type: array
+example:
+  - metric: click_through_rate
+    values:
+      - metric_value: '9.2'
+  - metric: revenue
+    values:
+      - metric_value: '103722'
+items:
+  type: object
+  properties:
+    metric:
+      title: Metric
+      type: string
+      example: revenue
+    value:
+      title: Values
+      type: array
+      example:
+        - '433'
+      items:
+        type: object
+        example:
+          metric_value: '103722'
+          date: '2022-01-01'
+        properties:
+          metric_value:
+            type: string
+            title: Metric Value
+            example: '103722'
+          date:
+            type: string
+            title: Date 
+            description: 'Date (this field is present as this field is passed in group by in the request)'
+            example: '2022-01-01'

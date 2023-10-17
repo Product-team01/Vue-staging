@@ -1,0 +1,39 @@
+parameters:
+- name: x-correlation-id
+  in: header
+  description: correlation id to track requests
+  schema:
+    type: string
+- schema:
+    type: string
+  name: catalog_id
+  in: path
+  required: true
+patch:
+  summary: Patch schema for a catalog 
+  operationId: patch-api-v1-catalogs-catalog_id-schema
+  responses:
+    '202':
+      description: Accepted
+      content:
+        application/json:
+          schema:
+            allOf:
+            - $ref: '../../schemas/ResponseTemplateSuccessNoData.yaml'
+            - type: object
+              properties:
+                data:
+                  $ref: '../../schemas/CatalogAsyncSchemaOut.yaml'
+      headers:
+        Location:
+          schema:
+            type: string
+            example: /api/v1/catalogs/{catalog_id}/jobs/{job_id}
+          description: job id relative url
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/ModifySchema.yaml'
+  tags:
+  - catalogs

@@ -1,0 +1,10 @@
+properties:
+  workflow_id:
+    description: This field describes the identifier of the workflow that will be
+      used to fetch the workflow for synchronous execution
+    title: Workflow Id
+    type: string
+required:
+- workflow_id
+title: WorkflowSpeedrunFromID
+type: object

@@ -1,0 +1,32 @@
+post:
+  tags:
+    - analytics
+  summary: Add Custom Metric Configs for a Client
+  operationId: enable_api_v1_workflows_personalization_analytics_definitions
+  parameters:
+    - required: true
+      schema:
+        title: Catalog ID
+        type: string
+        example: catalog_id
+      name: catalog_id
+      in: query
+  requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/MetricsInDefinitionSchema.yaml'
+      required: true
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/EmptyResponse.yaml'
+    '404':
+      description: config does not exist
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/ErrorResponse.yaml'

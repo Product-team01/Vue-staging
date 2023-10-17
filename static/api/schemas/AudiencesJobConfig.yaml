@@ -1,0 +1,13 @@
+title: JobConfig
+type: object
+properties:
+  job_template:
+    title: Job Template
+    type: string
+    description: the job config template to load e.g. `starfire, analytics`
+    default: starfire
+  instance_pool_template_key:
+    title: Instance Pool Template Key
+    type: string
+    description: Name of the instance pool in databricks e.g. starfire
+    default: starfire

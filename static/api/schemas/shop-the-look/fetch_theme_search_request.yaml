@@ -1,0 +1,25 @@
+title: fetch_shop-the-look_outfit_request
+type: object
+properties:
+  catalogs:
+    type: object
+    properties:
+      catalog_id:
+        type: object
+        properties:
+          curations:
+            type: string
+          fields:
+            type: array
+            items:
+              type: string 
+
+example:
+  catalogs:
+    ac44a502b2:
+      curations: 374a01d5-9e37-4c31-aafa-60ff311abc71
+      fields:
+      - id
+      - title
+      - image_link
+      - available

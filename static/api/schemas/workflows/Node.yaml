@@ -1,0 +1,66 @@
+properties:
+  dependent_node_ids:
+    default: []
+    description: This field describes the list of node IDs that are dependent on the
+      current node. This is used to build the workflow DAG.
+    items:
+      type: string
+    title: Dependent Node Ids
+    type: array
+  input_cols:
+    default: []
+    description: This field stores the details about input columns to a node if it
+      is applicable. Storing this in node metadata aids in configuring sequential
+      pipeline of any type of workflows.
+    items: {}
+    title: Input Cols
+    type: array
+  node_config:
+    anyOf:
+    - $ref: ../workflows/DatasetNode.yaml
+    - $ref: ../workflows/ModelTrainNode.yaml
+    - $ref: ../workflows/ModelArtifactNode.yaml
+    - $ref: ../workflows/QueryForm.yaml
+    - $ref: ../workflows/ConnectionNode.yaml
+    - $ref: ../workflows/SourceNode.yaml
+    - $ref: ../workflows/DestinationNode.yaml
+    description: This field describes the metadata configurations that pertain to
+      a node. The configurations can differ based on the type of the node itself.
+    title: Node Config
+  node_description:
+    description: This field provides a description about the node in the corresponding
+      workflow.
+    title: Node Description
+    type: string
+  node_name:
+    description: 'This field describes the name of the node provided by the user. '
+    title: Node Name
+    type: string
+  node_type:
+    description: This field describes the type of the node. The node can be a dataset
+      node, transformation node in data workflows, model training / artifact / inference
+      nodes in machine learning workflows and so on.
+    title: Node Type
+    type: string
+  output_cols:
+    default: []
+    description: This field stores the details about output columns to a node if it
+      is applicable. Output columns of a node in a workflow become the input columns
+      in the succeeding node.
+    items: {}
+    title: Output Cols
+    type: array
+  tags:
+    default: []
+    description: his field describes any set of tags that can be associated to the
+      node.
+    items:
+      type: string
+    title: Tags
+    type: array
+required:
+- node_name
+- node_type
+- node_config
+title: Node
+type: object

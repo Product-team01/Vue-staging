@@ -1,0 +1,15 @@
+---
+title: AddTaxonomy
+required:
+- attributes
+type: object
+properties:
+  parent_taxonomy_id:
+    type: integer
+    description: >-
+      unique identifier of the taxonomy from which this structure is
+      cloned. If it is not cloned then this will be null.
+  attributes:
+    type: array
+    items:
+      $ref: './taxonomy-attribute.yaml'

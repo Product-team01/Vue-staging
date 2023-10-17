@@ -1,0 +1,22 @@
+title: EventInputTable
+required:
+- filter_column
+- filter_condition
+- filter_value
+type: object
+properties:
+    filter_column:
+      title: Filter Column
+      type: string
+      description: Filter Column for Custom Definition
+      example: event_name
+    filter_condition:
+      title: Filter Condition
+      type: string
+      description: Filter Condition for Custom Definition
+      example: in
+    filter_value:
+      title: Filter Value
+      type: string
+      description: Filter Value for Custom Definition
+      example: applyJob

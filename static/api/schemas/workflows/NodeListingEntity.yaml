@@ -1,0 +1,32 @@
+properties:
+  created_ts:
+    description: This field describes the initial date of creation of the node.
+    title: Created Ts
+    type: string
+  node_id:
+    description: This field describes the identifier of the node.
+    title: Node Id
+    type: string
+  node_name:
+    description: This field describes the name of the node.
+    title: Node Name
+    type: string
+  tags:
+    default: []
+    description: This field describes any set of tags that can be associated to the
+      node.
+    items:
+      type: string
+    title: Tags
+    type: array
+  updated_ts:
+    description: This field describes the latest date of updation of the node.
+    title: Updated Ts
+    type: string
+required:
+- node_id
+- node_name
+- created_ts
+- updated_ts
+title: NodeListingEntity
+type: object

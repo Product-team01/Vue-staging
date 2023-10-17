@@ -1,0 +1,11 @@
+properties:
+  packet:
+    title: Packet
+    type: object
+  workflow:
+    $ref: ../workflows/WorkflowSpeedrunFromID.yaml
+required:
+- workflow
+- packet
+title: Body_process_packet_workflow_api_v1_workflow_process_packet_post
+type: object

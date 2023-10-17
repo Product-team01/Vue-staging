@@ -1,0 +1,11 @@
+properties:
+  sourceDefinition:
+    $ref: ../connectors_hub/SourceDefinition.yaml
+  workspaceId:
+    title: Workspaceid
+    type: string
+required:
+- workspaceId
+- sourceDefinition
+title: CreateSourceDefinition
+type: object

@@ -1,0 +1,206 @@
+title: Metrics Query Config
+required:
+  - name
+  - type
+  - source
+properties:
+  id:
+    title: Metric Query Config ID
+    type: string
+    description: Identifier for the metric query config
+    example: 7065fa70-4dbb-442e-80bc-53b34340fb15
+  name:
+    title: Metrics Name
+    description: Metrics Name stored in the table
+    type: string
+    example: revenue
+  aggregation_type:
+    title: Aggregation Type
+    type: string
+    description: 'Note: ratio_type and percentage_type requires numerator and denominator in the payload'
+    example: ratio_type
+    enum:
+      - sum
+      - distinct_count
+      - ratio_type
+      - percentage_type
+      - average
+  type:
+    title: Type of Metric
+    description: raw - value present under metrics name column, derived - the value needs to determined recursively using existing config, column - value is present in table
+    type: string
+    enum:
+      - raw
+      - derived
+      - column
+  numerator:
+    title: Numerator
+    description: (required only for ratio_type and percent type)
+    type: object
+    example:
+      name: 'revenue'
+      type: 'raw'
+    properties:
+      name:
+          title: Metric name
+          type: string
+      type:
+          title: Metric type
+          type: string
+          enum:
+            - raw
+            - derived
+            - column
+            - query
+      conditions:
+        title: Conditions
+        type: array
+        description: required only if the metric type for numerator or denominator is query
+        items:
+          type: object
+          properties:
+            field:
+              type: string
+            type:
+              type: string
+            value:
+              type: string
+        example: [{
+            "field": "computation_level",
+            "type": "eq",
+            "value": "sitewide"
+          }]
+      exclude_filters:
+        title: Exclude Filters
+        description: Filters which will be excluded in the subquery
+        type: array
+        example: ["module_id", "strategy_id", "experience_id"]
+        items:
+          type: string
+      include_filters:
+        title: Include Filters
+        description: Filters which will be included in the subquery
+        type: array
+        example: ["module_id", "strategy_id", "experience_id"]
+        items:
+          type: string
+      precision:
+        title: Precision
+        type: integer
+        example: 2
+  denominator:
+    title: Denominator
+    description: Denominator required for calculating ratio type and percentage type metrics (required only for ratio_type and percent type)
+    type: object
+    example:
+      name: 'revenue'
+      type: 'raw'
+    properties:
+      name:
+          title: Metric name
+          type: string
+      type:
+          title: Metric type
+          type: string
+          enum:
+            - raw
+            - derived
+            - column
+            - query
+      conditions:
+        title: Conditions
+        type: array
+        description: required only if the metric type for numerator or denominator is query
+        items:
+          type: object
+          properties:
+            field:
+              type: string
+            type:
+              type: string
+            value:
+              type: string
+        example: [{
+            "field": "computation_level",
+            "type": "eq",
+            "value": "sitewide"
+          }]
+      exclude_filters:
+        title: Exclude Filters
+        description: Filters which will be excluded in the subquery
+        type: array
+        example: ["module_id", "strategy_id", "experience_id"]
+        items:
+          type: string
+      include_filters:
+        title: Include Filters
+        description: Filters which will be included in the subquery
+        type: array
+        example: ["module_id", "strategy_id", "experience_id"]
+        items:
+          type: string
+      precision:
+        title: Precision
+        type: integer
+        example: 2
+  label:
+    title: Label given to this metric, can be same as name.
+    type: string
+    example: Revenue
+  precision:
+    title: Precision
+    type: integer
+    example: 2
+  source:
+     title: source
+     description: Table in which the query needs to be performed (This is required, because, audience metrics, dxm metrics and review mode metrics will be stored in separate tables)
+     type: string
+     example: blox_metrics
+     enum:
+       - blox_metrics
+       - audience_metrics
+       - audience_overlap
+       - review_mode_metrics
+  copy:
+    title: copy
+    description: Help text to provide the description for the metric selected
+    type: string
+    example: Revenue from Orders placed
+  unit:
+    title: unit
+    description: Unit in which the metric is computed
+    type: string
+    example: currency
+    enum:
+      - number
+      - percentage
+      - currency
+  goal:
+    title: goal
+    description: Goal under which this metric can be associated with
+    type: string
+    example: conversion
+    enum:
+      - conversion
+      - engagement
+  applicable_levels:
+    title: Applicable levels
+    description: Levels at which groupby of this metric is applicable
+    type: array
+    example: ["page","experience","module","strategy"]
+    items:
+      type: string
+  validity:
+    title: validity
+    description: Experiment types for which the metric is valid
+    type: array
+    example: ["control","no-control"]
+    items:
+      type: string
+  applicable_mediums:
+    title: Applicable Mediums
+    description: Indicates the mediums that this metric is applicable to.
+    type: array
+    example: [ "email","website" ]
+    items:
+      type: string

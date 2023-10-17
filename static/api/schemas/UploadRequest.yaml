@@ -1,0 +1,12 @@
+title: UploadRequest
+required:
+  - correlation_id
+  - data
+type: object
+properties:
+  correlation_id:
+    title: Correlation Id
+    type: string
+    description: correlation_id for the request
+  data:
+    $ref: 'Upload.yaml'

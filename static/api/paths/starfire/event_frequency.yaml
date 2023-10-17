@@ -1,0 +1,90 @@
+get:
+  tags:
+    - event-frequency
+  summary: Get Config
+  operationId: get_event_frequency_config
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+    - description: boolean switch that toggles between lite and not config
+      required: false
+      schema:
+        title: Lite
+        type: boolean
+        description: boolean switch that toggles between lite and not config
+        default: true
+      name: lite
+      in: query
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            anyOf:
+              - $ref: '../../schemas/starfire/affinity_get_config_response.yaml'
+              - $ref: '../../schemas/EmptyResponse.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'
+post:
+  tags:
+    - event-frequency
+  summary: Post Config
+  description: |-
+    Lets one register a event frequency config
+  operationId: post_event-frequency_config
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/starfire/affinity_post_config_request.yaml'
+    required: true
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema: {}
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'
+delete:
+  tags:
+    - event-frequency
+  summary: Delete Config
+  operationId: delete_affinity_config
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/EmptyResponse.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'

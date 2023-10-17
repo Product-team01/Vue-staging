@@ -1,0 +1,49 @@
+post:
+  tags:
+    - audiences
+  summary: Run
+  description: Trigger a run to compute specific segments given in the params.
+  operationId: run_api_v1_workflows_personalization_audiences_async_run_post
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/EmptyResponse.yaml'
+    '400':
+      description: client does not exist
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/ErrorResponse.yaml'
+    '404':
+      description: config not found
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/ErrorResponse.yaml'
+    '409':
+      description: a run already in progress.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/ErrorResponse.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'
+    '425':
+      description: dag setup in progress
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/ErrorResponse.yaml'

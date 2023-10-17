@@ -1,0 +1,18 @@
+title: clone_event_response
+required:
+- event_id
+- event_name
+- details
+type: object
+properties:
+  event_id:
+    title: event_id
+    type: string
+    description: Cloned event id in destination account
+  event_name:
+    title: event_name
+    type: string
+  details:
+    title: details
+    type: string
+    description: details of cloned event if configured properly or not

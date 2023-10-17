@@ -1,0 +1,53 @@
+title: SeasonalityConfigLite
+required:
+  - catalog_id
+  - aggregation_level
+type: object
+properties:
+  id:
+    title: Use case id
+    type: string
+    description: Use case id
+  name:
+    title: Use case name
+    type: string
+    description: Use case name
+  catalog_id:
+    title: Catalog Id
+    type: string
+    description: Catalog Id
+  aggregation_level:
+    title: Aggregation Level
+    type: string
+    description: aggregation_level
+  userevent_weight:
+    title: Userevent Weight
+    type: object
+    additionalProperties:
+      type: integer
+    description: dict of weightage given to events like pageView, buy
+  start_date:
+    title: Start Date
+    type: string
+    description: Start Date to consider for user events
+  end_date:
+    title: End Date
+    type: string
+    description: End date to consider for user events
+  create_tags_df:
+    title: Creat Tags DF
+    type: string
+    description: create_tags_df
+  userevent_column:
+    title: Userevent Column
+    type: string
+    description: userevent_column
+  seasonality_field:
+    title: Seasonality Field
+    type: string
+    description: seasonality_field
+  nw_product_type:
+    title: NW product type
+    type: boolean
+    description: This field should be set to use NW product type
+  

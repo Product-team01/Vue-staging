@@ -1,0 +1,50 @@
+get:
+  description: List all egresses
+  operationId: list_eggresses_api_v2_connectors_egress_get
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/connectors_hub/ListEgressResponse.yaml
+      description: Successful Response
+  summary: List Eggresses
+  tags:
+  - connectors
+post:
+  description: Create a egress
+  operationId: create_egress_api_v2_connectors_egress_post
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../../schemas/connectors_hub/CreateEgress.yaml
+    required: true
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/connectors_hub/Egress.yaml
+      description: Successful Response
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/connectors_hub/HTTPValidationError.yaml
+      description: Validation Error
+  summary: Create Egress
+  tags:
+  - connectors

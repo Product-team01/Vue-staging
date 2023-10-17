@@ -1,0 +1,17 @@
+request_id: 7d1030767b8411edae01f28c070c22cc
+correlation_id: 7d1030767b8411edae01f28c070c22cc
+status: SUCCESS
+data:
+  name: Sampling Products
+  id: c01f1a93-7146-476a-bd8a-2505459d8a4d
+  workflow_id: b5944680-6676-4c4e-8768-35b10d804172
+  client: global
+  preset: true
+  catalog_id: test_catalog
+  metadata:
+    max_content: 16
+  config:
+  - params:
+    - value: Relevance
+      type: Ordering
+      field: order_by

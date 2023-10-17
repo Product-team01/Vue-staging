@@ -1,0 +1,38 @@
+title: AddDataSources
+required:
+- name
+- type
+- config
+- schedule
+- mode
+- file_format
+- data_source_id
+- catalog_id
+type: object
+properties:
+  name:
+    title: name
+    type: string
+  data_source_id:
+    title: data_source_id
+    type: string
+  catalog_id:
+    title: catalog_id
+    type: string
+  type:
+    title: type
+    type: string
+  config:
+    title: config
+    type: object
+  schedule:
+    title: schedule
+    type: string
+    example: 0 0/30 * * * ?
+  mode:
+    title: mode
+    type: string
+    example: batch
+  file_format:
+    title: file_format
+    type: string

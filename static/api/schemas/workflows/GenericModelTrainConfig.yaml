@@ -1,0 +1,18 @@
+properties:
+  data_config:
+    allOf:
+    - $ref: ../workflows/TrainDataConfig.yaml
+    description: This field describes the configuration or metadata required for training
+      that pertains to the input / source dataset.
+    title: Data Config
+  model_config:
+    allOf:
+    - $ref: ../workflows/TrainModelConfig.yaml
+    description: This field describes the configuration or metadata required for training
+      that pertains to the model.
+    title: Model Config
+required:
+- data_config
+- model_config
+title: GenericModelTrainConfig
+type: object

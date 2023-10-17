@@ -1,0 +1,9 @@
+title: FileTypeOut
+required:
+- supported_file_types
+type: object
+properties:
+  supported_file_types:
+    title: Supported File Types
+    type: array
+    items: {}

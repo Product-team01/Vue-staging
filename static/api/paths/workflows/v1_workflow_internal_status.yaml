@@ -1,0 +1,59 @@
+get:
+  description: 'This API can be used to view the status of the DAG run, if triggered
+    for async runs.
+
+    The input to the API is a workflow identifier which is a unique reference to the
+    workflow in the workflow registry.
+
+    Other optional parameters include those that are used to describe the DAG -  the
+    workflow''s corresponding DAG run identifier created and the use case of the created
+    workflow.
+
+
+    The output of the API is a status of the last run of the workflow.'
+  operationId: workflow_status_api_v1_workflow_internal_status_get
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - description: This field describes the ID of the workflow used to query the workflow
+      registry.
+    in: query
+    name: workflow_id
+    required: true
+    schema:
+      description: This field describes the ID of the workflow used to query the workflow
+        registry.
+      title: Workflow Id
+      type: string
+  - in: query
+    name: dag_run_id
+    required: false
+    schema:
+      title: Dag Run Id
+      type: string
+  - in: query
+    name: use_case
+    required: false
+    schema:
+      default: create_workflow
+      title: Use Case
+      type: string
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/workflows/WorkflowStatusResponse.yaml
+      description: Successful Response
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/workflows/HTTPValidationError.yaml
+      description: Validation Error
+  summary: Workflow Status
+  tags:
+  - Workflows

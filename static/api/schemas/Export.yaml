@@ -1,0 +1,40 @@
+title: Export
+required:
+  - name
+  - id
+  - description
+  - path
+  - created_at
+  - last_run_at
+type: object
+properties:
+  name:
+    title: Name
+    type: string
+    description: name of the audiences
+    example: 'First_Time_Buyer'
+  id:
+    title: Id
+    type: string
+    description: id of the audiences
+    example: '456'
+  description:
+    title: Description
+    type: string
+    description: description of the audiences
+    example: "Users who buy for the first time ever"
+  path:
+    title: Path
+    type: string
+    description: s3 path of the file
+    example: 's3:audiences/gold_delta/first_time_buyer'
+  created_at:
+    title: Created At
+    type: string
+    description: created at datetime
+    example: '23-08-2022'
+  last_run_at:
+    title: Last Run At
+    type: string
+    description: job last run at datetime
+    example: '08-09-2022'

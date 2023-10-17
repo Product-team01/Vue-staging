@@ -1,0 +1,121 @@
+get:
+  tags:
+  - events
+  summary: Get An Events Template Definition
+  operationId: get_an_events_template_definition_api_v1_events_templates__event_meta__get
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - required: true
+    schema:
+      title: Event Meta
+      type: string
+      example: PageView
+    name: event_meta
+    in: path
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/EventsTemplate.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'
+put:
+  tags:
+  - events
+  summary: Update Events Template
+  operationId: update_events_template_api_v1_events_templates__put
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+    - required: true
+      schema: 
+        title: Events Meta
+        type: string
+      name: event_meta
+      in: path
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/EventsTemplate.yaml'
+    required: true
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema: 
+            $ref: '../../schemas/EventsTemplate.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'
+delete:
+  tags:
+  - events
+  summary: Delete Events Template
+  operationId: delete_events_template_api_v1_events_templates__event_meta__delete
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - required: true
+    schema:
+      title: Event Meta
+      type: string
+      example: PageView
+    name: event_meta
+    in: path
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            title: Response data
+            type: object
+            properties:
+              data:
+                type: object
+                $ref: '../../schemas/ResponseTemplateSuccess.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'

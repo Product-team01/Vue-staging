@@ -1,0 +1,36 @@
+title: CFCPConfigLite
+required:
+  - catalog
+  - algorithm_type
+  - head_event
+  - tail_event
+type: object
+properties:
+  id:
+    title: use_case_id
+    type: string
+    description: The id of the use_case_name
+  name:
+    title: use_case_name
+    type: string
+    description: The name of the use_case
+  catalog_id:
+    title: Catalog
+    type: string
+    description: The name of the catalog
+  enabled:
+    title: Enabled
+    type: string
+    description: Boolean to denote usecase enabled or not
+  algorithm_type:
+    title: Algorithm Type
+    type: string
+    description: cf/cp
+  head_event:
+    title: Head Event
+    type: string
+    description: event type from which to start an edge
+  tail_event:
+    title: Tail Event
+    type: string
+    description: event type to which the edge goes

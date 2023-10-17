@@ -1,0 +1,68 @@
+get:
+  tags:
+  - search
+  summary: List Account Metadata, Pages and events
+  description: List metadata, Pages and events for the account
+  operationId: get_metadata_pages
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - name: platform
+    in: query
+    description: query to distinguish what platform is asking for metadata pages
+    schema:
+      type: string
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+            - $ref: '../../schemas/ResponseTemplateSuccessNoData.yaml'
+            - type: object
+              properties:
+                data:
+                  type: object
+                  properties:
+                    account-metadata:
+                      type: object
+                      properties:
+                        blox_api_url:
+                          type: string
+                          description: blox url
+                          example: https://blox-prod-us-east.com
+                        currency_code:
+                          type: string
+                          description: currency code
+                          example: USD
+                    pages:
+                      type: array
+                      items:
+                        $ref: '../../schemas/MetadataPagesOut.yaml'
+                    events:
+                      type: array
+                      items:
+                        $ref: '../../schemas/EventsDefinitionSlim.yaml'
+    "400":
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/error_response.yaml"
+    '404':
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/PostFailureResponse.yaml'
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/PostFailureResponse.yaml'
+ 

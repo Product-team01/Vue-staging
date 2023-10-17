@@ -1,0 +1,13 @@
+get:
+  tags:
+    - seasonality
+  summary: List Configs
+  description: Lists the info for the configs filtered by the values in the argument. If no filter specified all keys are returned.
+  operationId: list_configs_api_v1_trending_list_get
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/starfire/seasonality_list_config_response.yaml'

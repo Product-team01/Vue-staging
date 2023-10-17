@@ -1,0 +1,229 @@
+type: object
+title: Pixel Events Dump
+properties:
+  request_id:
+      type: string
+      description: Id to track a request
+      example: fa5232-4342-424879b2-0717
+  correlation_id:
+    type: string
+    example: 879b2-0717fa5232-4342-424879b2-0717
+  status:
+    description: state of the request
+    type: string
+    example: SUCCESS
+  data:
+    type: array
+    items:
+      type: object
+      properties:
+        event_name:
+          description: Event name
+          type: string
+        success:
+          description: state of the track call
+          type: boolean
+        product_id:
+          description: product id of the track call
+          type: string
+        platform:
+          description: platform of the track call
+          type: string
+        payload:
+          type: object
+          properties:
+            event_name: 
+              type: object
+              properties:
+                value:
+                  type: string
+                valid:
+                  type: boolean
+                reason:
+                  type: string
+            blox_uuid: 
+              type: object
+              properties:
+                value:
+                  type: string
+                valid:
+                  type: boolean
+                reason:
+                  type: string
+            user_id: 
+              type: object
+              properties:
+                value:
+                  type: string
+                valid:
+                  type: boolean
+                reason:
+                  type: string
+            product_id: 
+              type: object
+              properties:
+                value:
+                  type: string
+                valid:
+                  type: boolean
+                reason:
+                  type: string
+            page_name: 
+              type: object
+              properties:
+                value:
+                  type: string
+                valid:
+                  type: boolean
+                reason:
+                  type: string
+            platform: 
+              type: object
+              properties:
+                value:
+                  type: string
+                valid:
+                  type: boolean
+                reason:
+                  type: string
+            client_id: 
+              type: object
+              properties:
+                value:
+                  type: string
+                valid:
+                  type: boolean
+                reason:
+                  type: string
+            id: 
+              type: object
+              properties:
+                value:
+                  type: string
+                valid:
+                  type: boolean
+                reason:
+                  type: string
+            level: 
+              type: object
+              properties:
+                value:
+                  type: string
+                valid:
+                  type: boolean
+                reason:
+                  type: string
+            process: 
+              type: object
+              properties:
+                value:
+                  type: string
+                valid:
+                  type: boolean
+                reason:
+                  type: string
+            _internal_ingested_timestamp: 
+              type: object
+              properties:
+                value:
+                  type: string
+                valid:
+                  type: boolean
+                reason:
+                  type: string
+            _internal_processed_timestamp: 
+              type: object
+              properties:
+                value:
+                  type: string
+                valid:
+                  type: boolean
+                reason:
+                  type: string
+            pipeline: 
+              type: object
+              properties:
+                value:
+                  type: string
+                valid:
+                  type: boolean
+                reason:
+                  type: string
+            response: 
+              type: object
+              properties:
+                value:
+                  type: string
+                valid:
+                  type: boolean
+                reason:
+                  type: string
+      example:
+        event_name: PageView
+        product_id: '12345666666666'
+        platform: IOS
+        success: true
+        payload:
+          event_name:
+            value: PageView
+            valid: true
+            reason: ''
+          blox_uuid:
+            value: pixel_testing_final_1
+            valid: true
+            reason: ''
+          user_id:
+            value: pixel_testing_final_1
+            valid: true
+            reason: ''
+          product_id:
+            value: '12345666666666'
+            valid: true
+            reason: ''
+          page_name:
+            value: pdp
+            valid: true
+            reason: ''
+          platform:
+            value: IOS
+            valid: true
+            reason: ''
+          client_id:
+            value: f67098ac-10c9-5072-98a7-1f4852a10276
+            valid: true
+            reason: ''
+          id:
+            value: e58e90d2-4b08-4833-b4b1-90083d2a3d7b-events_gateway-f67098ac-10c9-5072-98a7-1f4852a10276
+            valid: true
+            reason: ''
+          level:
+            value: INFO
+            valid: true
+            reason: ''
+          process:
+            value: events_gateway
+            valid: true
+            reason: ''
+          _internal_ingested_timestamp:
+            value: 1688644908000
+            valid: true
+            reason: ''
+          _internal_processed_timestamp:
+            value: 1688644908000
+            valid: true
+            reason: ''
+          pipeline:
+            value: events
+            valid: true
+            reason: ''
+          response:
+            value: '{"code": 200, "status": "200 - OK", "message": "[]"}'
+            valid: true
+            reason: ''
+        client: f67098ac-10c9-5072-98a7-1f4852a10276
+        catalog_id: 3089e3d3ba
+
+                        
+                        
+
+

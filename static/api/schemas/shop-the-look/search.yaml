@@ -1,0 +1,27 @@
+title: shop-the-look
+type: object
+properties:
+  catalogs:
+    type: object
+    properties:
+      catalog_id:
+        type: object
+        properties:
+          curations:
+            type: string
+          image_urls:
+            type: array
+            items:
+              type: string 
+          content_ids:
+            type: array
+            items:
+              type: string
+
+example:
+  catalogs:
+    ac44a502b2:
+      curations: a315dfc2-bc85-49df-8dbe-da0870a51e9e
+      image_urls:
+      - https://global.diesel.com/dw/image/v2/BBLG_PRD/on/demandware.static/-/Sites-diesel-master-catalog/default/dw61996bf8/images/large/A06925_007F6_02_C.jpg?sw=1240&sh=1860
+

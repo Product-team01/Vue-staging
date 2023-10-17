@@ -1,0 +1,111 @@
+parameters:
+  - required: true
+    schema:
+      title: Use Case ID
+      type: string
+    name: use_case_id
+    in: path
+get:
+  tags:
+    - trending
+  summary: Status
+  description: Get status of the latest dag run.
+  operationId: status_api_v1_trending_status_get
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            properties:
+              request_id:
+                title: Request Id
+                type: string
+                description: request_id generated internally
+              correlation_id:
+                title: Correlation Id
+                type: string
+                description: correlation_id for the request
+              status:
+                title: Status
+                type: string
+                description: status for the request
+              data:
+                type: object
+                properties:
+                  run_id:
+                    type: string
+                    description: run identification for the job
+                  job_id:
+                    type: string
+                    description: job identification for the use_case
+                  status:
+                    type: string
+                    description: state of the job success, failed, running, queued
+                    default: 'success'
+                  task_runs:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        task_id:
+                          type: string
+                          description: name of the job node
+                        status:
+                          type: string
+                          description: state of the job node
+                        start_time:
+                          type: string
+                          description: start datetime for the job node
+                        end_time:
+                          type: string
+                          description: end datetime for the job node
+                  created_ts:
+                    type: string
+                    description: created datetime of the job
+                  updated_ts:
+                    type: string
+                    description: updated datetime of the job
+                  start_time:
+                    type: string
+                    description: start datetime for the job
+                  end_time:
+                    type: string
+                    description: end datetime for the job
+          example:
+            request_id: 96ee690675f611edae9722bc82d1a906
+            correlation_id: r96ee690675f611edae9722bc82d1a906
+            status: SUCCESS
+            data:
+              run_id: 8329340001
+              job_id: b5a90398-df13-431c-8af9-b3c560d66839
+              status: FAILED
+              task_runs: [
+                {
+                  "task_id": "preprocess",
+                  "status": "COMPLETED",
+                  "start_time": "2023-03-31 12:20:57.157596",
+                  "end_time": "2023-03-31 12:22:57.441407"
+                }
+              ]
+              created_ts: 2023-03-31T12:20:55.144008
+              updated_ts: 2023-03-31T12:29:48.590550
+              start_time: 2023-03-31 12:20:57.057985
+              end_time: 2023-03-31 12:29:48.453520
+    '404':
+      description: Error Message.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/starfire_success_response.yaml'
+          example:
+            request_id: 96ee690675f611edae9722bc82d1a906
+            correlation_id: r96ee690675f611edae9722bc82d1a906
+            data:
+              message: 'Config not found for use case'

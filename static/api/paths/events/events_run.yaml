@@ -1,0 +1,31 @@
+post:
+  tags:
+  - events
+  summary: Run Event Pipeline
+  description: Run events jobs for an account
+  operationId: events_run
+  responses:
+    '404':
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/PostFailureResponse.yaml'
+    "202":
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/EventsRunJobResponse.yaml"
+    "400":
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/PostFailureResponse.yaml"
+    "500":
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/PostFailureResponse.yaml"

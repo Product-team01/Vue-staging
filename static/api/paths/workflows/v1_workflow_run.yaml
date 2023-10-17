@@ -1,0 +1,45 @@
+post:
+  description: 'This API is the trigger to execute the DAG in synchronous mode using
+    pandas and not spark queries.
+
+    This API is meant to be for running lighter workloads and the execution happens
+    on the pandasQL framework, which is hosted on nightwing.
+
+
+    The input to the API is a workflow which has a list of multiple nodes with their
+    corresponding configurations.
+
+    The output of the API is a dictionary of every persisted output of the workflow.
+    It can be a dataset or a model artifact.'
+  operationId: sync_run_workflow_api_v1_workflow_run_post
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          anyOf:
+          - $ref: ../../schemas/workflows/WorkflowSpeedrunFromSubgraph.yaml
+          - $ref: ../../schemas/workflows/WorkflowSpeedrunFromID.yaml
+          title: Workflow
+    required: true
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/workflows/WorkflowSpeedrunResponse.yaml
+      description: Successful Response
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/workflows/HTTPValidationError.yaml
+      description: Validation Error
+  summary: Sync Run Workflow
+  tags:
+  - Workflows

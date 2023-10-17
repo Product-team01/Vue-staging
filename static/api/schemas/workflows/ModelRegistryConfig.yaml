@@ -1,0 +1,18 @@
+properties:
+  default_epoch_id:
+    description: This field describes the default epoch identifier of the model. This
+      will reference the best performing version or iteration of the model that was
+      obtained from the training process. It can be used either in inference workflows
+      or during  model deployment.
+    title: Default Epoch Id
+    type: string
+  model_id:
+    description: This field describes a unique model identifier that is used to access
+      this model in the model registry.
+    title: Model Id
+    type: string
+required:
+- model_id
+- default_epoch_id
+title: ModelRegistryConfig
+type: object

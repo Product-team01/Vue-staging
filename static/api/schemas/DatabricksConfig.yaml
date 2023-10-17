@@ -1,0 +1,12 @@
+title: DatabricksConfig
+type: object
+properties:
+  databricks_host:
+    title: Databricks Host
+    type: string
+  databricks_token:
+    title: Databricks Token
+    type: string
+  databricks_connection_id:
+    title: Databricks Connection Id
+    type: string

@@ -1,0 +1,24 @@
+title: Seasonality list config response
+required:
+  - request_id
+  - correlation_id
+  - status
+  - data
+type: object
+properties:
+  request_id:
+    title: Request Id
+    type: string
+    description: request_id generated internally
+  correlation_id:
+    title: Correlation Id
+    type: string
+    description: correlation_id for the request
+  status:
+    title: Status
+    type: string
+    description: status for the request
+  data:
+    type: array
+    items:
+      $ref: 'seasonality_lite.yaml'

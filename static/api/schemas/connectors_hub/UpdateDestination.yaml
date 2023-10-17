@@ -1,0 +1,9 @@
+properties:
+  connectionConfiguration:
+    title: Connectionconfiguration
+    type: object
+  name:
+    title: Name
+    type: string
+title: UpdateDestination
+type: object

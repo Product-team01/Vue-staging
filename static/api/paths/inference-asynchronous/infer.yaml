@@ -1,0 +1,77 @@
+post:
+  tags:
+  - inference
+  summary: Asynchronous Inference
+  description: Infers tags for any given input data in modes defined above.
+  operationId: inferAsync
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: Unique identifier attached to the request from the source
+    schema:
+      type: string
+  - name: is_sync
+    in: query
+    description: |
+      Indicates to infer and return tags in real time or process in asynchronous mode. 
+      Note: Integrations will be in one of the modes or both based on what best suits the need of the customer's use case.
+      If an unsupported mode, is attempted to be executed, we return an unsupported error.
+    schema:
+      type: boolean
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/inference/InferRequest.yaml'
+    required: true
+  responses:
+    "200":
+      description: Indicates either inference was successfully complete and tags generated, or request has successfully initiated the inference process.
+      content:
+        application/json:
+          schema:
+            $ref:  '../../schemas/inference/InferAsyncResponse.yaml'
+    '400':
+      description: |
+        Bad request:
+        - If given msd_id is not valid
+        - If given catalog_id is not valid
+        - If input fields does not match catalog
+        schema.
+        - If rules provided are not supported.
+        - If given input payload does not match with the msd_id
+        - If output is invalid structure or information that cannot be processed
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'
+    '401':
+      description: If the api_key passed is invalid
+    '404':
+      description: |
+        Returned while:
+        - If given msd_id is not valid
+        - If given catalog_id is not valid
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'
+    '405':
+      description: | 
+        When mode of integration is not supported for a specific integration.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'
+    '422':
+      description: Returned if we are unable to process the request due to internal issues. This is a temporary state and our support team will fix this as and when we encounter these issues.
+    '500':
+      description: Something went wrong on Blox's end. (These are rare, will be identified, fixed and communicated within a reasonable SLA based on complexity.)
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'
+    '502':
+      description: Indicates Bad Gateway
+    '504':
+      description: Indicates Gateway Timeout

@@ -1,0 +1,39 @@
+post:
+  tags:
+  - accounts
+  summary: Sync data between accounts
+  description: Sync data between two accounts
+  operationId: sync_accounts
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          properties:
+            source_account_id:
+              title: Source account id to copy data from.
+              type: string
+              example: '2503'
+            destination_account_id:
+              title: Destination account id to copy data to.
+              type: string
+              example: '3503'
+    required: true
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/AccountOut.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'

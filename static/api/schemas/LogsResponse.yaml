@@ -1,0 +1,14 @@
+title: LogResponse
+type: object
+description: ''
+properties:
+  count:
+    type: integer
+    description: Total number of logs
+    example: 50
+  data:
+    title: Logs based on filters
+    type: array
+    items:
+      type: object
+      example: {}

@@ -1,0 +1,50 @@
+get:
+  description: List all ingresses
+  operationId: list_ingresses_api_v2_connectors_ingress_get
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/connectors_hub/ListIngressResponse.yaml
+      description: Successful Response
+  summary: List Ingresses
+  tags:
+  - connectors
+post:
+  description: Create a new ingress
+  operationId: create_ingress_api_v2_connectors_ingress_post
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../../schemas/connectors_hub/CreateIngress.yaml
+    required: true
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/connectors_hub/Ingress.yaml
+      description: Successful Response
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/connectors_hub/HTTPValidationError.yaml
+      description: Validation Error
+  summary: Create Ingress
+  tags:
+  - connectors

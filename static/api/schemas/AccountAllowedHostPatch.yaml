@@ -1,0 +1,9 @@
+title: AccountAllowedHostInPatch
+required:
+- allowed_host
+type: object
+properties:
+  active:
+    title: active
+    type: boolean
+

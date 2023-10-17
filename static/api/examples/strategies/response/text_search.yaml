@@ -1,0 +1,27 @@
+request_id: 7d1030767b8411edae01f28c070c22cc
+correlation_id: 7d1030767b8411edae01f28c070c22cc
+status: SUCCESS
+data:
+  id: 020d9e4a-4574-4177-8a13-bfe2259a39ab
+  workflow_id: 064c0897-70ac-438f-a32a-19cb42d61d43
+  description: Recommends products which match with the given text search query.
+  name: Text Search
+  preset: true
+  client: global
+  catalog_id: test_catalog
+  metadata:
+    max_content: 16
+  config:
+  - params:
+    - value: Relevance
+      type: ordering
+      field: order_by
+    - value: false
+      type: personalisation
+      field: personalisation
+    - field: rarity_use_case_id
+      value: rarity_use_case_from_starfire
+      type: rarity_use_case
+    - field: exploration_rarity
+      value: 0.5
+      type: exploration_rarity

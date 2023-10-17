@@ -1,0 +1,37 @@
+title: PathDetails
+required:
+  - bucket_path
+  - bucket_mount_path
+  - save_path_root
+  - files_folder_prefix
+  - files_folder_prefix_original
+type: object
+properties:
+  storage_bucket_for_vuex:
+    title: Storage Bucket For Vuex
+    type: string
+    description: bucket to store vuex stuff
+    default: s3://vuex-shared-assets
+  storage_bucket_mount_for_vuex:
+    title: Storage Bucket Mount For Vuex
+    type: string
+    description: bucket mount path
+    default: /mnt/vuex-shared-assets
+  bucket_path:
+    title: Bucket Path
+    type: string
+    description: starfire bucket path
+  bucket_mount_path:
+    title: Bucket Mount Path
+    type: string
+    description: starfire bucket mount path
+  save_path_root:
+    title: Save Path Root
+    type: string
+    description: save path for segmentation
+  files_folder_prefix:
+    title: Files Folder Prefix
+    type: string
+  files_folder_prefix_original:
+    title: Files Folder Prefix Original
+    type: string

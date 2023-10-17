@@ -1,0 +1,32 @@
+parameters:
+  - required: true
+    schema:
+      title: Use Case ID
+      type: string
+    name: use_case_id
+    in: path
+post:
+  tags:
+    - event-frequency
+  summary: Disable use case config
+  description: Disable a specified use case based on the ID
+  operationId: disable_event_frequency
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/EmptyResponse.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'

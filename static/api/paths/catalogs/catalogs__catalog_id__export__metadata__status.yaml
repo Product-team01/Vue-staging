@@ -1,0 +1,60 @@
+get:
+  tags:
+  - catalogs
+  summary: API to check the async export catalog job.
+  description: Check the async export job and return the s3 file path. This API will return three job Status, READY, NOT_READY and FAILED status. file_path will be present only if the status is READY.
+  operationId: async_export_metadata_status
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - required: true
+    schema:
+      title: Catalog Id
+      type: string
+    name: catalog_id
+    in: path
+  - required: true
+    schema:
+      title: Job Id
+      type: string
+      example: c5f19e52-0d33-494e-b353-c803b30036b8
+    name: job_id
+    in: query
+  - required: true
+    schema:
+      title: File name
+      type: string
+      example: Export File 1
+    name: filename
+    in: query
+
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+             - $ref: '../../schemas/CatalogAsyncSampleOut.yaml'
+
+    '400':
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/PostFailureResponse.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/PostFailureResponse.yaml'

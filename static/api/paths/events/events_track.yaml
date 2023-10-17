@@ -1,0 +1,150 @@
+post:
+  tags:
+  - events
+  summary: Track Event
+  description: Track API captures all the user's activities like page view, add to cart, buy event etc. All fields in the track call should match with the events schema in events definitions.
+  operationId: track_event
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/TrackEventIn.yaml'
+        examples:
+          pageView:
+            value:
+              event_name: PageView
+              medium: application
+              blox_uuid: 5fbeac07-f385-4145-a690-e98571ae985e
+              url: com.myapp
+              page_type: pdp
+              page_name: PDP
+              platform: android
+              product_id: 39596296700022
+          orderConfirmation:
+            value:
+              event_name: Buy
+              medium: application
+              blox_uuid: 5fbeac07-f385-4145-a690-e98571ae9853
+              url: com.myapp
+              page_type: oc
+              page_name: order Confirmation
+              platform: android
+              product_id:
+                - 39596296700022
+              product_price:
+                - 125.50
+              order_id: AE75634
+              quantity:
+                - 1
+              price:
+                - 125
+          moduleClick:
+            value:
+              event_name: ModuleClick
+              medium: application
+              blox_uuid: 5fbeac07-f385-4145-a690-e98571ae9853
+              url: com.myapp
+              page_type: pdp
+              page_name: PDP
+              platform: android
+              product_id: 5789256482843
+              clicked_product_id: 39946630725750
+              position_of_reco: 1
+              slot_id: android_slot2
+              module_id: a5777370-b133-426a-ae3a-5a883a787130
+              strategy_id: 04092a30-22e2-4565-83ee-3ffd83cb6375
+          moduleView:
+            value:
+              event_name: ModuleView
+              medium: application
+              blox_uuid: 5fbeac07-f385-4145-a690-e98571ae9853
+              url: com.myapp
+              page_type: pdp
+              page_name: PDP
+              platform: android
+              product_id: 5789256482843
+              slot_id: android_slot2
+              module_id: a5777370-b133-426a-ae3a-5a883a787130
+          rightSwipe:
+            value:
+              event_name: rightSwipe
+              medium: application
+              blox_uuid: 5fbeac07-f385-4145-a690-e98571ae9853
+              url: com.myapp
+              page_type: pdp
+              page_name: PDP
+              platform: android
+              product_id: 5789256482843
+              slot_id: android_slot2
+              module_id: a5777370-b133-426a-ae3a-5a883a787130
+          leftSwipe:
+            value:
+              event_name: leftSwipe
+              medium: application
+              blox_uuid: 5fbeac07-f385-4145-a690-e98571ae9853
+              url: com.myapp
+              page_type: pdp
+              page_name: PDP
+              platform: android
+              product_id: 5789256482843
+              slot_id: android_slot2
+              module_id: a5777370-b133-426a-ae3a-5a883a787130
+          addToCart:
+            value:
+              event_name: Add2cart
+              medium: application
+              blox_uuid: 5fbeac07-f385-4145-a690-e98571ae9853
+              user_id: user1
+              url: com.myapp
+              page_type: pdp
+              page_name: PDP
+              platform: android
+              product_id: 5789256482843
+              clicked_product_id: 39946630725750
+          placeOrder:
+            value:
+              event_name: placeOrder
+              medium: application
+              blox_uuid: 5fbeac07-f385-4145-a690-e98571ae9853
+              url: com.myapp
+              page_type: pdp
+              page_name: PDP
+              platform: android
+              product_id: 5789256482843
+          removeFromCart:
+            value:
+              event_name: Removefromcart
+              medium: application
+              blox_uuid: 5fbeac07-f385-4145-a690-e98571ae9853
+              url: com.myapp
+              page_type: pdp
+              page_name: PDP
+              platform: android
+              product_id: 5789256482843
+              clicked_product_id: 39946630725750
+    required: true
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/TrackPostSuccessResponse.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/PostFailureResponse.yaml'

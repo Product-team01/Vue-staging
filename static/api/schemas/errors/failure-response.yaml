@@ -1,0 +1,28 @@
+---
+title: GetFailureResponse
+required:
+  - request_id
+  - correlation_id
+  - status
+  - errors
+type: object
+properties:
+  request_id:
+    description: Unique identifier attached to the request by the blox system
+    type: string
+  correlation_id:
+    description: Unique identifier attached to the request from the source
+    type: string
+  status:
+    description: |
+      Status of the request
+      1. FAILURE - Indicates the request failed for some reason. 
+    type: string
+    enum:
+    - FAILURE
+  errors:
+    description: List of all errors encountered while processing the request
+    type: array
+    items:
+      $ref: '../Error.yaml'
+    

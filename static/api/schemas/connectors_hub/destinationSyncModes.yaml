@@ -1,0 +1,7 @@
+description: An enumeration.
+enum:
+- append
+- overwrite
+- append_dedup
+title: destinationSyncModes
+type: string

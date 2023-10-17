@@ -1,0 +1,20 @@
+required:
+- attributes
+- datapoint_id
+- sample_id
+type: object
+properties:
+  datapoint_id:
+    type: string
+    description: unique identifier of the datapoint
+  sample_id:
+    type: string
+    description: unique identifier of the sample
+  fields:
+    type: array
+    items:
+      $ref: './datapoint-metadata.yaml'
+  attributes:
+    type: array
+    items:
+      $ref: './datapoint-attributes.yaml'

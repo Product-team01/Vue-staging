@@ -1,0 +1,75 @@
+post:
+  tags:
+    - catalogs
+  summary: Search Catalog
+  description: Search/Sample the catalog
+  operationId: search_catalog
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+    - required: true
+      schema:
+        title: Catalog Id
+        type: string
+      name: catalog_id
+      in: path
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas/search/catalog_search.yaml"
+        examples:
+          default sample:
+            value:
+              $ref: "../../examples/catalog_search/request/search_default_example.yaml"
+          facet sample:
+            value:
+              $ref: "../../examples/catalog_search/request/facet.yaml"
+          search query:
+              value:
+                $ref: "../../examples/catalog_search/request/facet.yaml"
+          
+    required: true
+    
+  responses:
+    "200":
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+              - type: object
+                properties:
+                  data:
+                    $ref: "../../schemas/search/search_response_simple_text.yaml"
+          examples:
+            default sample:
+              value:
+                $ref: "../../examples/catalog_search/response/search_default_example.yaml"
+            facet sample:
+              value:
+                $ref: "../../examples/catalog_search/response/facet.yaml"
+            search query:
+              value:
+                $ref: "../../examples/catalog_search/response/search_query.yaml"
+    "400":
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/PostFailureResponse.yaml"
+    "422":
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/HTTPValidationError.yaml"
+    "500":
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/PostFailureResponse.yaml"

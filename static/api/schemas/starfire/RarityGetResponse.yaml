@@ -1,0 +1,79 @@
+title: RarityConfigResponse
+required:
+  - catalog
+  - destination_db
+  - indexing_params
+type: object
+properties:
+  catalog:
+    title: Catalog
+    type: string
+    description: Catalog Id
+  levels_from_autotags:
+    title: levels_from_autotags
+    type: array
+    items:
+      type: string
+    description: column names to consider as levels from autotags, e.g. rarity at Base Color level
+  levels_from_metadata:
+    title: levels_from_metadata
+    type: array
+    items:
+      type: string
+    description: column names to consider as levels from catalog data. e.g. rarity at category level
+  batch_run:
+    title: Batch Run
+    type: boolean
+    description: if true final df with rarity scores at product id level are created
+  primary_key:
+    title: Primary key
+    type: string
+    description: Primary key in tags delta table
+  autotags_to_ignore:
+    title: Autotags To Ignore
+    type: array
+    items:
+      type: string
+    description: Autotags that should not be considered for rarity scores e.g. Color Hex
+  rarity_fields_from_tags_table:
+    title: Rarity Fields From Tags Table
+    type: array
+    items:
+      type: string
+    description: Fields to consider from tags table while computing rarity e.g. Color, Pattern
+  tags_from_metadata:
+    title: Tags From Metadata
+    type: array
+    items:
+      type: string
+    description: tags to consider from metadata e.g. brand, category
+  products_df_filter_string:
+    title: ProductsDf Filter String
+    type: string
+    description: Filter string to filter out something from products df
+  time_zone:
+    title: Time Zone
+    type: string
+    default: UTC
+    description: The timezone for the timestamp column
+  log_level:
+    title: Log Level
+    type: string
+    default: info
+    description: The log level for spark logging
+  schedule_interval:
+    title: Schedule Interval
+    type: string
+    description: Setup the schedule of the dag, if not specified its created and requires manual trigger
+  destination_db:
+    title: DestinationDB
+    type: string
+    enum: ["elasticsearch", "mcpd"]
+    default: "elasticsearch"
+  indexing_params:
+    type: object
+    properties:
+      elastic_search_key:
+        title: Elastic Search Key
+        type: string
+        description: The name of the field in Elastic Search catalog to which the rarity scores should be pushed to. 

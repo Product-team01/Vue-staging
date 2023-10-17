@@ -1,0 +1,52 @@
+post:
+  tags:
+  - clone
+  summary: Clone starfire configs
+  description: | 
+    - Clone all starfire configs ( cfcp, seasonality, rarity, event-frequency, trending, affinity ) at once
+    - Account create api would work with super admin key only
+  operationId: clone_starfire
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+  requestBody:
+    description: Clone Starfire api request body
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/clone_starfire_In.yaml'
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '../../schemas/ResponseTemplateSuccessNoData.yaml'
+              - type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '../../schemas/clone_starfire_response.yaml'
+    "400":
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/error_response.yaml"
+    '404':
+      description: Config not found
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/PostFailureResponse.yaml'
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/PostFailureResponse.yaml'

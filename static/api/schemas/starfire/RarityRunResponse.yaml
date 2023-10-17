@@ -1,0 +1,39 @@
+title: RarityRunResponse
+type: object
+properties:
+  request_id:
+    description: id to backtrack the request in internal services
+    type: string
+  correlation_id:
+    description: id sent by the caller to backtrack the request
+    type: string
+  status:
+    description: status of the request
+    type: string
+    enum:
+      - SUCCESS
+      - FAILURE
+  data:
+    type: object
+    properties:
+      msg:
+        type: object
+        properties:
+          status:
+            description: status of the jobid
+            type: string
+            enum:
+              - SUCCESS
+              - FAILURE
+          run_id:
+            description: run id for the job
+            type: string
+
+example:
+  request_id: 96ee690675f611edae9722bc82d1a906
+  correlation_id: r96ee690675f611edae9722bc82d1a906
+  status: SUCCESS 
+  data:
+    msg: 
+      status: SUCCESS
+      run_id: 91b8dc6eca

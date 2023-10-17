@@ -1,0 +1,39 @@
+---
+title: AddExtractionConfig
+required:
+  - name
+type: object
+properties:
+  name:
+    type: string
+    example: ''
+    description: Name to identify an extraction config
+  type:
+    type: string
+    description: Indicates the purpose the extraction config
+    example: ''
+    enum:
+      - DIGESTION
+      - ENRICHMENT
+  graph_id:
+    type: string
+    description: unique identifier of a graph
+    example: ''
+  graph_execution_config_id:
+    type: string
+    description: unique identifier of a graph execution config
+    example: ''
+  taxonomy_id:
+    type: string
+    description: unique identifier of a taxonomy
+    example: ''
+  embedding_config_id:
+    type: string
+    description: unique identifier of an embedding config
+    example: ''
+  active:
+    type: boolean
+    description: indicates if the config is available for use or not
+  preset:
+    type: boolean
+    description: indicates if the config is set as global presets or not

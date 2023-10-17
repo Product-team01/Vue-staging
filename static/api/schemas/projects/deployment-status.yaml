@@ -1,0 +1,15 @@
+required:
+- status
+type: object
+properties:
+  status:
+    type: string
+    description: indicates status of the deployment request. success indicates deploy
+      is successful. Failed indicates the process failed
+    enum:
+    - SUCCESS
+    - FAILURE
+  graph_id:
+    description: unique identifier of the graph created
+    type: string
+    example: ''

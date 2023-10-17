@@ -1,0 +1,18 @@
+properties:
+  workflow_form:
+    default: []
+    description: This field describes the workflow configuration that will be populated
+      as per what is entered on the form interface in the canvas.
+    items:
+      anyOf:
+      - $ref: ../workflows/DatasetNode.yaml
+      - $ref: ../workflows/ModelTrainNode.yaml
+      - $ref: ../workflows/ModelArtifactNode.yaml
+      - $ref: ../workflows/QueryForm.yaml
+      - $ref: ../workflows/ConnectionNode.yaml
+      - $ref: ../workflows/SourceNode.yaml
+      - $ref: ../workflows/DestinationNode.yaml
+    title: Workflow Form
+    type: array
+title: WorkflowCreationConfig
+type: object

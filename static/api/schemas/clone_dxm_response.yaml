@@ -1,0 +1,14 @@
+title: clone_dxm_response
+type: object
+properties:
+  msg:
+    type: string
+    description: detailed msg regarding the cloning of dxm entity
+  clone_errors:
+    type: array
+    items:
+      $ref: "clone_resource_error_response.yaml"
+    description: config clone which was not done for each enitity
+
+
+

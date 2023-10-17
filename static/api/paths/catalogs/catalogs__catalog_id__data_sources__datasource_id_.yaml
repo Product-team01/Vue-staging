@@ -1,0 +1,109 @@
+put:
+  tags:
+  - catalogs
+  summary: update datasource for a catalog.
+  description: Update datasource for a catalog.
+  operationId: update_datasource
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - required: true
+    schema:
+      title: Catalog Identifier
+      type: string
+    name: catalog_id
+    in: path
+  - required: true
+    schema:
+      title: Datasource Identifier
+      type: string
+    name: datasource_id
+    in: path
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/DataSourceRequest.yaml'
+    required: true
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+            - $ref: '../../schemas/ResponseTemplateSuccessNoData.yaml'
+            - type: object
+              properties:
+                data:
+                  $ref: '../../schemas/DataSourceResponse.yaml'
+    '400':
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/PostFailureResponse.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/PostFailureResponse.yaml'
+delete:
+  tags:
+  - catalogs
+  summary: Delete datasource for a catalog
+  description: Delete datasource for a catalog
+  operationId: delete_datasource
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - required: true
+    schema:
+      title: Catalog Identifier
+      type: string
+    name: catalog_id
+    in: path
+  - required: true
+    schema:
+      title: Datasource Identifier
+      type: string
+    name: datasource_id
+    in: path
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/ResponseTemplateSuccessNoData.yaml'
+    '400':
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/PostFailureResponse.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/PostFailureResponse.yaml'

@@ -1,0 +1,122 @@
+---
+title: Predifined Strategy
+sidebar_label: Predefined Strategy
+sidebar_position: 2
+---
+
+<head>
+  <title>Predefined Strategy</title>
+  <meta
+    name="description"
+    content="Read this guide to learn how to get Swiper.js for Angular set up in your Ionic Framework application for a modern touch slider component."
+  />
+</head>
+
+A strategy is the type of content you would like an audience segment to see. This is the first step in creating a journey.
+
+## Getting to Strategy
+
+`Navigation`
+
+1. To access Strategy navigate to the Blox menu bar, click on this icon
+2. Select Digital Experience Manager
+3. Select Assets -\> Strategy
+
+## Ready-to-use Strategies
+
+| **Model**                               | **Description**                                                                                                                                                      |
+| --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Similar Products                        | Recommends products with similar attributes. Matches similarity vectors and picks products from the catalog with attributes similar to the product currently in view |
+| Trending Products                       | Recommends the most popular products on the website based on predefined customer triggers                                                                            |
+| Inspired by Browsing History            | Recommends products based on each customer's interactions on your online store                                                                                       |
+| Recently Engaged                        | Recommends products that were last engaged with by the customer, with the most recently engaged product appearing first. S                                           |
+| Frequently Bought Together              | A curated list of products that are co-bought with the product frequently (typically these are bundles that can be added to cart / bought together at one go)        |
+| Recommended for You                     | Recommends products considering a combination of customer's behavioral preferences and product currently in view                                                     |
+| Complete the Basket                     | A type of bundling recommendation that recommends products based on recipes or curated bundles                                                                       |
+| Complete the Look (fashion retail only) | AI generated cross-category recommendations for how a product could be worn.                                                                                         |
+| Shop the Look (fashion retail only)     | Shoppers can add all items in a featured look to the cart with a single button.                                                                                      |
+| Refill Recommendations                  | The AI understands and recommends the product based on how likely it will run out and reminds the shopper that it is time to buy the product again.                  |
+| Dressing Room                           | Dressing room allows shoppers to visualize and style products on relatable models of various shapes, sizes, ethnicities in real time.                                |
+
+## Model Parameters
+
+Model Parameters are a list of recommended models which will power your strategy. This list is populated with fields that are indexed as true during Catalog creation.
+
+Powered by several algorithmic decisions, these models analyze, learn, and discover patterns in customer, product, and contextual data to present every customer with a personalized experience.
+
+### Product Attributes :
+
+| **Product Attributes** | **Description**                 |
+| ---------------------- | ------------------------------- |
+| Pattern                | Pattern of the product          |
+| Color                  | Color of the product            |
+| Brand                  | Associated brand of the product |
+| Shape                  | 2wq                             |
+
+#### Events :
+
+| **Event Type**  | **Description**                                                                                               |
+| --------------- | ------------------------------------------------------------------------------------------------------------- |
+| Add to Cart     | On choosing Add to Cart, the model displays products added to the customer's cart in the last X days.         |
+| Add to Wishlist | On choosing Add to wishlist, the model displays products added to the customer's wishlist in the last X days. |
+| Buy             | On choosing Buy, the model displays products bought by the customer in the last X days.                       |
+| Pageview        | On choosing Pageview, the model displays products viewed by the customer in the last X days.                  |
+
+#### **Lookback Period**
+
+####
+
+Time period used to determine the Model parameters
+
+| **Lookback Period** | **Description**                                                    |
+| ------------------- | ------------------------------------------------------------------ |
+| Daily               | Time period of daily lookback period will be past 24 hours         |
+| Monthly             | Time period of Monthly Lookback period will be past one month      |
+| Quarterly           | Time period of Quarterly lookback period will be past three months |
+| Weekly              | Time period of Weekly lookback period will past 7 days             |
+| Fortnightly         | Time period of daily lookback period will be past 14 days          |
+
+## Business Rules
+
+###
+
+Business Rules are manually configured filtering conditions applied on top of the strategy to target a specific subset of products. Only those products that match the filtering conditions are displayed on the module. You can configure multiple business rules as long as every condition is met and yields results to serve the product recommendations. Business Rules can be set while configuring models and while creating an experience.
+
+| **Field**  | **Description**                                                                                                                                                                                                                                                                                                                                                  |
+| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Filter     | Choose the product attribute from the drop-down to set the filtering condition. For example, the brand filter lets you limit the range of products included in the recommendation to a particular brand.                                                                                                                                                         |
+| Condition  | Choose the filtering condition for the corresponding filter from the drop-down. For example, you can choose one of the following conditions for brand filters: Is, Is not, When applied. These conditions limit the recommendation result to a specific set of products that match the criteria. Note: The conditions will vary depending on the type of filter. |
+| Value      | Choose a value for the corresponding filter. For example, you can enter a numeric value for a price filter or select a brand name for the brand filter.                                                                                                                                                                                                          |
+| Value Type | The currency type of the filter. If you choose % of source, then only products priced in that price percentage range will be considered. For example, if the source product price is $100 and the filtering rule is set as: Price equals 20 % of the source, then only product priced $20 will                                                                   |
+
+**For example:**
+
+For Business use case - To display only dresses priced less than or equal to $100 in "Most Popular Dresses"
+
+Set Filtering Condition:
+
+Filter: Price
+
+Condition: less than or equal to
+
+Value: 100
+
+Value Type: $
+
+**Apply To:**
+
+Attribute: Category
+
+Condition: Is
+
+Value: Dresses
+
+**_WARNING:_**
+
+Ensure business rules do not conflict with each other.
+
+Ensure your inventory will support a business rule before you add one.
+
+## Personalization :
+
+Personalization can be applied on top of any strategy as a rule to sort the content based on the user's activity.

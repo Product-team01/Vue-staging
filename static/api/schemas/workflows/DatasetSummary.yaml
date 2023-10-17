@@ -1,0 +1,28 @@
+properties:
+  number_of_records:
+    description: This field describes the number of records in the dataset.
+    title: Number Of Records
+    type: integer
+  sample_data:
+    description: This field describes a sample set of records present in the dataset.
+      We can view a few records that are part of the dataset in this field.
+    items:
+      additionalProperties:
+        type: string
+      type: object
+    title: Sample Data
+    type: array
+  univariates:
+    description: This field provides a univariate summary / statistical analysis for
+      all fields in the dataset that can be valuable for descriptive statistics and
+      exploratory data analysis.
+    items:
+      $ref: ../workflows/DatasetUnivariateSummary.yaml
+    title: Univariates
+    type: array
+required:
+- number_of_records
+- sample_data
+- univariates
+title: DatasetSummary
+type: object

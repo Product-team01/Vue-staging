@@ -1,0 +1,48 @@
+post:
+  tags:
+    - trending
+  summary: Discover Trending Use Cases for a Client
+  operationId: discover_trending
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+    - description: boolean to denote to return enabled usecases
+      required: false
+      schema:
+        title: enabled
+        type: boolean
+        default: true
+      name: enabled
+      in: query
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/TrendingDiscover.yaml'
+    '404':
+      description: Config does not exist
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/starfire_success_response.yaml'
+          example:
+            request_id: 96ee690675f611edae9722bc82d1a906
+            correlation_id: r96ee690675f611edae9722bc82d1a906
+            data:
+              message: 'Config does not exist'
+    '400':
+      description: Failed in trending discover
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/starfire_success_response.yaml'
+          example:
+            request_id: 96ee690675f611edae9722bc82d1a906
+            correlation_id: r96ee690675f611edae9722bc82d1a906
+            data:
+              message: 'Failed in trending discover'

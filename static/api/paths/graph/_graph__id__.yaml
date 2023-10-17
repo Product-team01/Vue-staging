@@ -1,0 +1,23 @@
+get:
+  operationId: graph_retrieve
+  description: ''
+  parameters:
+  - in: path
+    name: id
+    schema:
+      type: string
+    description: A unique value identifying this graph.
+    required: true
+  - in: query
+    name: region
+    schema:
+      type: string
+  tags:
+  - graph
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/Graph.yaml'
+      description: ''

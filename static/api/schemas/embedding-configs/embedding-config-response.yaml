@@ -1,0 +1,14 @@
+---
+title: EmbeddingConfigResponse
+type: object
+properties:
+  correlation_id:
+    type: string
+  request_id:
+    type: string
+  data:
+    type: object
+    properties:
+      embedding_config_id:
+        type: string
+        example: ''

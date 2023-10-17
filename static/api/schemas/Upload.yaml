@@ -1,0 +1,19 @@
+title: Upload
+required:
+  - name
+  - file_path
+  - description
+type: object
+properties:
+  name:
+    title: Name
+    type: string
+    description: name of the audiences, should be unique
+  path:
+    title: Path
+    type: string
+    description: s3 path for the file to upload a csv. File does have only one column user_id
+  description:
+    title: Description
+    type: string
+    description: description of the audiences

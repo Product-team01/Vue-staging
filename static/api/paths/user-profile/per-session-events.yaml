@@ -1,0 +1,43 @@
+post:
+  tags:
+  - internal
+  summary: compute per session event for user
+  description: compute per session event for user
+  operationId: per_session_events
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/user-profile/request/per-session-events.yaml'
+        example:
+          $ref: '../../examples/user-profile/request/per-session-events.yaml'
+    required: true
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+            - $ref: '../../schemas/ResponseTemplateSuccessNoData.yaml'
+            - type: object
+              properties:
+                data:
+                  $ref: '../../schemas/user-profile/response/per-session-events.yaml'
+              required:
+                  - data
+          example:
+            $ref: '../../examples/user-profile/response/per-session-events.yaml'
+
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'

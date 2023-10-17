@@ -1,0 +1,41 @@
+delete:
+  tags:
+    - internal
+  summary: Delete Configurations and Jobs for a Client
+  operationId: delete_api_v1_workflows_personalization_analytics_disable_post
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+    - required: true
+      schema:
+        title: Workflow Type
+        type: string
+        example: "dxm"
+        enum:
+          - dxm
+          - tag
+      name: workflow_type
+      in: path
+    - required: true
+      schema:
+        title: Catalog ID
+        type: string
+        example: "83cb071269"
+      name: catalog_id
+      in: query
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/EmptyResponse.yaml'
+    '404':
+      description: config does not exist
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/ErrorResponse.yaml'

@@ -1,0 +1,160 @@
+delete:
+  description: 'This API allows metadata deletion for any specified dataset identifier.
+
+    Once invoked, this API removes this dataset entry from both the listing configuration
+    and also deletes the corresponding metadata stored for this in the dataset registry.
+
+    If delete API is invoked, all versions of the metadata is deleted.
+
+
+    The input to this API is a dataset identifier which refers to the dataset that
+    has to be deleted.'
+  operationId: delete_dataset_api_v1_datasets__dataset_id__delete
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - description: This field describes the ID of the dataset used to query the dataset
+      registry.
+    in: path
+    name: dataset_id
+    required: true
+    schema:
+      description: This field describes the ID of the dataset used to query the dataset
+        registry.
+      title: Dataset Id
+      type: string
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/workflows/DatasetDeleteResponse.yaml
+      description: Successful Response
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/workflows/HTTPValidationError.yaml
+      description: Validation Error
+  summary: Delete Dataset
+  tags:
+  - Datasets
+get:
+  description: 'This API allows the user to read metadata configuration pertaining
+    to a dataset identifier.
+
+    By default, the API provides the latest metadata configuration which is present
+    in the dataset registry.
+
+    The API also helps capture the end-to-end journey of this metadata by providing
+    versioning, and hence captures data lineage in the metadata layer.
+
+    Using the version parameter (which by default points to the latest version of
+    the dataset), we can obtain different versions of this metadata configuration.
+
+
+    The input to this API is a dataset identifier, which is mandatory. We can pass
+    an optional version parameter as well - if not passed, it will point to the latest
+    version of the data.
+
+    The output of this API is all the metadata pertaining to the corresponding dataset
+    identifier.'
+  operationId: get_dataset_api_v1_datasets__dataset_id__get
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - description: This field describes the ID of the dataset used to query the dataset
+      registry.
+    in: path
+    name: dataset_id
+    required: true
+    schema:
+      description: This field describes the ID of the dataset used to query the dataset
+        registry.
+      title: Dataset Id
+      type: string
+  - description: This field describes the version of the dataset that will be parsed
+      from the dataset metadata lineage.
+    in: query
+    name: version
+    required: false
+    schema:
+      default: 0
+      description: This field describes the version of the dataset that will be parsed
+        from the dataset metadata lineage.
+      title: Version
+      type: integer
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/workflows/DatasetReadResponse.yaml
+      description: Successful Response
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/workflows/HTTPValidationError.yaml
+      description: Validation Error
+  summary: Get Dataset
+  tags:
+  - Datasets
+put:
+  description: 'This API allows metadata updation for any specified dataset and re-registers
+    the metadata in the dataset registry.
+
+    Since data lineage is captured in the metadata layer, this API allows the functionality
+    to store any updated version of the metadata as the latest version.
+
+    It does not overwrite the existing configuration, but instead captures that as
+    an older version, thus maintaining the end-to-end journey of the dataset metadata.
+
+
+    The input to this API is a dataset identifier for which the update has to be done,
+    and a corresponding metadata configuration that should be used as the latest metadata.'
+  operationId: update_dataset_api_v1_datasets__dataset_id__put
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - description: This field describes the ID of the dataset used to query the dataset
+      registry.
+    in: path
+    name: dataset_id
+    required: true
+    schema:
+      description: This field describes the ID of the dataset used to query the dataset
+        registry.
+      title: Dataset Id
+      type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../../schemas/workflows/Dataset.yaml
+    required: true
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/workflows/DatasetUpdateResponse.yaml
+      description: Successful Response
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/workflows/HTTPValidationError.yaml
+      description: Validation Error
+  summary: Update Dataset
+  tags:
+  - Datasets

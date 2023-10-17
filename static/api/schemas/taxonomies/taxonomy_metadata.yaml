@@ -1,0 +1,11 @@
+---
+title: TaxonomyMetadata
+type: object
+properties:
+  hex_values_map:
+    type: object
+    description: key is identified by attribute id and value.
+    additionalProperties:
+      type: string
+      additionalProperties:
+        type: string

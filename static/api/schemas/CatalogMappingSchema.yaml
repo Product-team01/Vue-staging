@@ -1,0 +1,14 @@
+title: catalog_mapping
+required:
+- source_catalog_id
+- dest_catalog_id
+type: object
+properties:
+  source_catalog_id:
+    title: source_catalog_id
+    type: string
+    description: source_catalog_id in source account
+  dest_catalog_id:
+    title: dest_catalog_id
+    type: string
+    description: dest_catalog_id of cloned source_catalog_id in destination account

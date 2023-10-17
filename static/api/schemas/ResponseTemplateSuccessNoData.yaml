@@ -1,0 +1,19 @@
+title: ResponseTemplateSuccessNoData
+type: object
+description: Standard template to be used for all responses (some fields like errors
+  might be optional depending on success or failure).
+properties:
+  request_id:
+    type: string
+    description: Id to track a request
+    example: fa5232-4342-424879b2-0717
+  correlation_id:
+    type: string
+    example: 879b2-0717fa5232-4342-424879b2-0717
+  status:
+    type: string
+    example: SUCCESS
+    enum:
+    - SUCCESS
+    - FAILURE
+    - ACCEPTED

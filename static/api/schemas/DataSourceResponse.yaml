@@ -1,0 +1,11 @@
+allOf:
+- $ref: 'DataSourceRequest.yaml'
+- properties:
+    data_source_id:
+      type: string
+    created_ts:
+      type: string
+    updated_ts:
+      type: string
+  type: object
+title: DataSourceResponse

@@ -1,0 +1,71 @@
+post:
+  tags:
+    - projects
+  summary: Review datapoints in annotation
+  description: Ignore or Approve annotated datapoint/datapoints
+  operationId: reviewAnnotatedDatapoints
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+    - name: Accept-Encoding
+      in: header
+      description: indicates the content encoding that the client can understand
+      schema:
+        type: string
+        default: gzip
+    - name: project_id
+      in: path
+      description: unique identifier of the project
+      required: true
+      schema:
+        type: integer
+        format: string
+  requestBody:
+    description: List of datapoints that has to be approved or ignored
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/projects/review-annotated-datapoints.yaml'
+    required: true
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                description: status of the request
+                type: string
+                enum:
+                  - SUCCESS
+                  - FAILURE
+              request_id:
+                description: id to backtrack the request in internal services
+                type: string
+              correlation_id:
+                description: id sent by the caller to backtrack the request
+                type: string
+              data:
+                type: object
+                properties:
+                  message:
+                    description: Success message
+                    type: string
+                    example: Datapoints reviewed successfully.
+    '404':
+      description: returned when project does not exists
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'

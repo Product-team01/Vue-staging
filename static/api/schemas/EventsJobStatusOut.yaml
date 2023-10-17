@@ -1,0 +1,40 @@
+title: EventsJobResponse
+required:
+- request_id
+- correlation_id
+- status
+- data
+type: object
+properties:
+  request_id:
+    title: Request ID
+    type: string
+    example: fa5d8a25-3e3d-409d-adb6-f1c3c2000915
+  correlation_id:
+    title: Correlation ID
+    type: string
+    example: 879b0717-182b-4faa-a9ed-d864d1f50af0
+  status:
+    title: Status
+    type: string
+    example: ACCEPTED
+  data:
+    title: Data
+    type: object
+    properties:
+      status:
+        type: string
+        title: Status
+        description: |
+              Status of the events pipeline
+              1. READY - Indicates the pipeline is ready to accept events/packets
+              2. FAILED - Indicates the pipeline operation like enable/update/delete failed
+              3. UPDATING - Indicates the pipeline is in updating state
+              4. DELETING - Indicates the pipeline is in deleting state
+              5. CREATING - Indicates the pipeline is in creating state
+        enum:
+        - READY
+        - FAILED
+        - UPDATING
+        - DELETING
+        - CREATING

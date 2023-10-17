@@ -1,0 +1,38 @@
+parameters:
+  - required: true
+    schema:
+      title: Use Case ID
+      type: string
+    name: use_case_id
+    in: path
+post:
+  tags:
+    - affinity
+  summary: Run a Affinity use case
+  description: Trigger a dag for the specific use case.
+  operationId: run_affinity
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/EmptyResponse.yaml'
+    '409':
+      description: A run already in progress.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/EmptyResponse.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'

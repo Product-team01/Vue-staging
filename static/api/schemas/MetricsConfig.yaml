@@ -1,0 +1,59 @@
+title: MetricsConfig
+type: object
+properties:
+  metric_workflow_id:
+    title: Metric Workflow ID
+    type: string
+    description: Identifier for the metric workflow config
+  client:
+    title: Client Identifier
+    type: string
+    description: Identifier for client
+  segment:
+    title: Segment
+    type: string
+    description: Segment for client
+  preset:
+    title: Preset
+    type: boolean
+    description: If the configuration is a preset value or not
+  client_details:
+    title: Client Details
+    type: object
+    description: Details for client_details
+  event_table_generation:
+    title: Event Table Generation
+    type: array
+    items:
+      $ref: 'EventTable.yaml'
+    description: Details for event table
+  attribution_table_generation:
+    title: Attribution Table Generation
+    type: array
+    items:
+      $ref: 'AttributionTable.yaml'
+    description: Details for attribution table
+  non_attribution_metrics:
+    title: Non Attribution Metrics
+    type: array
+    items:
+      $ref: 'MetricsDefinitionConfigLite.yaml'
+    description: Details for non-attribution metrics
+  attribution_metrics:
+    title: Attribution Metrics
+    type: array
+    items:
+      $ref: 'MetricsDefinitionConfigLite.yaml'
+    description: Details for attribution metrics
+  audience_metrics:
+    title: Audience Metrics
+    type: array
+    items:
+      $ref: 'MetricsDefinitionConfigLite.yaml'
+    description: Details for audience metrics
+  user_group_metrics:
+    title: User Group Metrics
+    type: array
+    items:
+      $ref: 'MetricsDefinitionConfigLite.yaml'
+    description: Details for user group metrics

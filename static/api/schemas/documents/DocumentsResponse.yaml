@@ -1,0 +1,77 @@
+title: List documents
+type: object
+properties:
+  status:
+    type: string
+    enum: [success]
+  message:
+    type: string
+  data:
+    type: object
+    properties:
+      count:
+        type: integer
+      next:
+        type: string
+        nullable: true
+      previous:
+        type: string
+        nullable: true
+      results:
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              type: integer
+            job_id:
+              type: integer
+            workflow_id:
+              type: integer
+            document_link:
+              type: string
+              format: uri
+            external_document_type:
+              type: object
+              properties:
+                id:
+                  type: string
+                name:
+                  type: string
+            internal_document_type_id:
+              type: integer
+            name:
+              type: string
+            input:
+              type: string
+              format: uri
+            created_date:
+              type: string
+              format: date-time
+            modified_date:
+              type: string
+              format: date-time
+            job_status:
+              type: string
+            metadata:
+              type: object
+             
+          required:
+            - id
+            - job_id
+            - workflow_id
+            - document_link
+            - external_document_type
+            - internal_document_type_id
+            - name
+            - input
+            - created_date
+            - modified_date
+            - current_job_status
+            - metadata
+    required: [count, results]
+  request_id:
+    type: string
+  correlation_id:
+    type: string
+required: [status, message, data, request_id, correlation_id]

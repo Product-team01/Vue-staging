@@ -1,0 +1,12 @@
+properties:
+  cronExpression:
+    title: Cronexpression
+    type: string
+  cronTimeZone:
+    title: Crontimezone
+    type: string
+required:
+- cronExpression
+- cronTimeZone
+title: CronSchedule
+type: object

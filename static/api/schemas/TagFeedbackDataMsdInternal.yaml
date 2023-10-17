@@ -1,0 +1,46 @@
+title: TagFeedbackDataMsdInternal
+type: object
+properties:
+  taxonomy_id:
+    description: Taxonomy using which tags where generated
+    type: string
+    example: fa455caf-448c-47c8-ab75-54274d13052c
+  object_id:
+    type: string
+  attributes:
+    type: array
+    items:
+      type: object
+      properties:
+        id:
+          title: ID
+          description: unique identifier of attribute
+          type: string
+          example: 1b63e560-6ef0-4048-b57a-5b63d7a45331
+        name:
+          title: Name
+          type: string
+          example: Secondary Pattern
+        hierarchy:
+          title: Hierarchy
+          type: string
+          example: productType>Skirts
+        hierarchy_id:
+          title: Hierarchy representation with attribute id
+          type: string
+          example: 5195c0ba-d4e2-4555-8b65-7fffdd7853b8>f94db904-7705-439a-8e62-6a871d9ce242
+        feedback:
+          title: Values
+          type: array
+          items:
+            type: object
+            properties:
+              value:
+                title: Feedback value
+                type: string
+                example: Houndstooth
+              value_id:
+                title: Attribute_id of Feedback_value
+                type: string
+                example: 155fc90b-35ea-4539-9395-265d33828763
+

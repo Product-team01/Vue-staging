@@ -1,0 +1,19 @@
+title: UpdateCatalog
+required:
+- name
+type: object
+properties:
+  name:
+    title: name
+    type: string
+  schema:
+    title: schema
+    type: object
+  data_sources:
+    title: data_sources
+    type: array
+    items:
+      type: object
+  metadata:
+    title: metadata
+    type: object

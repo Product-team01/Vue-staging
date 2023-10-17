@@ -1,0 +1,44 @@
+post:
+  tags:
+    - bundling apis
+  summary: Enable Bundling APIs
+  description: API to create curation_model, tag_weight and image search catalogs
+  operationId: bundling_api_enabling
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  requestBody:
+    description: Catalog Id to be sent in payload.
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            catalog_id:
+              type: string
+            create_catalog:
+              type: boolean
+            create_strategies:
+              type: boolean
+        examples:
+          create_index_request:
+            value:
+              catalog_id: c49b53bf19
+              create_catalog: true
+              create_strategies: true
+  responses:
+    "200":
+      "description": "Successful Response, This will create catalogs for curation model, tag weights, image search and strategies for curation tool APIs"
+      "content":
+        application/json:
+          schema:
+            $ref: "../../schemas/search/bundle_index_simple_response.yaml"
+    "404":
+      "description": "Error Response"
+      "content":
+        application/json:
+          schema:
+            $ref: "../../schemas/search/bundle_error_response.yaml"

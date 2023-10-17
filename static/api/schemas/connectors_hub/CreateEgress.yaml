@@ -1,0 +1,16 @@
+properties:
+  dataset_id:
+    title: Dataset Id
+    type: string
+  destination_id:
+    title: Destination Id
+    type: string
+  name:
+    title: Name
+    type: string
+required:
+- name
+- destination_id
+- dataset_id
+title: CreateEgress
+type: object

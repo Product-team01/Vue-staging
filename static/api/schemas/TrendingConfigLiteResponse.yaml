@@ -1,0 +1,77 @@
+title: TrendingConfigLiteResponse
+required:
+  - request_id
+  - correlation_id
+  - status
+  - data
+type: object
+properties:
+  request_id:
+    title: Request Id
+    type: string
+    description: request_id generated internally
+  correlation_id:
+    title: Correlation Id
+    type: string
+    description: correlation_id for the request
+  status:
+    title: Status
+    type: string
+    description: status for the request
+  data:
+    type: object
+    properties:
+      name:
+        title: Name of the Use Case
+        type: string
+        description: unique identifier for the client's use case e.g. trending_products, trending_buy_counts
+      catalog:
+        title: Catalog
+        type: string
+        description: The name of the catalog
+      userevent_weight:
+        title: Userevent Weight
+        type: object
+        additionalProperties:
+          type: integer
+        description: dict of weightage given to events like pageView, buy
+      output_level:
+        title: Output Level
+        type: string
+        description: The level at which to output the data, e.g. brand, category, ext_id
+      scorer_type:
+        title: Scorer Type
+        type: string
+        description: NaiveScorer, KLDivScorer, CountScorer
+        default: NaiveScorer
+      output_level_filter:
+        title: Output Level Filter
+        type: object
+        description: vizsql compatible filtering json to be applied on events df join products df before any preprocessing
+      explainability:
+        title: Explainability
+        type: boolean
+        description: Wheather to enable computation of explainability of results
+        default: false
+      schedule_interval:
+        title: Schedule Interval
+        type: string
+        description: Setup the schedule of the dag, if not specified its created and requires manual trigger
+      temporal_window_unit:
+        title: Temporal Window Unit
+        type: string
+        description: Size of temporal windows can be in days or hours e.g. 6 hours, 2 days, 3 days
+        default: 1 day
+      lookback_temporal_units:
+        title: Lookback Temporal Units
+        type: string
+        description: Number of windows to look for in the past, if temporal_window_unit is 1 day and this is 7 days that means look at previous 7 days of data
+        default: 14
+      indexing_params:
+        title: Indexing Params
+        type: object
+        properties:
+          elastic_search_key:
+            title: Elastic Search Key
+            type: string
+            description: The name of the field in Elastic Search catalog to which the trending scores should be pushed to. If not speficified no push is done

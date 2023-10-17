@@ -1,0 +1,12 @@
+type: object
+description: Represents the success and failure details encountered
+required:
+- resource
+- details
+properties:
+  resource:
+    type: string
+    description: Unique identifier of the resource
+  details:
+    type: string
+    description: Description of failure of cloning resource

@@ -1,0 +1,66 @@
+get:
+  tags:
+    - internal
+  summary: get all segment configs
+  description: get all segment configs
+  operationId: getSegments
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+    - name: page_num
+      in: query
+      description: number or offset to start fetching configs
+      required: false
+      schema:
+        type: integer
+    - name: page_size
+      in: query
+      description: number of results to be returned
+      schema:
+        type: integer
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              request_id:
+                type: string
+              correlation_id:
+                type: string
+              data:
+                type: array
+                items:
+                  $ref: '../../schemas/segments/segment.yaml'
+post:
+  tags:
+    - internal
+  summary: Add a new segment
+  description: Add a new segment
+  operationId: segments
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+  requestBody:
+    description: segment object that needs to be added
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/segments/add_segment.yaml'
+    required: true
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/segments/segment_response.yaml'
+  x-codegen-request-body-name: body

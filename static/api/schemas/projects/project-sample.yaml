@@ -1,0 +1,32 @@
+type: object
+properties:
+  catalog_id:
+    type: string
+    description: unique identifier of the catalog
+    example: ''
+  sample_id:
+    type: string
+    description: unique identifier of the sampled set
+    example: ''
+  feed_id:
+    type: string
+    description: unique identifier of the feed from which the sample was taken
+    example: ''
+  sample_size:
+    type: string
+    description: total number of records in the sample
+    example: ''
+  status:
+    type: string
+    description: status of the sample. in_progress indicates sampling data is in process,
+      ready indicates sampling is ready for organization, error indicates there was
+      an error while processing the sample.
+    example: ''
+    enum:
+    - IN-PROGRESS
+    - READY
+    - ERROR
+  created_ts:
+    type: string
+    description: timestamp at which the sample was created
+    example: ''

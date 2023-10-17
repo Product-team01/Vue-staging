@@ -1,0 +1,82 @@
+post:
+  tags:
+    - analytics
+  summary: Create New Metric Query config
+  description: Create Metrics query config
+  operationId: create_metrics_query_config
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/MetricsQueryConfig.yaml'
+    required: true
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            title: Metric Query Config
+            allOf:
+            - $ref: '../../schemas/ResponseTemplateSuccessNoData.yaml'
+            - type: object
+              properties:
+                data:
+                  $ref: '../../schemas/MetricsQueryConfigOut.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'
+get:
+  tags:
+    - analytics
+  summary: List Metrics Query configs
+  description: List Metrics Query configs
+  operationId: get_metrics_query_configs
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+    - required: false
+      schema:
+        title: Metrics Query Config Name
+        type: string
+      name: name
+      in: query
+    - required: false
+      schema:
+        title: Source table 
+        type: string
+      name: source
+      in: query
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            title: Metric Query Config
+            allOf:
+            - $ref: '../../schemas/ResponseTemplateSuccessNoData.yaml'
+            - type: object
+              properties:
+                data:
+                  type: object
+                  $ref: '../../schemas/MetricsQueryConfig.yaml'
+
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'

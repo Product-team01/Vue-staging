@@ -1,0 +1,16 @@
+title: TestConnection
+required:
+- name
+- message
+- type
+type: object
+properties:
+  name:
+    title: Name
+    type: string
+  message:
+    title: Message
+    type: string
+  type:
+    title: Type
+    type: string

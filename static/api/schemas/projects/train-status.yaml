@@ -1,0 +1,21 @@
+required:
+- status
+type: object
+properties:
+  model_id:
+    description: unique identifier the model being generated
+    type: string
+  status:
+    type: string
+    description: indicates status of the training request. in_progress represents
+      the training job is in process. ready indicates training is completed. error
+      indicates the process failed
+    enum:
+    - NOT-STARTED
+    - IN-PROGRESS
+    - READY
+    - ERROR
+  created_at:
+    type: string
+    description: timestamp at which the training request was raised
+    example: ''

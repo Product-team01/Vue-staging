@@ -1,0 +1,16 @@
+title: ConfigIn
+required:
+- config_name
+- config_path
+- config_data
+type: object
+properties:
+  config_name:
+    title: Config name
+    type: string
+  config_path:
+    title: Config Path
+    type: string
+  config_data:
+    title: Config Data
+    type: object

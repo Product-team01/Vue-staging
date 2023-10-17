@@ -1,0 +1,54 @@
+properties:
+  config:
+    allOf:
+    - $ref: ../workflows/GenericModelTrainConfig.yaml
+    description: This field is a configuration for the model training process itself.
+      It represents all the required configurations that the user can provide for
+      model training execution.
+    title: Config
+  dependent_node_ids:
+    default: []
+    description: This field describes the list of node IDs that are dependent on the
+      current node. This is used to build the workflow DAG.
+    items:
+      type: string
+    title: Dependent Node Ids
+    type: array
+  model_type:
+    description: This field describes the nature of the model that will be trained.
+      Currently, we support training classification models. We will be extending this
+      to include regression models and forecasting models in the upcoming releases.
+    title: Model Type
+    type: string
+  node_id:
+    default: ''
+    description: This field describes the identifier of the corresponding model training
+      node. If it is not present, it will be created.
+    title: Node Id
+    type: string
+  sink_artifact:
+    default: ''
+    description: This field describes the model artifact output of the corresponding
+      model training process. This is tracked in the model registry on execution.
+      The artifact contains metadata about the model training process and can be used
+      for inference workflows as well.
+    title: Sink Artifact
+    type: string
+  source_dataset:
+    description: This field describes the name of the dataset that will be the source
+      / input for the model training process.
+    title: Source Dataset
+    type: string
+  train_model:
+    description: This field is a boolean field / flag that acts as an identifier for
+      model training nodes. It is a required field and has to be True for model training
+      nodes.
+    title: Train Model
+    type: boolean
+required:
+- train_model
+- source_dataset
+- model_type
+- config
+title: ModelTrainNode
+type: object

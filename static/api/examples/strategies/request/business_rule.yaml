@@ -1,0 +1,27 @@
+data:
+  id: 55104254-b1a6-4b1e-b396-11b3f11718b3
+  workflow_id: bf163c76-e438-45c8-9f76-f21d8d235461
+  description: Inspired by browsing history to fetch products based on user preferences.
+  name: Inspired by browsing history
+  preset: true
+  client: global
+  catalog_id: test_catalog
+  config:
+  - params:
+    - value: daily
+      type: temporal
+      field: lookback
+  business_rules:
+  - rules:
+    - field: Title
+      operator: contains
+      value: Prada
+      value_type:
+      source_dependent: false
+    conditions: []
+    catalog_id: c49b53bf19
+    title: br1
+    rules_relation: AND
+    conditions_relation: AND
+metadata:
+  max_content: 16

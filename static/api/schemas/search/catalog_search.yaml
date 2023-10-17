@@ -1,0 +1,45 @@
+type: object
+title: Catalog Search
+properties:
+  fields:
+    type: array
+    items:
+      type: string
+      description: |
+        Catalog fields which should be returned part of response
+  filters:
+    $ref: search_filter.yaml
+  facets:
+    type: array
+    items:
+      type: string
+      description: |
+        The field should be part of catalog and attribute facet should be marked as true
+  facet_limit:
+    type: integer
+    description: |
+      Maximum number of terms to be returned for each facet
+  search_query:
+    type: string
+    description: |
+      The term to be searched for catalog
+  search_fields:
+    type: array
+    items:
+      type: string
+      description: |
+        The fields where text search should be considered and search attribute should be marked as true
+  sort_by:
+    type: array
+    items:
+      type: object
+      properties:
+        field:
+          type: string
+          description:
+            Field name mentioned here should be facet attribute true
+        order:
+          type: string
+          enum:
+            - desc
+            - asc

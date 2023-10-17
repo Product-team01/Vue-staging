@@ -1,0 +1,20 @@
+title: Success
+type: object
+properties:
+  blox_uuid: 
+    title: blox uuid
+    type: string
+  user_id:
+    title: user_id
+    type: string
+  catalog_id:
+    title: catalog_id
+    type: string
+  session_id:
+    title: catalog_id
+    type: string
+  fields:
+    type: array
+    items:
+      type: string
+

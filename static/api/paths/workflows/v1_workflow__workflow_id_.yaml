@@ -1,0 +1,179 @@
+delete:
+  description: 'This API allows the deletion of any specified workflow.
+
+    It has two functionalities - one being the deletion of just the DAG and updation
+    of the DAG config, and the other being deletion of the workflow metadata from
+    the registry config.
+
+
+    The input to the API is a workflow identifier which is a unique reference to this
+    workflow in the workflow registry.
+
+    The optional confirm_delete parameter is a boolean value that is used by the tool.
+    If set to True, it goes ahead and deletes the workflow DAG and metadata configurations.
+    If False, it generates a prompt that the user can confirm again.'
+  operationId: delete_workflow_api_v1_workflow__workflow_id__delete
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - description: This field describes the ID of the workflow used to query the workflow
+      registry.
+    in: path
+    name: workflow_id
+    required: true
+    schema:
+      description: This field describes the ID of the workflow used to query the workflow
+        registry.
+      title: Workflow Id
+      type: string
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/workflows/WorkflowDeleteResponse.yaml
+      description: Successful Response
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/workflows/HTTPValidationError.yaml
+      description: Validation Error
+  summary: Delete Workflow
+  tags:
+  - Workflows
+get:
+  description: 'This API allows the user to read metadata configuration pertaining
+    to a workflow identifier.
+
+    By default, the API provides the latest metadata configuration which is present
+    in the workflow registry.
+
+    The API also helps capture the end-to-end journey of this metadata by providing
+    versioning, and hence captures data lineage in the metadata layer.
+
+    Using the version parameter (which by default points to the latest version of
+    the workflow), we can obtain different versions of this metadata configuration.
+
+
+    The input to this API is a workflow identifier, which is mandatory. We can pass
+    an optional version parameter as well - if not passed, it will point to the latest
+    version of the data.
+
+    The get_dependencies option is an additional parameter (optional) that allows
+    the understanding of the relationship of different nodes in the workflow. It is
+    useful to understand in execution and deletion tasks.
+
+    The output of this API is all the metadata pertaining to the corresponding workflow
+    identifier.'
+  operationId: get_workflow_api_v1_workflow__workflow_id__get
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - description: This field describes the ID of the workflow used to query the workflow
+      registry.
+    in: path
+    name: workflow_id
+    required: true
+    schema:
+      description: This field describes the ID of the workflow used to query the workflow
+        registry.
+      title: Workflow Id
+      type: string
+  - description: This field is a query parameter that is used to get dependencies
+      between all the nodes in the workflow.
+    in: query
+    name: get_dependencies
+    required: false
+    schema:
+      default: false
+      description: This field is a query parameter that is used to get dependencies
+        between all the nodes in the workflow.
+      title: Get Dependencies
+      type: string
+  - description: This field describes the version of the workflow that will be parsed
+      from the workflow metadata lineage.
+    in: query
+    name: version
+    required: false
+    schema:
+      default: 0
+      description: This field describes the version of the workflow that will be parsed
+        from the workflow metadata lineage.
+      title: Version
+      type: integer
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/workflows/WorkflowReadResponse.yaml
+      description: Successful Response
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/workflows/HTTPValidationError.yaml
+      description: Validation Error
+  summary: Get Workflow
+  tags:
+  - Workflows
+put:
+  description: 'This API allows metadata updation for any specified workflow and re-registers
+    the metadata in the workflow registry.
+
+    Since data lineage is captured in the metadata layer, this API allows the functionality
+    to store any updated version of the metadata as the latest version.
+
+    It does not overwrite the existing configuration, but instead captures that as
+    an older version, thus maintaining the end-to-end journey of the workflow metadata.
+
+
+    The input to this API is a workflow identifier for which the update has to be
+    done, and a corresponding metadata configuration that should be used as the latest
+    metadata.'
+  operationId: update_workflow_api_v1_workflow__workflow_id__put
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - description: This field describes the ID of the workflow used to query the workflow
+      registry.
+    in: path
+    name: workflow_id
+    required: true
+    schema:
+      description: This field describes the ID of the workflow used to query the workflow
+        registry.
+      title: Workflow Id
+      type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../../schemas/workflows/Workflow.yaml
+    required: true
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/workflows/WorkflowUpdateResponse.yaml
+      description: Successful Response
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/workflows/HTTPValidationError.yaml
+      description: Validation Error
+  summary: Update Workflow
+  tags:
+  - Workflows

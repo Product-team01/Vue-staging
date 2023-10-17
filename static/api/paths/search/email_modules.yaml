@@ -1,0 +1,44 @@
+patch:
+  tags:
+    - search
+  summary: Update a status of email Module
+  description:  Update a status of email Module
+  operationId:  Update a status of email Module
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string  
+    - required: true
+      schema:
+        title: Module Id
+        type: string
+      name: module_id
+      in: path
+  responses:
+    "200":
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "../../schemas/ResponseTemplateSuccess.yaml"
+              - type: object
+                properties:
+                  data:
+                    $ref: "../../schemas/search/email_modules.yaml"
+                required:
+                  - data
+    "404":
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/error_response.yaml"
+    "422":
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/validation_error_response.yaml"

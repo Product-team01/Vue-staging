@@ -1,0 +1,27 @@
+title: RarityLiteConfigResponse
+required:
+  - catalog
+  - destination_db
+  - indexing_params
+type: object
+properties:
+  name:
+    title: use case name
+    type: string
+    description: use case name
+  catalog_id:
+    title: Catalog
+    type: string
+    description: Catalog Id
+  destination_db:
+    title: DestinationDB
+    type: string
+    enum: ["elasticsearch", "mcpd"]
+    default: "elasticsearch"
+  indexing_params:
+    type: object
+    properties:
+      elastic_search_key:
+        title: Elastic Search Key
+        type: string
+        description: The name of the field in Elastic Search catalog to which the rarity scores should be pushed

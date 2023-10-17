@@ -1,0 +1,8 @@
+allOf:
+  - type: object
+    title: "Strategy Name Request"
+    properties:
+      strategy_name:
+        description: Name of the strategy to be executed
+        type: string
+  - $ref: search_request_common_non_text.yaml

@@ -1,0 +1,52 @@
+properties:
+  data_handler:
+    additionalProperties:
+      $ref: ../workflows/FileInfo.yaml
+    description: This field describes the metadata configuration about the data handler
+      that describes information about the file and the type of data that we deal
+      with in this workflow configuration.
+    title: Data Handler
+    type: object
+  job_config:
+    allOf:
+    - $ref: ../workflows/JobConfig.yaml
+    default:
+      instance_pool_template_key: starfire
+      job_template: starfire_vizsql
+    description: This field describes the job config that is used for workflow creation
+      and execution.
+    title: Job Config
+  workflow:
+    default: []
+    description: This field describes the workflow configuration that is mapped to
+      the workflow_form field. We currently handle this mapping for compatability
+      between the spark and pandas deployments. It will be merged to one variable
+      in the upcoming releases.
+    items:
+      anyOf:
+      - $ref: ../workflows/DatasetNode.yaml
+      - $ref: ../workflows/ModelTrainNode.yaml
+      - $ref: ../workflows/ModelArtifactNode.yaml
+      - $ref: ../workflows/QueryNode.yaml
+      - $ref: ../workflows/ConnectionNode.yaml
+      - $ref: ../workflows/SourceNode.yaml
+      - $ref: ../workflows/DestinationNode.yaml
+    title: Workflow
+    type: array
+  workflow_form:
+    default: []
+    description: This field describes the workflow configuration that will be populated
+      as per what is entered on the form interface in the canvas.
+    items:
+      anyOf:
+      - $ref: ../workflows/DatasetNode.yaml
+      - $ref: ../workflows/ModelTrainNode.yaml
+      - $ref: ../workflows/ModelArtifactNode.yaml
+      - $ref: ../workflows/QueryForm.yaml
+      - $ref: ../workflows/ConnectionNode.yaml
+      - $ref: ../workflows/SourceNode.yaml
+      - $ref: ../workflows/DestinationNode.yaml
+    title: Workflow Form
+    type: array
+title: WorkflowCreationConfigValidation
+type: object

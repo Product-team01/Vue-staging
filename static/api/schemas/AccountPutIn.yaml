@@ -1,0 +1,22 @@
+title: AccountIn
+required:
+- organization name
+- email_id
+- first_name
+- last_name
+- region
+type: object
+properties:
+  first_name:
+    title: first_name
+    type: string
+  last_name:
+    title: last_name
+    type: string
+  region:
+    title: region
+    type: string
+example:
+  first_name: Mock
+  last_name: Account
+  region: us-east-1

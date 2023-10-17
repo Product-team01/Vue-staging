@@ -1,0 +1,50 @@
+required:
+- attribute_id
+- hull_coordinates
+- pre_labeled_value
+- prediction
+- prediction_confidence_score
+- user_labeled_value
+type: object
+properties:
+  parent_attribute_id:
+    type: string
+    description: unique identifier of the parent attribute
+  attribute_id:
+    type: string
+    description: unique identifier of the attribute
+  prediction:
+    type: object
+    description: value predicted for this attribute
+    properties:
+      id:
+        type: string
+        description: id of the value predicted
+      display_name:
+        type: string
+        description: display name of the value predicted
+  prediction_confidence_score:
+    type: string
+    description: confidence score of the value predicted for this attribute
+  user_labeled_value:
+    description: value assigned by the user
+    type: object
+    properties:
+      id:
+        type: string
+        description: id of the value labeled
+      display_name:
+        type: string
+        description: display name of the value labeled
+  pre_labeled_value:
+    description: value assigned by catalog input
+    type: object
+    properties:
+      id:
+        type: string
+        description: id of the prelabeled value
+      display_name:
+        type: string
+        description: display name of the prelabeled value
+  hull_coordinates:
+    $ref: './hull-coordinates.yaml'

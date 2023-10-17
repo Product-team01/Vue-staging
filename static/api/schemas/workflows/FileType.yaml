@@ -1,0 +1,7 @@
+description: An enumeration.
+enum:
+- csv
+- delta
+- parquet
+title: FileType
+type: string

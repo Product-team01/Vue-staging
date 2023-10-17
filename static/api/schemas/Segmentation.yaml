@@ -1,0 +1,25 @@
+title: Segmentation
+required:
+  - events
+  - path_details
+  - data_handler
+  - segments
+  - job_config
+type: object
+properties:
+  events:
+    $ref: 'Events.yaml'
+  path_details:
+    $ref: 'PathDetails.yaml'
+  data_handler:
+    title: Data Handler
+    allOf:
+      - $ref: 'app__schemas__audience__DataHandler.yaml'
+    description: data read and write files config
+  segments:
+    title: Segments
+    type: array
+    items:
+      $ref: 'Segment.yaml'
+  job_config:
+    $ref: 'AudiencesJobConfig.yaml'

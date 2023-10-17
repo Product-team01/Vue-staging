@@ -1,0 +1,12 @@
+title: Metadata
+required:
+  - description
+  - name
+type: object
+properties:
+  description:
+    title: Description
+    type: string
+  name:
+    title: Name
+    type: string

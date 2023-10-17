@@ -1,0 +1,40 @@
+request_id: 7d1030767b8411edae01f28c070c22cc
+correlation_id: 7d1030767b8411edae01f28c070c22cc
+status: SUCCESS
+data:
+  id: e13e6598-1d5a-44ac-8663-e60c7668a912
+  workflow_id: 02b397d5-b225-405a-a582-6665804f698e
+  description: This model displays the themes for cross-product recommendations for
+    the product in view based on your customer's affinities.
+  name: Bundling
+  preset: true
+  client: global
+  metadata:
+    max_content: 16
+  catalog_id: test_catalog
+  config:
+  - params:
+    - value: 2
+      type: bundle_boost
+      field: base_color
+    - value: drop_curation
+      type: actions
+      field: drop_actions
+    - value: drop_item
+      type: actions
+      field: drop_actions
+    - type: amnesia
+      field: use_amnesia
+      value: true
+    - type: amnesia
+      field: amnesia_ttl
+      value: 120
+    - value: 0.0025
+      type: outfit_score_threshold
+      field: outfit_score_threshold
+    - value: 0.125
+      type: vuestyle_personalization
+      field: personalization_weight
+    - value: 2
+      type: events
+      field: pageView

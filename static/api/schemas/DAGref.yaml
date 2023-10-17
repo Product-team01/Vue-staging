@@ -1,0 +1,23 @@
+title: Success
+type: object
+properties:
+  name:
+    title: DAG detail for workflow
+    type: string
+  id:
+    title: workflow related metadata
+    type: string
+  config:
+    title: workflow related metadata
+    type: object
+    properties:
+      boost_config:
+        title: boost configuration
+        type: object
+      event_type_filters:
+        title: Event type filters
+        type: array
+        items: {}
+      personalization:
+        title: personalization detail
+        type: object

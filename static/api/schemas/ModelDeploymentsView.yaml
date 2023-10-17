@@ -1,0 +1,29 @@
+type: object
+properties:
+  model_deployment_id:
+    type: string
+    format: uuid
+    readOnly: true
+  docker_image:
+    type: string
+  created_at:
+    type: string
+    format: date-time
+    readOnly: true
+  updated_at:
+    type: string
+    format: date-time
+    readOnly: true
+  epoch_id:
+    type: string
+    format: uuid
+    nullable: true
+  code_node:
+    type: string
+    format: uuid
+    nullable: true
+required:
+- created_at
+- docker_image
+- model_deployment_id
+- updated_at

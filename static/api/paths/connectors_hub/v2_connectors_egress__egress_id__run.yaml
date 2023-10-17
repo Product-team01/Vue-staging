@@ -1,0 +1,31 @@
+post:
+  description: Run a egress
+  operationId: run_egress_api_v2_connectors_egress__egress_id__run_post
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - in: path
+    name: egress_id
+    required: true
+    schema:
+      title: Egress Id
+      type: string
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/connectors_hub/RunEgressResponse.yaml
+      description: Successful Response
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/connectors_hub/HTTPValidationError.yaml
+      description: Validation Error
+  summary: Run Egress
+  tags:
+  - connectors

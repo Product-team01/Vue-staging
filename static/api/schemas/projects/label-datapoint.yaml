@@ -1,0 +1,39 @@
+required:
+- attributes
+- datapoint_id
+type: object
+properties:
+  datapoint_id:
+    type: string
+    description: unique identifier of the datapoint
+  fields:
+    type: array
+    items:
+      type: object
+      properties:
+        column_name:
+          type: string
+        value:
+          type: string
+  attribute:
+    type: object
+    description: attribute information
+    required:
+      - attribute_id
+      - attribute_value_id
+      - current_value_id
+    properties:
+      parent_attribute_id:
+        type: string
+        description: unique identifier of the parent attribute
+      attribute_id:
+        type: string
+        description: unique identifier of the attribute
+      attribute_value_id:
+        type: string
+        description: unique identifier of the attribute value
+        format: string
+      current_value_id:
+        type: string
+        description: ''
+

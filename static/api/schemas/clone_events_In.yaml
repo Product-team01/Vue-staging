@@ -1,0 +1,21 @@
+title: event_clone_post
+required:
+  - dest_client_id
+  - catalog_mapping
+  - source_client_id
+type: object
+properties:
+  dest_client_id:
+    title: dest_client_id
+    type: string
+    description: client_id of the destination account
+  source_client_id:
+    title: source_client_id
+    type: string
+    description: client_id of the source account
+  catalog_mapping:
+    title: catalog_mapping
+    type: object
+    items:
+      $ref: 'CatalogMappingSchema.yaml'
+    description: a dict of source_catalog_id's mapped to dest_catalog_id's ( must be a clone of dest_catalog_id )

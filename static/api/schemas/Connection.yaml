@@ -1,0 +1,24 @@
+title: Connection
+type: object
+properties:
+  id:
+    title: Id
+    type: string
+  name:
+    title: Name
+    type: string
+  client:
+    title: Client
+    type: string
+  type:
+    title: Type
+    type: string
+  config:
+    title: Config
+    type: object
+required:
+- id
+- name
+- client
+- type
+- config

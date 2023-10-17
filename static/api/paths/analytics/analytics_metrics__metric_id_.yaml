@@ -1,0 +1,34 @@
+get:
+  tags:
+  - analytics
+  summary: Get metric definitions by Id
+  description: Get metrics definition by Id
+  operationId: get_analytics_metrics_by_id
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - required: true
+    schema:
+      title: Metric Id
+      type: string
+    name: metric_id
+    in: path
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            title: Response List Clients Api V1 Clients Get
+            type: array
+            items:
+              $ref: '../../schemas/AnalyticsMetricsOut.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'

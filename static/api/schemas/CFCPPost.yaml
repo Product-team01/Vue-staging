@@ -1,0 +1,54 @@
+title: CFCPPost
+required:
+  - name
+  - catalog_id
+  - algorithm_type
+  - head_event
+  - tail_event
+type: object
+properties:
+  name:
+    title: Use Case name
+    type: string
+    description: unique identifier for the client's use case e.g. cfcp_products, cfcp_buy_counts
+  catalog_id:
+    title: Catalog
+    type: string
+    description: The name of the catalog
+  algorithm_type:
+    title: Algorithm Type
+    type: string
+    description: cf/cp
+  ontology_mapping_file_path:
+    title: Ontology Mapping File Path
+    type: string
+    description: path to ontology mapping file. if not given default is used
+  head_event:
+    title: Head Event name
+    type: string
+    description: event name from which to start an edge
+  tail_event:
+    title: Tail Event
+    type: string
+    description: event name to which the edge goes
+  start_date:
+    title: Start Date
+    type: string
+    description: start date of data which is to be considered
+  end_date:
+    title: End Date
+    type: string
+    description: end date of data which is to be considered
+  output_level_filter_json:
+    title: Output Level Filter Json
+    type: object
+    description: filtering conditions on events data
+  schedule_interval:
+    title: Schedule Interval
+    type: string
+    description: Setup the schedule of the dag, if not specified its created and requires manual trigger
+  max_results_to_store:
+    title: Max Results To Store
+    type: integer
+    description: For a given head id how many recommendations to store in key value store at max
+    default: 50

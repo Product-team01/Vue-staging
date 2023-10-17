@@ -1,0 +1,62 @@
+---
+title: TaxonomyAttributesObjectWithId
+required:
+  - parent_attribute_id
+  - attribute_id
+  - display_name
+  - hierarchy_value
+  - is_attribute
+  - name
+type: object
+properties:
+  attribute_id:
+    type: string
+    description: unique identifier of the taxonomy attribute.
+  parent_attribute_id:
+    type: string
+    description: unique identifier of the parent attribute.
+  name:
+    type: string
+    description: >-
+      unique name of the taxonomy attribute. This once set cannot be
+      modified.
+  display_name:
+    type: string
+    description: >-
+      unique display name of the taxonomy attribute. This can be modified
+      and will be used for display purposes.
+  hierarchy_value:
+    type: array
+    items:
+      type: string
+      description: >-
+        represents the hierarchy of the attribute built using the name of
+        the root and all intermediate attributes.
+  hierarchy_ids:
+    type: array
+    items:
+      type: string
+      description: >-
+        represents the hierarchy of the attribute built using the id of
+        the root and all intermediate attributes.
+  is_attribute:
+    type: boolean
+    description: >-
+      Indicates if the attribute can contain further levels or does it
+      represent only values.
+  meta:
+    type: string
+    description: >-
+      Identifies what the attribute represents, based on which algorithms work better 
+      with the data associated to the property directly or indirectly.
+  multi_value:
+    type: boolean
+    description: >-
+      Identifies if the attribute can hold more than one value for a given datapoint, this property is valid only when is_attribute is true.
+  children:
+    type: array
+    description: >-
+      represents all the children attributes. Uses the same structure as a
+      single attribute object.
+    items:
+      type: object

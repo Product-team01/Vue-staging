@@ -1,0 +1,17 @@
+title: AutoSuggest
+description: AutoSuggest request payload.
+type: object
+properties:
+  max_content:
+    title: Max content
+    description: Maximum no of recommendation to be served
+    type: number
+  catalogs:
+    type: object
+    description: "`catalogs` has one entry per `catalog-id` to its respective associated `fields`, `filters`, and page `context`"
+  auto_correct:
+    description: A optional flag, when set to true, will corrects the search_query",
+    type: boolean
+
+required:
+  - catalogs

@@ -1,0 +1,122 @@
+get:
+  tags:
+    - models
+  summary: Get Config
+  operationId: get_config_api_v1_cfcp_configs_get
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string  
+    - description: unique identifier for the client's usecase e.g. cfcp_buy_buy, cfcp_buy_pageView_1
+      required: true
+      schema:
+        title: Use Case
+        type: string
+        description: unique identifier for the client's usecase e.g. cfcp_buy_buy, cfcp_buy_pageView_1
+      name: use_case
+      in: query
+    - description: unique api key for the client
+      required: true
+      schema:
+        title: X-Api-Key
+        type: string
+        description: unique api key for the client
+      name: x-api-key
+      in: header
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/CFCPConfigLiteResponse.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'
+post:
+  tags:
+    - models
+  summary: Post Config
+  description: |-
+    Lets one register cfcp config.
+
+    If lite is true expected config is CFCPConfigLite.
+  operationId: post_config_api_v1_cfcp_configs_post
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+    - description: unique api key for the client
+      required: true
+      schema:
+        title: X-Api-Key
+        type: string
+        description: unique api key for the client
+      name: x-api-key
+      in: header
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/Body_post_config_api_v1_cfcp_configs_post.yaml'
+    required: true
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/EmptyResponse.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'
+delete:
+  tags:
+    - models
+  summary: Delete Config
+  operationId: delete_config_api_v1_cfcp_configs_delete
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+    - description: unique identifier for the client's usecase e.g. cfcp_products, cfcp_buy_counts
+      required: true
+      schema:
+        title: Use Case
+        type: string
+        description: unique identifier for the client's usecase e.g. cfcp_products, cfcp_buy_counts
+      name: use_case
+      in: query
+    - description: unique api key for the client
+      required: true
+      schema:
+        title: X-Api-Key
+        type: string
+        description: unique api key for the client
+      name: x-api-key
+      in: header
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/EmptyResponse.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'

@@ -1,0 +1,14 @@
+title: Account Resources
+type: object
+properties:
+  esource:
+    title: id
+    description: Account resources will be mentioned here.
+    type: string
+    example: catalogs
+  status:
+    title: status
+    description: delete status of the particular resource
+    type: string
+    example: SUCCESS
+  

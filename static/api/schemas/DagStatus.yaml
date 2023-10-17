@@ -1,0 +1,18 @@
+title: DagStatus
+type: object
+properties:
+  start_datetime:
+    title: Start Datetime
+    type: string
+    description: start datetime for the dag
+    default: ''
+  end_datetime:
+    title: End Datetime
+    type: string
+    description: end datetime for the dag
+    default: ''
+  state:
+    title: State
+    type: string
+    description: state of the dag success, failed, running, queued
+    default: 'success'

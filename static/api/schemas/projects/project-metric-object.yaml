@@ -1,0 +1,66 @@
+required:
+- attribute_level_count
+type: object
+properties:
+  attribute_metrics:
+    type: array
+    items:
+      type: object
+      properties:
+        attribute_id:
+          type: string
+          description: attribute id in the taxonomy associated to the project
+        attribute_name:
+          type: string
+          description: name of the attribute
+        parent_attribute_id:
+          type: string
+          description: parent attribute id of the current attribute
+        hierarchy_value:
+          type: string
+          description: description of the hierarchy path from root attribute
+            and sample
+        total:
+          type: integer
+          description: total number of datapoints
+          format: int64
+        user_labelled:
+          type: integer
+          description: number of datapoints labelled by user
+          format: int64
+        user_edited:
+          type: integer
+          description: number of datapoints corrected by user
+          format: int64
+        unpredicted:
+          type: integer
+          description: number of datapoints that were not predicted
+            and sample
+          format: int64
+        value_metrics:
+          type: array
+          description: this object is returned only value_metrics query string is passed as true
+          items:
+            type: object
+            properties:
+              attribute_id:
+                type: string
+                description: attribute id in the taxonomy associated to the project
+              attribute_name:
+                type: string
+                description: name of the attribute
+              system_predicted:
+                type: string
+                description: number of datapoints predicted by the model
+                format: int64
+              unpredicted:
+                type: string
+                description: number of datapoints that are not predicted
+                format: int64
+  metadata:
+    type: object
+    properties:
+      reset_training_running_status:
+        type: boolean
+        description: returns current reset training job status
+        format: int64

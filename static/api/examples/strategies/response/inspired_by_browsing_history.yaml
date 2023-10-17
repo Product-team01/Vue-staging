@@ -1,0 +1,27 @@
+request_id: 7d1030767b8411edae01f28c070c22cc
+correlation_id: 7d1030767b8411edae01f28c070c22cc
+status: SUCCESS
+data:
+  id: 55104254-b1a6-4b1e-b396-11b3f11718b3
+  workflow_id: bf163c76-e438-45c8-9f76-f21d8d235461
+  description: Inspired by browsing history to fetch products based on user preferences.
+  name: Inspired by browsing history
+  preset: true
+  client: global
+  metadata:
+    max_content: 16
+  catalog_id: test_catalog
+  config:
+  - params:
+    - value: daily
+      type: temporal
+      field: lookback
+    - field: rarity_use_case_id
+      value: rarity_use_case_from_starfire
+      type: rarity_use_case
+    - field: exploration_rarity
+      value: 0.5
+      type: exploration_rarity
+    - field: seasonality_use_case_id
+      value: seasonality-test-usecase
+      type: seasonality_use_case

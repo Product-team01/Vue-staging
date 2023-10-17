@@ -1,0 +1,38 @@
+get:
+  tags:
+  - events
+  summary: Run status for Event Pipeline
+  description: Get status for Event Pipeline
+  operationId: events_run_status
+  parameters:
+  - required: true
+    schema:
+      title: RUN ID
+      type: string
+    name: run_id
+    in: path
+  responses:
+    '404':
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/PostFailureResponse.yaml'
+    "200":
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/EventsJobRunStatusResponse.yaml"
+    "400":
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/PostFailureResponse.yaml"
+    "500":
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/PostFailureResponse.yaml"

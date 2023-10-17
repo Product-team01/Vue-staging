@@ -1,0 +1,66 @@
+type: object
+properties:
+  use_case:
+    title: Use Case
+    type: string
+    example: 'cf_workflow_Test'
+  indexing:
+    title: Indexing
+    type: string
+    example: 'mcpd'
+  category_field:
+    title: Category Field
+    type: string
+    example: 'Custom Product Type'
+  params:
+    title: Params
+    type: object
+    properties:
+      partition_key:
+        title: Partition Key
+        type: string
+        example: 'Handle'
+      catalog_id:
+        title: Catalog ID
+        type: string
+        example: 'c49b53bf19'
+      variable_key:
+        title: Variable Key
+        type: boolean
+        example: True
+      filter_key1:
+        title: Filter Key1
+        type: string
+        example: 'cf_workflow_test'
+  event_pair:
+    title: Event Pair
+    type: object
+    properties:
+      head_event:
+        title: Head Event
+        type: object
+        properties:
+          event_meta:
+            title: Event Meta
+            type: object
+            example: 'pageView'
+          event_name:
+            title: Event Name
+            type: string
+            example: 'PDPPageView'
+      tail_event:
+        title: Tail Event
+        type: string
+        properties:
+          event_meta:
+            title: Event Meta
+            type: object
+            example: 'pageView'
+          event_name:
+            title: Event Name
+            type: string
+            example: 'PDPPageView'
+  algorithm_type:
+    title: Algorithm Type
+    type: string
+    example: 'cf'

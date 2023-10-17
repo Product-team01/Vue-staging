@@ -1,0 +1,33 @@
+get:
+  tags:
+    - models
+  summary: List Configs
+  description: Lists the info for the configs filtered by the values in the argument. If no filter specified all keys are returned.
+  operationId: list_configs_api_v1_trending_list_get
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+    - description: unique api key for the client
+      required: true
+      schema:
+        title: X-Api-Key
+        type: string
+        description: unique api key for the client
+      name: x-api-key
+      in: header
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/TrendingListConfigsResponse.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'

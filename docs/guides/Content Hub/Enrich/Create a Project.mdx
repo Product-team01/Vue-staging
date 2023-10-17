@@ -1,0 +1,92 @@
+---
+title: Create a project
+sidebar_label: Create a project
+sidebar_position: 2
+---
+
+A project encapsulates everything needed for a content organization workflow.
+
+1. In the Project Listing Screen (Enrich), click on ‘Create New’ Project
+1. Choose a Catalog
+
+![Alt text](https://d1r1e7xjkfj7nz.cloudfront.net/catalog.png 'a title')
+
+3. Choose a segment
+
+![Alt text](https://d1r1e7xjkfj7nz.cloudfront.net/segments.png 'a title')
+
+4. Choose a feed
+
+![Alt text](https://d1r1e7xjkfj7nz.cloudfront.net/Feeds.png 'a title')
+
+5. Review & manage the default Taxonomy
+
+![Alt text](https://d1r1e7xjkfj7nz.cloudfront.net/Projects.png 'a title')
+
+- Delete the Taxonomy
+- Upload a custom Taxonomy
+- Download the Taxonomy
+
+6. View the default set of models available for the selected segment & taxonomy
+
+![Alt text](https://d1r1e7xjkfj7nz.cloudfront.net/model.png 'a title')
+
+7. Click on Submit to create the Project
+
+## Feed
+
+A feed is a file which contains a set of content. For example a catalog feed contains information about each product like image url, tile, identifier, price etc…
+
+In the Project explore screen,
+
+- all the feeds which have already been imported into the project are displayed for you to access and either organize the content or data point.
+- you can also import new feed into project here.
+
+### Import a Feed:
+
+![Alt text](https://d1r1e7xjkfj7nz.cloudfront.net/feedimport.png 'a title')
+
+1. Click on the ‘Import Feed’
+1. From the Feeds listing, select a feed and click on ‘Done’
+
+**Note:**
+
+- It is possible to import only the feeds that are within the Catalog linked to the Project. Already imported feeds are not available for import again.
+- Whenever a feed is imported into a project only a sample of 3000 content or data points (from the feed) is used for organization & model training. If the number of data points is less than 3000, the entire file is taken.
+
+## Taxonomy
+
+A Taxonomy is a hierarchical structure of attributes to tag the data point against. The taxonomy provides a structure and flow to organize your data from root to leaf nodes. For example, ‘color’ is an attribute, while the actual colors ‘red’, ‘blue’, etc are possible values for the color attribute. Depending on your choice of segment, a preset taxonomy is recommended by default.
+
+### Manage Taxonomy:
+
+- Click on the '+' action to add new attributes, values & levels to the Taxonomy
+- Click on the kebab menu to
+  - Rename - the attribute or value from Taxonomy
+  - Delete - the attribute or value from Taxonomy
+    - Note: Deleting an attribute or value after the content or data point has already been organized will reset the content and will be made available as unorganized within that Taxonomy level.
+  - Map fields - map any available pre-labeled data any attribute
+
+### Import a custom Taxonomy:
+
+![Alt text](https://d1r1e7xjkfj7nz.cloudfront.net/importtax.png 'a title')
+
+- Click on the upload icon
+- Choose import from CSV option
+- Upload the CSV with your Taxonomy details in the supported format and click on ‘Done’
+
+**Note:** Click on ‘Sample File’ to download a sample file with the supported Taxonomy format.
+
+### Import Taxonomy from another Project:
+
+- Click on the upload icon
+- Choose Import from another project option
+- Select the project from the list and click on ‘Done’
+
+### Delete Taxonomy:
+
+Click on the ‘Delete’ icon will prompt the user to request a confirmation. Click on ‘Yes’, to permanently delete the Taxonomy
+
+### Switch Taxonomy Level:
+
+In order to switch to a different taxonomy level, click the taxonomy level indicator to open up the taxonomy screen, and select the taxonomy level. Note: When switching to a deeper level in the taxonomy, only the data points that have been labeled as the parent value will show up for the organization.

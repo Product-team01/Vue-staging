@@ -1,0 +1,31 @@
+title: DataSourceRequest
+type: object
+properties:
+  name:
+    title: Name
+    type: string
+    example: new_s3_source
+  type:
+    title: connector_type
+    type: string
+    example: s3
+  config:
+    type: object
+    example:
+      path: s3://catalog/products/data
+      format: csv
+  mode:
+    type: string
+    enum:
+    - incremental
+    - full_sync
+    example: incremental
+  schedule:
+    type: string
+    example: 0 0/30 * * * ?
+required:
+- name
+- type
+- config
+- mode
+- schedule

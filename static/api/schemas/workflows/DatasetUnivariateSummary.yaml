@@ -1,0 +1,65 @@
+properties:
+  count:
+    default: 0
+    description: This field describes the number of records for that column in the
+      dataset.
+    title: Count
+    type: integer
+  max:
+    default: 0
+    description: This field is for columns in the data that have numerical values.
+      This provides the maximum value of all records for that column in the dataset.
+    title: Max
+    type: number
+  mean:
+    default: 0
+    description: This field is for columns in the data that have numerical values.
+      This provides an average value of all records for that column in the dataset.
+    title: Mean
+    type: number
+  median:
+    default: 0
+    description: TThis field is for columns in the data that have numerical values.
+      This provides a median value of all records for that column in the dataset.
+    title: Median
+    type: number
+  min:
+    default: 0
+    description: This field is for columns in the data that have numerical values.
+      This provides a minimum value of all records for that column in the dataset.
+    title: Min
+    type: number
+  missing:
+    default: 0
+    description: This field describes the number of missing values for that column
+      in the dataset.
+    title: Missing
+    type: integer
+  name:
+    description: This field describes the name of the column in the dataset.
+    title: Name
+    type: string
+  stddev:
+    default: 0
+    description: This field is for columns in the data that have numerical values.
+      This provides the standard deviation of all records for that column in the dataset.
+    title: Stddev
+    type: number
+  type:
+    description: This field describes the data type of the column in the dataset.
+    title: Type
+    type: string
+  value_counts:
+    default: []
+    description: This field is for columns in the data that have categorical values.
+      This provides all unique values for that column in the dataset, and its corresponding
+      counts
+    items:
+      $ref: ../workflows/DatasetValueCount.yaml
+    title: Value Counts
+    type: array
+required:
+- name
+- type
+title: DatasetUnivariateSummary
+type: object

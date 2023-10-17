@@ -1,0 +1,119 @@
+delete:
+  tags:
+  - search
+  summary: Delete template
+  description: Deletes the template
+  operationId: delete_template
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - required: true
+    schema:
+      title: Template Id
+      type: string
+    name: template_id
+    in: path
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/ConfigDeleteTemplate.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'
+get:
+  tags:
+  - search
+  summary: Get Template
+  description: Retrieve Template by Id
+  operationId: get_template_by_id
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - required: true
+    schema:
+      title: Template Id
+      type: string
+    name: template_id
+    in: path
+  - in: query
+    name: deep_fetch
+    schema:
+      title: Deep Fetch
+      type: boolean
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/TemplateOut.yaml'
+    '400':
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'
+patch:
+  tags:
+  - search
+  summary: Update Template
+  description: 'The Template describes a rendering format - a visual layout for products
+    on the webpage. This api is to create a template based on one of the template
+    types supported. The templates are created in Blox app and used by embed code
+    for rendering. '
+  operationId: update_template
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+    - required: true
+      schema:
+        title: Template Id
+        type: string
+      name: template_id
+      in: path
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/TemplateIn.yaml'
+    required: true
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/TemplateOut.yaml'  
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'

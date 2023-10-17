@@ -1,0 +1,145 @@
+get:
+  tags:
+  - accounts
+  summary: Get Account by id
+  description: |
+    Get Account details can by achieved through two possible way.
+    - using via the client api key
+    - using via super admin key
+    - path params account_id is the unique identifier for the account which is returned in the response of account creation
+  operationId: get_account_by_id
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - required: true
+    schema:
+      title: Account Id
+      type: string
+    name: account_id
+    description: account_id is the unique identifier for the account
+    in: path
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+            - $ref: '../../schemas/ResponseTemplateSuccessNoData.yaml'
+            - type: object
+              properties:
+                data:
+                  type: array
+                  items:
+                    $ref: '../../schemas/AccountOut.yaml'
+              required:
+                  - data
+
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'
+
+put:
+  tags:
+  - accounts
+  summary: Update Account
+  description: |
+    Update Account details
+      - organization name and email can't be edited
+  operationId: update_account
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - required: true
+    schema:
+      title: Account Id
+      type: string
+    name: account_id
+    in: path
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/AccountPutIn.yaml'
+    required: true
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+            - $ref: '../../schemas/ResponseTemplateSuccessNoData.yaml'
+            - type: object
+              properties:
+                data:
+                  type: array
+                  items:
+                    $ref: '../../schemas/AccountOut.yaml'
+              required:
+                  - data
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'
+
+delete:
+  tags:
+  - accounts
+  summary: Delete Account
+  description: 'Deletes the given account along with all created resources
+
+
+    Admin api_key is required to authenticate deletion of the client'
+  operationId: delete_account
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - required: true
+    schema:
+      title: Account Id
+      type: string
+    name: account_id
+    in: path
+  - required: false
+    schema:
+      title: delay
+      type: integer
+      description: delay for retries
+      example: 2
+    name: delay
+    in: query
+  - required: false
+    schema:
+      title: retries
+      type: integer
+      example: 0
+    name: retries
+    in: query
+  responses:
+    "200":
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/AccountDeleteResponse.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'

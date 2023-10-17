@@ -1,0 +1,27 @@
+
+      required:
+        - embedding_config_id
+        - graph_id
+        - id
+        - name
+        - taxonomy_id
+        - type
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+          example: ''
+        graph_id:
+          type: string
+        embedding_config_id:
+          type: string
+        taxonomy_id:
+          type: string
+        active:
+          type: boolean
+        preset:
+          type: boolean

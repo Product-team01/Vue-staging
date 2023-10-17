@@ -1,0 +1,182 @@
+get:
+  tags:
+  - accounts
+  summary: Api Key Account
+  description: 'Archives the account and other related data.
+    Account api_key is required to authenticate the archival of the client'
+  operationId: get_api_key_account
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - required: true
+    schema:
+      title: Account Id
+      type: string
+    name: account_id
+    in: path
+  - required: true
+    schema:
+      title: api key
+      type: string
+    name: api_key
+    in: path
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+            - $ref: '../../schemas/ResponseTemplateSuccessNoData.yaml'
+            - type: object
+              properties:
+                data:
+                  type: array
+                  items:
+                    $ref: "../../schemas/AccountApiKeyOut.yaml"
+              required:
+                  - data
+          example:
+            request_id: 23abc7067a2c11ed95c70ea7570d814d
+            correlation_id: 23abc7067a2c11ed95c70ea7570d814d
+            status: SUCCESS
+            data:
+              api_key: cf2407b6173e4fd3b7667feb704eb9de
+              active: true
+              client: 85f89538-20f3-55e5-9b61-5886cb490052
+              created_ts: '2022-12-12T14:49:11.411208'
+              updated_ts: '2022-12-12T14:49:11.411219'
+
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'
+
+
+patch:
+  tags:
+  - accounts
+  summary: Api key Account
+  description: 'Patch Api key
+    Account api_key is required to authenticate the archival of the client'
+  operationId: patch_api_key_account
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - required: true
+    schema:
+      title: Account Id
+      type: string
+    name: account_id
+    in: path
+  - required: true
+    schema:
+      title: api key
+      type: string
+    name: api_key
+    in: path
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/AccountApiKeyPatch.yaml'
+    required: true
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+            - $ref: '../../schemas/ResponseTemplateSuccessNoData.yaml'
+            - type: object
+              properties:
+                data:
+                  type: array
+                  items:
+                    $ref: "../../schemas/AccountApiKeyOut.yaml"
+              required:
+                  - data
+          example:
+            request_id: 23abc7067a2c11ed95c70ea7570d814d
+            correlation_id: 23abc7067a2c11ed95c70ea7570d814d
+            status: SUCCESS
+            data:
+              api_key: cf2407b6173e4fd3b7667feb704eb9de
+              active: true
+              client: 85f89538-20f3-55e5-9b61-5886cb490052
+              created_ts: '2022-12-12T14:49:11.411208'
+              updated_ts: '2022-12-12T14:49:11.411219'
+
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'
+
+
+delete:
+  tags:
+  - accounts
+  summary: Api key Account
+  description: 'Delete api key account 
+    Account api_key  is required to delete client'
+  operationId: delete_api_key_account
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - required: true
+    schema:
+      title: Account Id
+      type: string
+    name: account_id
+    in: path
+  - required: true
+    schema:
+      title: api key
+      type: string
+    name: api_key
+    in: path
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+            - $ref: '../../schemas/ResponseTemplateSuccessNoData.yaml'
+            - type: object
+              properties:
+                data:
+                  type: object
+                  properties:
+                    message:
+                      type: string
+
+              required:
+                  - data
+          example:
+            request_id: 23abc7067a2c11ed95c70ea7570d814d
+            correlation_id: 23abc7067a2c11ed95c70ea7570d814d
+            status: SUCCESS
+            data:
+              message: account api key deleted successfully
+
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'

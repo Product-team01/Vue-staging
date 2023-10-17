@@ -1,0 +1,256 @@
+get:
+  tags:
+    - search
+  summary: Get Module
+  description: Retrieve specific Module by Id
+  operationId: get_module_by_id
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+    - required: true
+      schema:
+        title: Module Id
+        type: string
+      name: module_id
+      in: path
+  responses:
+    "200":
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "../../schemas/ResponseTemplateSuccessNoData.yaml"
+              - type: object
+                properties:
+                  data:
+                    $ref: "../../schemas/search/module.yaml"
+                required:
+                  - data
+          example:
+            request_id: c3443e1c7ba611ed80e52ea90644a30b
+            status: SUCCESS
+            data:
+              name: GRID RegOct21 - SimilarProducts
+              title: Products Similar
+              strategies:
+                - name: RegOct21 - SimilarProducts
+                  id: 72c701b6-c71a-4747-99d2-302ecaac6d7e
+                  tile_slots: 
+                  - 1
+                  - 2
+                  - 3
+                  - 4
+                  fallback: false
+              metadata:
+                min_content: 1
+                max_content: 16
+                min_bundles: 1
+                max_bundles: 4
+              templates:
+                - e35d4d27-058a-4eb3-a55e-5f52c3dd0809
+              strategy_rules:
+              - - conditions:
+                  - field: PRICE
+                    operator: eq
+                    value:
+                    - 1799
+                  conditions_relation: AND
+                  strategy: strategy_id-1
+                - conditions:
+                  - field: PRICE
+                    operator: eq
+                    value:
+                    - 999
+                  conditions_relation: AND
+                  strategy: strategy_id-2
+                - strategy: strategy_id-3
+              - - strategy: strategy_id-4
+              integration_mode: embed_code
+              id: f0eaa962-3308-45b8-9a65-3ee76cc2fb4a
+    '400':
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/error_response.yaml'
+    "404":
+      description: Config Not found
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/error_response.yaml"
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/PostFailureResponse.yaml'
+
+patch:
+  tags:
+    - search
+  summary: Update a Module
+  description: Update a Module
+  operationId: update_module
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+    - required: true
+      schema:
+        title: Module Id
+        type: string
+      name: module_id
+      in: path
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas/search/module.yaml"
+  responses:
+    "200":
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "../../schemas/ResponseTemplateSuccessNoData.yaml"
+              - type: object
+                properties:
+                  data:
+                    $ref: "../../schemas/search/module.yaml"
+                required:
+                  - data
+          example:
+            request_id: c3443e1c7ba611ed80e52ea90644a30b
+            status: SUCCESS
+            data:
+              name: GRID RegOct21 - SimilarProducts
+              title: Products Similar
+              metadata:
+                min_content: 1
+                max_content: 16
+                min_bundles: 1
+                max_bundles: 4
+              templates:
+                - e35d4d27-058a-4eb3-a55e-5f52c3dd0809
+              strategy_rules:
+              - - conditions:
+                  - field: PRICE
+                    operator: eq
+                    value:
+                    - 1799
+                  conditions_relation: AND
+                  strategy: strategy_id-1
+                - conditions:
+                  - field: PRICE
+                    operator: eq
+                    value:
+                    - 999
+                  conditions_relation: AND
+                  strategy: strategy_id-2
+                - strategy: strategy_id-3
+              - - strategy: strategy_id-4
+              strategies:
+                - fallback: false
+                  tile_slots:
+                    - 1
+                  name: SimilarProducts
+                  id: strategy_id-1
+                - fallback: false
+                  tile_slots:
+                    - 2
+                  name: vr
+                  id: strategy_id-2
+                - fallback: false
+                  tile_slots:
+                    - 3
+                  name: vr
+                  id: strategy_id-3
+                - fallback: false
+                  tile_slots:
+                    - 4
+                  name: vr
+                  id: strategy_id-4
+              integration_mode: embed_code
+              id: f0eaa962-3308-45b8-9a65-3ee76cc2fb4a
+    "400":
+      description: Config Not found
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/error_response.yaml"
+    "404":
+      description: Config Not found
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/error_response.yaml"
+    "422":
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/error_response.yaml"
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/PostFailureResponse.yaml'
+
+delete:
+  tags:
+    - search
+  summary: Delete Module
+  description: Delete Module by Id
+  operationId: delete_module
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+    - required: true
+      schema:
+        title: Module Id
+        type: string
+      name: module_id
+      in: path
+  responses:
+    "200":
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "../../schemas/ResponseTemplateSuccessNoData.yaml"
+              - type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+                        description: msg denoting the success of deletion
+                        example: Successfully deleted config
+                required:
+                  - data
+    "404":
+      description: Config Not found
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/error_response.yaml"
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/PostFailureResponse.yaml'

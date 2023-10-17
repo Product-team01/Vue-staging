@@ -1,0 +1,47 @@
+request_id: 7d1030767b8411edae01f28c070c22cc
+correlation_id: 7d1030767b8411edae01f28c070c22cc
+status: SUCCESS
+data:
+  id: ecdfc6f5-639a-415d-84eb-529ec08f301a
+  name: Trending
+  type: Popularity
+  inputs: []
+  required_config:
+  - type: trending_use_case
+  config_schema:
+    type: array
+    items:
+      type: object
+      properties:
+        params:
+          type: array
+          items:
+            anyOf:
+            - type: object
+              properties:
+                value:
+                  type: string
+                type:
+                  description: Parameter used to personalise the result
+                  const: trending_use_case
+                field:
+                  description: When enabled, the result will be personalized based on
+                    the user history
+                  const: trending_use_case_name
+  DAG:
+    members:
+    - node:
+        name: get_trending_query
+      dependencies: []
+    - node:
+        name: get_es_results
+      dependencies:
+      - get_trending_query
+    - node:
+        name: general_product_assembly
+      dependencies:
+      - get_es_results
+    - node:
+        name: arrange_response_based_on_rating
+      dependencies:
+      - general_product_assembly

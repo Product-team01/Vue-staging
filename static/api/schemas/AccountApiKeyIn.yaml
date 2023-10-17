@@ -1,0 +1,12 @@
+title: AccountApiKeyIn
+required:
+- api_key
+type: object
+properties:
+  api_key:
+    title: api_key
+    type: string
+  active:
+    title: active
+    type: boolean
+

@@ -1,0 +1,162 @@
+get:
+  description: 'This API lists the total number of workflows that have been registered
+    in the workflow registry, with its corresponding name and identifiers.
+
+    The goal of this API is to provide the registered workflows in a convenient format
+    that allows the user to browse and discover all entries in the registry.
+
+
+    There is no input required to invoke this API.
+
+    The output of this API is a count of the total number of workflows registered
+    and a list of all these workflows in the form of a dictionary - the key of the
+    dictionary being the workflow identifier and the value being the name of the workflow.'
+  operationId: list_workflows_api_v1_workflow__get
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - description: This query parameter describes whether we need to list either internal
+      workflows, external workflows or all workflows.
+    in: query
+    name: internal
+    required: false
+    schema:
+      description: This query parameter describes whether we need to list either internal
+        workflows, external workflows or all workflows.
+      title: Internal
+      type: boolean
+  - description: This query parameter describes whether we need to list either preset
+      workflows, custom workflows or all workflows.
+    in: query
+    name: preset
+    required: false
+    schema:
+      description: This query parameter describes whether we need to list either preset
+        workflows, custom workflows or all workflows.
+      title: Preset
+      type: boolean
+  - description: This query parameter enables the user to search for workflows in
+      the workflow registry based on tags.
+    in: query
+    name: tags
+    required: false
+    schema:
+      description: This query parameter enables the user to search for workflows in
+        the workflow registry based on tags.
+      title: Tags
+      type: string
+  - description: This query parameter enables the user to search for workflows in
+      the workflow registry.
+    in: query
+    name: search
+    required: false
+    schema:
+      description: This query parameter enables the user to search for workflows in
+        the workflow registry.
+      title: Search
+      type: string
+  - description: This query parameter allows you to sort the listing query based on
+      a particular field.
+    in: query
+    name: sort_field
+    required: false
+    schema:
+      description: This query parameter allows you to sort the listing query based
+        on a particular field.
+      title: Sort Field
+      type: string
+  - description: This query parameter allows you to sort the listing query based on
+      ascending or descending order.
+    in: query
+    name: sort_order
+    required: false
+    schema:
+      description: This query parameter allows you to sort the listing query based
+        on ascending or descending order.
+      title: Sort Order
+      type: string
+  - description: This query parameter allows you to define the number of records that
+      must be skipped before selection for the listing query.
+    in: query
+    name: page_offset
+    required: false
+    schema:
+      description: This query parameter allows you to define the number of records
+        that must be skipped before selection for the listing query.
+      title: Page Offset
+      type: integer
+  - description: This query parameter allows you to limit the number of records returned
+      from the listing query.
+    in: query
+    name: page_limit
+    required: false
+    schema:
+      description: This query parameter allows you to limit the number of records
+        returned from the listing query.
+      title: Page Limit
+      type: integer
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/workflows/WorkflowListingResponse.yaml
+      description: Successful Response
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/workflows/HTTPValidationError.yaml
+      description: Validation Error
+  summary: List Workflows
+  tags:
+  - Workflows
+post:
+  description: 'This API is used to register any workflow along with metadata configurations
+    pertaining to it in the workflow registry.
+
+    The metadata for this workflow holds information about the workflow and configurations
+    about how to orchestrate and execute the workflow.
+
+    The workflow registry also helps in isolating and composing workflows as entities
+    that can be used as backbones in building features and audiences.
+
+
+    The input to this API is a dictionary containing all the metadata about the workflow
+    - name, description, and any other configurations that drives its functionality.
+
+    The output is a workflow identifier which is a unique reference to this workflow
+    in the workflow registry, and a config which is the same as the input along with
+    the generated identifier.'
+  operationId: create_workflow_api_v1_workflow__post
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../../schemas/workflows/Workflow.yaml
+    required: true
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/workflows/WorkflowCreateResponse.yaml
+      description: Successful Response
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/workflows/HTTPValidationError.yaml
+      description: Validation Error
+  summary: Create Workflow
+  tags:
+  - Workflows

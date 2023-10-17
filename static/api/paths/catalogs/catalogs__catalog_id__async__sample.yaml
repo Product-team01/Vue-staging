@@ -1,0 +1,51 @@
+post:
+  tags:
+  - catalogs
+  summary: API to retrieve sample products in Async manner. This API will return job_id and we can use this /sample/status API to check the results
+  description: Create the raven job for catalog sample and store the text_search results to s3
+  operationId: async_sample_catalog
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - required: true
+    schema:
+      title: Catalog Id
+      type: string
+    name: catalog_id
+    in: path
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas/CatalogSampleIn.yaml"
+
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+             - $ref: '../../schemas/CatalogAsyncSampleOut.yaml'
+
+    '400':
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/PostFailureResponse.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/PostFailureResponse.yaml'

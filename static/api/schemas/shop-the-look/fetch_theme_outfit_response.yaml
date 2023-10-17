@@ -1,0 +1,41 @@
+title: ShopTheLookResponse
+required:
+  - request_id
+  - correlation_id
+  - status
+type: object
+properties:
+  request_id:
+    title: Request Id
+    type: string
+    description: request_id generated internally
+    example: 180cfc2c143111eeaa6026f900dd2367
+  correlation_id:
+    title: Correlation Id
+    type: string
+    description: correlation_id for the request
+    example: shop-the-look
+  status:
+    title: Status
+    type: string
+    description: status for the request
+    example: SUCCESS
+  data:
+    type: array
+    items:
+      type: object
+
+
+example:
+  request_id: 5c3b8e3e1f0a11eeb876f66802ca4381
+  correlation_id:
+  status: SUCCESS
+  data:
+  - image_link: https://api.diesel.com/on/demandware.static/-/Sites-diesel-master-catalog/default/dw1d4f8eba/images/large/A11149_0BIAF_9BX_F.jpg
+    product_id: A111490BIAF9BX
+  - image_link: https://api.diesel.com/on/demandware.static/-/Sites-diesel-master-catalog/default/dwa0988a1a/images/large/A11154_0BIAF_9BX_F.jpg
+    product_id: A111490BIAF9BX
+  - image_link: https://api.diesel.com/on/demandware.static/-/Sites-diesel-master-catalog/default/dw874f6a11/images/large/Y03045_P3923_T8013_F.jpg
+    product_id: Y03045P3923T8013
+  - image_link: https://api.diesel.com/on/demandware.static/-/Sites-diesel-master-catalog/default/dw9d1843a5/images/large/DM0368_00LEN_RT0XP_F.jpg
+    product_id: DM036800LENRT0XP

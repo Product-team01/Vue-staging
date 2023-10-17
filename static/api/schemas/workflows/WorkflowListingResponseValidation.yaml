@@ -1,0 +1,17 @@
+properties:
+  count:
+    description: This field describes the total number of workflows that have been
+      registered.
+    title: Count
+    type: integer
+  results:
+    description: This field describes the list of workflows that have been registered.
+    items:
+      $ref: ../workflows/WorkflowListingEntity.yaml
+    title: Results
+    type: array
+required:
+- count
+- results
+title: WorkflowListingResponseValidation
+type: object

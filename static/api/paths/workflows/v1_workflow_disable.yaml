@@ -1,0 +1,54 @@
+post:
+  description: 'This API allows the un-deployment of any specified workflow that has
+    previously been deployed on an execution engine.
+
+    The  API releases any compute that was configured during deployment of the DAG.
+
+    This API communicates with lantern, which in turn, communicates with raven to
+    undeploy a directed acyclic graph (DAG).
+
+
+    The input to the API is a workflow identifier which is a unique reference to this
+    workflow in the workflow registry.
+
+    The optional use_case parameter is used as a reference for the DAG.'
+  operationId: undeploy_workflow_api_v1_workflow_disable_post
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - description: This field describes the ID of the workflow used to query the workflow
+      registry.
+    in: query
+    name: workflow_id
+    required: true
+    schema:
+      description: This field describes the ID of the workflow used to query the workflow
+        registry.
+      title: Workflow Id
+      type: string
+  - in: query
+    name: use_case
+    required: false
+    schema:
+      default: create_workflow
+      title: Use Case
+      type: string
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/workflows/WorkflowUndeployResponse.yaml
+      description: Successful Response
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/workflows/HTTPValidationError.yaml
+      description: Validation Error
+  summary: Undeploy Workflow
+  tags:
+  - Workflows

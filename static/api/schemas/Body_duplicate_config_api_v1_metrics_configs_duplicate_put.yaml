@@ -1,0 +1,13 @@
+title: Body_duplicate_config_api_v1_metrics_configs_duplicate_put
+required:
+- client
+type: object
+properties:
+  client:
+    title: Client
+    type: string
+    description: unique identifier for the client
+  metric_name:
+    title: Metric Name
+    type: string
+    description: name of the metric to be duplicated

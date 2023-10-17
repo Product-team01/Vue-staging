@@ -1,0 +1,9 @@
+title: Job Output
+type: object
+properties:
+  file_link:
+    type: string
+  feedback_link:
+    type: string
+  download_link:
+    type: string

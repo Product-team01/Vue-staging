@@ -1,0 +1,15 @@
+title: Body_post_config_api_v1_cfcp_configs_post
+required:
+  - use_case
+  - config
+type: object
+properties:
+  use_case:
+    title: Use Case
+    type: string
+    description: unique identifier for the client's usecase e.g. cfcp_products, cfcp_buy_counts
+  config:
+    title: Config
+    allOf:
+      - $ref: 'CFCPConfigLite.yaml'
+    description: cfcpConfig

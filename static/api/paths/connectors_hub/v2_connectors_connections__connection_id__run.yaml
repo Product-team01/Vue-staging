@@ -1,0 +1,31 @@
+post:
+  description: Runs a connector between given source and destination
+  operationId: run_connector_api_v2_connectors_connections__connection_id__run_post
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - in: path
+    name: connection_id
+    required: true
+    schema:
+      title: Connection Id
+      type: string
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/connectors_hub/RunConnectorResponse.yaml
+      description: Successful Response
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/connectors_hub/HTTPValidationError.yaml
+      description: Validation Error
+  summary: Run Connector
+  tags:
+  - connectors

@@ -1,0 +1,66 @@
+required:
+- name
+type: object
+properties:
+  id:
+    type: string
+    description: unique identifier of the project
+  catalog_id:
+    type: string
+    description: unique identifier of the catalog
+  name:
+    type: string
+    description: unique name of the project
+    example: ''
+  embedding_config_id:
+    type: string
+    example: ''
+    description: unique identifier of the embedding config
+  status:
+    type: string
+    description: status of the project, READY represents all essential information
+      is added, DRAFT represents atleast one essential information is not added, PROCESSING
+      represents sampling for one of the feeds is in progress
+    example: ''
+    enum:
+    - READY
+    - DRAFT
+    - PROCESSING
+    - ERROR
+  created_ts:
+    type: string
+    description: timestamp at which the project was created
+    example: ''
+  type:
+    type: string
+    description: identifies the purpose of the project
+    enum:
+    - ENRICHMENT
+  taxonomy:
+    description: details of the taxonomy to be associated
+    type: object
+    properties:
+      id:
+        description: unique identifier of the taxonomy
+        type: string
+      mappings:
+        description: contains all column to attribute mapping for prelabelled data
+          processing
+        type: array
+        items:
+          type: object
+          properties:
+            attribute_id:
+              description: unique identifier of the attribute in the taxonomy
+              type: string
+            schema_column:
+              description: column name of catalog associated to this project
+              type: string
+  metadata:
+    description: contains miscellaneous data of the project
+    type: object
+    properties:
+      segment_id:
+        description: unique identifier of the segment
+        type: string
+        example: ''

@@ -1,0 +1,8 @@
+---
+title: OptimizerParams
+required:
+  - lr
+type: object
+properties:
+  lr:
+    type: string

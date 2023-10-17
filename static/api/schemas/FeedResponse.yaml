@@ -1,0 +1,20 @@
+title: FeedResponse
+x-stoplight:
+  id: w3v35yjkar1eo
+type: object
+description: ''
+properties:
+  feed_id:
+    type: string
+  start_time:
+    type: string
+  end_time:
+    type: string
+  packets_processed:
+    type: integer
+  packets_errors:
+    type: integer
+  content_processed:
+    type: integer
+  content_errors:
+    type: integer

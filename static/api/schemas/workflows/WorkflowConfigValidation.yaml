@@ -1,0 +1,75 @@
+properties:
+  created_ts:
+    description: This field describes the initial date of creation of the workflow.
+    title: Created Ts
+    type: string
+  dag_id:
+    description: This field describes the unique identifier for the generated DAG
+      (post deployment) in spark mode of execution.
+    title: Dag Id
+    type: string
+  dependencies:
+    description: This field is a dictionary with node id as key and the parent and
+      child node of that node as values.
+    title: Dependencies
+    type: object
+  draft:
+    default: false
+    description: This field describes whether the workflow is in draft state or not.
+    title: Draft
+    type: boolean
+  owner:
+    default: starfire
+    description: This field describes the service that owns / is responsible for this
+      workflow.
+    title: Owner
+    type: string
+  schedule_interval:
+    description: This field is a cron-syntax compatible string that denotes the schedule
+      interval for the workflow that will be used post deployment.
+    title: Schedule Interval
+    type: string
+  tags:
+    default: []
+    description: This field describes any set of tags that can be associated to the
+      workflow.
+    items:
+      type: string
+    title: Tags
+    type: array
+  tasks:
+    additionalProperties:
+      $ref: ../workflows/Task.yaml
+    description: This field describes the config to setup the tasks for the DAG deployments.
+    title: Tasks
+    type: object
+  tasks_config:
+    allOf:
+    - $ref: ../workflows/WorkflowCreationConfigValidation.yaml
+    description: This field desribes the config that will be used by the spark or
+      pandas deployments for a given task.
+    title: Tasks Config
+  updated_ts:
+    description: This field describes the latest date of updation of the workflow.
+    title: Updated Ts
+    type: string
+  workflow_description:
+    description: This field provides a description about the workflow.
+    title: Workflow Description
+    type: string
+  workflow_id:
+    description: This field describes a unique identifier of the workflow.
+    title: Workflow Id
+    type: string
+  workflow_name:
+    description: This field describes the name of the workflow.
+    title: Workflow Name
+    type: string
+required:
+- created_ts
+- updated_ts
+- workflow_name
+- workflow_description
+- tasks_config
+title: WorkflowConfigValidation
+type: object

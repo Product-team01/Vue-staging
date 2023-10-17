@@ -1,0 +1,66 @@
+post:
+  tags:
+    - bundling apis
+  summary: Content Generate API
+  description: Returns the list of objects
+  operationId: bundling_api_content_generate
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  requestBody:
+    description: Content generate payload
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas/search/bundle_common_request.yaml"
+        examples:
+          product_generate_request:
+            value:
+              catalogs:
+                c49b53bf19:
+                  fields:
+                    - Handle
+                    - Title
+                    - Image Src
+                    - page link
+                    - Vendor
+                  filters:
+                    description: filters to be applied while serving recommendations
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        field:
+                          type: string
+                        value:
+                          type: array
+                          items:
+                            oneOf:
+                              - type: string
+                              - type: number
+                              - type: integer
+                        operator:
+                          type: string
+                  curations_data: 
+                    value:
+                      curations: 47430e39-76cb-5b2e-8e18-f122e9999
+                  facet_filters: 
+                    - Tops
+              page_num: 1
+              num_results: 16
+  responses:
+    "200":
+      "description": "OK"
+      "content":
+        application/json:
+          schema:
+            $ref: "../../schemas/search/bundle_product_generate_response.yaml"             
+    "400":
+      "description": "Error Response"
+      "content":
+        application/json:
+          schema:
+            $ref: "../../schemas/search/bundle_curation_apis_error_response.yaml"

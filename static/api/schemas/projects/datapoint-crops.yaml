@@ -1,0 +1,32 @@
+type: object
+properties:
+  datapoint_crop_id:
+    type: string
+    description: unique identifier of the datapoint crop
+  annotation_id:
+    type: string
+    description: unique identifier of the annotation
+  annotation_display_name:
+    type: string
+    description: Display name of the annotation
+  label_attribute_id:
+    type: string
+    description: unique identifier of the attribute value
+  label_attribute_name:
+    type: string
+    description: Display name of the attribute value
+  status:
+    type: string
+    description: Approval status of the datapoint crop
+    enum:
+      - Manually Done
+      - System Generated
+      - User Approved
+  confidence:
+    type: string
+    description: confidence with which the crop is predicted
+  bbox_coordinates:
+    type: array
+    description: coordinates of the bounding box drawn on the datapoint
+    items:
+      type: string

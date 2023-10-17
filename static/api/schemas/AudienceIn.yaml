@@ -1,0 +1,19 @@
+title: AudienceIn
+required:
+- name
+- type
+- file_url
+type: object
+properties:
+  name:
+    title: Audience_name
+    type: string
+    example: custom-audience-1
+  type:
+    title: Audience_type
+    type: string
+    example: upload
+  file_url:
+    title: file of users to be read from
+    type: string
+    example: s3://vuedotai/vuex/dev/docs-test/audiences/file.csv

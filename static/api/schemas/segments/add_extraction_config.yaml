@@ -1,0 +1,10 @@
+---
+title: AddSegmentExtractionConfig
+required:
+  - id
+type: object
+properties:
+  id:
+    type: string
+  active:
+    type: boolean

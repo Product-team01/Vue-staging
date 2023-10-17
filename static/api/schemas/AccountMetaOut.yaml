@@ -1,0 +1,19 @@
+title: AccountMetaOut
+type: object
+properties:
+  currency:
+    title: currency
+    type: string
+  currency_code:
+    title: currency_code
+    type: string
+  blox_api_url:
+    title: blox_api_url
+    type: string
+  embed_config:
+    title: embed_config
+    type: object
+  region_currency_mapping:
+    title: region_currency_mapping
+    type: array
+    items: {}

@@ -1,0 +1,25 @@
+title: Body_trigger_api_v1_workflows_personalization_audiences_async_trigger_post
+required:
+  - client
+  - use_case
+type: object
+properties:
+  client:
+    title: Client
+    type: string
+    description: unique identifier for the client (currently it is <client_id>_<client_name>)
+  use_case:
+    title: Use Case
+    type: string
+    description: unique identifier for the client's usecase
+  segment_names:
+    title: Segment Names
+    type: array
+    items:
+      type: string
+    description: If no segment name is specified all the segments are triggered for computation that are already there in the config.
+  mcpd_push_type:
+    title: Mcpd Push Type
+    type: string
+    description: Just some hack to prevent mcpd push during testing
+    default: qc

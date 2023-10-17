@@ -1,0 +1,37 @@
+get:
+  description: Get a specific run of an ingress
+  operationId: get_ingress_run_api_v2_connectors_ingress__ingress_id__runs__run_id__get
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - in: path
+    name: ingress_id
+    required: true
+    schema:
+      title: Ingress Id
+      type: string
+  - in: path
+    name: run_id
+    required: true
+    schema:
+      title: Run Id
+      type: string
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/connectors_hub/IngressRun.yaml
+      description: Successful Response
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/connectors_hub/HTTPValidationError.yaml
+      description: Validation Error
+  summary: Get Ingress Run
+  tags:
+  - connectors

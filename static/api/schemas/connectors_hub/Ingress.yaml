@@ -1,0 +1,31 @@
+properties:
+  created_ts:
+    title: Created Ts
+    type: string
+  ingress_id:
+    title: Ingress Id
+    type: string
+  name:
+    title: Name
+    type: string
+  resource_requirements:
+    $ref: ../connectors_hub/ResourceRequirements.yaml
+  source_id:
+    title: Source Id
+    type: string
+  streams_to_sync:
+    items:
+      $ref: ../connectors_hub/streamConfig.yaml
+    title: Streams To Sync
+    type: array
+  updated_ts:
+    title: Updated Ts
+    type: string
+required:
+- name
+- source_id
+- ingress_id
+- created_ts
+- updated_ts
+title: Ingress
+type: object

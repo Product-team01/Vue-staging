@@ -1,0 +1,21 @@
+type: object
+properties:
+  status:
+    type: string
+  message:
+    type: string
+  data:
+    type: array
+    items:
+      type: object
+      properties:
+        total_count:
+          type: integer
+        summary:
+          type: object
+example:
+  total_count: 100
+  summary:
+    available: 60
+    not_available: 40
+

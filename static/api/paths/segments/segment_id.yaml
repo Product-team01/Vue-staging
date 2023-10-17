@@ -1,0 +1,33 @@
+get:
+  tags:
+    - internal
+  summary: get segment by id
+  description: get segment by id
+  operationId: getSegmentById
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+    - name: segment_id
+      in: path
+      description: uniqueidentifier of the segment
+      required: true
+      schema:
+        type: integer
+        format: int64
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              request_id:
+                type: string
+              correlation_id:
+                type: string
+              data:
+                $ref: '../../schemas/segments/segment.yaml'

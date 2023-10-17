@@ -1,0 +1,26 @@
+title: EventIn
+required:
+- name
+- action
+- schema
+- description
+type: object
+properties:
+  name:
+    title: Name of event registered
+    type: string
+    example: Page View
+  action:
+    title: type of action linked to the event
+    type: string
+    example: view
+  schema:
+    title: schema of the event [JSON object to hold the schema (Parameters to be collected)
+      for the specification]
+    type: array
+    items:
+      $ref: 'SchemaObject.yaml'
+  description:
+    title: Verbose description of the event
+    type: string
+    example: view of a page

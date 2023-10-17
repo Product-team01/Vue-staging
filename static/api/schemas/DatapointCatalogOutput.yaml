@@ -1,0 +1,19 @@
+title: DatapointCatalogOutput
+required:
+- id
+- datapoint
+- catalog
+type: object
+properties:
+  id:
+    title: Id
+    type: string
+  datapoint:
+    title: Datapoint
+    type: string
+  catalog:
+    $ref: 'Catalog.yaml'
+  config:
+    title: Config
+    type: object
+    default: {}

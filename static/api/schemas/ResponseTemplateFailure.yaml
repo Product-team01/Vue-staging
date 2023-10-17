@@ -1,0 +1,14 @@
+title: ResponseTemplateFailure
+type: object
+description:
+  Standard template to be used for all responses (some fields like errors
+  might be optional depending on success or failure).
+properties:
+  request_id:
+    type: string
+  correlation_id:
+    type: string
+  status:
+    type: string
+    enum: 
+      - FAILURE

@@ -1,0 +1,67 @@
+properties:
+  client:
+    description: This field describes the client details required for the data. This
+      information will be needed to access any client-specific data.
+    title: Client
+    type: string
+  dataset:
+    description: It is a different key that is required for running workflows in spark
+      through the starfire library. We will be merging this to the dataset field in
+      subsequent releases.
+    title: Dataset
+    type: string
+  dataset_id:
+    description: This field describes the identifier of the dataset. This is the entry
+      that will be in the dataset registry.
+    title: Dataset Id
+    type: string
+  dataset_name:
+    description: This field describes the name that can be associated to the dataset
+      node. This name will act as the alias for the dataset itself when building data
+      workflows in the underlying queries that are generated.
+    title: Dataset Name
+    type: string
+  dataset_path:
+    default: ''
+    description: This field describes the path that can be used to access the raw
+      data in the dataset node.
+    title: Dataset Path
+    type: string
+  dependent_node_ids:
+    default: []
+    description: This field describes the list of node IDs that are dependent on the
+      current node. This is used to build the workflow DAG.
+    items:
+      type: string
+    title: Dependent Node Ids
+    type: array
+  file_type:
+    allOf:
+    - $ref: ../workflows/FileType.yaml
+    default: delta
+    description: This field describes the file_type of the data in the dataset.
+  node_id:
+    default: ''
+    description: This field describes the identifier of the corresponding dataset
+      node. If it is not present, it will be created.
+    title: Node Id
+    type: string
+  path_type:
+    default: ''
+    description: This field describes the type of path that can be specified in the
+      dataset_path field. For data in delta tables it will be a directory path, and
+      for csvs it will be a specific file path in any file system.
+    title: Path Type
+    type: string
+  persist:
+    default: false
+    description: This field is a configuration that can be used in data workflows
+      in dataset nodes to store the data.
+    title: Persist
+    type: boolean
+required:
+- dataset_name
+- dataset
+- client
+title: DatasetNode
+type: object

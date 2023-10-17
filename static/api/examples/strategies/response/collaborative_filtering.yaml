@@ -1,0 +1,28 @@
+request_id: 7d1030767b8411edae01f28c070c22cc
+correlation_id: 7d1030767b8411edae01f28c070c22cc
+status: SUCCESS
+data:
+  id: c07328e9-13b1-4ec9-9eeb-36c693276f60
+  workflow_id: e8349357-963d-43ac-b412-f6ebbc74150a
+  description: Recommends products with personalization over period of time.
+  name: Collaborative Filtering
+  config:
+  - params:
+    - type: collaborative_filtering_model
+      value: 0.3
+      field: sample_use_case_from_star_fire
+
+    - field: trending_use_case_name
+      value: trending_use_case_from_star_fire
+      type: trending_use_case
+
+    - field: exploration
+      value: 0.3
+      type: exploration
+                
+  preset: true
+  client: global
+  metadata:
+    max_content: 16
+  catalog_id: test_catalog
+

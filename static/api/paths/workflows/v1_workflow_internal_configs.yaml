@@ -1,0 +1,35 @@
+get:
+  operationId: get_config_internal_api_v1_workflow_internal_configs_get
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - in: query
+    name: client
+    required: true
+    schema:
+      title: Client
+      type: string
+  - in: query
+    name: use_case
+    required: true
+    schema:
+      title: Use Case
+      type: string
+  responses:
+    '200':
+      content:
+        application/json:
+          schema: {}
+      description: Successful Response
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/workflows/HTTPValidationError.yaml
+      description: Validation Error
+  summary: Get Config Internal
+  tags:
+  - Workflows

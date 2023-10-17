@@ -1,0 +1,98 @@
+---
+title: ' Data organization '
+sidebar_position: 3
+sidebar_label: Data organization
+---
+
+Enrich is a simple and intuitive data organization workflow. Using any Catalog, you can create a Project for different segments, manage taxonomy, visualize & organize data intuitively. Enrich enables you with a multi-X speedup in labeling raw data and building machine learning models that can automate tagging data at scale, which can be used to power content search, personalisation and recommendations.
+
+![Alt text](https://d1r1e7xjkfj7nz.cloudfront.net/organization.png 'a title')
+
+### Visualization:
+
+When the content is uploaded/imported into the project, content is visualized with the help of hundreds of computer vision and NLP models that process your content, and render on a 2D canvas.
+
+This enables you to visualize your content spread across the canvas, to quickly realize similarities and differences between them, based on their relative distances from each other. To avoid clutter, not all content is visualized at once but only a sample is.
+
+**Labeled data point** - Assigning a value to a data point marks that data point as a ‘labeled datapoint’. Once a data point is labeled it disappears from the working area. To view labeled data points, click on the value bucket to view all data points labeled within that bucket.
+
+**Predictions and Clusters:**
+
+Once a few data points have been labeled, click on the ‘Initiate Learning’ icon, the system understands the intent, and tries to predict the values for the remaining data points by grouping similar ones into clusters.
+
+**Predicted datapoint:**
+
+- A data point that falls within a cluster is a predicted data point. Data points predicted with a confidence score of over 80% will fall inside the cluster.
+- The data points with lower confidence in predictions will fall outside the cluster. These are considered unlabelled and unpredicted data points and can be referred to as Outliers.
+
+You can continue to drag & drop data points into clusters/buckets to convert predicted data points into labeled data points.
+
+Labeled data points are not considered for predictions again. These are anchored to the bucket assigned by you. Only unlabelled data points (with or without predictions) are considered for predictions in the next refresh/learning cycle.
+
+**Note:** While the model classifies most of the data points correctly, you can provide feedback by moving outliers and mispredictions into clusters to help the system refine its predictions. With a few iterations of predictions and feedback, the accuracy of the model improves, and the organization gets closer to completion
+
+### **Organization - Cluster View:**
+
+**Labeling data points:**
+
+Organization starts with labeling a few data points. You can label a data point in two ways:
+
+1. Drag and drop a minimum of 10 data points into their respective bucket values or Hover over a data point and choose a label/value from the dropdown.
+1. After at least 10 data points have been labeled across the buckets in a balanced manner, click on the 'Initiate Learning' icon to trigger an STL (Short Term Learning model) based on the feedback, to form clusters by grouping similar data points.
+   1. Note:
+      1. You can click on the ‘Initiate Learning’ icon as many times as required during this process.
+      1. You can continue to label data points while learning is in progress.
+1. Once the learning is done, click on any formed cluster or bucket value that needs to be reviewed & labeled.
+   1. Select all the data points that have incorrect predictions and choose the respective tag value.
+      Select all the data points that have correct predictions and select the same value on the right to accept the prediction.
+1. Repeat the above steps at the current Taxonomy level until all data points are labeled.
+1. Once all the data points at this Taxonomy level are labeled you can either
+   1. click on the ‘Long Term Learning’ icon to train a new machine learning model for this Taxonomy level
+      1. Note: This training will take a few hours to complete, at the end of which you have an ML model to organize your data points for the specific attribute(s).
+   1. use the Taxonomy switcher to switch to different levels of Taxonomy & continue labeling data points and repeat the above steps (1 to 3).
+      1. Note: It is recommended to switch to a child taxonomy level or a peer attribute to complete labeling.
+1. Deploy Graph - Once the ML model is generated, you can choose to deploy the model as a graph by clicking on Project Actions → Deploy.
+   1. Note: When the graph is being deployed it will string together the ML models generated for each Taxonomy level.
+
+**Completion:**
+
+- The completion rate is a percentage measure of the number of data points with a label or prediction over the total data points available for classification at each level of the taxonomy. It can also be viewed as a measure of the ratio of data points that fall within clusters to outliers.
+- Hover over the completion rate bar to view detailed metrics.
+
+**Applying learning on subsequent feeds:**
+
+- Once the triggered learning is completed for one feed, select another feed for the organization.
+- As soon as the feed is opened, the “Learning is being applied. Please Wait!” message would be displayed
+- Clusters will be formed from the learning based on previous feeds and once clusters are formed you can provide feedback.
+
+### Organization - Bulk Content Edit:
+
+- Another powerful option is to organize data points in bulk. Here you can scan through a grid of similar products, and quickly select and label tens of data points at a time.
+- Predicted data points have a gray tag, while labeled data points are blue.
+- Sort data points based on the confidence of the model predictions from high to low or low to high.
+- Use the ‘Image enlargement’ feature to resize an image from small to large, as required.
+- Filter data points based on system-predicted or user labeled or No Prediction
+
+### Toolbar:
+
+- Zoom options
+  - Zoom in & Zoom out of the cluster
+  - Rectangular area selection - Draw a rectangle on the area that needs to be zoomed in
+  - Reset - Any zoom action applied on the cluster view page should be reset
+- Grid View
+  - Lasso Select - Draw a rectangle on the area that needs to be opened up in the bulk edit page
+  - Outliers - This will open up the bulk edit screen with all the outlier data points that have no system prediction or user labels.
+- Image Sizer - Use the sliding bar to resize the image icons in the cluster view page for better visibility
+- Reset Learning - when we want the system to unlearn the previous interactive learnings and start the User interactions from scratch.
+- Initiate Learning - This will initiate short-term learning based on the data points organized and use the learnings to automatically predict tags for the rest of the data points.
+
+### Export:
+
+- Select Project Actions →
+  - Export as CSV - the data organized within the tool can be exported in the form of a CSV.
+  - Export as Detail CSV - detailed export will contain everything in the regular CSV, along with a confidence score for the predicted tags. User-labeled data points will not have a confidence value but will be marked as GT (ground truth).
+
+### Deploying the Project Model:
+
+- Select Project Actions → Deploy, will string together the ML models (category, color, pattern, etc…) trained as a result of organization & learning to form a graph that’s ready to be deployed.
+- Note: An API key is generated to invoke the graph. Once deployed, the graph will be ready to serve predictions when invoked using the API.

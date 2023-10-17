@@ -1,0 +1,19 @@
+title: AudienceStatusOut
+type: object
+properties:
+  id:
+    title: Audience_id
+    type: string
+    example: c123
+  name:
+    title: Audience_name
+    type: string
+    example: custom-audience-1
+  type:
+    title: Audience_type
+    type: string
+    example: upload
+  status:
+    title: status of audience based on last DAG run
+    type: string
+    example: Ready/Complete

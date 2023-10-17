@@ -1,0 +1,52 @@
+post:
+  tags:
+  - catalogs
+  summary: Unarchive Catalog
+  description: 'Restores the unarchived catalog.
+
+
+    Admin api_key is required to authenticate the restoration of the catalog'
+  operationId: unarchive_catalog
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - required: true
+    schema:
+      title: Catalog Id
+      type: string
+    name: catalog_id
+    in: path
+  responses:
+    '202':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+            - $ref: '../../schemas/ResponseTemplateSuccessNoData.yaml'
+            - type: object
+              properties:
+                data:
+                  $ref: '../../schemas/JobResponse.yaml'
+      headers:
+        Location:
+          schema:
+            type: string
+            example: /api/v1/catalogs/{catalog_id}/jobs/{job_id}
+          description: job id relative url
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'
+  x-internal: true
+parameters:
+- schema:
+    type: string
+  name: catalog_id
+  in: path
+  required: true

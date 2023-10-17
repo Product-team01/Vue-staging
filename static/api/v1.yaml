@@ -1,0 +1,80 @@
+openapi: 3.0.2
+info:
+  title: Blox APIs
+  version: 1.0.0
+  description: |
+    **Introduction**
+
+      This document contains the Blox API Reference. The document details out the different Blox entities and the actions that can be performed on them.
+      It also explains the various outputs in detail. Our APIs adhere to REST principles and the request and responses support JSON format.
+
+    **Authentication**
+
+      The Blox APIs expects API Keys to be passed in the header for every request. Each API Key is associated to a specific account and will be handed over during onboarding by our sales team.
+
+    **Correlation and Request Identifiers**
+      
+      * Correlation Identifier
+        For every Blox API, we recommend to pass the correlation id in the request header. Our systems add this to our log traces which will help to debug information in case of errors. This is not a mandatory field but is recommended strongly to serve better.
+      
+      * Request Identifier
+        In every Blox API, we generate a request identifier and associate it to the request even before we start processing the request. Our systems add this to our log traces which will help to debug information in case of errors. 
+
+      We return the request and correlation identifier in all the responses subject to availability.
+
+    **Error Handling**
+
+      The Blox API error responses follow a standard response format and the status codes are standard HTTP response code.
+
+      For the different response codes we return, please refer the table below:
+
+      | Status Code | Description                                     |
+      |-------------|-------------------------------------------------|
+      | 200         | Successful                                      |
+      | 401         | Unauthorized Access                                      |
+      | 400         | Bad Request - Any issues with the input payload                                      |
+      | 404         | Entity is not available.                                  |
+      | 422         | Unable to process the request: If we are unable to process the request. |
+      | 500         | Internal Server Error                                    |
+      | 502         | Bad Gateway                                      |
+      | 504         | Gateway Timeout                                      |
+servers:
+  - url: https://api-dev.madstreetden.xyz
+    description: Dev Server
+security:
+  - ApiKeyAuth: []
+tags:
+  - name: search
+    description: This section describes the APIs to integrate for product recommendations for any strategy or module.
+  - name: inference
+    description: |
+      This section describes the APIs to integrate for inferring tag information for any given input.
+
+      In general, there are two modes of usage:
+      * **Synchronous:** For responses that are required in near-real time. This is typically used when there are individual packets that are sent (serial or through parallel calls) which require tagging results per packet. These typically are used in situations where input is either in the form of streams or when the tagging is part of a larger workflow where the content to be tagged flows through the workflow in a non-batched manner.
+      * **Asynchronous:** For requests that can be processed asynchronously. The requests will be queued up for processing and the results fetched at a later point in time asynchronously. The responses can be either fetched from our system using a get api, or using a callback integration where our system will invoke your system with the results, when ready.
+paths:
+  /api/v1/events/track:
+    $ref: paths/events/events_track.yaml
+
+  /api/v1/search/:
+    $ref: paths/search/search.yaml
+
+  /api/v1/search/configs/metadata-pages:
+    $ref: paths/search/metadata_pages.yaml
+
+  /api/v1/inference:
+    $ref: paths/inference/infer.yaml
+  /api/v1/inference/{blox_id}:
+    $ref: paths/inference/infer__mad_id_.yaml
+
+components:
+  parameters:
+    $ref: parameters/_index.yaml
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      name: x-api-key
+      in: header
+  schemas:
+    $ref: schemas/_index.yaml

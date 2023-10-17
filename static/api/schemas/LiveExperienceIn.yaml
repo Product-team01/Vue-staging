@@ -1,0 +1,57 @@
+title: LiveExperienceIn
+type: object
+properties:
+  user_id:
+    title: User Identifier
+    type: string
+    description: Logged in User ID
+    example: A1234
+  blox_uuid:
+    title: Auto generated User identifier
+    type: string
+    description: MSD unique User Id
+    example: eb61d2b1-d764-4eef-ad8f-f85b458c2417
+  page_name:
+    title: Page for which experience is required
+    type: string
+    description: Name of user viewing page in the UI
+    example: Home Page
+  platform:
+    title: Platform for which experience is required
+    type: string
+    description: Device from which User is accessing
+    example: desktop
+  integration_mode:
+    title: Integration mode of modules required in experience
+    type: string
+    description: Denotes how the recommendations are integrated with the client
+    example: embed_code
+  catalogs:
+    type: object
+    description: "`catalogs` has one entry per `catalog-id` to its respective associated `fields`, `filters`, and page `context`"
+    example: 
+      catalog_id:
+        context:
+          Handle: 1466631
+          vendor: nike
+    additionalProperties:
+      type: object
+      properties:
+        context:
+          type: object
+          additionalProperties:
+            description: Context may contain any catalog fields for the specific catalog
+            items:
+              oneOf:
+                - type: array
+                  items:
+                    anyOf:
+                      - type: string
+                      - type: number
+                      - type: integer
+                - type: string
+                - type: number
+                - type: integer
+                - type: boolean
+              example: category
+  

@@ -1,0 +1,11 @@
+
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          type: string
+        extraction_configs:
+          type: array
+          items:
+            $ref: './add_extraction_config.yaml'

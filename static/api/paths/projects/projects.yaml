@@ -1,0 +1,229 @@
+get:
+  tags:
+  - projects
+  summary: get all projects
+  description: get all projects
+  operationId: getProjects
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - name: Accept-Encoding
+    in: header
+    description: indicates the content encoding that the client can understand
+    schema:
+      type: string
+      default: gzip
+  - name: page_num
+    in: query
+    description: number or offset to start fetching configs
+    schema:
+      type: integer
+  - name: page_size
+    in: query
+    description: number of results to be returned
+    schema:
+      type: integer
+  - name: catalog_id
+    in: query
+    description: accepts comma seperated catalog-id(s) to fetch the list of projects associated with it
+    schema:
+      type: string
+  - name: status
+    in: query
+    description:  accepts comma seperated status to fetch the list of projects that has the expected status
+    schema:
+      type: string
+      enum:
+      - READY
+      - DRAFT
+      - PROCESSING
+      - ERROR
+  - name: search
+    in: query
+    description: holds the search key value
+    schema:
+      type: string
+  - name: sort_field
+    in: query
+    description: holds the field key value for sort
+    schema:
+      type: string
+  - name: sort_order
+    in: query
+    description: holds the field key value for sorting order
+    schema:
+      type: string
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                description: status of the request
+                type: string
+                enum:
+                - SUCCESS
+                - FAILURE
+              request_id:
+                description: id to backtrack the request in internal services
+                type: string
+              correlation_id:
+                description: id sent by the caller to backtrack the request
+                type: string
+              data:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    description: total of all the projects available
+                  projects:
+                    type: array
+                    items:
+                      $ref: '../../schemas/projects/project.yaml'
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'
+post:
+  tags:
+  - projects
+  summary: Add a new project
+  description: Add a new project
+  operationId: projects
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - name: Accept-Encoding
+    in: header
+    description: indicates the content encoding that the client can understand
+    schema:
+      type: string
+      default: gzip
+  requestBody:
+    description: projects object that needs to be added
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/projects/add-project.yaml'
+    required: true
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                description: status of the request
+                type: string
+                enum:
+                - SUCCESS
+                - FAILURE
+              request_id:
+                description: id to backtrack the request in internal services
+                type: string
+              correlation_id:
+                description: id sent by the caller to backtrack the request
+                type: string
+              data:
+                $ref: '../../schemas/projects/project.yaml'
+    '400':
+      description: Validation failures 1. If json is invalid 2. If name is not passed
+        3. If catalog id is not passed 4. if catalog does not exist 5. if schema does
+        not exist 6. if column mapping is invalid. \
+        Also returned when catalog or taxonomy or embedding config id does not
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'
+  x-codegen-request-body-name: body
+delete:
+  tags:
+  - projects
+  summary: delete all projects by client id or catalog id
+  description: delete all projects by client id or catalog id
+  operationId: deleteProjects
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - name: Accept-Encoding
+    in: header
+    description: indicates the content encoding that the client can understand
+    schema:
+      type: string
+      default: gzip
+  - name: catalog_id
+    in: query
+    description: catalog_id for which projects should be deleted
+    schema:
+      type: string
+  - name: client_id
+    in: query
+    description: client_id for which projects should be deleted
+    schema:
+      type: string
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                description: status of the request
+                type: string
+                enum:
+                - SUCCESS
+                - FAILURE
+              request_id:
+                description: id to backtrack the request in internal services
+                type: string
+              correlation_id:
+                description: id sent by the caller to backtrack the request
+                type: string
+              data:
+                type: object
+                properties:
+                  job_id:
+                    description: unique identifier of the deletion request
+                    type: string
+    '400':
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'
+    '404':
+      description: Resource not found - When there are no projects associated to the account.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'

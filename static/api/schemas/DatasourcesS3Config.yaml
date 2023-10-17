@@ -1,0 +1,10 @@
+title: DatasourcesS3Config
+required:
+- folder_path
+- transformation
+type: object
+properties:
+  folder_path:
+    title: folder_path
+    type: string
+    example: s3://catalogs/products/

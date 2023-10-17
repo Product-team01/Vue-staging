@@ -1,0 +1,11 @@
+blox_uuid: 0e38d8e4-0a83-469d-a42a-91b1f1cefab3
+user_id: 0e38d8e4-0a83-469d-a42a-91b1f1cefab3
+catalog_id: c49b53bf19
+fields:
+- Handle
+- Vendor
+- Tags
+filters:
+- field: Vendor
+  type: exact
+  value: Victoria Beckham

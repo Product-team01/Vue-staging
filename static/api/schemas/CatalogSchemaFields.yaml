@@ -1,0 +1,32 @@
+type: object
+properties:
+  name:
+    type: string
+  type:
+    type: string
+  primary_key:
+    type: boolean
+  mandatory:
+    type: boolean
+  index:
+    type: boolean
+  facet:
+    type: boolean
+  search:
+    type: boolean
+  personalize:
+    type: boolean
+  meta:
+    type: string
+  fields:
+    type: array
+    items:
+      type: object
+  es_type:
+    type: string
+  dimension:
+    type: string
+  blox_generated:
+    type: boolean
+    
+

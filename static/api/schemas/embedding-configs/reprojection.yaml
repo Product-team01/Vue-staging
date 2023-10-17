@@ -1,0 +1,11 @@
+---
+title: Reprojection
+required:
+  - strategy
+  - transform
+type: object
+properties:
+  transform:
+    type: string
+  strategy:
+    type: string

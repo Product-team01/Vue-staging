@@ -1,0 +1,105 @@
+type: object
+properties:
+  status:
+    type: string
+  request_id:
+    type: string
+  correlation_id:
+    type: string
+  data:
+    type: object
+    properties:
+      internal_document_type_id:
+        type: integer
+      external_document_type:
+        type: object
+        properties:
+          id:
+            type: string
+          name:
+            type: string
+      document_id:
+        type: integer
+      results:
+        type: object
+        properties:
+          page_details:
+            type: object
+            additionalProperties:
+              type: object
+              properties:
+                image_url:
+                  type: string
+                raw_image_url:
+                  type: string
+                height:
+                  type: integer
+                width:
+                  type: integer
+          data:
+            type: array
+            items: {}
+          summary:
+            type: object
+            additionalProperties:
+              type: object
+          summary_groups:
+            type: object
+            additionalProperties:
+              type: object
+          tag_feedback:
+            type: object
+            additionalProperties: {}
+          page_ocr_extraction_status:
+            type: object
+            additionalProperties:
+              type: boolean
+          total_pages:
+            type: integer
+          workflow_stp_configuration:
+            type: object
+            properties:
+              check_mandatory_fields:
+                type: boolean
+              confidence_threshold:
+                type: number
+              sampling_rate:
+                type: number
+        required:
+          - page_details
+          - data
+          - summary
+          - summary_groups
+      metadata:
+        type: object
+      created_ts:
+        type: string
+        format: date-time
+      modified_ts:
+        type: string
+        format: date-time
+      workflow_id:
+        type: string
+      job_id:
+        type: string
+      document_link:
+        type: string
+    required:
+      - internal_document_type_id
+      - external_document_type
+      - document_id
+      - results
+      - metadata
+      - created_ts
+      - modified_ts
+      - workflow_id
+      - job_id
+      - document_link
+  message:
+    type: string
+required:
+  - status
+  - request_id
+  - correlation_id
+  - data
+  - message

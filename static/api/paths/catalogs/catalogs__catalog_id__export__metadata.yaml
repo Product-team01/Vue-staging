@@ -1,0 +1,51 @@
+post:
+  tags:
+  - catalogs
+  summary: API to export metadata and tags in Async manner.
+  description: Create the spark k8s job for catalog export and store the metadata and tags results to s3
+  operationId: async_export_metadata
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - required: true
+    schema:
+      title: Catalog Id
+      type: string
+    name: catalog_id
+    in: path
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas/CatalogAsyncExportIn.yaml"
+
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+             - $ref: '../../schemas/CatalogAsyncExportOut.yaml'
+
+    '400':
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/PostFailureResponse.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/PostFailureResponse.yaml'

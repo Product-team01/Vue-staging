@@ -1,0 +1,60 @@
+post:
+  tags:
+  - catalogs
+  summary: Run the data processing immediately (instead of on regular schedule)
+  description: Process the data once immediately
+  operationId: datasource_run_now
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - required: true
+    schema:
+      title: Catalog Id
+      type: string
+    name: catalog_id
+    in: path
+  - required: true
+    schema:
+      title: Datasource identifier
+      type: string
+    name: datasource_id
+    in: path
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/ResponseTemplateSuccessNoData.yaml'
+    '400':
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'
+parameters:
+- schema:
+    type: string
+  name: catalog_id
+  in: path
+  required: true
+- schema:
+    type: string
+  name: datasource_id
+  in: path
+  required: true

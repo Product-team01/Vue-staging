@@ -1,0 +1,121 @@
+request_id: 9865fd34bcbf11eda8c8d2d25c40c7e5
+status: SUCCESS
+data:
+  inputs: []
+  DAG:
+    members:
+      - node:
+          name: fetch_user_history
+        dependencies: []
+      - node:
+          name: filter_user_history_top_picks
+        dependencies:
+          - fetch_user_history
+      - node:
+          name: sample_history
+        dependencies:
+          - filter_user_history_top_picks
+      - node:
+          name: get_parallel_args_for_top_picks
+        dependencies:
+          - sample_history
+      - node:
+          name: execute_module_dag(72cfb22f-be63-46e1-852c-14e27cbf34ee)
+        dependencies:
+          - get_parallel_args_for_top_picks
+      - node:
+          name: top_picks_assembly
+        dependencies:
+          - execute_module_dag(72cfb22f-be63-46e1-852c-14e27cbf34ee)
+      - node:
+          name: arrange_response_based_on_rating
+        dependencies:
+          - top_picks_assembly
+  id: 2b6e4e14-fd46-4537-84bb-80f69d50f917
+  config_schema:
+    - type: catalog_fields
+      field:
+        discoverable: true
+      value:
+        type: float
+        max: 10
+        min: -5
+    - type: temporal
+      field:
+        enum:
+          - lookback
+      value:
+        type: string
+        enum:
+          - weekly
+          - fortnightly
+          - daily
+          - monthly
+          - quarterly
+          - yearly
+        default: daily
+    - type: events
+      field:
+        discoverable: true
+      value:
+        type: float
+        max: 10
+        min: -5
+    - type: exploration
+      field:
+        enum:
+          - exploration
+      value:
+        type: float
+        max: 1
+        min: 0
+    - type: trending_use_case
+      field:
+        enum:
+          - trending_use_case_name
+      value:
+        type: string
+        discoverable: true
+    - type: event_frequency_use_case
+      field:
+        discoverable: true
+      value:
+        type: float
+        max: 10
+        min: -5
+    - type: event_frequency_counter_event
+      field:
+        enum:
+          - counter_event
+      value:
+        type: string
+        discoverable: true
+    - type: event_frequency_ntile_threshold
+      field:
+        discoverable: true
+      value:
+        type: float
+        min: 1
+    - type: rarity_use_case
+      field:
+        enum:
+          - rarity_use_case_id
+      value:
+        type: string
+        default: rarity_score_hm
+        discoverable: true
+    - type: exploration_rarity
+      field:
+        enum:
+          - exploration_rarity
+        max: 1
+        min: 0
+      value:
+        type: float
+        discoverable: true
+  name: Recommended For You
+  created_ts: "2022-07-27T03:24:51.945142"
+  updated_ts: "2023-03-07T07:38:31.004043"
+  type: Journey-aware
+  required_config:
+    - type: events

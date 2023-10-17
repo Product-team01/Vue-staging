@@ -1,0 +1,161 @@
+delete:
+  description: 'This API allows metadata deletion for any specified node identifier.
+
+    Once invoked, this API removes this node entry from both the listing configuration
+    and also deletes the corresponding metadata stored for this in the node registry.
+
+    If delete API is invoked, all versions of the metadata is deleted.
+
+
+    The input to this API is a node identifier which refers to the node that has to
+    be deleted.'
+  operationId: delete_node_api_v1_nodes__node_id__delete
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - description: This field describes the ID of the node used to query the node registry.
+    in: path
+    name: node_id
+    required: true
+    schema:
+      description: This field describes the ID of the node used to query the node
+        registry.
+      title: Node Id
+      type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../../schemas/workflows/Workflow.yaml
+    required: true
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/workflows/NodeDeleteResponse.yaml
+      description: Successful Response
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/workflows/HTTPValidationError.yaml
+      description: Validation Error
+  summary: Delete Node
+  tags:
+  - Nodes
+get:
+  description: 'This API allows the user to read metadata configuration pertaining
+    to a node identifier.
+
+    By default, the API provides the latest metadata configuration which is present
+    in the node registry.
+
+    The API also helps capture the end-to-end journey of this metadata by providing
+    versioning, and hence captures data lineage in the metadata layer.
+
+    Using the version parameter (which by default points to the latest version of
+    the node), we can obtain different versions of this metadata configuration.
+
+
+    The input to this API is a node identifier, which is mandatory. We can pass an
+    optional version parameter as well - if not passed, it will point to the latest
+    version of the data.
+
+    The output of this API is all the metadata pertaining to the corresponding node
+    identifier.'
+  operationId: get_node_api_v1_nodes__node_id__get
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - description: This field describes the ID of the node used to query the node registry.
+    in: path
+    name: node_id
+    required: true
+    schema:
+      description: This field describes the ID of the node used to query the node
+        registry.
+      title: Node Id
+      type: string
+  - description: This field describes the version of the node that will be parsed
+      from the node metadata lineage.
+    in: query
+    name: version
+    required: false
+    schema:
+      default: 0
+      description: This field describes the version of the node that will be parsed
+        from the node metadata lineage.
+      title: Version
+      type: integer
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/workflows/NodeReadResponse.yaml
+      description: Successful Response
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/workflows/HTTPValidationError.yaml
+      description: Validation Error
+  summary: Get Node
+  tags:
+  - Nodes
+put:
+  description: "This API allows metadata updation for any specified node and re-registers\
+    \ the metadata in the node registry.\nSince data lineage is captured in the metadata\
+    \ layer, this API allows the functionality to store any updated version of the\
+    \ metadata as the latest version.\nIt does not overwrite the existing configuration,\
+    \ but instead captures that as an older version, thus maintaining the end-to-end\
+    \ journey of the node metadata.\n\nThe input to this API is:\n    1. a dictionary\
+    \ containing all the metadata about the node - name, description, and any other\
+    \ configurations that drives its functionality.\n    2. a dictionary containing\
+    \ all the metadata about the workflow that the node is a part of which is required\
+    \ to be updated with the corresponding node metadata configuration."
+  operationId: update_node_api_v1_nodes__node_id__put
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - description: This field describes the ID of the node used to query the node registry.
+    in: path
+    name: node_id
+    required: true
+    schema:
+      description: This field describes the ID of the node used to query the node
+        registry.
+      title: Node Id
+      type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../../schemas/workflows/Body_update_node_api_v1_nodes__node_id__put.yaml
+    required: true
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/workflows/NodeUpdateResponse.yaml
+      description: Successful Response
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/workflows/HTTPValidationError.yaml
+      description: Validation Error
+  summary: Update Node
+  tags:
+  - Nodes

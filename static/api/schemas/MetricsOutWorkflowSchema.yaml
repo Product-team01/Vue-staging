@@ -1,0 +1,61 @@
+title: MetricsOutWorkflowSchema
+required:
+- dag_id
+- owner
+- tasks
+- tasks_config
+type: object
+properties:
+  dag_id:
+    title: Dag ID
+    type: string
+    description: Dag ID, this is an unique identifier for the workflow
+    example: 1234_MadStreetDen_Metrics
+  email:
+    title: Email
+    type: string
+    description: Email address to send info/alert on workflow
+    example: abc@opsgenie.com
+  email_on_failure:
+    title: Email on Failure
+    type: boolean
+    description: Field to denote if email should be triggered on failure of the workflow
+    example: 'True'
+  owner:
+    title: Owner
+    type: string
+    description: Field to denote owner of workflow
+    example: 'Metrics'
+  relationships:
+    title: Relationships
+    type: array
+    items:
+      type: string
+      example: compute_metrics
+    description: Relationship details between various tasks in the dag
+  schedule_interval:
+    title: Schedule Interval
+    type: string
+    description: Schedule to execute the workflow. This is to be provided in CRON
+      format.
+    example: 18 16 * * *
+  tags:
+    title: Tags
+    type: string
+    description: Tags for the DAG
+    example: Analytics
+  tasks:
+    title: Tasks
+    type: string
+    description: Field used for denote how to treat the event. This is an ENUM field
+    example: metrics_computation
+  time_zone:
+    title: Time Zone
+    type: string
+    description: Provides time zone for DAG execution
+    example: UTC
+  tasks_config:
+    title: Task Config
+    type: string
+    description: List all the configurations for a task listed in a DAG
+    example: compute_metrics

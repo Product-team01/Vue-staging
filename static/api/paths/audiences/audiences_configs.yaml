@@ -1,0 +1,156 @@
+get:
+  tags:
+    - audiences
+  summary: Get Config
+  description: Get Audience segmentation config.
+  operationId: get_config_api_v1_workflows_personalization_audiences_configs_get
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/AudienceConfigLiteResponse.yaml'
+    '400':
+          description: client does not exist
+          content:
+            application/json:
+              schema:
+                $ref: '../../schemas/ErrorResponse.yaml'
+    '404':
+      description: config does not exist
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/ErrorResponse.yaml'
+post:
+  tags:
+    - audiences
+  summary: Post Config
+  description: |-
+    Lets one register Audience Segmentation config, which can then be used to setup a dag using dags APIs.
+    If lite is true expected config is AudienceConfigLite else AudienceConfig.
+  operationId: post_config_api_v1_workflows_personalization_audiences_configs_post
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          title: Config
+          allOf:
+            - $ref: '../../schemas/AudienceConfigLite.yaml'
+          description: Config to setup the pipeline
+    required: true
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/AudienceConfigLiteResponse.yaml'
+    '400':
+      description: config already exists
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/ErrorResponse.yaml'
+    '404':
+      description: client does not exist
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/ErrorResponse.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'
+delete:
+  tags:
+    - audiences
+  summary: Delete Config
+  description: Delete config.
+  operationId: delete_config_api_v1_workflows_personalization_audiences_configs_delete
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/EmptyResponse.yaml'
+    '400':
+      description: client does not exist
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/ErrorResponse.yaml'
+    '404':
+      description: config does not exist
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/ErrorResponse.yaml'
+patch:
+  tags:
+    - audiences
+  summary: Patch Config
+  description: Patch config.
+  operationId: patch_config_api_v1_workflows_personalization_audiences_configs_patch
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          title: Config
+          allOf:
+            - $ref: '../../schemas/AudienceConfigLite.yaml'
+          description: Config to setup the pipeline
+    required: true
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/EmptyResponse.yaml'
+    '400':
+      description: client does not exist
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/ErrorResponse.yaml'
+    '404':
+      description: config does not exist
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/ErrorResponse.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'

@@ -1,0 +1,58 @@
+type: object
+title: Bundle Search Response 
+properties:
+  status:
+    type: string
+  message:
+    type: string
+  data:
+    type: array
+    items:
+      type: object
+      properties:
+        tiles:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              id:
+                type: string
+              bundling_type:
+                type: string
+        errors:
+          type: object
+        total_count:
+          type: integer
+        page_num:
+          type: integer
+        page_size:
+          type: integer
+        num_of_pages:
+          type: integer
+        module_name:
+          type: string
+        module_id:
+          type: string
+        data:
+          type: array
+          items:
+            type: array
+            items:
+              type: object
+      example:
+        blox_tags:
+          - taxonomy_id: Id
+            attributes: 
+              - hierarchy: category>dress>typ 
+                hierarchy_id: 123>456>789
+                name: type
+                id: abfa9a19-1004-4f96-84c9-91f79e5c10d1
+                reviewed_status: APPROVED
+                results:
+                  - confidence: 0.982
+                    value: aline
+                    value_id : b6504efb-cfb7-4cbf-b921-bcf0020b1a26
+                prediction_value_box: null
+        

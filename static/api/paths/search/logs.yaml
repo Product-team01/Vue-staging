@@ -1,0 +1,37 @@
+post:
+  tags:
+  - search
+  summary: Get config logs
+  description: Retrieves all configs set & made live by user for Dxm. This includes Pages, Strategies, Modules, Experiences.
+  operationId: get_logs
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  requestBody:
+    description: Get logs request
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/LogsRequest.yaml'
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+            - $ref: '../../schemas/ResponseTemplateSuccess.yaml'
+            - type: object
+              properties:
+                data:
+                  type: object
+                  $ref: '../../schemas/LogsResponse.yaml'
+    '400':
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/error_response.yaml'

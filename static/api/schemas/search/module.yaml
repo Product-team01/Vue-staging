@@ -1,0 +1,254 @@
+title: Success
+type: object
+properties:
+  id:
+    type: string
+    readOnly: true
+    description: Unique identifier of a module
+    example: bc323eef-05f7-4376-b278-0568baad9bdf
+  name:
+    description: Name of a module will be Unique per client
+    type: string
+    example: VR
+  title:
+    type: string
+    description: Name under which recommendations are shown in UI
+    example: Visually Similar
+  status:
+    type: string
+    description: Current state of a module
+    example: active
+    enum:
+      - active
+      - inactive
+  integration_mode:
+    type: string
+    description: Denotes how the recommendations are integrated with the client
+    example:
+    enum: 
+      - api
+      - email
+      - api
+      - embedded-code
+  layout_config:
+    type: object
+    description: layout_config
+  mail_fallback_url:
+    type: string
+    description: This fallback url will be used in mail link api incase of any failures. It will be required in case of mail module.
+    example: https://www.tatacliq.com/menswear
+  html_module_code:
+    type: string
+    description: html_module_code
+  static_recos:
+    type: object
+    description: static_recos has tile slots to catalog item mapping
+    example:
+      "4":
+        identifier: "34998423fg"
+        catalog_id: "c49b53bf19"
+      "5":
+        identifier: "46684340ao"
+        catalog_id: "c49b53bf19"
+      "7":
+        identifier: "S18PEHKA183C"
+        catalog_id: "2fea81958e"
+    additionalProperties:
+      type: object
+      properties:
+        identifier:
+          type: string
+          title: Catalog item identifier's value
+          description:  Primary key of a catalog
+        catalog_id:
+          type: string
+          title: Catalog Id
+          description: catalog id from which the static recos to be served.
+  strategies:
+    title: Strategy detail for module
+    type: array
+    example:
+      id: 2fea81958e-asas2fea81958e-asa
+      tile_slots:
+      - 1
+      - 2
+      - 3
+      - 4
+      fallback: false
+    items:
+      title: List of strategy
+      type: object
+      properties:
+        id:
+          title: Id of strategy
+          description: Unique identifier for strategy
+          type: string
+        tile_slots:
+          title: Tile slots configuration
+          description: Allot each recommendations to a tile slot in the UI
+          type: array
+          items:
+            title: Tile slot quantity
+            type: number
+        fallback:
+          title: Is strategy fallback or not
+          description: if no of recommendation served from one strategy is less than no of recommendation requested then mentioning a fallback strategy will try to fill up the remaining slots.
+          type: boolean
+  metadata:
+    title: workflow related metadata
+    type: object
+    example:
+      min_content: 1
+      max_content: 16
+      min_bundles : 1
+      max_bundles : 4
+      unbundle : true
+    properties:
+      min_content:
+        title: Min content
+        description: Minimum no of recommendation to be served
+        type: number
+      max_content:
+        title: Max content
+        description: Maximum no of recommendation to be served
+        type: number
+      min_bundles:
+        title: Min Bundle
+        description: In case of bundling recommendations ,Minimum bundled  recommendation that needs to be served 
+        type: number
+      max_bundles:
+        title: Max bundle
+        description: In case of bundling recommendations ,Maximum bundled  recommendation that needs to be served 
+        type: number
+      unbundle:
+        title: Unbundle
+        description: Setting this true will flatten out the recommendations served
+        type: boolean
+  templates:
+    title: Templates
+    description: how the recommendation needs to be shown in the UI.
+    type: array
+    items:
+      type: string
+  strategy_rules:
+    type: array
+    description: Based upon the source metadata we can chose which strategy to be used upon runtime
+    items:
+      anyOf:
+        - type: array
+          items:
+            anyOf:
+              - type: object
+                properties:
+                  conditions:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        field:
+                          type: string
+                        operator:
+                          type: string
+                          enum:
+                            - eq
+                            - ne
+                            - lt
+                            - le
+                            - gt
+                            - gte
+                            - exact
+                            - not-exact
+                            - contains
+                            - not-contains
+                            - range
+                        value:
+                          oneOf:
+                            - type: string
+                            - type: integer
+                            - type: number
+                            - type: boolean
+                            - type: array
+                              items:
+                                oneOf:
+                                  - type: string
+                                  - type: integer
+                                  - type: number
+                  conditions_relation:
+                    type: string
+                    enum:
+                      - AND
+                      - OR
+                  strategy:
+                    type: string
+              - type: object
+                properties:
+                  conditions:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        field:
+                          type: string
+                        operator:
+                          type: string
+                          enum:
+                            - eq
+                            - ne
+                            - lt
+                            - le
+                            - gt
+                            - gte
+                            - exact
+                            - not-exact
+                            - contains
+                            - not-contains
+                            - range
+                        value:
+                          oneOf:
+                            - type: string
+                            - type: integer
+                            - type: number
+                            - type: boolean
+                            - type: array
+                              items:
+                                oneOf:
+                                  - type: string
+                                  - type: integer
+                                  - type: number
+                  conditions_relation:
+                    type: string
+                    enum:
+                      - AND
+                      - OR
+                  strategy:
+                    type: string
+              - type: object
+                properties:
+                  strategy:
+                    type: string
+        - type: array
+          items:
+            type: object
+            properties:
+              strategy:
+                type: string
+  fallback_mapping:
+    type: object
+    description: dict of fallback mapping with strategy ids.
+    example:
+      b8395537-ed42-44e0-887d-759cd76728b8: b0e09fd3-5b0c-4831-9fa9-f5ce689fa08c
+      b0e09fd3-5b0c-4831-9fa9-f5ce689fa08c: 0dbda537-bd0a-4960-a40b-5f524eabfe5f
+  common_fallback_strategy:
+    type: string
+    description: Common fallback strategy used to assign tiles if fallback strategy also doesn't have enough results
+    example: visually-similar
+  created_ts:
+    type: string
+    example: 2023-03-13T16:40:42.072016
+  updated_ts:
+    type: string
+    example: 2023-03-13T17:40:42.072016
+required:
+  - name
+  - strategies
+  - integration_mode

@@ -1,0 +1,35 @@
+title: Task
+required:
+  - task_type
+type: object
+properties:
+  task_type:
+    title: Task Type
+    type: string
+    description: type of dask, Databricks, Bash
+  depends_on_past:
+    title: Depends On Past
+    type: boolean
+    description: if it depends on the past runs of this task, will execute only if old instances were success
+    default: false
+  pool:
+    title: Pool
+    type: string
+    description: Airflow pools id to which this task belongs
+  retries:
+    title: Retries
+    type: integer
+    description: Number of time to retry a task before failing
+    default: 1
+  python_params:
+    title: Python Params
+    type: array
+    items:
+      type: string
+    description: python params for the job
+  notebook_params:
+    title: Notebook Params
+    type: object
+    additionalProperties:
+      type: string
+    description: Notebook params for the job

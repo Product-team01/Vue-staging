@@ -1,0 +1,620 @@
+get:
+  tags:
+  - search
+  summary: List Modules
+  description: List all created modules for an account
+  operationId: get_modules
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  responses:
+    "200":
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+            - $ref: "../../schemas/ResponseTemplateSuccessNoData.yaml"
+            - type: object
+              properties:
+                data:
+                  type: array
+                  items:
+                    $ref: "../../schemas/search/module.yaml"
+          example:
+            request_id: c3443e1c7ba611ed80e52ea90644a30b
+            status: SUCCESS
+            data:
+              name: GRID RegOct21 - SimilarProducts
+              title: Products Similar
+              strategies:
+                - name: RegOct21 - SimilarProducts
+                  id: 72c701b6-c71a-4747-99d2-302ecaac6d7e
+                  tile_slots: 
+                  - 1
+                  - 2
+                  - 3
+                  - 4
+                  fallback: false
+              metadata:
+                min_content: 1
+                max_content: 16
+                min_bundles: 1
+                max_bundles: 4
+              templates:
+                - e35d4d27-058a-4eb3-a55e-5f52c3dd0809
+              strategy_rules: []
+              integration_mode: embed_code
+              id: f0eaa962-3308-45b8-9a65-3ee76cc2fb4a
+    "400":
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/error_response.yaml"
+    "404":
+      description: Config Not found
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/error_response.yaml"
+    
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/PostFailureResponse.yaml'
+
+post:
+  tags:
+    - search
+  summary: Create Modules
+  description: Create a module for the account
+  operationId: create_module
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  requestBody:
+    description: Creating Modules
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas/search/module.yaml"
+        examples:
+          EmailModule:
+            value:
+              name: Sample Email Module
+              title: string
+              integration_mode: email
+              status: PUBLISHED
+              layout_config:
+                num_rows: '3'
+                num_cols: '3'
+                type: portrait
+                card_width: '137'
+                card_height: '200'
+              html_module_code: '<table><tr><td style="padding: 10px 10px 0px;"><a href="https://vuemail.madstreetden.com/mail/v3/link/?api_key=9ed6bd6a23db7dd422893e1e00fd22347eb59829&amp;module_name=Untitled
+                191&amp;image_no=0&amp;user_id={}&amp;ts={}&amp;product_id={}&amp;env=prod"><img
+                src="https://vuemail.madstreetden.com/mail/v3/image?api_key=9ed6bd6a23db7dd422893e1e00fd22347eb59829&amp;module_name=Untitled
+                191&amp;image_no=0&amp;user_id={}&amp;ts={}&amp;product_id={}&amp;env=prod"></a></td><td
+                style="padding: 10px 10px 0px;"><a href="https://vuemail.madstreetden.com/mail/v3/link/?api_key=9ed6bd6a23db7dd422893e1e00fd22347eb59829&amp;module_name=Untitled
+                191&amp;image_no=1&amp;user_id={}&amp;ts={}&amp;product_id={}&amp;env=prod"><img
+                src="https://vuemail.madstreetden.com/mail/v3/image?api_key=9ed6bd6a23db7dd422893e1e00fd22347eb59829&amp;module_name=Untitled
+                191&amp;image_no=1&amp;user_id={}&amp;ts={}&amp;product_id={}&amp;env=prod"></a></td><td
+                style="padding: 10px 10px 0px;"><a href="https://vuemail.madstreetden.com/mail/v3/link/?api_key=9ed6bd6a23db7dd422893e1e00fd22347eb59829&amp;module_name=Untitled
+                191&amp;image_no=2&amp;user_id={}&amp;ts={}&amp;product_id={}&amp;env=prod"><img
+                src="https://vuemail.madstreetden.com/mail/v3/image?api_key=9ed6bd6a23db7dd422893e1e00fd22347eb59829&amp;module_name=Untitled
+                191&amp;image_no=2&amp;user_id={}&amp;ts={}&amp;product_id={}&amp;env=prod"></a></td></tr><tr><td
+                style="padding: 10px 10px 0px;"><a href="https://vuemail.madstreetden.com/mail/v3/link/?api_key=9ed6bd6a23db7dd422893e1e00fd22347eb59829&amp;module_name=Untitled
+                191&amp;image_no=3&amp;user_id={}&amp;ts={}&amp;product_id={}&amp;env=prod"><img
+                src="https://vuemail.madstreetden.com/mail/v3/image?api_key=9ed6bd6a23db7dd422893e1e00fd22347eb59829&amp;module_name=Untitled
+                191&amp;image_no=3&amp;user_id={}&amp;ts={}&amp;product_id={}&amp;env=prod"></a></td><td
+                style="padding: 10px 10px 0px;"><a href="https://vuemail.madstreetden.com/mail/v3/link/?api_key=9ed6bd6a23db7dd422893e1e00fd22347eb59829&amp;module_name=Untitled
+                191&amp;image_no=4&amp;user_id={}&amp;ts={}&amp;product_id={}&amp;env=prod"><img
+                src="https://vuemail.madstreetden.com/mail/v3/image?api_key=9ed6bd6a23db7dd422893e1e00fd22347eb59829&amp;module_name=Untitled
+                191&amp;image_no=4&amp;user_id={}&amp;ts={}&amp;product_id={}&amp;env=prod"></a></td><td
+                style="padding: 10px 10px 0px;"><a href="https://vuemail.madstreetden.com/mail/v3/link/?api_key=9ed6bd6a23db7dd422893e1e00fd22347eb59829&amp;module_name=Untitled
+                191&amp;image_no=5&amp;user_id={}&amp;ts={}&amp;product_id={}&amp;env=prod"><img
+                src="https://vuemail.madstreetden.com/mail/v3/image?api_key=9ed6bd6a23db7dd422893e1e00fd22347eb59829&amp;module_name=Untitled
+                191&amp;image_no=5&amp;user_id={}&amp;ts={}&amp;product_id={}&amp;env=prod"></a></td></tr><tr><td
+                style="padding: 10px 10px 0px;"><a href="https://vuemail.madstreetden.com/mail/v3/link/?api_key=9ed6bd6a23db7dd422893e1e00fd22347eb59829&amp;module_name=Untitled
+                191&amp;image_no=6&amp;user_id={}&amp;ts={}&amp;product_id={}&amp;env=prod"><img
+                src="https://vuemail.madstreetden.com/mail/v3/image?api_key=9ed6bd6a23db7dd422893e1e00fd22347eb59829&amp;module_name=Untitled
+                191&amp;image_no=6&amp;user_id={}&amp;ts={}&amp;product_id={}&amp;env=prod"></a></td><td
+                style="padding: 10px 10px 0px;"><a href="https://vuemail.madstreetden.com/mail/v3/link/?api_key=9ed6bd6a23db7dd422893e1e00fd22347eb59829&amp;module_name=Untitled
+                191&amp;image_no=7&amp;user_id={}&amp;ts={}&amp;product_id={}&amp;env=prod"><img
+                src="https://vuemail.madstreetden.com/mail/v3/image?api_key=9ed6bd6a23db7dd422893e1e00fd22347eb59829&amp;module_name=Untitled
+                191&amp;image_no=7&amp;user_id={}&amp;ts={}&amp;product_id={}&amp;env=prod"></a></td><td
+                style="padding: 10px 10px 0px;"><a href="https://vuemail.madstreetden.com/mail/v3/link/?api_key=9ed6bd6a23db7dd422893e1e00fd22347eb59829&amp;module_name=Untitled
+                191&amp;image_no=8&amp;user_id={}&amp;ts={}&amp;product_id={}&amp;env=prod"><img
+                src="https://vuemail.madstreetden.com/mail/v3/image?api_key=9ed6bd6a23db7dd422893e1e00fd22347eb59829&amp;module_name=Untitled
+                191&amp;image_no=8&amp;user_id={}&amp;ts={}&amp;product_id={}&amp;env=prod"></a></td></tr></table>'
+              metadata:
+                min_content: 0
+                max_content: 0
+                min_bundles: 0
+                max_bundles: 0
+                unbundle: false
+              templates:
+              - string
+              strategy_rules:
+              - - conditions:
+                  - field: PRICE
+                    operator: eq
+                    value:
+                    - 1799
+                  conditions_relation: AND
+                  strategy: strategy_id-1
+                - conditions:
+                  - field: PRICE
+                    operator: eq
+                    value:
+                    - 999
+                  conditions_relation: AND
+                  strategy: strategy_id-2
+                - strategy: strategy_id-3
+              - - strategy: strategy_id-4
+              strategies:
+                - fallback: false
+                  tile_slots:
+                    - 1
+                  name: vr
+                  id: strategy_id-1
+                - fallback: false
+                  tile_slots:
+                    - 2
+                  name: vr
+                  id: strategy_id-2
+                - fallback: false
+                  tile_slots:
+                    - 3
+                  name: vr
+                  id: strategy_id-3
+                - fallback: false
+                  tile_slots:
+                    - 4
+                  name: vr
+                  id: strategy_id-4
+          TextSearch:
+            value:
+              templates:
+                - 5e245f9f-cf4b-4416-9258-accc422f13b9
+              name: text-search
+              title: text-search
+              integration_mode: embed_code
+              status : active
+              strategy_rules:
+              - - conditions:
+                  - field: PRICE
+                    operator: eq
+                    value:
+                    - 1799
+                  conditions_relation: AND
+                  strategy: strategy_id-1
+                - conditions:
+                  - field: PRICE
+                    operator: eq
+                    value:
+                    - 999
+                  conditions_relation: AND
+                  strategy: strategy_id-2
+                - strategy: strategy_id-3
+              - - strategy: strategy_id-4
+              strategies:
+                - fallback: false
+                  tile_slots:
+                    - 1
+                  name: text-search
+                  id: strategy_id-1
+                - fallback: false
+                  tile_slots:
+                    - 2
+                  name: vr
+                  id: strategy_id-2
+                - fallback: false
+                  tile_slots:
+                    - 3
+                  name: vr
+                  id: strategy_id-3
+                - fallback: false
+                  tile_slots:
+                    - 4
+                  name: vr
+                  id: strategy_id-4
+              static_recos:
+                '4':
+                  identifier: 34998423fg
+                  catalog_id: c49b53bf19
+                '5':
+                  identifier: A18LINKA105B
+                  catalog_id: 2fea81958e
+                '6':
+                  identifier: S18PEHKA183C
+                  catalog_id: 2fea81958e
+              metadata:
+                max_content: 16
+                min_content: 1
+                max_bundles: 4
+                min_bundles: 1
+                unbundle: false
+          VisuallySimilar:
+            value:
+              templates:
+                - 5e245f9f-cf4b-4416-9258-accc422f13b9
+              name: carousel-vr
+              title: carousel-vr
+              integration_mode: embed_code
+              strategy_rules:
+              - - conditions:
+                  - field: PRICE
+                    operator: eq
+                    value:
+                    - 1799
+                  conditions_relation: AND
+                  strategy: strategy_id-1
+                - conditions:
+                  - field: PRICE
+                    operator: eq
+                    value:
+                    - 999
+                  conditions_relation: AND
+                  strategy: strategy_id-2
+                - strategy: strategy_id-3
+              - - strategy: strategy_id-4
+              strategies:
+                - fallback: false
+                  tile_slots:
+                    - 1
+                  name: vr
+                  id: strategy_id-1
+                - fallback: false
+                  tile_slots:
+                    - 2
+                  name: vr
+                  id: strategy_id-2
+                - fallback: false
+                  tile_slots:
+                    - 3
+                  name: vr
+                  id: strategy_id-3
+                - fallback: false
+                  tile_slots:
+                    - 4
+                  name: vr
+                  id: strategy_id-4
+              status : active
+              static_recos:
+                '4':
+                  identifier: 34998423fg
+                  catalog_id: c49b53bf19
+                '5':
+                  identifier: A18LINKA105B
+                  catalog_id: 2fea81958e
+                '6':
+                  identifier: S18PEHKA183C
+                  catalog_id: 2fea81958e
+              metadata:
+                max_content: 16
+                min_content: 1
+                max_bundles: 4
+                min_bundles: 1
+                unbundle: false
+          RecentlyEngaged:
+            value:
+              name: dev-recently-engaged
+              title: dev-recently-engaged
+              strategy_rules:
+              - - conditions:
+                  - field: PRICE
+                    operator: eq
+                    value:
+                    - 1799
+                  conditions_relation: AND
+                  strategy: strategy_id-1
+                - conditions:
+                  - field: PRICE
+                    operator: eq
+                    value:
+                    - 999
+                  conditions_relation: AND
+                  strategy: strategy_id-2
+                - strategy: strategy_id-3
+              - - strategy: strategy_id-4
+              strategies:
+                - fallback: false
+                  tile_slots:
+                    - 1
+                  name: dev-recently-engaged
+                  id: strategy_id-1
+                - fallback: false
+                  tile_slots:
+                    - 2
+                  name: dev-recently-engaged
+                  id: strategy_id-2
+                - fallback: false
+                  tile_slots:
+                    - 3
+                  name: dev-recently-engaged
+                  id: strategy_id-3
+                - fallback: false
+                  tile_slots:
+                    - 4
+                  name: dev-recently-engaged
+                  id: strategy_id-4
+              metadata: {}
+              templates:
+                - f3cbb7d8-5d85-4fe9-9713-213596e02cfa
+              integration_mode: embed_code
+
+              static_recos:
+                '4':
+                  identifier: 34998423fg
+                  catalog_id: c49b53bf19
+                '5':
+                  identifier: A18LINKA105B
+                  catalog_id: 2fea81958e
+                '6':
+                  identifier: S18PEHKA183C
+                  catalog_id: 2fea81958e
+                '7':
+                  identifier: 46684340ao
+                  catalog_id: c49b53bf19
+                '8':
+                  identifier: 15040788ox
+                  catalog_id: c49b53bf19
+          InspiredByBrowsingHistory:
+            value:
+              templates:
+                - 5e245f9f-cf4b-4416-9258-accc422f13b9
+              name: carousel-ibh
+              title: carousel-ibh
+              integration_mode: embed_code
+              strategy_rules:
+              - - conditions:
+                  - field: PRICE
+                    operator: eq
+                    value:
+                    - 1799
+                  conditions_relation: AND
+                  strategy: strategy_id-1
+                - conditions:
+                  - field: PRICE
+                    operator: eq
+                    value:
+                    - 999
+                  conditions_relation: AND
+                  strategy: strategy_id-2
+                - strategy: strategy_id-3
+              - - strategy: strategy_id-4
+              strategies:
+                - fallback: false
+                  tile_slots:
+                    - 1
+                  name: vr
+                  id: strategy_id-1
+                - fallback: false
+                  tile_slots:
+                    - 2
+                  name: vr
+                  id: strategy_id-2
+                - fallback: false
+                  tile_slots:
+                    - 3
+                  name: vr
+                  id: strategy_id-3
+                - fallback: false
+                  tile_slots:
+                    - 4
+                  name: vr
+                  id: strategy_id-4
+              status : active
+              static_recos:
+                '4':
+                  identifier: 34998423fg
+                  catalog_id: c49b53bf19
+                '5':
+                  identifier: A18LINKA105B
+                  catalog_id: 2fea81958e
+                '6':
+                  identifier: S18PEHKA183C
+                  catalog_id: 2fea81958e
+              metadata:
+                max_content: 16
+                min_content: 1
+                max_bundles: 4
+                min_bundles: 1
+                unbundle: false
+          RecommendedForYou:
+            value:
+              templates:
+                - 5e245f9f-cf4b-4416-9258-accc422f13b9
+              name: carousel-rfy
+              title: carousel-rfy
+              integration_mode: embed_code
+              strategy_rules: []
+              status : active
+              strategies:
+                - fallback: true
+                  tile_slots:
+                    - 2
+                  name: rfy
+                  id: 7091c8ae-6dbd-4b4c-be96-0e3232e315da
+              static_recos:
+                '4':
+                  identifier: 34998423fg
+                  catalog_id: c49b53bf19
+                '5':
+                  identifier: A18LINKA105B
+                  catalog_id: 2fea81958e
+                '6':
+                  identifier: S18PEHKA183C
+                  catalog_id: 2fea81958e
+              metadata:
+                max_content: 16
+                min_content: 1
+                max_bundles: 4
+                min_bundles: 1
+                unbundle: false
+          Trending:
+            value:
+              templates:
+                - 5e245f9f-cf4b-4416-9258-accc422f13b9
+              name: Trending
+              title: Trending
+              integration_mode: embed_code
+              strategy_rules: []
+              status : active
+              strategies:
+                - fallback: true
+                  tile_slots:
+                    - 2
+                  name: Trending
+                  id: 7091c8ae-6dbd-4b4c-be96-0e3232e315da
+              static_recos:
+                '4':
+                  identifier: 34998423fg
+                  catalog_id: c49b53bf19
+                '5':
+                  identifier: A18LINKA105B
+                  catalog_id: 2fea81958e
+                '6':
+                  identifier: S18PEHKA183C
+                  catalog_id: 2fea81958e
+              metadata:
+                max_content: 16
+                min_content: 1
+                max_bundles: 4
+                min_bundles: 1
+                unbundle: false
+          CP:
+            value:
+              templates:
+                - 5e245f9f-cf4b-4416-9258-accc422f13b9
+              name: cp
+              title: cp
+              integration_mode: embed_code
+              strategy_rules: []
+              status : active
+              strategies:
+                - fallback: true
+                  tile_slots:
+                    - 2
+                    - 3
+                    - 8
+                    - 9
+                  name: cp
+                  id: 7091c8ae-6dbd-4b4c-be96-0e3232e315da
+              static_recos:
+                '4':
+                  identifier: 34998423fg
+                  catalog_id: c49b53bf19
+                '5':
+                  identifier: A18LINKA105B
+                  catalog_id: 2fea81958e
+                '6':
+                  identifier: S18PEHKA183C
+                  catalog_id: 2fea81958e
+              metadata:
+                max_content: 16
+                min_content: 1
+                max_bundles: 4
+                min_bundles: 1
+                unbundle: false
+          CF:
+            value:
+              templates:
+                - 5e245f9f-cf4b-4416-9258-accc422f13b9
+              name: cf
+              title: cf
+              integration_mode: embed_code
+              strategy_rules: []
+              status : active
+              strategies:
+                - fallback: true
+                  tile_slots:
+                    - 2
+                    - 3
+                    - 8
+                    - 9
+                  name: cf
+                  id: 7091c8ae-6dbd-4b4c-be96-0e3232e315da
+              static_recos:
+                '4':
+                  identifier: 34998423fg
+                  catalog_id: c49b53bf19
+                '5':
+                  identifier: A18LINKA105B
+                  catalog_id: 2fea81958e
+                '6':
+                  identifier: S18PEHKA183C
+                  catalog_id: 2fea81958e
+              metadata:
+                max_content: 16
+                min_content: 1
+                max_bundles: 4
+                min_bundles: 1
+                unbundle: false
+  responses:
+    "200":
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "../../schemas/ResponseTemplateSuccessNoData.yaml"
+              - type: object
+                properties:
+                  data:
+                    $ref: "../../schemas/search/module.yaml"
+                required:
+                  - data
+          example:
+            request_id: c3443e1c7ba611ed80e52ea90644a30b
+            status: SUCCESS
+            data:
+              name: GRID RegOct21 - SimilarProducts
+              title: Products Similar
+              strategies:
+                - name: RegOct21 - SimilarProducts
+                  id: 72c701b6-c71a-4747-99d2-302ecaac6d7e
+                  tile_slots:
+                  - 1
+                  - 2
+                  - 3
+                  - 4
+                  fallback: false
+              metadata:
+                min_content: 1
+                max_content: 16
+                min_bundles: 1
+                max_bundles: 4
+              templates:
+                - e35d4d27-058a-4eb3-a55e-5f52c3dd0809
+              strategy_rules: []
+              integration_mode: embed_code
+              id: f0eaa962-3308-45b8-9a65-3ee76cc2fb4a
+    "400":
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/error_response.yaml"
+    "422":
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/error_response.yaml"
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/error_response.yaml'

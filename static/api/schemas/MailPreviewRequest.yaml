@@ -1,0 +1,13 @@
+title: MailPreviewIn
+description: Mail template preview request payload
+type: object
+properties:
+  template:
+    description: html template
+    type: string
+  css:
+    description: css for the html template. This is not needed if the css are placed in the html template itself.
+    type: string
+
+required:
+  - template

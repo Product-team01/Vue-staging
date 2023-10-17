@@ -1,0 +1,23 @@
+title: UserHistoryIn
+description: fetch user history request payload. Blox_uuid is mandatory.
+type: object
+properties:
+  catalog_id:
+    description: Id of an `catalog`
+    type: string
+  user_id:
+    description: Id of an `user`
+    type: string
+  blox_uuid:
+    description: blox_uuid of an `user`
+    type: string
+  events:
+    title: List of event names, Ex - PDPPageview, Buy
+    description: List of event names, Ex - PDPPageview, Buy
+    type: array
+    items:
+      type: string
+
+required:
+  - catalog_id
+  - blox_uuid

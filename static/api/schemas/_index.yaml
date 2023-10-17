@@ -1,0 +1,705 @@
+GetSuccessResponse:
+  $ref: GetSuccessResponse.yaml
+PostSuccessResponse:
+  $ref: PostSuccessResponse.yaml
+TrackPostSuccessResponse:
+  $ref: TrackPostSuccessResponse.yaml
+EventsJobResponse:
+  $ref: EventsJobResponse.yaml
+ProcessPostSuccessResponse:
+  $ref: ProcessPostSuccessResponse.yaml
+PostFailureResponse:
+  $ref: PostFailureResponse.yaml
+AddDatasources:
+  $ref: AddDatasources.yaml
+AutoScaleConfig:
+  $ref: AutoScaleConfig.yaml
+Catalog:
+  $ref: Catalog.yaml
+AccountIn:
+  $ref: AccountIn.yaml
+AccountOut:
+  $ref: AccountOut.yaml
+AccountAllowedHostIn:
+  $ref: AccountAllowedHostIn.yaml
+AccountAllowedHostOut:
+  $ref: AccountAllowedHostOut.yaml
+AccountAllowedHostPatch:
+  $ref: AccountAllowedHostPatch.yaml
+AccountApiKeyIn:
+  $ref: AccountApiKeyIn.yaml
+AccountApiKeyOut:
+  $ref: AccountApiKeyOut.yaml
+AccountApiKeyPatch:
+  $ref: AccountApiKeyPatch.yaml
+AccountMetaIn:
+  $ref: AccountMetaIn.yaml
+AccountMetaOut:
+  $ref: AccountMetaOut.yaml
+AudienceIn:
+  $ref: AudienceIn.yaml
+AudienceStatusOut:
+  $ref: AudienceStatusOut.yaml
+AudienceOut:
+  $ref: AudienceOut.yaml
+AnalyticsMetricsOut:
+  $ref: AnalyticsMetricsOut.yaml
+AnalyticsReportOut:
+  $ref: AnalyticsReportOut.yaml
+AnalyticsDimensionOut:
+  $ref: AnalyticsDimensionOut.yaml
+EventsDefinition:
+  $ref: EventsDefinition.yaml
+EventsSchema:
+  $ref: EventsSchema.yaml
+EventsTemplate:
+  $ref: EventsTemplate.yaml
+ClusterConfig:
+  $ref: ClusterConfig.yaml
+MetricsConfig:
+  $ref: MetricsConfig.yaml
+MetricsConfigLite:
+  $ref: MetricsConfigLite.yaml
+MetricsOutWorkflowSchema:
+  $ref: MetricsOutWorkflowSchema.yaml
+MetricsInWorkflowSchema:
+  $ref: MetricsInWorkflowSchema.yaml
+AttributionTable:
+  $ref: AttributionTable.yaml
+EventTable:
+  $ref: EventTable.yaml
+MetricsDefinitionConfig:
+  $ref: MetricsDefinitionConfig.yaml
+MetricsDefinitionConfigLite:
+  $ref: MetricsDefinitionConfigLite.yaml
+Body_duplicate_config_api_v1_metrics_configs_duplicate_put:
+  $ref: Body_duplicate_config_api_v1_metrics_configs_duplicate_put.yaml
+Body_put_config_api_v1_metrics_configs_put:
+  $ref: Body_put_config_api_v1_metrics_configs_put.yaml
+Connection:
+  $ref: Connection.yaml
+Connector:
+  $ref: Connector.yaml
+CatalogRequest:
+  $ref: CatalogRequest.yaml
+CatalogPatchRequest:
+  $ref: CatalogPatchRequest.yaml
+CatalogResponse:
+  $ref: CatalogResponse.yaml
+SchemaObject:
+  $ref: SchemaObject.yaml
+SchemaConfig:
+  $ref: SchemaConfig.yaml
+SchemaFieldsOut:
+  $ref: SchemaFieldsOut.yaml
+CatalogSampleIn:
+  $ref: CatalogSampleIn.yaml
+CatalogSampleOut:
+  $ref: CatalogSampleOut.yaml
+CatalogSummaryOut:
+  $ref: CatalogSummaryOut.yaml
+ExtractionConfig:
+  $ref: ExtractionConfig.yaml
+DataSourceRequest:
+  $ref: DataSourceRequest.yaml
+DataSourceResponse:
+  $ref: DataSourceResponse.yaml
+DatasourcesS3Config:
+  $ref: DatasourcesS3Config.yaml
+DataSourceOut:
+  $ref: DataSourceOut.yaml
+DataTypeOut:
+  $ref: DataTypeOut.yaml
+DatabricksConfig:
+  $ref: DatabricksConfig.yaml
+DatapointCatalogOutput:
+  $ref: DatapointCatalogOutput.yaml
+
+EventIn:
+  $ref: EventIn.yaml
+TrackEventIn:
+  $ref: TrackEventIn.yaml
+FileTypeOut:
+  $ref: FileTypeOut.yaml
+GetStatisticsResponse:
+  $ref: GetStatisticsResponse.yaml
+GetMetricsResponse:
+  $ref: GetMetricsResponse.yaml
+JobConfig:
+  $ref: JobConfig.yaml
+JobIn:
+  $ref: JobIn.yaml
+JobOut:
+  $ref: JobOut.yaml
+LiveExperienceIn:
+  $ref: LiveExperienceIn.yaml
+LiveExperienceResponse:
+  $ref: LiveExperienceResponse.yaml
+MetadataPagesOut:
+  $ref: MetadataPagesOut.yaml
+ModifySchema:
+  $ref: ModifySchema.yaml
+PageIn:
+  $ref: PageIn.yaml
+PageOut:
+  $ref: PageOut.yaml
+PipelineIn:
+  $ref: PipelineIn.yaml
+SlotConfig:
+  $ref: SlotConfig.yaml
+TemplateIn:
+  $ref: TemplateIn.yaml
+TemplateOut:
+  $ref: TemplateOut.yaml
+TestConnection:
+  $ref: TestConnection.yaml
+Transformer:
+  $ref: Transformer.yaml
+UpdateCatalog:
+  $ref: UpdateCatalog.yaml
+UpdateConnection:
+  $ref: UpdateConnection.yaml
+
+ConfigIn:
+  $ref: ConfigIn.yaml
+ConfigOut:
+  $ref: ConfigOut.yaml
+
+SuccessOut:
+  $ref: SuccessOut.yaml
+DeleteOut:
+  $ref: DeleteOut.yaml
+WorkflowIn:
+  $ref: WorkflowIn.yaml
+WorkflowOut:
+  $ref: WorkflowOut.yaml
+WorkflowListOut:
+  $ref: WorkflowListOut.yaml
+WorkflowOutRef:
+  $ref: WorkflowOutRef.yaml
+DAGref:
+  $ref: DAGref.yaml
+UserIn:
+  $ref: UserIn.yaml
+UserOut:
+  $ref: UserOut.yaml
+
+InferSchemaSuccessResponse:
+  $ref: InferSchemaSuccessResponse.yaml
+ResponseTemplateSuccessNoData:
+  $ref: ResponseTemplateSuccessNoData.yaml
+
+ErrorV2:
+  $ref: ErrorV2.yaml
+TagFeedbackData:
+  $ref: TagFeedbackData.yaml
+TagFeedbackDataMsdInternal:
+  $ref: TagFeedbackDataMsdInternal.yaml
+RecommendataionFeedbackData:
+  $ref: RecommendataionFeedbackData.yaml
+JobResponse:
+  $ref: JobResponse.yaml
+
+Project:
+  $ref: "./projects/project.yaml"
+AddProject:
+  $ref: "./projects/add-project.yaml"
+ProjectSample:
+  $ref: "./projects/project-sample.yaml"
+SessionDatapointInfo:
+  $ref: "./projects/session-datapoint-info.yaml"
+Datapoint:
+  $ref: "./projects/datapoint.yaml"
+DatapointMetadata:
+  $ref: "./projects/datapoint-metadata.yaml"
+DatapointAttributes:
+  $ref: "./projects/datapoint-attributes.yaml"
+HullCoordinates:
+  $ref: "./projects/hull-coordinates.yaml"
+LabelDatapoint:
+  $ref: "./projects/label-datapoint.yaml"
+LabelDatapointResponse:
+  $ref: "./projects/label-datapoint-response.yaml"
+TrainStatus:
+  $ref: "./projects/train-status.yaml"
+DeployRequest:
+  $ref: "./projects/deploy-request.yaml"
+DeploymentStatus:
+  $ref: "./projects/deployment-status.yaml"
+ProjectSummaryObject:
+  $ref: "./projects/project-summary-object.yaml"
+
+InferRequest:
+  $ref: "./inference/InferRequest.yaml"
+InferPostResponse:
+  $ref: "./inference/InferPostResponse.yaml"
+InferFeedback:
+  $ref: "./inference/InferFeedback.yaml"
+
+FeedResponse:
+  $ref: FeedResponse.yaml
+
+GetFailureResponse:
+  $ref: "./errors/failure-response.yaml"
+
+AddExtractionConfig:
+  $ref: "./extraction-configs/add-extraction-config.yaml"
+
+ExtractionConfigObject:
+  $ref: "./extraction-configs/extraction-config-object.yaml"
+
+ExtractionConfigResponse:
+  $ref: "./extraction-configs/extraction-config-response.yaml"
+
+UpdateExtractionConfig:
+  $ref: "./extraction-configs/update-extraction-config.yaml"
+
+EmbeddingConfigResponse:
+  $ref: "./embedding-configs/embedding-config-response.yaml"
+
+EmbeddingConfig:
+  $ref: "./embedding-configs/embedding-config.yaml"
+
+AddEmbeddingConfig:
+  $ref: "./embedding-configs/add-embedding-config.yaml"
+
+ModelLayers:
+  $ref: "./embedding-configs/model-layers.yaml"
+
+ModelConfig:
+  $ref: "./embedding-configs/model-config.yaml"
+
+DefaultTrainConfig:
+  $ref: "./embedding-configs/default-train-config.yaml"
+
+ModelParams:
+  $ref: "./embedding-configs/model-params.yaml"
+
+Optimizer:
+  $ref: "./embedding-configs/optimizer.yaml"
+
+OptimizerParams:
+  $ref: "./embedding-configs/optimizer-params.yaml"
+
+TrainingDataDict:
+  $ref: "./embedding-configs/training-data-dict.yaml"
+
+Reprojection:
+  $ref: "./embedding-configs/reprojection.yaml"
+
+TaxonomyAttributesResponseObjectWithParentId:
+  $ref: "./taxonomies/taxonomy-attribute-parent-id.yaml"
+TaxonomyAttributesObjectWithoutChildren:
+  $ref: "./taxonomies/taxonomy-attributes-without-children.yaml"
+TaxonomyAttributesObjectWithId:
+  $ref: "./taxonomies/taxonomy-attribute-with-id.yaml"
+TaxonomyAttributesObject:
+  $ref: "./taxonomies/taxonomy-attribute.yaml"
+TaxonomyResponse:
+  $ref: "./taxonomies/taxonomy-with-id.yaml"
+AddTaxonomy:
+  $ref: "./taxonomies/add-taxonomy.yaml"
+TaxonomyPostResponse:
+  $ref: "./taxonomies/taxonomy-post-response.yaml"
+Taxonomy:
+  $ref: "./taxonomies/taxonomy.yaml"
+
+# Common Response Templates
+ResponseTemplateSuccess:
+  $ref: ResponseTemplateSuccess.yaml
+ResponseTemplateFailure:
+  $ref: ResponseTemplateFailure.yaml
+
+# Response Format for errors like 400, 404
+Error:
+  $ref: Error.yaml
+ErrorList:
+  $ref: ErrorList.yaml
+ErrorResponse:
+  $ref: error_response.yaml
+
+# Response validation error like 422
+# TBD: Should this and the above errors differ in structure ?
+ValidationError:
+  $ref: ValidationError.yaml
+HTTPValidationError:
+  $ref: HTTPValidationError.yaml
+ValidationErrorResponse:
+  $ref: validation_error_response.yaml
+
+# Search Config Schema
+Strategy:
+  $ref: search/strategy.yaml
+Experience:
+  $ref: search/experience.yaml
+Module:
+  $ref: search/module.yaml
+Curation:
+  $ref: search/curation.yaml
+
+# Search Schemas
+SearchRequestCommon:
+  $ref: search/search_request_common.yaml
+SearchRequestCommonNonText:
+  $ref: search/search_request_common_non_text.yaml
+PageNameSearchRequest:
+  $ref: search/search_request_page_name.yaml
+StrategyNameSearchRequest:
+  $ref: search/search_request_strategy_name.yaml
+ModuleNameSearchRequest:
+  $ref: search/search_request_module_name.yaml
+SearchRequest:
+  $ref: search/search_request.yaml
+TextSearchRequest:
+  $ref: search/search_request_text.yaml
+CatalogSearchRequest:
+  $ref: search/catalog_search.yaml
+SearchRequestFilter:
+  $ref: search/search_filter.yaml
+SearchResponseSimple:
+  $ref: search/search_response_simple.yaml
+SearchResponseBundled:
+  $ref: search/search_response_bundled.yaml
+SearchResponseText:
+  $ref: search/search_response_simple_text.yaml
+
+
+# Starfire Schemas
+AffinityDiscover:
+  $ref: starfire/affinity_discover.yaml
+AffinityGetConfigResponse:
+  $ref: starfire/affinity_get_config_response.yaml
+AffinityListConfigResponse:
+  $ref: starfire/affinity_list_config_response.yaml
+AffinityLite:
+  $ref: starfire/affinity_lite.yaml
+AffinityPostConfigRequest:
+  $ref: starfire/affinity_post_config_request.yaml
+RarityDiscover:
+  $ref: starfire/rarity_discover.yaml
+RarityGetConfigResponse:
+  $ref: starfire/rarity_get_config_response.yaml
+RarityListConfigResponse:
+  $ref: starfire/rarity_list_config_response.yaml
+RarityLite:
+  $ref: starfire/rarity_lite.yaml
+RarityPostConfigRequest:
+  $ref: starfire/rarity_post_config_request.yaml
+SeasonalityDiscover:
+  $ref: starfire/seasonality_discover.yaml
+SeasonalityGetConfigResponse:
+  $ref: starfire/seasonality_get_config_response.yaml
+SeasonalityListConfigResponse:
+  $ref: starfire/seasonality_list_config_response.yaml
+SeasonalityLite:
+  $ref: starfire/seasonality_lite.yaml
+SeasonalityPostConfigRequest:
+  $ref: starfire/seasonality_post_config_request.yaml
+
+# User profile Schema
+UserProfileRequestAbsoluteAffinity:
+  $ref: user-profile/request/absolute-affinity.yaml
+UserProfileRequestRelativeAffinity:
+  $ref: user-profile/request/relative-affinity.yaml
+UserProfileRequestSessionEvents:
+  $ref: user-profile/request/session-events.yaml
+UserProfileRequestPerSessionEvents:
+  $ref: user-profile/request/per-session-events.yaml
+UserProfileRequestTimeDelta:
+  $ref: user-profile/request/time-delta.yaml
+UserProfileRequestEventByPrice:
+  $ref: user-profile/request/event-by-price.yaml
+
+UserProfileResponseAbsoluteAffinity:
+  $ref: user-profile/response/absolute-affinity.yaml
+UserProfileResponseRelativeAffinity:
+  $ref: user-profile/response/relative-affinity.yaml
+UserProfileResponseSessionEvents:
+  $ref: user-profile/response/session-events.yaml
+UserProfileResponsePerSessionEvents:
+  $ref: user-profile/response/per-session-events.yaml
+UserProfileResponseTimeDelta:
+  $ref: user-profile/response/time-delta.yaml
+UserProfileResponseEventByPrice:
+  $ref: user-profile/response/event-by-price.yaml
+
+
+#This seems duplicate of exisitng error response
+ErrorResponse_V2:
+  $ref: ErrorResponse.yaml
+EmptyResponse:
+  $ref: EmptyResponse.yaml
+EmptyDataResponse:
+  $ref: EmptyDataResponse.yaml
+DagStatus:
+  $ref: DagStatus.yaml
+StatusResponse:
+  $ref: StatusResponse.yaml
+
+EventsDataSourceRequest:
+  $ref: EventsDataSourceRequest.yaml
+EventsDataSourceResponse:
+  $ref: EventsDataSourceResponse.yaml
+catalog_search:
+  $ref: search/catalog_search.yaml
+CatalogAsyncSampleOut:
+  $ref: CatalogAsyncSampleOut.yaml
+TrendingConfigLiteResponse:
+  $ref: TrendingConfigLiteResponse.yaml
+event_frequency_config:
+  $ref: starfire/event_frequency_config.yaml
+affinity_get_config_response:
+  $ref: starfire/affinity_get_config_response.yaml
+CFCPConfigLite:
+  $ref: CFCPConfigLite.yaml
+EventsRunJobResponse:
+  $ref: EventsRunJobResponse.yaml
+DXMMetricsFilters:
+  $ref: DXMMetricsFilters.yaml
+MetricsQueryConfig:
+  $ref: MetricsQueryConfig.yaml
+MetricsQueryConfigIn:
+  $ref: MetricsQueryConfigIn.yaml
+MetricsQueryConfigOut:
+  $ref: MetricsQueryConfigOut.yaml
+bundle_index_simple_response:
+  $ref: search/bundle_index_simple_response.yaml
+bundle_error_response:
+  $ref: search/bundle_error_response.yaml
+bundle_recommend_bundles_request:
+  $ref: search/bundle_recommend_bundles_request.yaml
+bundle_common_response:
+  $ref: search/bundle_common_response.yaml
+bundle_curation_apis_error_response:
+  $ref: search/bundle_curation_apis_error_response.yaml
+ConfigDelete:
+  $ref: ConfigDelete.yaml
+experiment:
+  $ref: search/experiment.yaml
+ProjectsExportStatus.yaml:
+  $ref: projects/export-status.yaml
+ProjectsLearningStatus.yaml:
+  $ref: projects/learning-status.yaml
+Segments:
+  $ref: segments/segment.yaml
+BodyCreateNodeApiV1NodesPost:
+  $ref: 'workflows/Body_create_node_api_v1_nodes__post.yaml'
+BodyProcessPacketWorkflowApiV1WorkflowProcessPacketPost:
+  $ref: 'workflows/Body_process_packet_workflow_api_v1_workflow_process_packet_post.yaml'
+BodyUpdateNodeApiV1NodesNodeIdPut:
+  $ref: 'workflows/Body_update_node_api_v1_nodes__node_id__put.yaml'
+ColumnDataType:
+  $ref: 'workflows/ColumnDataType.yaml'
+ConnectionNode:
+  $ref: 'workflows/ConnectionNode.yaml'
+ConnectionType:
+  $ref: 'workflows/ConnectionType.yaml'
+Dataset:
+  $ref: 'workflows/Dataset.yaml'
+DatasetColumnRequest:
+  $ref: 'workflows/DatasetColumnRequest.yaml'
+DatasetColumnResponse:
+  $ref: 'workflows/DatasetColumnResponse.yaml'
+DatasetConfigValidation:
+  $ref: 'workflows/DatasetConfigValidation.yaml'
+DatasetCreateResponse:
+  $ref: 'workflows/DatasetCreateResponse.yaml'
+DatasetDeleteResponse:
+  $ref: 'workflows/DatasetDeleteResponse.yaml'
+DatasetListingEntity:
+  $ref: 'workflows/DatasetListingEntity.yaml'
+DatasetListingResponse:
+  $ref: 'workflows/DatasetListingResponse.yaml'
+DatasetListingResponseValidation:
+  $ref: 'workflows/DatasetListingResponseValidation.yaml'
+DatasetNode:
+  $ref: 'workflows/DatasetNode.yaml'
+DatasetReadResponse:
+  $ref: 'workflows/DatasetReadResponse.yaml'
+DatasetSummary:
+  $ref: 'workflows/DatasetSummary.yaml'
+DatasetUnivariateSummary:
+  $ref: 'workflows/DatasetUnivariateSummary.yaml'
+DatasetUpdateResponse:
+  $ref: 'workflows/DatasetUpdateResponse.yaml'
+DatasetValueCount:
+  $ref: 'workflows/DatasetValueCount.yaml'
+DestinationNode:
+  $ref: 'workflows/DestinationNode.yaml'
+FieldMapping:
+  $ref: 'workflows/FieldMapping.yaml'
+FileInfo:
+  $ref: 'workflows/FileInfo.yaml'
+FileType:
+  $ref: 'workflows/FileType.yaml'
+GenericModelTrainConfig:
+  $ref: 'workflows/GenericModelTrainConfig.yaml'
+WorkflowJobConfig:
+  $ref: 'workflows/JobConfig.yaml'
+ModelArtifactConfig:
+  $ref: 'workflows/ModelArtifactConfig.yaml'
+ModelArtifactNode:
+  $ref: 'workflows/ModelArtifactNode.yaml'
+ModelRegistryConfig:
+  $ref: 'workflows/ModelRegistryConfig.yaml'
+ModelTrainNode:
+  $ref: 'workflows/ModelTrainNode.yaml'
+Node:
+  $ref: 'workflows/Node.yaml'
+NodeConfigValidation:
+  $ref: 'workflows/NodeConfigValidation.yaml'
+NodeCreateEntity:
+  $ref: 'workflows/NodeCreateEntity.yaml'
+NodeCreateResponse:
+  $ref: 'workflows/NodeCreateResponse.yaml'
+NodeDeleteResponse:
+  $ref: 'workflows/NodeDeleteResponse.yaml'
+NodeListingEntity:
+  $ref: 'workflows/NodeListingEntity.yaml'
+NodeListingResponse:
+  $ref: 'workflows/NodeListingResponse.yaml'
+NodeListingResponseValidation:
+  $ref: 'workflows/NodeListingResponseValidation.yaml'
+NodeReadResponse:
+  $ref: 'workflows/NodeReadResponse.yaml'
+NodeUpdateResponse:
+  $ref: 'workflows/NodeUpdateResponse.yaml'
+QueryForm:
+  $ref: 'workflows/QueryForm.yaml'
+QueryNode:
+  $ref: 'workflows/QueryNode.yaml'
+SourceNode:
+  $ref: 'workflows/SourceNode.yaml'
+Task:
+  $ref: 'workflows/Task.yaml'
+TrainDataConfig:
+  $ref: 'workflows/TrainDataConfig.yaml'
+TrainModelConfig:
+  $ref: 'workflows/TrainModelConfig.yaml'
+Workflow:
+  $ref: 'workflows/Workflow.yaml'
+WorkflowConfigValidation:
+  $ref: 'workflows/WorkflowConfigValidation.yaml'
+WorkflowCreateResponse:
+  $ref: 'workflows/WorkflowCreateResponse.yaml'
+WorkflowCreationConfig:
+  $ref: 'workflows/WorkflowCreationConfig.yaml'
+WorkflowCreationConfigValidation:
+  $ref: 'workflows/WorkflowCreationConfigValidation.yaml'
+WorkflowDeleteResponse:
+  $ref: 'workflows/WorkflowDeleteResponse.yaml'
+WorkflowDeployEntity:
+  $ref: 'workflows/WorkflowDeployEntity.yaml'
+WorkflowDeployResponse:
+  $ref: 'workflows/WorkflowDeployResponse.yaml'
+WorkflowListingEntity:
+  $ref: 'workflows/WorkflowListingEntity.yaml'
+WorkflowListingResponse:
+  $ref: 'workflows/WorkflowListingResponse.yaml'
+WorkflowListingResponseValidation:
+  $ref: 'workflows/WorkflowListingResponseValidation.yaml'
+WorkflowReadResponse:
+  $ref: 'workflows/WorkflowReadResponse.yaml'
+WorkflowRunResponse:
+  $ref: 'workflows/WorkflowRunResponse.yaml'
+WorkflowSpeedrunFromID:
+  $ref: 'workflows/WorkflowSpeedrunFromID.yaml'
+WorkflowSpeedrunFromSubgraph:
+  $ref: 'workflows/WorkflowSpeedrunFromSubgraph.yaml'
+WorkflowSpeedrunResponse:
+  $ref: 'workflows/WorkflowSpeedrunResponse.yaml'
+WorkflowStatusResponse:
+  $ref: 'workflows/WorkflowStatusResponse.yaml'
+WorkflowUndeployResponse:
+  $ref: 'workflows/WorkflowUndeployResponse.yaml'
+WorkflowUpdateResponse:
+  $ref: 'workflows/WorkflowUpdateResponse.yaml'
+WorkflowValidationEntity:
+  $ref: 'workflows/WorkflowValidationEntity.yaml'
+WorkflowValidationResponse:
+  $ref: 'workflows/WorkflowValidationResponse.yaml'
+CronSchedule:
+  $ref: 'connectors_hub/CronSchedule.yaml'
+ListEgressResponse:
+  $ref: 'connectors_hub/ListEgressResponse.yaml'
+DestinationDefinition:
+  $ref: 'connectors_hub/DestinationDefinition.yaml'
+ListEgressRunsResponse:
+  $ref: 'connectors_hub/ListEgressRunsResponse.yaml'
+UpdateDestination:
+  $ref: 'connectors_hub/UpdateDestination.yaml'
+ConnectorStatus:
+  $ref: 'connectors_hub/ConnectorStatus.yaml'
+ListIngressResponse:
+  $ref: 'connectors_hub/ListIngressResponse.yaml'
+destinationSyncModes:
+  $ref: 'connectors_hub/destinationSyncModes.yaml'
+ResourceRequirements:
+  $ref: 'connectors_hub/ResourceRequirements.yaml'
+scheduleType:
+  $ref: 'connectors_hub/scheduleType.yaml'
+EgressRun:
+  $ref: 'connectors_hub/EgressRun.yaml'
+RunEgressResponse:
+  $ref: 'connectors_hub/RunEgressResponse.yaml'
+GetEgressRunStatusResponse:
+  $ref: 'connectors_hub/GetEgressRunStatusResponse.yaml'
+GetIngressRunStatusResponse:
+  $ref: 'connectors_hub/GetIngressRunStatusResponse.yaml'
+timeUnit:
+  $ref: 'connectors_hub/timeUnit.yaml'
+CreateEgress:
+  $ref: 'connectors_hub/CreateEgress.yaml'
+
+Connector_Out:
+  $ref: 'connectors_hub/Connector.yaml'
+ConnectorRun:
+  $ref: 'connectors_hub/ConnectorRun.yaml'
+GetConnectorRunStatusResponse:
+  $ref: 'connectors_hub/GetConnectorRunStatusResponse.yaml'
+RunIngressResponse:
+  $ref: 'connectors_hub/RunIngressResponse.yaml'
+ConnectorRunStatus:
+  $ref: 'connectors_hub/ConnectorRunStatus.yaml'
+Schedule:
+  $ref: 'connectors_hub/Schedule.yaml'
+ScheduleData:
+  $ref: 'connectors_hub/ScheduleData.yaml'
+CreateConnector:
+  $ref: 'connectors_hub/CreateConnector.yaml'
+SourceDefinition:
+  $ref: 'connectors_hub/SourceDefinition.yaml'
+CreateConnectorResponse:
+  $ref: 'connectors_hub/CreateConnectorResponse.yaml'
+Ingress:
+  $ref: 'connectors_hub/Ingress.yaml'
+UpdateConnector:
+  $ref: 'connectors_hub/UpdateConnector.yaml'
+CreateDestination:
+  $ref: 'connectors_hub/CreateDestination.yaml'
+IngressRun:
+  $ref: 'connectors_hub/IngressRun.yaml'
+CreateDestinationDefinition:
+  $ref: 'connectors_hub/CreateDestinationDefinition.yaml'
+ListConnectorRunsResponse:
+  $ref: 'connectors_hub/ListConnectorRunsResponse.yaml'
+UpdateSource:
+  $ref: 'connectors_hub/UpdateSource.yaml'
+ListConnectorsResponse:
+  $ref: 'connectors_hub/ListConnectorsResponse.yaml'
+CreateIngress:
+  $ref: 'connectors_hub/CreateIngress.yaml'
+CreateSource:
+  $ref: 'connectors_hub/CreateSource.yaml'
+CreateSourceDefinition:
+  $ref: 'connectors_hub/CreateSourceDefinition.yaml'
+streamConfig:
+  $ref: 'connectors_hub/streamConfig.yaml'
+ListIngressRunResponse:
+  $ref: 'connectors_hub/ListIngressRunResponse.yaml'
+syncModes:
+  $ref: 'connectors_hub/syncModes.yaml'
+Egress:
+  $ref: 'connectors_hub/Egress.yaml'
+RunConnectorResponse:
+  $ref: 'connectors_hub/RunConnectorResponse.yaml'

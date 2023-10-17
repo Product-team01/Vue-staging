@@ -1,0 +1,41 @@
+title: LogRequest
+type: object
+properties:
+  fields:
+    title: Fields to be returned in response
+    type: array
+    items: 
+      type: string
+    example: ["experience_id"]
+  filters:
+    title: Filters
+    type: array
+    items:
+        title: Filter
+        required:
+          - field
+          - type
+          - value
+        type: object
+        properties:
+          field:
+            title: Field
+            type: string
+          type:
+            title: Type
+            type: string
+          value:
+            title: Value
+            anyOf:
+              - type: string
+              - type: integer
+              - type: number
+  page_number:
+    title: Page for which logs is required
+    type: integer
+    default: 1
+  num_results:
+    title: Number of results to be sent in response
+    type: integer
+    default: 50
+

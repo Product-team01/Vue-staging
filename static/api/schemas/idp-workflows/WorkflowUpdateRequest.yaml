@@ -1,0 +1,50 @@
+type: object
+properties:
+  name:
+    type: string 
+  config:
+    type: object
+    properties:
+      is_multipage:
+        type: boolean
+      workflow_name:
+        type: string
+      related_workflows:
+        type: object
+        additionalProperties:
+          type: string
+      nodes:
+        type: array
+        items:
+          type: object
+          properties:
+            node: 
+              type: object
+            fkey:
+              type: string
+            dependencies:
+              type: array
+            url:
+              type: string
+            payload:
+              type: object
+            batch_processing:
+              type: boolean
+            status:
+              type: string
+            output:
+              type: string
+            store_output:
+              type: boolean
+      rules:
+        type: object
+        additionalProperties:
+          type: string
+          additionalProperties:
+            type: string                
+  document_type:
+    type: string
+required:
+  - name
+  - config
+  - document_type

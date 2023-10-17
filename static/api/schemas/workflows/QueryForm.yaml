@@ -1,0 +1,57 @@
+properties:
+  additional_dataset:
+    default: []
+    description: This is an optional field that represents any additional dataset(s)
+      that are needed to execute the transformation.
+    items: {}
+    title: Additional Dataset
+    type: array
+  dependent_node_ids:
+    default: []
+    description: This field describes the list of node IDs that are dependent on the
+      current node. This is used to build the workflow DAG.
+    items:
+      type: string
+    title: Dependent Node Ids
+    type: array
+  node_id:
+    default: ''
+    description: This field describes the identifier of the corresponding transformation
+      node. If it is not present, it will be created.
+    title: Node Id
+    type: string
+  query_type:
+    description: 'This field describes the type of the query that will be executed
+      on the input (source_dataset) to obtain the output (sink_dataset). Some of the
+      examples of data transformation queries are filter, select, join, groupby, custom
+      queries etc. '
+    title: Query Type
+    type: string
+  query_value:
+    anyOf:
+    - items: {}
+      type: array
+    - type: object
+    description: This field is a json representation of the query itself. It will
+      provide configurations about the nature of the query that will be executed on
+      the input (source_dataset) to obtain the output (sink_dataset). Different types
+      of queries will have different formats of the metadata or configurations required
+      to execute the transformation.
+    title: Query Value
+  sink_dataset:
+    description: This field describes the name of the dataset that will be the sink
+      / output of this query operation or transformation.
+    title: Sink Dataset
+    type: string
+  source_dataset:
+    description: This field describes the name of the dataset that will be the source
+      / input for this query operation or transformation.
+    title: Source Dataset
+    type: string
+required:
+- source_dataset
+- sink_dataset
+- query_type
+- query_value
+title: QueryForm
+type: object

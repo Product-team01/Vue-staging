@@ -1,0 +1,41 @@
+post:
+  tags:
+    - shop-the-look
+  summary: Get shop the look outfit
+  description: Retrieve outfit by image url
+  operationId: get_outfit_by_image_url
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - required: true
+    schema:
+      title: type
+      type: string
+    name: type
+    in: query
+  requestBody:
+    description: Curation request body
+    content:
+      application/json:
+        schema:
+          anyOf:
+            - $ref: "../../schemas/shop-the-look/fetch_theme_outfit_request.yaml"
+            - $ref: "../../schemas/shop-the-look/fetch_theme_search_request.yaml"
+  responses:
+    "200":
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            anyOf:
+            - $ref: "../../schemas/shop-the-look/fetch_theme_outfit_response.yaml"
+            - $ref: "../../schemas/shop-the-look/fetch_theme_search_response.yaml"
+    "404":
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/error_response.yaml"

@@ -1,0 +1,45 @@
+post:
+  description: 'This API is the trigger to execute the DAG in asynchronous mode.
+
+    When the DAG is deployed by using the /deploy or /enable endpoint, the /async/run
+    endpoint is used to trigger the execution after the deployment is done.
+
+    This API communicates with lantern, which in turn, communicates with raven to
+    run the DAG.
+
+
+    The input to the API is a workflow identifier which is a unique reference to this
+    workflow in the workflow registry.'
+  operationId: async_run_workflow_api_v1_workflow_async_run_post
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - description: This field describes the ID of the workflow used to query the workflow
+      registry.
+    in: query
+    name: workflow_id
+    required: true
+    schema:
+      description: This field describes the ID of the workflow used to query the workflow
+        registry.
+      title: Workflow Id
+      type: string
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/workflows/WorkflowRunResponse.yaml
+      description: Successful Response
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/workflows/HTTPValidationError.yaml
+      description: Validation Error
+  summary: Async Run Workflow
+  tags:
+  - Workflows

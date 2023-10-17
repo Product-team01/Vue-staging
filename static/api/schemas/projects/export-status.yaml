@@ -1,0 +1,17 @@
+required:
+- link
+- status
+type: object
+properties:
+  status:
+    type: string
+    description: indicates status of the export request. in_progress represents the
+      export job is in process. ready indicates file is available for download. error
+      indicates the process failed
+    enum:
+    - IN-PROGRESS
+    - READY
+    - ERROR
+  link:
+    type: string
+    description: path from which the file can be downloaded

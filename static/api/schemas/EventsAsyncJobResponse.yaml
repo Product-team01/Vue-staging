@@ -1,0 +1,21 @@
+title: EventsJobResponse
+x-stoplight:
+  id: 8hw4lie7r0nr2
+type: object
+properties:
+  job_id:
+    type: string
+  status:
+    type: string
+  job_type:
+    type: string
+  job_name:
+    type: string
+  sub_dag_status_dict:
+    type: array
+  created_ts:
+    type: string
+  updated_ts:
+    type: string
+  client:
+    type: string

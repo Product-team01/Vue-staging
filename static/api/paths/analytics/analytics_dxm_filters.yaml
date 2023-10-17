@@ -1,0 +1,39 @@
+get:
+  tags:
+  - analytics
+  summary: Get DXM Filters for a Client
+  description: Gets the filters for the dxm metrics for a client
+  operationId: list_filters_api_v1_metrics_filters_list_get
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - required: true
+    schema:
+      title: Client ID
+      type: string
+    name: x-client-id
+    in: header
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            title: DXM Metrics Filters
+            allOf:
+            - $ref: '../../schemas/ResponseTemplateSuccessNoData.yaml'
+            - type: object
+              properties:
+                data:
+                  type: array
+                  $ref: '../../schemas/DXMMetricsFilters.yaml'
+
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'

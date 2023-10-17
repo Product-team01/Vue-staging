@@ -1,0 +1,43 @@
+post:
+  tags:
+  - events
+  summary: Enable Event Pipeline with enabled event datasource
+  description: Enable events for an account if there exisits events datasource
+  operationId: ds_events_enable 
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - required: true
+    schema:
+      title: Datasource ID
+      type: string
+    name: id
+    in: path
+  responses:
+    '202':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/EventsRunJobResponse.yaml'
+    '400':
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/PostFailureResponse.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/PostFailureResponse.yaml'

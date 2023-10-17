@@ -1,0 +1,48 @@
+get:
+  description: Lists all the supported sources
+  operationId: list_source_definitons_api_v2_connectors_sources_definitions_get
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  responses:
+    '200':
+      content:
+        application/json:
+          schema: {}
+      description: Successful Response
+  summary: List Source Definitons
+  tags:
+  - connectors
+post:
+  description: Create new source definition
+  operationId: create_source_definition_api_v2_connectors_sources_definitions_post
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../../schemas/connectors_hub/CreateSourceDefinition.yaml
+    required: true
+  responses:
+    '200':
+      content:
+        application/json:
+          schema: {}
+      description: Successful Response
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/connectors_hub/HTTPValidationError.yaml
+      description: Validation Error
+  summary: Create Source Definition
+  tags:
+  - connectors

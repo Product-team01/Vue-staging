@@ -1,0 +1,67 @@
+post:
+  tags:
+    - bundling apis
+  summary: Complete The Bundle API
+  description: Returns the list of list of objects
+  operationId: bundling_api_auto_complete
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  requestBody:
+    description: Complete The Bundle payload
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas/search/bundle_complete_bundle_request.yaml"
+        examples:
+          complete_bundle_request:
+            value:
+              catalogs:
+                c49b53bf19:
+                  fields:
+                    - Handle
+                    - Title
+                    - Image Src
+                    - page link
+                    - Vendor
+                  filters:
+                    description: filters to be applied while serving recommendations
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        field:
+                          type: string
+                        value:
+                          type: array
+                          items:
+                            oneOf:
+                              - type: string
+                              - type: number
+                              - type: integer
+                        operator:
+                          type: string
+              curations_data: 
+                value:
+                  curations: 47430e39-76cb-5b2e-8e18-f122e9999a1
+                  content_ids :
+                    - MP000000007552891
+                    - MP000000007552809
+                    - MP000000007552891
+              page_num: 1
+  responses:
+    "200":
+      "description": "OK"
+      "content":
+        application/json:
+          schema:
+            $ref: "../../schemas/search/bundle_common_response.yaml"
+    "400":
+      "description": "Error Response"
+      "content":
+        application/json:
+          schema:
+            $ref: "../../schemas/search/bundle_curation_apis_error_response.yaml"

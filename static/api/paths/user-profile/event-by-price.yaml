@@ -1,0 +1,43 @@
+post:
+  tags:
+  - internal
+  summary: event by price computation for a user on a event
+  description: event by price computation for a user on a event
+  operationId: event_by_price
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/user-profile/request/event-by-price.yaml'
+        example:
+          $ref: '../../examples/user-profile/request/event-by-price.yaml'
+    required: true
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+            - $ref: '../../schemas/ResponseTemplateSuccessNoData.yaml'
+            - type: object
+              properties:
+                data:
+                  $ref: '../../schemas/user-profile/response/event-by-price.yaml'
+              required:
+                  - data
+          example:
+            $ref: '../../examples/user-profile/response/event-by-price.yaml'
+
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'

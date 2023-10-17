@@ -1,0 +1,17 @@
+properties:
+  model_registry:
+    allOf:
+    - $ref: ../workflows/ModelRegistryConfig.yaml
+    description: This field describes the configurations of the model. It holds metadata
+      information about the trained model which can be used in model inference workflows.
+    title: Model Registry
+  trial_name:
+    description: This field describes the trial name of the training job that produced
+      this model artifact.
+    title: Trial Name
+    type: string
+required:
+- trial_name
+- model_registry
+title: ModelArtifactConfig
+type: object

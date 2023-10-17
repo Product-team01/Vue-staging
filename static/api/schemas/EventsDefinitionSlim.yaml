@@ -1,0 +1,28 @@
+title: EventsDefinition
+required:
+- event_name
+- event_meta
+- events_schema
+type: object
+properties:
+  event_name:
+    title: Event Name
+    type: string
+    description: Name of the event
+    example: Product_PageView
+  event_meta:
+    title: Event Meta
+    type: string
+    description: Meta of the event, this value should be registered in the event template meta values.
+    example: pageView
+  action:
+    title: Event Action
+    type: string
+    description: Action of the event, this value should be registered in the event template meta values.
+    example: load
+  events_schema:
+    title: Events Schema
+    type: array
+    items:
+      $ref: 'EventsSchemaSlim.yaml'
+    description: A JSON object to hold the schema for the parameters to be collected.

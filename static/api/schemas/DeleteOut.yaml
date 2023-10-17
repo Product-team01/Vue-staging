@@ -1,0 +1,32 @@
+title: Delete response
+type: object
+properties:
+  request_id:
+    title: request id to backtrack the request
+    type: string
+  correlation_id:
+    title: Customer to tracking id
+    type: string
+  status:
+    title: status of response
+    type: string
+  error:
+    title: Error code and messages
+    type: array
+    items:
+      title: Error respnse
+      type: object
+      properties:
+        code:
+          title: error code of the response
+          type: string
+        message:
+          title: error message of the response
+          type: string
+  data:
+    title: response of delete request
+    type: object
+    properties:
+      message:
+        title: messaage of the delete response
+        type: string

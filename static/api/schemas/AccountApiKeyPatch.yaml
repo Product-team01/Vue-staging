@@ -1,0 +1,7 @@
+title: AccountApiKeyPatch
+type: object
+properties:
+  active:
+    title: active
+    type: boolean
+

@@ -1,0 +1,49 @@
+post:
+  tags:
+  - search
+  summary: Get Live experience
+  description: Get live experience for the user on a page
+  operationId: get_live_experience
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  requestBody:
+    description: Live Experience request body
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/LiveExperienceIn.yaml'
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+            - $ref: '../../schemas/ResponseTemplateSuccessNoData.yaml'
+            - type: object
+              properties:
+                data:
+                  type: object
+                  $ref: '../../schemas/LiveExperienceResponse.yaml'
+    "400":
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/error_response.yaml"
+    '404':
+      description: Config not found
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/PostFailureResponse.yaml'
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/PostFailureResponse.yaml'

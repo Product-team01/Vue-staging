@@ -1,0 +1,40 @@
+get:
+  tags:
+  - analytics
+  summary: Get dimension configuration
+  description: Get dimension configuration
+  operationId: get_analytics_dimensions_by_id
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - required: true
+    schema:
+      title: Api Key
+      type: string
+    name: api_key
+    in: query
+  - required: true
+    schema:
+      title: Dimension Id
+      type: string
+    name: dimension_id
+    in: path
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            title: Response List Clients Api V1 Clients Get
+            type: array
+            items:
+              $ref: '../../schemas/AnalyticsDimensionOut.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'

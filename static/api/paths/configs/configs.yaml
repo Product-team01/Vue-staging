@@ -1,0 +1,43 @@
+get:
+  tags:
+  - configs
+  parameters:
+  - $ref: '../../parameters/api_key.yaml'
+  summary: Returns the requested configs for a client
+  description: Fetch any config - Decide if we want these to be called out separate
+    or keep a single config api
+  operationId: get_config
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/SuccessOut.yaml'
+post:
+  tags:
+  - configs
+  summary: Set a config
+  description: Set any configuration
+  operationId: set_config
+  parameters:
+  - $ref: '../../parameters/api_key.yaml'
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/ConfigIn.yaml'
+    required: true
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/ConfigOut.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'

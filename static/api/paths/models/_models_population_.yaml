@@ -1,0 +1,85 @@
+post:
+  operationId: post_population_model_create
+  description: Creates config for population based models like trending, cfcp, affinity,
+    seasonality, rarity. For trending we need to know the event types (buy, pageView)
+    based on which we want the trending scores are to be computed
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - in: query
+    name: model_type
+    schema:
+      type: string
+    description: One of the models trending, cfcp,  ...
+  - in: query
+    name: client
+    schema:
+      type: string
+    description: unique identifier for the client
+  - in: query
+    name: use_case
+    schema:
+      type: string
+    description: the same models can be used for use cases. e.g. trending categories,
+      trending products, trending products based on counts of buys etc
+  - in: header
+    name: x-api-key
+    schema:
+      type: string
+    description: api-key for authentication
+  requestBody:
+    content:
+      application/json:
+        schema: {}
+  tags:
+  - models
+  responses:
+    '400':
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/ErrorList.yaml'
+      description: ''
+get:
+  operationId: get_population_model_create
+  description: Gets config for population based models like trending, cfcp, affinity,
+    seasonality, rarity.
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - in: query
+    name: model_type
+    schema:
+      type: string
+    description: One of the models trending, cfcp,  ...
+  - in: query
+    name: client
+    schema:
+      type: string
+    description: unique identifier for the client
+  - in: query
+    name: use_case
+    schema:
+      type: string
+    description: the same models can be used for use cases. e.g. trending categories,
+      trending products, trending products based on counts of buys etc
+  - in: header
+    name: x-api-key
+    schema:
+      type: string
+    description: api-key for authentication
+  tags:
+  - models
+  responses:
+    '400':
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/ErrorList.yaml'
+      description: ''

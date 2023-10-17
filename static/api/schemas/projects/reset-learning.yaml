@@ -1,0 +1,17 @@
+required:
+- status
+type: object
+properties:
+  job_id:
+    description: unique identifier the job being generated
+    type: string
+  status:
+    type: string
+    description: indicates status of the reset request. SUCCESS when the reset is applied successfully. ERROR when the reset is unsuccessful.
+    enum:
+    - SUCCESS
+    - ERROR
+  created_at:
+    type: string
+    description: timestamp at which the training request was raised
+    example: ''

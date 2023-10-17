@@ -1,0 +1,66 @@
+type: object
+title: Module Search Response 
+properties:
+  request_id:
+      type: string
+      description: Id to track a request
+      example: fa5232-4342-424879b2-0717
+  correlation_id:
+    type: string
+    example: 879b2-0717fa5232-4342-424879b2-0717
+  status:
+    description: state of the request
+    type: string
+    example: ok
+  message:
+    type: string
+  data:
+    type: array
+    items:
+      type: object
+      properties:
+        errors:
+          description: Specifies any errors that occured while executing search call.
+          type: object
+        strategy_name:
+          description: Name of the strategy executed for serving recommendations
+          type: string
+        strategy_id:
+          description: Id of the strategy executed for serving recommendations
+          type: string
+        data:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              description: Contains any catalog fields for the specific catalog from which recommendations are served
+              items:
+                oneOf:
+                  - type: array
+                    items:
+                      anyOf:
+                        - type: string
+                        - type: number
+                        - type: integer
+                  - type: string
+                  - type: number
+                  - type: integer
+                  - type: boolean
+            example:
+              blox_tags:
+                - taxonomy_id: Id
+                  attributes: 
+                    - hierarchy: category>dress>typ 
+                      hierarchy_id: 123>456>789
+                      name: type
+                      id: abfa9a19-1004-4f96-84c9-91f79e5c10d1
+                      reviewed_status: APPROVED
+                      results:
+                        - confidence: 0.982
+                          value: aline
+                          value_id : b6504efb-cfb7-4cbf-b921-bcf0020b1a26
+                      prediction_value_box: null
+                
+                
+
+

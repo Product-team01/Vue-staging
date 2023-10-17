@@ -1,0 +1,39 @@
+properties:
+  df_type:
+    title: Df Type
+    type: string
+  field_mapping:
+    default: []
+    description: field mapping to rename columns of some table
+    items:
+      $ref: ../workflows/FieldMapping.yaml
+    title: Field Mapping
+    type: array
+  file_path:
+    description: path to the file
+    title: File Path
+    type: string
+  file_type:
+    description: type of file delta, parquet, csv
+    title: File Type
+    type: string
+  mode:
+    default: overwrite
+    description: Mode used to write the file, append, overwrite
+    title: Mode
+    type: string
+  overwriteSchema:
+    default: 'false'
+    description: overwrite the schema or not
+    title: Overwriteschema
+    type: string
+  partitionBy:
+    default: ''
+    description: partition the data before saving using this column
+    title: Partitionby
+    type: string
+required:
+- file_type
+- file_path
+title: FileInfo
+type: object

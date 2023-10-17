@@ -1,0 +1,40 @@
+title: MetricsDefinitionConfig
+required:
+- metric_name
+- metric_type
+- table_name
+- computation
+- field_name
+- level_name
+type: object
+properties:
+  metric_name:
+    title: Metric Name
+    type: string
+    description: Name of the custom metrics to be computed
+    example: attributable visit
+  metric_type:
+    title: Metric Type
+    type: string
+    description: whether metric is attribution or non-attribution
+    example: attribution
+  table_name:
+    title: Table Name
+    type: string
+    description: table name from which the metrics is calculated
+    example: buys
+  computation:
+    title: Computation
+    type: string
+    description: calculation for metrics calculations
+    example: countDistinct
+  field_name:
+    title: Field Name
+    type: string
+    description: name of the field in which the computation is performed
+    example: session_id
+  level_name:
+    title: Level Name
+    type: string
+    description: level in which computation is to be done
+    example: strategy_id

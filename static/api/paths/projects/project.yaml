@@ -1,0 +1,191 @@
+get:
+  tags:
+  - projects
+  summary: get projects by id
+  description: get projects by id
+  operationId: getProjectById
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - name: Accept-Encoding
+    in: header
+    description: indicates the content encoding that the client can understand
+    schema:
+      type: string
+      default: gzip
+
+  - name: project_id
+    in: path
+    description: unique identifier of the project
+    required: true
+    schema:
+      type: string
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                description: status of the request
+                type: string
+                enum:
+                - SUCCESS
+                - FAILURE
+              request_id:
+                description: id to backtrack the request in internal services
+                type: string
+              correlation_id:
+                description: id sent by the caller to backtrack the request
+                type: string
+              data:
+                $ref: '../../schemas/projects/project.yaml'
+    '404':
+      description: returned when project does not exists
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'
+put:
+  tags:
+  - projects
+  summary: modify project details
+  description: modify project details
+  operationId: updateProject
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - name: Accept-Encoding
+    in: header
+    description: indicates the content encoding that the client can understand
+    schema:
+      type: string
+      default: gzip
+  - name: project_id
+    in: path
+    description: unique identifier of the project
+    required: true
+    schema:
+      type: string
+  requestBody:
+    description: projects object that needs to be added
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/projects/project.yaml'
+    required: true
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                description: status of the request
+                type: string
+                enum:
+                - SUCCESS
+                - FAILURE
+              request_id:
+                description: id to backtrack the request in internal services
+                type: string
+              correlation_id:
+                description: id sent by the caller to backtrack the request
+                type: string
+    '400':
+      description: "Validation failures 1. If json is invalid 2. If name is not unique\
+        \ 3. If catalog id is passed and is different value 4. if taxonomy id has\
+        \ changed but organization is already in progress 5. if taxonomy id has passed\
+        \ for the first time and one of the below scenarios\n  5a. if schema does\
+        \ not exist\n  5b. if column mapping is invalid.
+        taxonomy or embedding config does not exist when given"
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'
+    '404':
+      description: returned when project does not exists
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'
+  x-codegen-request-body-name: body
+delete:
+  tags:
+  - projects
+  summary: delete project
+  description: delete project
+  operationId: deleteProject
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - name: Accept-Encoding
+    in: header
+    description: indicates the content encoding that the client can understand
+    schema:
+      type: string
+      default: gzip
+  - name: project_id
+    in: path
+    description: unique identifier of the project
+    required: true
+    schema:
+      type: integer
+      format: string
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                description: status of the request
+                type: string
+                enum:
+                - SUCCESS
+                - FAILURE
+              request_id:
+                description: id to backtrack the request in internal services
+                type: string
+              correlation_id:
+                description: id sent by the caller to backtrack the request
+                type: string
+    '404':
+      description: returned when project does not exists
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'

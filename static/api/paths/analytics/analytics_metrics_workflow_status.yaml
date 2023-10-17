@@ -1,0 +1,57 @@
+get:
+  tags:
+  - analytics
+  summary: Get DAG status for a client
+  description: Get DAG status for a client
+  operationId: get_dag_status
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+    - required: true
+      schema:
+        title: Workflow Type
+        type: string
+        example: "dxm"
+        enum:
+          - dxm
+          - tag
+      name: workflow_type
+      in: path
+    - required: false
+      schema:
+        title: Dag Id
+        type: string
+      name: dag_id
+      in: query
+    - required: false
+      schema:
+        title: Dag Run Id
+        type: string
+      name: dag_run_id
+      in: query
+    - required: true
+      schema:
+        title: Catalog ID
+        type: string
+        example: "83cb071269"
+      name: catalog_id
+      in: query
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            title: Response List Clients DAG Status
+            type: array
+            items:
+              $ref: '../../schemas/StatusResponse.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'

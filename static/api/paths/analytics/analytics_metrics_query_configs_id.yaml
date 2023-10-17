@@ -1,0 +1,114 @@
+patch:
+  tags:
+    - analytics
+  summary: Update Metrics Query config
+  description: Update Metrics query config
+  operationId: update_metrics_query_config
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - required: true
+    schema:
+      title: Metrics Query Config ID
+      type: string
+    name: query_config_id
+    in: path
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/MetricsQueryConfigIn.yaml'
+    required: true
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            title: Metric Query Config
+            allOf:
+            - $ref: '../../schemas/ResponseTemplateSuccessNoData.yaml'
+            - type: object
+              properties:
+                data:
+                  type: object
+                  $ref: '../../schemas/MetricsQueryConfigOut.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'
+get:
+  tags:
+    - analytics
+  summary: Get Metrics Query configs by Metric ID
+  description: Get Metrics Query configs by Metric ID
+  operationId: get_metrics_query_configs_by_metric_query_config_id
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - required: true
+    schema:
+      title: Metrics Query Config ID
+      type: string
+    name: query_config_id
+    in: path
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            title: Metric Query Config
+            allOf:
+            - $ref: '../../schemas/ResponseTemplateSuccessNoData.yaml'
+            - type: object
+              properties:
+                data:
+                  type: object
+                  $ref: '../../schemas/MetricsQueryConfig.yaml'
+
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'
+delete:
+  tags:
+    - analytics
+  summary: Delete Metrics Query configs
+  description: Delete Metrics Query configs
+  operationId: delete_metrics_query_configs
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - required: true
+    schema:
+      title: Metrics Query Config ID
+      type: string
+    name: query_config_id
+    in: path
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/ConfigDelete.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'

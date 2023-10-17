@@ -1,0 +1,70 @@
+put:
+  tags:
+  - configs
+  summary: Update config
+  description: Update config details
+  operationId: update_config
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - required: true
+    schema:
+      title: Config Name
+      type: string
+    name: config_name
+    in: path
+  - $ref: '../../parameters/api_key.yaml'
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/ConfigIn.yaml'
+    required: true
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/ConfigOut.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'
+delete:
+  tags:
+  - configs
+  summary: Delete Config
+  description: Delete a config in the system
+  operationId: delete_config
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - required: true
+    schema:
+      title: Config Name
+      type: string
+    name: config_name
+    in: path
+  - $ref: '../../parameters/api_key.yaml'
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/SuccessOut.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'

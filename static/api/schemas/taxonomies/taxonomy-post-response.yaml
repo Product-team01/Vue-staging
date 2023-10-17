@@ -1,0 +1,26 @@
+---
+title: TaxonomyPostResponse
+required:
+  - attributes
+  - parent_taxonomy_id
+  - taxonomy_id
+type: object
+properties:
+  taxonomy_id:
+    type: integer
+    description: unique identifier of the taxonomy object created
+  parent_taxonomy_id:
+    type: integer
+    description: >-
+      unique identifier of the taxonomy from which this structure is
+      cloned. If it is not cloned then this will be null.
+  created_ts:
+    description: represents creation timestamp of the taxonomy
+    type: string
+    example: '2020-05-10T00:00:00.000Z'
+  attributes:
+    type: array
+    items:
+      $ref: './taxonomy-attributes-without-children.yaml'
+  metadata:
+    $ref: './taxonomy_metadata.yaml'

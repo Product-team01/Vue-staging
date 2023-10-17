@@ -1,0 +1,96 @@
+request_id: 75e7f406bcbf11edb9e38ede34884a05
+status: SUCCESS
+data:
+  inputs: []
+  DAG:
+    members:
+      - node:
+          name: fetch_user_history
+        dependencies: []
+      - node:
+          name: get_parallel_args_for_ibbh
+        dependencies:
+          - fetch_user_history
+      - node:
+          name: execute_module_dag(72cfb22f-be63-46e1-852c-14e27cbf34ee)
+        dependencies:
+          - get_parallel_args_for_ibbh
+      - node:
+          name: ibh_assembly
+        dependencies:
+          - execute_module_dag(72cfb22f-be63-46e1-852c-14e27cbf34ee)
+      - node:
+          name: arrange_response_based_on_rating
+        dependencies:
+          - ibh_assembly
+  id: bf163c76-e438-45c8-9f76-f21d8d235461
+  config_schema:
+    - type: catalog_fields
+      field:
+        discoverable: true
+      value:
+        type: float
+        max: 10
+        min: -5
+    - type: temporal
+      field:
+        enum:
+          - lookback
+      value:
+        type: string
+        enum:
+          - weekly
+          - fortnightly
+          - daily
+          - monthly
+          - quarterly
+          - yearly
+        default: daily
+    - type: events
+      field:
+        discoverable: true
+      value:
+        type: float
+        max: 10
+        min: -5
+    - type: exploration
+      field:
+        enum:
+          - exploration
+      value:
+        type: float
+        max: 1
+        min: 0
+    - type: trending_use_case
+      field:
+        enum:
+          - trending_use_case_name
+      value:
+        type: string
+        discoverable: true
+    - type: rarity_use_case
+      field:
+        enum:
+          - rarity_use_case_id
+      value:
+        type: string
+        default: rarity_score_hm
+        discoverable: true
+    - type: exploration_rarity
+      field:
+        enum:
+          - exploration_rarity
+        max: 1
+        min: 0
+      value:
+        type: float
+        discoverable: true
+  name: Inspired by Browsing History
+  created_ts: "2022-08-01T06:44:12.701329"
+  updated_ts: "2023-03-07T07:38:29.285780"
+  type: Journey-aware
+  required_config:
+    - type: events
+  allowed_events:
+    - pageView
+    - addToCart

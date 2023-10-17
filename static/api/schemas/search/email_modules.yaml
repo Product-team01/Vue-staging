@@ -1,0 +1,5 @@
+title: Success
+type: object
+properties:
+  message:
+    type: string

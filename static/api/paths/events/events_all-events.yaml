@@ -1,0 +1,47 @@
+post:
+  tags:
+  - events
+  summary: Fetch all tracked pixel events
+  description: Fetch all success and failure events of pixel users
+  operationId: get_pixel_events
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          title: pixel user
+          required:
+          - blox_uuid
+          type: object
+          properties:
+            blox_uuid:
+              title: uuid of user
+              type: string
+            user_id:
+              type: string
+            catalog_id:
+              type: string
+            event_name:
+              type: string
+            last_fetch_time:
+              title: Last fetch time for events dump to be fetched
+              type: integer
+    required: true
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/PixelEventsOut.yaml'
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/ResponseTemplateFailure.yaml'

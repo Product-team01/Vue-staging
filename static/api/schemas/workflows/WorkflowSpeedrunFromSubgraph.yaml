@@ -1,0 +1,13 @@
+properties:
+  graph:
+    description: This field describes a sub-workflow input to for synchronous execution.
+    items:
+      anyOf:
+      - $ref: ../workflows/DatasetNode.yaml
+      - $ref: ../workflows/QueryForm.yaml
+    title: Graph
+    type: array
+required:
+- graph
+title: WorkflowSpeedrunFromSubgraph
+type: object

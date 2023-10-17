@@ -1,0 +1,35 @@
+title: ErrorResponse
+required:
+  - request_id
+  - correlation_id
+  - status
+  - data
+  - errors
+type: object
+properties:
+  request_id:
+    title: Request Id
+    type: string
+    description: request_id generated internally
+  correlation_id:
+    title: Correlation Id
+    type: string
+    description: correlation_id for the request
+  data:
+    $ref: 'Message.yaml'
+  status:
+    title: Status
+    type: string
+    description: status for the request
+  errors:
+    title: Errors
+    type: object
+    properties:
+      status_code:
+        title: Status Code
+        type: string
+        description: error status code
+      error_msg:
+        title: Error Message
+        type: string
+        description: error message

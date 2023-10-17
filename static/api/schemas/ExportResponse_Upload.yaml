@@ -1,0 +1,64 @@
+title: ExportResponse
+required:
+  - request_id
+  - correlation_id
+  - status
+  - data
+type: object
+properties:
+  request_id:
+    title: Request Id
+    type: string
+    description: request_id generated internally
+  correlation_id:
+    title: Correlation Id
+    type: string
+    description: correlation_id for the request
+  status:
+    title: Status
+    type: string
+    description: status for the request
+  data:
+    title: Data
+    description: data for the request
+    properties:
+      id:
+        title: Id
+        type: string
+        description: id of the audiences
+        example: '5678'
+      name:
+        title: Name
+        type: string
+        description: name of the audiences
+        example: 'First_Time_Buyer'
+      description:
+        title: Description
+        type: string
+        description: description of the audiences
+        example: "Users who buy for the first time ever"
+      path:
+        title: Path
+        type: string
+        description: s3 path of the file
+        example: None
+      is_preset:
+        title: IsPreset
+        type: boolean
+        description: indicates if the audience is preset or not
+        example: false
+      created_at:
+        title: Created At
+        type: string
+        description: created at datetime
+        example: '23-08-2022'
+      last_run_at:
+        title: Last Run At
+        type: string
+        description: job last run at datetime
+        example: None
+      overlap_details:
+        title: Overlap Info
+        type: array
+        description: Audience Overlap details for the selected audience
+        example: None

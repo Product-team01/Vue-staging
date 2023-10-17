@@ -1,0 +1,45 @@
+post:
+  description: 'This API is used to validate any workflow metadata configurations
+    which is passed as the input payload.
+
+    The validations are run for the configurations in which we expect metadata to
+    be in the workflows and the nodes that belong to it.
+
+    The API is useful to validate the entries in the workflow (and corresponding nodes)
+    at any stage before registering and deploying them to run.
+
+
+    The input to this API is a dictionary containing all the metadata about the workflow
+    - name, description, and any other configurations that drives its functionality.
+
+    If validated, the output will be a success. Else, the errors or failures in the
+    validation process will be shown.'
+  operationId: validate_workflow_api_v1_workflow_validate_post
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../../schemas/workflows/Workflow.yaml
+    required: true
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/workflows/WorkflowValidationResponse.yaml
+      description: Successful Response
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/workflows/HTTPValidationError.yaml
+      description: Validation Error
+  summary: Validate Workflow
+  tags:
+  - Workflows

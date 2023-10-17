@@ -1,0 +1,27 @@
+
+get:
+  tags:
+    - External Document Types
+  summary: List external document types
+  description: List external document types
+  operationId: ListExternalDocumentTypes
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string 
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              request_id:
+                type: string
+              correlation_id:
+                type: string
+              data:
+                $ref: '../../schemas/external-document-types/ExternalDocumentTypeResponse.yaml'

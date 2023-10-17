@@ -1,0 +1,139 @@
+---
+get:
+  tags:
+    - extraction-configs
+  summary: get all extraction configs
+  description: To get all the extraction configs available.
+  operationId: getExtractionConfigs
+  parameters:
+    - name: page_num
+      in: query
+      description: number or offset to start fetching configs
+      schema:
+        type: integer
+    - name: page_size
+      in: query
+      description: number of results to be returned
+      schema:
+        type: integer
+    - name: type
+      in: query
+      description: represents the extraction config type that should be returned
+      schema:
+        type: string
+        enum:
+          - DIGESTION
+          - ENRICHMENT
+          - TAGGING
+          - SEARCH
+    - name: active
+      in: query
+      description: indicates if the config is available for user or not
+      schema:
+        type: boolean
+    - name: preset
+      in: query
+      description: indicates if the config is set as global presets or not
+      schema:
+        type: boolean
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                description: status of the request
+                type: string
+                enum:
+                  - SUCCESS
+                  - FAILURE
+              request_id:
+                description: id to backtrack the request in internal services
+                type: string
+              correlation_id:
+                description: id sent by the caller to backtrack the request
+                type: string
+              data:
+                type: array
+                items:
+                  $ref: '../../schemas/extraction-configs/extraction-config-object.yaml'
+    '400':
+      description: >-
+        Validation failures 1. If type passed in query string is not in
+        allowed values
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'
+post:
+      tags:
+        - extraction-configs
+      summary: Add a new extraction-config
+      description: Add a new extraction-config
+      operationId: extraction-configs
+      parameters:
+        - name: x-correlation-id
+          in: header
+          description: correlation id to track requests
+          schema:
+            type: string
+      requestBody:
+        description: extraction-config object that needs to be added
+        content:
+          application/json:
+            schema:
+              $ref: '../../schemas/extraction-configs/add-extraction-config.yaml'
+        required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '../../schemas/extraction-configs/extraction-config-response.yaml'
+        '400':
+          description: >-
+            Validation failures 1. If json is invalid 2. If Name or Type is not
+            passed 3. If Type is not in allowed values 4. If Type is Enrichment
+            and taxonomy id or embedding config id is not passed 5. If Type is
+            tagging or digestion and taxonomy id or graph id is not passed
+          content:
+            application/json:
+              schema:
+                $ref: '../../schemas/errors/failure-response.yaml'
+        '404':
+          description: >-
+            Resource not found 1. If given taxonomy id does not exist 2. If
+            given graph id does not exist 3. If given embedding config id does
+            not exist
+          content:
+            application/json:
+              schema:
+                $ref: '../../schemas/errors/failure-response.yaml'
+        '422':
+          description: returned when format is not complete to create an extraction config
+          content:
+            application/json:
+              schema:
+                $ref: '../../schemas/errors/failure-response.yaml'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '../../schemas/errors/failure-response.yaml'
+      x-codegen-request-body-name: body

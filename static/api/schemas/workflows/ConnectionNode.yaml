@@ -1,0 +1,29 @@
+properties:
+  connection_id:
+    description: This field describes the identifier of connector hub's connection
+    title: Connection Id
+    type: string
+  connection_type:
+    allOf:
+    - $ref: ../workflows/ConnectionType.yaml
+    default: ''
+    description: This field describes the connection_type of the corresponding connection
+      node.
+  dependent_node_ids:
+    default: []
+    description: This field describes the list of node IDs that are dependent on the
+      current node. This is used to build the workflow DAG.
+    items:
+      type: string
+    title: Dependent Node Ids
+    type: array
+  node_id:
+    default: ''
+    description: This field describes the identifier of the corresponding connection
+      node. If it is not present, it will be created.
+    title: Node Id
+    type: string
+required:
+- connection_id
+title: ConnectionNode
+type: object

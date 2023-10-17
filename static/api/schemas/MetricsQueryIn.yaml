@@ -1,0 +1,72 @@
+title: Metrics Query Payload
+required:
+  - metrics
+type: object
+properties:
+  time_level:
+    type: string
+    enum: 
+      - week
+      - date
+      - month
+    description: Time Level Filter using which the metrics should be calculated
+    example: week
+  metrics:
+    title: Metrics
+    description:  List to metrics for which metric values needs to be calculated
+    type: array
+    example:
+      - click_throught_rate
+      - revenue
+    items:
+      type: string
+  filters:
+    title: Filters
+    description: Filters to apply while fetching metrics
+    type: array
+    example:
+      - field: date
+        operator: lte
+        value: '2022-03-31'
+      - field: date
+        operator: gte
+        value: '2022-01-01'
+    items:
+      title: filter
+      type: object
+      properties:
+        field:
+          title: Field
+          description: Field / Column for which filter needs to be applied
+          type: string
+          example: date
+        operator:
+          title: Filter Type / Operator
+          type: string
+          example: gte
+          enum:
+            - gt
+            - ge
+            - gte
+            - lt
+            - le
+            - lte
+            - eq
+            - ne
+            - in
+            - not_in
+            - is
+            - is not  
+        value:
+          title: Value that will applied for filtering
+          type: string
+          example: '2022-01-01'
+  group_by:
+    title: Group By
+    description: Columns / Fields to Group by, Aggregate the metric values based on the columns / fields provided in group by
+    example:
+      - date
+    items:
+      title: Column / Field
+      type: string
+      example: module_id

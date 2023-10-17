@@ -1,0 +1,97 @@
+get:
+  tags:
+    - search
+  summary: List all curations
+  description: List all curations
+  operationId: get_curations
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+    - in: query
+      name: catalog_id
+      schema:
+        type: string
+      description: Filter by catalog_id
+  responses:
+    "200":
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '../../schemas/ResponseTemplateSuccessNoData.yaml'
+              - type: object
+                properties:
+                  data:
+                    $ref: "../../schemas/search/curation.yaml"
+                required:
+                  - data
+                example:
+                  request_id: ddb9dbe6b8c111edb8acd2809f554d17
+                  status: SUCCESS
+                  data:
+                    - catalog_id: 18054c596c
+                      name: Party
+                      id: 55320114-5f76-4957-8507-4ea8a74568f5
+                      client: 85f89538-20f3-55e5-9b61-5886cb490052
+                      created_ts: 2023-02-27T11:58:10.507386
+                      updated_ts: 2023-02-27T11:58:10.507399
+                    - catalog_id: 18054c596c
+                      name: Brunch
+                      id: a92a3c1e-1875-4ea1-a8f7-f6f43938413e
+                      client: 85f89538-20f3-55e5-9b61-5886cb490052
+                      created_ts: 2023-02-27T11:45:51.359407
+                      updated_ts: 2023-02-27T11:45:51.359463
+                      gender:
+                        field: gender_
+                        value: women
+                      boost_by:
+                        - Color
+                      curations_data:
+                        content_ids:
+                          - MP000000007552891
+                          - MP000000007552809
+                        image_urls:
+                          - https://d21buduchpaw6.cloudfront.net/image_search/1546375799l8c4p.png
+                          - https://d21buduchpaw6.cloudfront.net/image_search/2560_3000.jpg
+post:
+  tags:
+    - search
+  summary: Create Curations
+  description: Create Curations
+  operationId: create_curations
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  requestBody:
+    description: Curation request body
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas/search/curation.yaml"
+  responses:
+    "200":
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "../../schemas/ResponseTemplateSuccess.yaml"
+              - type: object
+                properties:
+                  data:
+                    $ref: "../../schemas/search/curation.yaml"
+                required:
+                  - data
+    "422":
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/validation_error_response.yaml"

@@ -1,0 +1,42 @@
+title: StmappingGetResponse
+type: object
+properties:
+  request_id:
+    description: id to backtrack the request in internal services
+    type: string
+  correlation_id:
+    description: id sent by the caller to backtrack the request
+    type: string
+  data:
+    type: object
+
+example:
+  request_id: 52da746c0b7911eea5153eb59b78eb53
+  correlation_id:
+  status: SUCCESS
+  data:
+    structured_mapping: 'true'
+    input_tags: network_tags
+    facet_mapping:
+      task_order:
+      - validation_check_json: facet_mapping_msdtags
+        task_type:
+        - client_tags
+        task_name: ST_mapping_digest_client
+        structure_mapping_key: prod/structure_mapping/ST_mapping_digest_client/ST_mapping_digest_client.xlsx
+        allow_direct_tags:
+        - Sustainable Feature
+        - Material composition (%)
+        - Color Hex
+        - Lining (%)
+        - Padding (%)
+        - Washing Instructions
+    source: search
+    extras:
+      compute_tnd: 'true'
+    multivalues_enabled: []
+    main_tags:
+      productType: PRODUCT GROUP
+    client_id: 332
+    client_name: twoface
+    last_updated_time: '2020-07-08 09:43:19.176575'

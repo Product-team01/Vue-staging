@@ -1,0 +1,50 @@
+get:
+  description: List all the connectors
+  operationId: list_connectors_api_v2_connectors_connections_get
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/connectors_hub/ListConnectorsResponse.yaml
+      description: Successful Response
+  summary: List Connectors
+  tags:
+  - connectors
+post:
+  description: Creates a connector between given source and destination
+  operationId: create_connector_api_v2_connectors_connections_post
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../../schemas/connectors_hub/CreateConnector.yaml
+    required: true
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/connectors_hub/CreateConnectorResponse.yaml
+      description: Successful Response
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/connectors_hub/HTTPValidationError.yaml
+      description: Validation Error
+  summary: Create Connector
+  tags:
+  - connectors

@@ -1,0 +1,37 @@
+post:
+  tags:
+  - search
+  summary: Auto_suggest 
+  description: Suggests words based on search term 
+  operationId: auto_suggest
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/AutoSuggestIn.yaml'
+        example:
+          max_content: 10
+          catalogs:
+            c49b53bf19:
+              search_query: Pink
+          auto_correct: true
+    required: true
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/AutoSuggestOut.yaml'
+    '400':
+      description: Bad Request response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'

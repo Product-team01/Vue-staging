@@ -1,0 +1,68 @@
+post:
+  tags:
+    - Documents
+  summary: Document Live OCR
+  operationId: DocumentOCR
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - required: true
+    schema:
+      title: Document Id
+      type: string
+    name: document_id
+    in: path
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            config:
+              type: object
+              description: OCR configuration
+              properties:
+                <page_number>:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      confidence: 
+                        type: number
+                        description: Confidence score of the OCR result
+                      data:
+                        type: object
+                        description: OCR result data
+                      label:
+                        type: string
+                        description: OCR result label
+                      sections:
+                        type: array
+                        description: OCR result section co-ordinates
+                      type:
+                        type: string
+                        description: OCR result type (e.g., 'Free Form text', 'table')
+            page_number:
+              type: integer
+              description: Page number for OCR (optional, default is 1)
+          required:
+            - config
+
+  responses:
+    '200':
+      description: OCR returned successfully
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              request_id:
+                type: string
+              correlation_id:
+                type: string
+              data:
+                $ref: '../../schemas/documents/DocumentOCRResponse.yaml'

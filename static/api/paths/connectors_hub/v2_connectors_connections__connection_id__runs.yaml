@@ -1,0 +1,43 @@
+get:
+  description: Lists runs of the given connector
+  operationId: list_connector_runs_api_v2_connectors_connections__connection_id__runs_get
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - in: path
+    name: connection_id
+    required: true
+    schema:
+      title: Connection Id
+      type: string
+  - in: query
+    name: offset
+    required: false
+    schema:
+      title: Offset
+      type: integer
+  - in: query
+    name: limit
+    required: false
+    schema:
+      title: Limit
+      type: integer
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/connectors_hub/ListConnectorRunsResponse.yaml
+      description: Successful Response
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/connectors_hub/HTTPValidationError.yaml
+      description: Validation Error
+  summary: List Connector Runs
+  tags:
+  - connectors

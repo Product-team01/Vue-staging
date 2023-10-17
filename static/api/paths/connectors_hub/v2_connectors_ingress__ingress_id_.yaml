@@ -1,0 +1,61 @@
+delete:
+  description: Delete an existing ingress
+  operationId: delete_ingress_api_v2_connectors_ingress__ingress_id__delete
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - in: path
+    name: ingress_id
+    required: true
+    schema:
+      title: Ingress Id
+      type: string
+  responses:
+    '200':
+      content:
+        application/json:
+          schema: {}
+      description: Successful Response
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/connectors_hub/HTTPValidationError.yaml
+      description: Validation Error
+  summary: Delete Ingress
+  tags:
+  - connectors
+get:
+  description: Get a specific ingress
+  operationId: get_ingress_api_v2_connectors_ingress__ingress_id__get
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - in: path
+    name: ingress_id
+    required: true
+    schema:
+      title: Ingress Id
+      type: string
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/connectors_hub/Ingress.yaml
+      description: Successful Response
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/connectors_hub/HTTPValidationError.yaml
+      description: Validation Error
+  summary: Get Ingress
+  tags:
+  - connectors

@@ -1,0 +1,46 @@
+
+get:
+  tags:
+    - Documents
+  summary: Export Documet
+  description: Export Document
+  operationId: ExportDocument
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - name: x-request-id
+    in: header
+    description: request id to track requests
+    schema:
+      type: string
+  - name: document_id
+    in: path
+    description: Filter jobs by document id
+    schema:
+      type: number
+    required: true
+  - name: output_type
+    in: query
+    description: Output Type
+    schema:
+      type: string
+  
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+              request_id:
+                type: string
+              correlation_id:
+                type: string
+              data:
+                $ref: '../../schemas/documents/DocumentExportResponse.yaml'

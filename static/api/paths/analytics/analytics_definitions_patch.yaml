@@ -1,0 +1,66 @@
+get:
+  tags:
+  - analytics
+  summary: Get Metric Definition
+  description: Get Metric Definition for a client
+  operationId: enable_api_v1_workflows_personalization_analytics_definitions_get
+  parameters:
+    - required: true
+      schema:
+        title: Metric Name
+        type: string
+        example: job_count
+      name: metric_name
+      in: path
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/MetricsInDefinitionSchema.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'
+patch:
+  tags:
+    - analytics
+  summary: Update Custom Metric Configs for a Client
+  operationId: enable_api_v1_workflows_personalization_analytics_definitions_patch
+  parameters:
+    - required: true
+      schema:
+        title: Catalog ID
+        type: string
+        example: catalog_id
+      name: catalog_id
+      in: query
+    - required: true
+      schema:
+        title: Metric Name
+        type: string
+        example: job_count
+      name: metric_name
+      in: path
+  requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/MetricsInDefinitionSchema.yaml'
+      required: true
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/EmptyResponse.yaml'
+    '404':
+      description: config does not exist
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/ErrorResponse.yaml'

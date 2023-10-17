@@ -1,0 +1,24 @@
+post:
+  tags:
+    - event-frequency
+  summary: Discover event_frequency Use Cases for a Client
+  operationId: discover_ef
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/starfire/event_freq_discover.yaml'
+    '404':
+      description: Config does not exist
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/ErrorResponse.yaml'

@@ -1,0 +1,8 @@
+title: AudienceConfigLite
+type: object
+properties:
+  schedule_interval:
+    title: Schedule Interval
+    type: string
+    description: Setup the schedule of the dag, if not specified its created and requires manual trigger
+    default: "0 10 * * *"

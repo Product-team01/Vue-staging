@@ -1,0 +1,22 @@
+title: Create Documents Request
+type: object
+properties:
+  documents:
+    type: array
+    items:
+      type: string
+  documents_meta:
+    type: array
+    items:
+      type: object
+      properties:
+        filename:
+          type: string
+        workflow_id:
+          type: integer
+  extras:
+    type: object
+  
+required:
+  - documents
+  - documents_meta

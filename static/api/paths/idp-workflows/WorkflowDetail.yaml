@@ -1,0 +1,73 @@
+
+get:
+  tags:
+    - IDP Workflows
+  summary: get workflow details
+  description: get workflow details
+  operationId: getWorkflow
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - required: true
+    schema:
+      title: Workflow Id
+      type: string
+    name: workflow_id
+    in: path
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              request_id:
+                type: string
+              correlation_id:
+                type: string
+              data:
+                $ref: '../../schemas/idp-workflows/WorkflowResponse.yaml'
+
+put:
+  tags:
+    - IDP Workflows
+  summary: update workflow details
+  description: update workflow details
+  operationId: updateWorkflow
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - required: true
+    schema:
+      title: Workflow Id
+      type: string
+    name: workflow_id
+    in: path
+  requestBody:
+    description: workflow object that needs to be added
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/idp-workflows/WorkflowUpdateRequest.yaml'
+    required: true
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              request_id:
+                type: string
+              correlation_id:
+                type: string
+              data:
+                $ref: '../../schemas/idp-workflows/WorkflowResponse.yaml'

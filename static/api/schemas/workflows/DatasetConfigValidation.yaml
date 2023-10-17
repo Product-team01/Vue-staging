@@ -1,0 +1,128 @@
+properties:
+  created_ts:
+    description: This field describes the initial date of creation of the dataset.
+    title: Created Ts
+    type: string
+  dataset_description:
+    description: This field provides a short description about the dataset.
+    title: Dataset Description
+    type: string
+  dataset_id:
+    description: This field describes the identifier of the dataset.
+    title: Dataset Id
+    type: string
+  dataset_name:
+    description: This field describes the name of the dataset.
+    title: Dataset Name
+    type: string
+  dataset_schema:
+    description: This field describes the schema of the dataset. It defines the rules
+      and formats of the various fields in the dataset.
+    items:
+      $ref: ../workflows/DatasetColumnResponse.yaml
+    title: Dataset Schema
+    type: array
+  dataset_summary:
+    allOf:
+    - $ref: ../workflows/DatasetSummary.yaml
+    description: This field provides a short summary about the dataset. The
+      summary includes metadata about the dataset, a sample set of records that we
+      can find in the data, and univariate summary of all fields in the dataset.
+    title: Dataset Summary
+  foreign_key:
+    default: []
+    description: This field describes the foreign key(s) for the dataset if it exists.
+    items:
+      type: string
+    title: Foreign Key
+    type: array
+  number_of_columns:
+    default: 0
+    description: This field describes the number of columns in the dataset
+    title: Number Of Columns
+    type: integer
+  number_of_records:
+    default: 0
+    description: This field describes the number of records in the dataset.
+    title: Number Of Records
+    type: integer
+  path_to_data:
+    description: This field references the path to the raw data for this dataset.
+    title: Path To Data
+    type: string
+  path_to_sample_data:
+    description: This field references the path to the sample data for this dataset.
+    title: Path To Sample Data
+    type: string
+  pointer_to_code:
+    description: This field is specifically for derived datasets. This is a pointer
+      / reference to the code that generated this data.
+    title: Pointer To Code
+    type: string
+  pointer_to_code_commit:
+    description: This field is specifically for derived datasets. This is a pointer
+      / reference to the code commit ID that generated this data.
+    title: Pointer To Code Commit
+    type: string
+  pointer_to_dataset:
+    description: This field is specifically for derived datasets. This is a pointer
+      / reference to the source dataset that generated this data.
+    title: Pointer To Dataset
+    type: string
+  pointer_to_dataset_version:
+    description: This field is specifically for derived datasets. This is a pointer
+      / reference to the version of the source dataset that generated this data.
+    title: Pointer To Dataset Version
+    type: string
+  pointer_to_workflow:
+    description: This field is specifically for derived datasets. This is a pointer
+      / reference to the workflow that generated this data.
+    title: Pointer To Workflow
+    type: string
+  pointer_to_workflow_config:
+    description: This field is specifically for derived datasets. This is a pointer
+      / reference to the workflow configuration that generated this data.
+    title: Pointer To Workflow Config
+    type: string
+  pointer_to_workflow_config_version:
+    description: This field is specifically for derived datasets. This is a pointer
+      / reference to the version of the workflow configuration that generated this
+      data.
+    title: Pointer To Workflow Config Version
+    type: string
+  pointer_to_workflow_version:
+    description: This field is specifically for derived datasets. This is a pointer
+      / reference to the version of the workflow that generated this data.
+    title: Pointer To Workflow Version
+    type: string
+  primary_key:
+    default: []
+    description: This field describes the primary key(s) of the dataset if it exists.
+    items:
+      type: string
+    title: Primary Key
+    type: array
+  size:
+    description: This field describes the size of the dataset.
+    title: Size
+    type: string
+  tags:
+    default: []
+    description: This field describes any set of tags that can be associated to the
+      dataset.
+    items:
+      type: string
+    title: Tags
+    type: array
+  updated_ts:
+    description: This field describes the latest date of updation of the dataset.
+    title: Updated Ts
+    type: string
+required:
+- created_ts
+- updated_ts
+- dataset_id
+- dataset_name
+- dataset_schema
+title: DatasetConfigValidation
+type: object

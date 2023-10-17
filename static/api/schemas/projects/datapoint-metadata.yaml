@@ -1,0 +1,24 @@
+type: array
+properties:
+  column_name:
+    type: string
+    description: column name as per the schema
+  value:
+    type: string
+    description: column value
+  type:
+    type: string
+    description: datatype as defined in the schema for that column
+  meta:
+    type: string
+    description: meta value as defined in the schema for that column
+  attribute_id:
+    type: string
+    description: unique identifier of the attribute associated to this column
+items:
+  type: object
+  properties:
+    column_name:
+      type: string
+    value:
+      type: string

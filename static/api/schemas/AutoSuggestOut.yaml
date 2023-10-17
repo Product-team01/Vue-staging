@@ -1,0 +1,31 @@
+title: AutoSuggestResponse
+type: object
+properties:
+  status:
+    description: status of the request
+    type: string
+    enum:
+      - SUCCESS
+      - FAILURE
+  request_id:
+    description: id to backtrack the request in internal services
+    type: string
+  correlation_id:
+    description: id sent by the caller to backtrack the request
+    type: string
+  data:
+    type: object
+    properties:
+      Products:
+        description: return suggestions
+        type: array
+        items:
+          type: string
+
+example:
+  request_id: 96ee690675f611edae9722bc82d1a906
+  status: SUCCESS
+  correlation_id: r96ee690675f611edae9722bc82d1a906
+  data:
+    Products: ["Pinko Women Ankle boots Bright blue 4 UK", "Pinko Women Ankle boots Maroon 2 UK", "Pinko Women Ankle boots Pale pink 3 UK"]
+

@@ -1,0 +1,19 @@
+properties:
+  cursorField:
+    description: Path to the field that will be used to determine if a record is new
+      or modified since the last sync.
+    items:
+      type: string
+    title: Cursorfield
+    type: array
+  destinationSyncMode:
+    $ref: ../connectors_hub/destinationSyncModes.yaml
+  streamName:
+    title: Streamname
+    type: string
+  syncMode:
+    $ref: ../connectors_hub/syncModes.yaml
+required:
+- streamName
+title: streamConfig
+type: object

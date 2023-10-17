@@ -1,0 +1,46 @@
+title: DataHandler
+required:
+  - events_df
+  - products_df
+  - segmentation_users_df_raw
+  - segmentation_users_df_raw_pandas
+  - audience_users_df
+  - audience_users_cummulative_df
+  - audience_users_cummulative_df_pandas
+type: object
+properties:
+  events_df:
+    title: Events Df
+    allOf:
+      - $ref: 'FileInfo.yaml'
+    description: Read config for events
+  products_df:
+    title: Products Df
+    allOf:
+      - $ref: 'FileInfo.yaml'
+    description: Read config for products
+  segmentation_users_df_raw:
+    title: Segmentation Users Df Raw
+    allOf:
+      - $ref: 'FileInfo.yaml'
+    description: Write config for table that is responsible for keeping raw user metrics, a delta table
+  segmentation_users_df_raw_pandas:
+    title: Segmentation Users Df Raw Pandas
+    allOf:
+      - $ref: 'FileInfo.yaml'
+    description: Write config for table that is responsible , a csv file
+  audience_users_df:
+    title: Audience Users Df
+    allOf:
+      - $ref: 'FileInfo.yaml'
+    description: Write config for final audience information
+  audience_users_cummulative_df:
+    title: Audience Users Cummulative Df
+    allOf:
+      - $ref: 'FileInfo.yaml'
+    description: Write config for audience information that has packets in aggregated form
+  audience_users_cummulative_df_pandas:
+    title: Audience Users Cummulative Df Pandas
+    allOf:
+      - $ref: 'FileInfo.yaml'
+    description: Write config for audience information that has packets that are pushed to MCPD, a csv file

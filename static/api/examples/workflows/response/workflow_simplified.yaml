@@ -1,0 +1,61 @@
+request_id: 83228aa87c3411edb4874293e19886f8
+correlation_id: 83228aa87c3411edb4874293e19886f8
+status: SUCCESS
+data:
+  id: 02b397d5-b225-405a-a582-6665804f698e
+  name: Bundling
+  description: This model displays the themes for cross-product recommendations for
+    the product in view based on your customer's affinities.
+  type: Bundling
+  inputs:
+  - name: __primary_key__
+    meta: true
+    required: true
+    description: Identifier of the item from the catalog (primary key attribute) to
+      be used as source for the similarity
+  config_schema:
+  - type: catalog_fields
+    field:
+      discoverable: true
+    value:
+      type: float
+      discoverable: true
+  - type: curations
+    field:
+      enum:
+      - curation
+    value:
+      type: string
+      discoverable: true
+  - type: bundle_boost
+    field:
+      enum:
+      - base_color
+      - pattern
+      - type
+    value:
+      type: float
+      discoverable: true
+  DAG:
+    members:
+    - node:
+        name: get_candidates_query
+      dependencies: []
+    - node:
+        name: parallelize(get_es_results)
+      dependencies:
+      - get_candidates_query
+    - node:
+        name: get_parallel_args_for_vuestyle
+      dependencies:
+      - parallelize(get_es_results)
+    - node:
+        name: execute_module_dag(72cfb22f-be63-46e1-852c-14e27cbf34ee)
+      dependencies:
+      - get_parallel_args_for_vuestyle
+    - node:
+        name: vuestyle_assembly
+      dependencies:
+      - execute_module_dag(72cfb22f-be63-46e1-852c-14e27cbf34ee)
+  created_ts: '2022-12-12T10:01:19.842506'
+  updated_ts: '2022-12-12T10:01:19.842524'

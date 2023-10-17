@@ -1,0 +1,160 @@
+get:
+  tags:
+  - search
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - required: true
+    schema:
+      title: Workflow Id
+      type: string
+    name: workflow_id
+    in: path
+  - required: false
+    schema:
+      type: boolean
+    name: simplified
+    description: |
+      converts the config schema in to a better readable format
+    in: query
+  summary: Returns the workflow config for a client
+  description: |
+    Fetching workflow config by workflow id, for workflow id refer response example
+  operationId: get_workflow_by_id
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+            - $ref: '../../schemas/ResponseTemplateSuccessNoData.yaml'
+            - type: object
+              properties:
+                data:
+                  $ref: '../../schemas/WorkflowOut.yaml'
+              required:
+                  - data
+          examples:
+            simillar products:
+              value:
+                $ref: '../../examples/workflows/response/simallar_products.yaml'
+            sampling products:
+              value:
+                $ref: '../../examples/workflows/response/sampling_products.yaml'
+            recommended for you:
+              value:
+                $ref: '../../examples/workflows/response/recommended_for_you.yaml'
+            recently engaged:
+              value:
+                $ref: '../../examples/workflows/response/recently_engaged.yaml'
+            bundling auto:
+              value:
+                $ref: '../../examples/workflows/response/bundling_auto.yaml'
+            bundling:
+              value:
+                $ref: '../../examples/workflows/response/bundling.yaml'
+            collaborative filtering:
+              value:
+                $ref: '../../examples/workflows/response/collaborative_filtering.yaml'
+            inspired by browsing history:
+              value:
+                $ref: '../../examples/workflows/response/inspired_by_browsing_history.yaml'
+            text search:
+              value:
+                $ref: '../../examples/workflows/response/text_search.yaml'
+            trending:
+              value:
+                $ref: '../../examples/workflows/response/trending.yaml'
+            workflow simplified:
+              value:
+                $ref: '../../examples/workflows/response/workflow_simplified.yaml'
+
+patch:
+  tags:
+  - internal
+  summary: Update a workflow search-config
+  description: Set any configuration
+  operationId: update_workflow
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+    - required: true
+      schema:
+        title: Workflow Id
+        type: string
+      name: workflow_id
+      in: path
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/WorkflowIn.yaml'
+        example:
+          $ref: '../../examples/workflows/request/workflow_sample.yaml'
+    required: true
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+            - $ref: '../../schemas/ResponseTemplateSuccessNoData.yaml'
+            - type: object
+              properties:
+                data:
+                  $ref: '../../schemas/WorkflowOut.yaml'
+              required:
+                  - data
+          example:
+            $ref: '../../examples/workflows/response/recommended_for_you.yaml'
+
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'
+delete:
+  tags:
+  - internal
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+    - required: true
+      schema:
+        title: Workflow Id
+        type: string
+      name: workflow_id
+      in: path
+  summary: Delete the workflow configs for a client
+  description: Fetch any config - Decide if we want these to be called out separate
+    or keep a single config api
+  operationId: delete_workflow
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+            - $ref: '../../schemas/ResponseTemplateSuccessNoData.yaml'
+            - type: object
+              properties:
+                data:
+                  type: object
+                  properties:
+                    message:
+                      type: string
+              required:
+                  - data

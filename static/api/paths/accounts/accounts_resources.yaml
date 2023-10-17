@@ -1,0 +1,78 @@
+get:
+  tags:
+  - accounts
+  summary: Account resources 
+  description: 'Gets all accounts resources for deletion'
+  operationId: get_accounts_resources
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - required: true
+    schema:
+      title: Account Id
+      type: string
+    name: account_id
+    in: path
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema: 
+            allOf:
+              - type: object
+                properties:
+                  data:
+                    $ref: "../../schemas/AccountResourcesOut.yaml"
+
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'
+
+
+patch:
+  tags:
+  - accounts
+  summary: Account resources 
+  description: 'Patch account resources is used for marking the deletion status of each resource'
+  operationId: patch_accounts_resources
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - required: true
+    schema:
+      title: Account Id
+      type: string
+    name: account_id
+    in: path
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/AccountResourcesIn.yaml'
+    required: true
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema: 
+            $ref: "../../schemas/AccountResourcesOut.yaml"
+
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'
+
+  

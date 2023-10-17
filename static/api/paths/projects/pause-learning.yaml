@@ -1,0 +1,73 @@
+post:
+  tags:
+  - projects
+  summary: Pause STL
+  description: Pause STL
+  operationId: pauseLearning
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - name: Accept-Encoding
+    in: header
+    description: indicates the content encoding that the client can understand
+    schema:
+      type: string
+      default: gzip
+  - name: project_id
+    in: path
+    description: unique identifier of the project
+    required: true
+    schema:
+      type: string
+      format: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            enable_pause:
+              type: boolean
+    required: true
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                description: status of the request
+                type: string
+                enum:
+                - SUCCESS
+                - FAILURE
+              request_id:
+                description: id to backtrack the request in internal services
+                type: string
+              correlation_id:
+                description: id sent by the caller to backtrack the request
+                type: string
+    '400':
+      description: Validation failures 1. If project is in draft status
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'
+    '404':
+      description: returned when project does not exists
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'
+  x-codegen-request-body-name: body

@@ -1,0 +1,27 @@
+request_id: 7d1030767b8411edae01f28c070c22cc
+correlation_id: 7d1030767b8411edae01f28c070c22cc
+status: SUCCESS
+data:
+  id: 769bfc62-289c-4f78-91ad-d40561d97884
+  workflow_id: 2b6e4e14-fd46-4537-84bb-80f69d50f917
+  description: Recommends products based on the user's visual and behavioral preferences.
+  name: Recommended For You (Fashion)
+  preset: true
+  client: global
+  catalog_id: test_catalog
+  metadata:
+    max_content: 16
+  config:
+  - params:
+    - value: daily
+      type: temporal
+      field: lookback
+    - field: rarity_use_case_id
+      value: rarity_use_case_from_starfire
+      type: rarity_use_case
+    - field: seasonality_use_case_id
+      value: seasonality-test-usecase
+      type: seasonality_use_case
+    - field: exploration_rarity
+      value: 0.5
+      type: exploration_rarity

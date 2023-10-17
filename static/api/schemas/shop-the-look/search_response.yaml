@@ -1,0 +1,6 @@
+title: ShopTheLookResponse
+type: object
+properties:
+  message:
+    type: string
+    example: Image search successfully done

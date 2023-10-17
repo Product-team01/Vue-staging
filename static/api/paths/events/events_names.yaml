@@ -1,0 +1,25 @@
+post:
+  tags:
+  - events
+  summary: Get Event Names
+  description: Fetch event names from event-definitions
+  operationId: get_events
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/ResponseTemplateSuccess.yaml'
+    '400':
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/ResponseTemplateFailure.yaml'

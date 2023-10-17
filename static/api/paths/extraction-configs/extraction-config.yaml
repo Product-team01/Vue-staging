@@ -1,0 +1,120 @@
+get:
+  tags:
+    - extraction-configs
+  summary: get extraction configs by id
+  description: get extraction configs by id
+  operationId: getExtractionConfigById
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+    - name: extraction_config_id
+      in: path
+      description: unique identifier of extraction_config
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                description: status of the request
+                type: string
+                enum:
+                  - SUCCESS
+                  - FAILURE
+              request_id:
+                description: id to backtrack the request in internal services
+                type: string
+              correlation_id:
+                description: id sent by the caller to backtrack the request
+                type: string
+              data:
+                $ref: '../../schemas/extraction-configs/extraction-config-object.yaml'
+    '404':
+      description: if extraction config id is invalid
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'
+put:
+  tags:
+    - extraction-configs
+  summary: update extraction configs by id
+  description: update extraction configs by id
+  operationId: updateExtractionConfigById
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+    - name: extraction_config_id
+      in: path
+      description: ID of extraction_config to return
+      required: true
+      schema:
+        type: string
+  requestBody:
+    description: extraction-config object that needs to be updated
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/extraction-configs/update-extraction-config.yaml'
+    required: true
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                description: status of the request
+                type: string
+                enum:
+                  - SUCCESS
+                  - FAILURE
+              request_id:
+                description: id to backtrack the request in internal services
+                type: string
+              correlation_id:
+                description: id sent by the caller to backtrack the request
+                type: string
+              data:
+                $ref: '../../schemas/extraction-configs/extraction-config-object.yaml'
+    '400':
+      description: >-
+        if active and preset is not passed if active is set as true when
+        there is an active extraction config already present for the
+        specific type
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'
+    '404':
+      description: if extraction config id is invalid
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'

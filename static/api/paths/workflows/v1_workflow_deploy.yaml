@@ -1,0 +1,64 @@
+post:
+  description: 'This API allows the deployment of any specified workflow and make
+    it available for execution in an operational environment on asynchronous mode.
+
+    The  API allows reading the latest metadata configuration pertaining to the workflow
+    and deploy it as a graph on a target system or workflow execution engine.
+
+    This API communicates with lantern, which in turn, communicates with raven to
+    create a directed acyclic graph (DAG).
+
+    This DAG will be deployed on an execution framework (we currently use Airflow)
+    - which, when triggered, executes the workflow in a Spark environment.
+
+    This API is a precursor to the /async/run API for workflows to run in async mode.
+
+
+    The input to the API is a workflow identifier which is a unique reference to this
+    workflow in the workflow registry.
+
+    The optional use_case parameter is used in creation of the DAG.
+
+
+    The output of this API will be a DAG identifier which is a unique reference to
+    every DAG created in lantern.'
+  operationId: deploy_workflow_api_v1_workflow_deploy_post
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - description: This field describes the ID of the workflow used to query the workflow
+      registry.
+    in: query
+    name: workflow_id
+    required: true
+    schema:
+      description: This field describes the ID of the workflow used to query the workflow
+        registry.
+      title: Workflow Id
+      type: string
+  - in: query
+    name: use_case
+    required: false
+    schema:
+      default: create_workflow
+      title: Use Case
+      type: string
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/workflows/WorkflowDeployResponse.yaml
+      description: Successful Response
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/workflows/HTTPValidationError.yaml
+      description: Validation Error
+  summary: Deploy Workflow
+  tags:
+  - Workflows

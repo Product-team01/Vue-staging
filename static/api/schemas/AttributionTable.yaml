@@ -1,0 +1,82 @@
+title: AttributionTable
+required:
+- name
+- left_join
+- right_join
+- left_tbl_name
+- right_tbl_name
+type: object
+properties:
+  name:
+    title: Table Name
+    type: string
+    description: Table name from the custom generated attribution table
+    example: atc
+  on_left:
+    title: Left Join On
+    type: array
+    items:
+      type: string
+    description: Fields to perform a left join
+    example: [ "clicked_product_id"]
+  on_right:
+    title: Left Join On
+    type: array
+    items:
+      type: string
+    description: Fields to perform a right join
+    example: ["platform", "mad_uuid"]
+  right_tbl_name:
+    title: Right Join Table Name
+    type: string
+    description: Name of Table to perform Right Join
+    example: clicks
+  left_tbl_name:
+    title: Left Join Table Name
+    type: string
+    description: Name of Table to perform Left Join
+    example: buys
+  table_join:
+    title: Table Join Column
+    type: string
+    description: Join condition for the attribution generation
+    example: inner
+  right_tbl_columns:
+    title: Right Table Columns
+    type: array
+    items:
+      type: string
+    description: List of columns for right join table
+    example: ['*']
+  left_tbl_columns:
+    title: Left Table Columns
+    type: array
+    items:
+      type: string
+    description: List of columns for left join table
+    example: ['*']
+  touch_epoch_column:
+    title: Epoch Column
+    type: string
+    description: Column name for Epoch data
+    example: timestamp
+  touch_drop_duplicate_right:
+    title: Right Table Drop Duplicate column
+    type: string
+    description: Column to drop duplicates on
+    example: price
+  touch_drop_duplicate_left:
+    title: Left Table Drop Duplicate column
+    type: string
+    description: Column to drop duplicates on
+    example: quantity
+  touch_type:
+    title: Attribution Type
+    type: string
+    description: Type of attribution touch
+    example: last
+  touch_look_back_period:
+    title: Look Back Period
+    type: integer
+    description: Time period to look back on
+    example: 7

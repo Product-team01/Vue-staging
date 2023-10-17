@@ -1,0 +1,28 @@
+title: EventsTemplate
+required:
+- event_meta
+- action
+- description
+type: object
+properties:
+  event_meta:
+    title: Event Meta
+    type: string
+    description: Name of the event meta, this is pre-defined and controlled by the admin.
+    example: pageView
+  action:
+    title: Action
+    type: string
+    description: Action performed by the event. This is an ENUM field
+    enum:
+    - click
+    - scroll
+    - swipe
+    - view
+    - load
+    example: view
+  description:
+    title: Description
+    type: string
+    description: Verbose description of the event that is getting registered
+    example: Description of PageView

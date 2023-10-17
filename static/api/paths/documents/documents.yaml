@@ -1,0 +1,104 @@
+
+
+post:
+  tags:
+    - Documents
+  summary: Create document
+  description: Create document
+  operationId: CreateDocument
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/documents/CreateDocumentsRequest.yaml'
+          
+
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              request_id:
+                type: string
+              correlation_id:
+                type: string
+              data:
+                $ref: '../../schemas/documents/CreateDocumentsResponse.yaml'
+
+
+get:
+  tags:
+    - Documents
+  summary: List documents
+  description: List documents
+  operationId: ListDocuments
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - name: limit
+    in: query
+    description:  Number of documents per page 
+    
+    schema:
+      type: number
+      default: 10
+  - name: page_no
+    in: query
+    description: Page number for pagination
+    
+    schema:
+      type: number
+      default: 1
+  - name: sort_by
+    in: query
+    description: Field to sort documents by 
+    schema:
+      type: string
+  - name: order
+    in: query
+    description: Sorting order (asc or desc)
+    
+    schema:
+      type: string
+      default: asc
+  - name: job_statuses
+    in: query
+    description: Filter documents by job status
+    schema:
+      type: string
+  - name: external_document_type_ids
+    in: query
+    description: Filter documents by external document type ID
+    schema:
+      type: string
+  - name: name
+    in: query
+    description: Filter documents by document name
+    schema:
+      type: string
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              request_id:
+                type: string
+              correlation_id:
+                type: string
+              data:
+                $ref: '../../schemas/documents/DocumentsResponse.yaml'

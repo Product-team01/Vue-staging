@@ -1,0 +1,75 @@
+title: EventsSchema
+required:
+- source_field
+- data_type
+- mandatory
+type: object
+properties:
+  source_field:
+    title: Source Field
+    type: string
+    description: Field used in source file to map the event
+    example: UserId
+  data_type:
+    title: Data Type
+    type: string
+    description: Field to denote the data type of the event field
+    enum:
+      - string
+      - int
+      - float
+      - long
+    example: string
+  mandatory:
+    title: Mandatory
+    type: boolean
+    description: Field to denote if the event field is mandatory or not
+    example: 'True'
+  explode_field:
+    title: Explode Field
+    type: boolean
+    description: Field to denote if the column is to be exploded or not
+    example: 'False'
+  alias:
+    title: Alias
+    type: string
+    description: Adding an alias (secondary name) for the parameter
+    example: customer_hash
+  catalog_id:
+    title: Catalog Id
+    type: string
+    description: Field for mapping the parameter to a particular catalog
+  catalog_key:
+    title: Catalog Key
+    type: string
+    description: Primary key for the mapped catalog and the registered parameter
+  meta:
+    title: Meta Type
+    type: string
+    description: Field used for denote how to treat the event. ENUM Field
+    enum:
+      - event_name
+      - mad_uuid
+      - user_id
+      - item_identifier
+      - price
+      - platform
+      - page_type
+      - page_name
+      - url
+      - medium
+      - region
+      - utm_medium
+      - utm_source
+      - utm_campaign
+      - quantity
+      - currency
+      - slot_id
+      - module_id
+      - strategy_id
+      - order_id
+      - outfit_id
+      - model_id
+      - style_param
+      - style
+    example: user_id

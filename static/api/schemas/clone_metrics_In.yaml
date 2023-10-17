@@ -1,0 +1,14 @@
+title: metrics_clone_post
+required:
+  - dest_client_id
+  - source_client_id
+type: object
+properties:
+  dest_client_id:
+    title: dest_client_id
+    type: string
+    description: client_id of the destination account
+  source_client_id:
+    title: source_client_id
+    type: string
+    description: client_id of the source account

@@ -1,0 +1,25 @@
+title: Event frequency Config
+type: object
+properties:
+  id: 
+    type: string
+    readOnly: true
+  name:
+    type: string
+    description: "Name of the use case"
+  workflow:
+    type: string
+    description: "Starfire workflow id this use case is based on"
+  catalog_id:
+    type: string
+    description: "Catalog id"
+  event: 
+    type: string
+    description: "Name of the event to use for finding out the frequency"
+  grouping_column:
+    type: string
+    description: "Catalog column to group these event frequency. Category or something similar"
+  ntile:
+    type: integer
+    description: "N in the ntile to be formed"
+  

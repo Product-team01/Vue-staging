@@ -1,0 +1,90 @@
+get:
+  tags:
+  - connectors_old
+  summary: List supported Connectors
+  description: Discover supported connectors with configuration parameters required.
+  operationId: list_connectors
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            title: Response List Connections Api V1 Connections Get
+            allOf:
+            - $ref: '../../schemas/ResponseTemplateSuccessNoData.yaml'
+            - properties:
+                data:
+                  type: array
+                  items:
+                    $ref: '../../schemas/Connector.yaml'
+          examples:
+            example-1:
+              value:
+                request_id: string
+                correlation_id: string
+                status: SUCCESS
+                data:
+                - name: s3_connector
+                  type: s3
+                  config:
+                    properties:
+                      path:
+                        type: string
+                        example: s3://catalog/products/data
+                        title: path
+                      format:
+                        type: string
+                        example: csv
+                        title: format
+                        enum:
+                        - csv
+                        - jsonl
+                      key:
+                        type: string
+                        description: AWS Access Key ID to access the s3 bucket. Required
+                          if the s3 bucket is not public and if token is not provided.
+                        title: key
+                      secret:
+                        type: string
+                        description: AWS Access Key ID to access the s3 bucket. Required
+                          if the s3 bucket is not public and if token is not provided.
+                        title: secret
+                      token:
+                        type: string
+                        description: AWS Access Token to access the s3 bucket. Required
+                          if the s3 bucket is not public and if key and secret are
+                          not provided.
+                        title: token
+                      required:
+                      - path
+                      - format
+                - name: kafka_connector
+                  type: kafka
+                  config:
+                    properties:
+                      kafka_brokers:
+                        type: array
+                        example:
+                        - b-2.kafka.eu-central-1.amazonaws.com:9092
+                        - b-1.kafka.eu-central-1.amazonaws.com:9092
+                        title: array-kafka brokers
+                      security_protocol:
+                        type: string
+                        example: PLAINTEXT
+                        title: security protocol
+                    required:
+                    - kafka_brokers
+                    - security_protocol
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'

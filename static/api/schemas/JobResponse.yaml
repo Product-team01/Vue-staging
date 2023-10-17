@@ -1,0 +1,19 @@
+title: JobResponse
+x-stoplight:
+  id: 8hw4lie7r0nr2
+type: object
+properties:
+  job_id:
+    type: string
+  status:
+    type: string
+  job_type:
+    type: string
+  created_ts:
+    type: string
+  updated_ts:
+    type: string
+required:
+- job_id
+- status
+- job_type

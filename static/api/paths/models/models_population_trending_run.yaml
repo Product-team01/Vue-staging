@@ -1,0 +1,47 @@
+get:
+  tags:
+    - models
+  summary: Run
+  description: Trigger a dag for the specific use case.
+  operationId: run_api_v1_trending_async_run_get
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+    - description: unique identifier for the job
+      required: true
+      schema:
+        title: Use Case
+        type: string
+        description: unique identifier for the job
+      name: use_case
+      in: query
+    - description: unique api key for the client
+      required: true
+      schema:
+        title: X-Api-Key
+        type: string
+        description: unique api key for the client
+      name: x-api-key
+      in: header
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/EmptyResponse.yaml'
+    '409':
+      description: A run already in progress.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/EmptyResponse.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'

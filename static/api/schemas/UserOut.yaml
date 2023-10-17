@@ -1,0 +1,21 @@
+title: UserOut
+required:
+- email_id
+- first_name
+- last_name
+- userrole
+type: object
+properties:
+  email_id:
+    title: email_id
+    type: string
+  first_name:
+    title: first_name
+    type: string
+  last_name:
+    title: last_name
+    type: string
+  userrole:
+    title: userrole
+    type: array
+    items: {}

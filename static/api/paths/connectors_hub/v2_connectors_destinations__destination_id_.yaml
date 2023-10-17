@@ -1,0 +1,96 @@
+delete:
+  description: Delete the given destination
+  operationId: delete_destination_api_v2_connectors_destinations__destination_id__delete
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - in: path
+    name: destination_id
+    required: true
+    schema:
+      title: Destination Id
+      type: string
+  responses:
+    '200':
+      content:
+        application/json:
+          schema: {}
+      description: Successful Response
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/connectors_hub/HTTPValidationError.yaml
+      description: Validation Error
+  summary: Delete Destination
+  tags:
+  - connectors
+get:
+  description: Get given destination_id
+  operationId: get_destination_api_v2_connectors_destinations__destination_id__get
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - in: path
+    name: destination_id
+    required: true
+    schema:
+      title: Destination Id
+      type: string
+  responses:
+    '200':
+      content:
+        application/json:
+          schema: {}
+      description: Successful Response
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/connectors_hub/HTTPValidationError.yaml
+      description: Validation Error
+  summary: Get Destination
+  tags:
+  - connectors
+patch:
+  description: Update the given destination
+  operationId: update_destination_api_v2_connectors_destinations__destination_id__patch
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - in: path
+    name: destination_id
+    required: true
+    schema:
+      title: Destination Id
+      type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../../schemas/connectors_hub/UpdateDestination.yaml
+    required: true
+  responses:
+    '200':
+      content:
+        application/json:
+          schema: {}
+      description: Successful Response
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/connectors_hub/HTTPValidationError.yaml
+      description: Validation Error
+  summary: Update Destination
+  tags:
+  - connectors

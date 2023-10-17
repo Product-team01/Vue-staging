@@ -1,0 +1,43 @@
+type: object
+properties:
+  origin:
+    type: string
+  catalogs:
+    type: object
+    description: "`catalogs` has one entry per `catalog-id` to its respective associated `fields`, `filters` and `curations_data`"
+    additionalProperties:
+      type: object
+      properties:
+        fields:
+          title: metadata fields that needs to be sent in the response
+          type: array
+          items:
+            type: string
+        filters:
+          title: filters to be applied while serving recommendations
+          type: array
+          items:
+            type: object
+            properties:
+              field:
+                type: string
+              value:
+                type: array
+                items:
+                  oneOf:
+                    - type: string
+                    - type: number
+                    - type: integer
+              operator:
+                type: string
+        curations_data:
+          title: Fields that are specific for curaion APIs.
+          type: object
+          properties:
+            curations:
+              description: Id of the curations.
+              type: string
+  num_results:
+    title: Number of results to be sent in response
+    type: integer
+    default: 16

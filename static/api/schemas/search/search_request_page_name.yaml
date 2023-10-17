@@ -1,0 +1,8 @@
+allOf:
+  - type: object
+    title: "Page Name Request"
+    properties:
+      page_name:
+        description: Name of Page 
+        type: string
+  - $ref: search_request_common_non_text.yaml

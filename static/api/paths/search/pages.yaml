@@ -1,0 +1,58 @@
+post:
+  tags:
+  - search
+  summary: Create Page
+  description: Create a page
+  operationId: create_page
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/PageIn.yaml'
+    required: true
+  responses:
+    '201':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/PageOut.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'
+get:
+  tags:
+  - search
+  summary: List Pages
+  description: List all Pages for the account
+  operationId: get_pages
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../../schemas/PageOut.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'

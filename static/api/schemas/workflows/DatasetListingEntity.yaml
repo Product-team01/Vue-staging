@@ -1,0 +1,32 @@
+properties:
+  created_ts:
+    description: This field describes the initial date of creation of the dataset.
+    title: Created Ts
+    type: string
+  dataset_id:
+    description: This field describes the identifier of the dataset.
+    title: Dataset Id
+    type: string
+  dataset_name:
+    description: This field describes the name of the dataset.
+    title: Dataset Name
+    type: string
+  tags:
+    default: []
+    description: This field describes any set of tags that can be associated to the
+      dataset.
+    items:
+      type: string
+    title: Tags
+    type: array
+  updated_ts:
+    description: This field describes the latest date of updation of the dataset.
+    title: Updated Ts
+    type: string
+required:
+- dataset_id
+- dataset_name
+- created_ts
+- updated_ts
+title: DatasetListingEntity
+type: object

@@ -1,0 +1,32 @@
+type: object
+description: This response is returned when the inference request is submitted for asynchronous processing
+properties:
+  status:
+    description: |
+      Status of the request
+      1. SUCCESS - Indicates the request is successfully submitted for inference processing
+      2. FAILURE - Indicates the request failed for some reason. 
+    type: string
+    enum:
+    - SUCCESS
+    - FAILURE
+  request_id:
+    description: Unique identifier attached to the request by the blox system
+    type: string
+  correlation_id:
+    description: Unique identifier attached to the request from the source
+    type: string
+  data:
+    type: object
+    properties:
+      version:
+        type: string
+        description: Represents the version of AI network used for processing the request
+      msd_id:
+        type: string
+        description: Represents the unique identifier of a specific input data
+      catalog_id:
+        type: string
+        description: Unique identifier of the catalog to which the input and tags generated are associated.
+  
+  

@@ -1,0 +1,61 @@
+post:
+  tags:
+  - search
+  summary: Create Template
+  description: 'The Template describes a rendering format - a visual layout for products
+    on the webpage. This api is to create a template based on one of the template
+    types supported. The templates are created in Blox app and used by embed code
+    for rendering. '
+  operationId: create_template
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/TemplateIn.yaml'
+    required: true
+  responses:
+    '201':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/TemplateOut.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'
+get:
+  tags:
+  - search
+  summary: List Templates
+  description: List all Templates for the account
+  operationId: get_templates
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../../schemas/TemplateOut.yaml'             
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'

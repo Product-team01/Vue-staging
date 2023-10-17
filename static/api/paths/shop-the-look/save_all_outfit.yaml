@@ -1,0 +1,31 @@
+post:
+  tags:
+    - shop-the-look
+  summary: save shop the look outfit
+  description: save all outfits by theme id
+  operationId: save_all_outfits
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  requestBody:
+    description: Curation request body
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas/shop-the-look/save_all_outfit_request.yaml"
+  responses:
+    "200":
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/shop-the-look/save_outfit_response.yaml"
+    "404":
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/error_response.yaml"

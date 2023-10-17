@@ -1,0 +1,38 @@
+type: object
+properties:
+  request_id:
+    type: string
+  correlation_id:
+    type: string
+  status:
+    type: string
+  data:
+    type: array
+    items:
+      type: object
+      properties:
+        id:
+          title: Use Case ID
+          type: string
+          example: '8ddb3b0a-82a9-4212-9d3a-9b17eb208c52'
+        name:
+          title: Use Case Name
+          type: string
+          example: 'trending_workflow_Test'
+        indexing:
+          title: Indexing
+          type: string
+          example: 'elasticsearch'
+        params:
+          title: Params
+          type: object
+          properties:
+            field_name:
+              title: Field Name
+              type: string
+              example: 'trending_field_5_ro_score'
+        catalog_id:
+          title: Catalog ID
+          type: string
+          example: 'c49b53bf19'
+

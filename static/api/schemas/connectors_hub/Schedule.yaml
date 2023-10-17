@@ -1,0 +1,11 @@
+properties:
+  timeUnit:
+    $ref: ../connectors_hub/timeUnit.yaml
+  units:
+    title: Units
+    type: integer
+required:
+- units
+- timeUnit
+title: Schedule
+type: object

@@ -1,0 +1,105 @@
+request_id: 7d1030767b8411edae01f28c070c22cc
+correlation_id: 7d1030767b8411edae01f28c070c22cc
+status: SUCCESS
+data:
+  id: 02b397d5-b225-405a-a582-6665804f698e
+  name: Bundling
+  description: This model displays the themes for cross-product recommendations for
+    the product in view based on your customer's affinities.
+  type: Bundling
+  inputs:
+  - name: __primary_key__
+    meta: true
+    required: true
+    description: Identifier of the item from the catalog (primary key attribute) to
+      be used as source for the similarity
+  config_schema:
+    type: array
+    items:
+      type: object
+      properties:
+        params:
+          type: array
+          items:
+            anyOf:
+            - type: object
+              properties:
+                value:
+                  description: Weightage given to the field when boosting the result
+                  type: number
+                  minimum: -5
+                  maximum: 10
+                type:
+                  description: Indexed fields from the catalog (associated to the strategy)
+                    used to boost the results
+                  const: catalog_fields
+                field:
+                  description: All indexed fields from catalog are a valid names that
+                    can used (including the ones in the taxonomy)
+                  type: string
+            - type: object
+              properties:
+                value:
+                  type: float
+                  minimum: 0.0
+                  maximum: 1.0
+                type:
+                  const: curations
+                field:
+                  description: Parameter used to describe the curation id
+                  type: string
+            - type: object
+              properties:
+                value:
+                  type: number
+                type:
+                  const: total_num_candidates
+                field:
+                  description: Parameter used to describe the the total number of candidates to be fetched
+                  const: total_num_candidates
+            - type: object
+              properties:
+                value:
+                  type: number
+                  minimum: -5
+                  maximum: 10
+                type:
+                  const: bundle_boost
+                field:
+                  description: Products similar to the candidates will be considered
+                    while creation of the bundle. Indicate the importance of each attribute
+                    to be considered for selecting candidates.
+                  type: string
+                  enum:
+                  - base_color
+                  - pattern
+                  - type
+  DAG:
+    members:
+    - node:
+        name: validate_curations
+      dependencies: []
+    - node:
+        name: get_tag_weights_curation
+      dependencies:
+      - validate_curations
+    - node:
+        name: get_candidate_query
+      dependencies:
+      - get_tag_weights_curation
+    - node:
+        name: parallelize(get_es_results)
+      dependencies:
+      - get_candidate_query
+    - node:
+        name: get_parallel_args_for_vuestyle
+      dependencies:
+      - parallelize(get_es_results)
+    - node:
+        name: execute_module_dag(72cfb22f-be63-46e1-852c-14e27cbf34ee)
+      dependencies:
+      - get_parallel_args_for_vuestyle
+    - node:
+        name: vuestyle_assembly
+      dependencies:
+      - execute_module_dag(72cfb22f-be63-46e1-852c-14e27cbf34ee)

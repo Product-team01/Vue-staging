@@ -1,0 +1,71 @@
+parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+get:
+  tags:
+    - seasonality
+  summary: Get Config
+  operationId: get_seasonality_config_by_id
+  parameters:
+    - description: unique identifier for the client's use case
+      required: true
+      schema:
+        title: Use Case
+        type: string
+        description: unique identifier for the client's use case
+      name: use_case_id
+      in: path
+    - description: boolean switch that toggles between lite and not config
+      required: false
+      schema:
+        title: Lite
+        type: boolean
+        description: boolean switch that toggles between lite and not config
+        default: true
+      name: lite
+      in: query
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            anyOf:
+              - $ref: '../../schemas/starfire/seasonality_get_config_response.yaml'
+              - $ref: '../../schemas/EmptyResponse.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'
+delete:
+  tags:
+    - seasonality
+  summary: Delete Config
+  operationId: delete_seasonality_config_by_id
+  parameters:
+    - description: unique identifier for the client's use case
+      required: true
+      schema:
+        title: Use Case
+        type: string
+        description: unique identifier for the client's use case
+      name: use_case_id
+      in: path
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/EmptyResponse.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'

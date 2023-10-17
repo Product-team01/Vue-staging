@@ -1,0 +1,11 @@
+required:
+- x
+- y
+type: object
+properties:
+  x:
+    type: string
+    description: graphical value of x coordinate
+  y:
+    type: string
+    description: graphical value of y coordinate

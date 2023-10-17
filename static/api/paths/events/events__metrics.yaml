@@ -1,0 +1,19 @@
+get:
+  tags:
+  - events
+  summary: Get metrics for a events
+  description: Get events metrics on date level summary
+  operationId: get metrics
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/EventsMetricsResponse.yaml'
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/PostFailureResponse.yaml'

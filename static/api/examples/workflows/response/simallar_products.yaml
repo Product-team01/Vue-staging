@@ -1,0 +1,88 @@
+request_id: 7d1030767b8411edae01f28c070c22cc
+correlation_id: 7d1030767b8411edae01f28c070c22cc
+status: SUCCESS
+data:
+  id: 72cfb22f-be63-46e1-852c-14e27cbf34ee
+  name: Similar Products
+  description: Recommends products with similar attributes as the product currently
+    in view for fashion segment. For example, if you are viewing a red-colored, floral
+    pattern dress, this model will recommend other red-colored, floral pattern dresses
+    from the catalog.
+  type: Contextual
+  inputs:
+  - name: __primary_key__
+    meta: true
+    required: true
+    description: Identifier of the item from the catalog (primary key attribute) to
+      be used as source for the similarity
+  config_schema:
+    type: array
+    items:
+      type: object
+      properties:
+        params:
+          type: array
+          items:
+            anyOf:
+            - type: object
+              properties:
+                value:
+                  description: Weightage given to the field when boosting the result
+                  type: number
+                  minimum: -5
+                  maximum: 10
+                threshold:
+                  description: Score threshold to skip results that is below this value
+                  type: float
+                  minimum: 0
+                  maximum: 1
+                type:
+                  description: Indexed fields from the catalog (associated to the strategy)
+                    used to boost the results
+                  const: catalog_fields
+                field:
+                  description: All indexed fields from catalog are a valid names that
+                    can used (including the ones in the taxonomy)
+                  type: string
+            - type: object
+              properties:
+                value:
+                  type: boolean
+                  default: 'false'
+                type:
+                  description: Parameter used to personalise the result
+                  const: personalisation
+                field:
+                  decription: When enabled, the result will be personalized based on
+                    the user history
+                  const: personalisation
+            - type: rarity_use_case
+              field:
+                enum:
+                  - rarity_use_case_id
+              value:
+                type: string
+                default: rarity_score_hm
+                discoverable: true
+            - type: exploration_rarity
+              field:
+                enum:
+                  - exploration_rarity
+                max: 1
+                min: 0
+              value:
+                type: float
+                discoverable: true
+  DAG:
+    members:
+    - node:
+        name: get_vr_query
+      dependencies: []
+    - node:
+        name: get_es_results
+      dependencies:
+      - get_vr_query
+    - node:
+        name: es_assembly
+      dependencies:
+      - get_es_results

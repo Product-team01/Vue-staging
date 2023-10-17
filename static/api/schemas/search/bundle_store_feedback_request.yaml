@@ -1,0 +1,31 @@
+type: object
+properties:
+  catalogs:
+    type: object
+    description: "`catalogs` has one entry per `catalog-id` to its respective associated `fields`, `filters`, and page `context`"
+    additionalProperties:
+      type: object
+      properties:
+        data:
+          description: Has contents for feedback
+          type: object
+          properties:
+            feedback_type:
+              description: Feedback type of the product or outfit
+              type: array
+              items:
+                type: object
+                properties:
+                  primary_key:
+                    title: primary key value for feedback
+                    type: string
+        curations:
+          title: Curation of the Product
+          type: string
+  feedback_type:
+    title: Feedback type of the product.
+    description: This describes the feedback of the Product from curation tool (outfit_accept, outfit_reject)
+    type: string
+  source:
+    description: Source from the request received
+    type: string

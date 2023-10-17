@@ -1,0 +1,19 @@
+request_id:
+  type: string
+correlation_id:
+  type: string
+status:
+  type: boolean
+data:
+  type: object
+  properites:
+    id:
+      type: string
+    grpah:
+      type: object
+      properties:
+        node_config:
+          type: object
+          properties:
+            shazam:
+              type: object

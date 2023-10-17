@@ -1,0 +1,79 @@
+title: TemplateOut
+type: object
+properties:
+  id:
+    title: Template_id
+    type: string
+    example: T#123
+    description: Unique id generated
+  name:
+    title: Template_name
+    type: string
+    example: Carousel with 4 products
+    description: Unique name given to a template
+  type:
+    title: Template_type
+    type: string
+    example: simple-carousel
+    description: 'Indicates predefined template types. Can take one of the following
+      values: simple-carousel, carousel, simple-grid, dressing-room, product-card'
+  config:
+    title: Template config for platforms
+    type: object
+    description: Config represents the different properties or styles that the template
+      can take for its different platforms
+    properties:
+      desktop:
+        title: Template config for desktop
+        type: object
+        properties:
+          title:
+            title: Title config for desktop
+            type: object
+            description: Properties & Styles applied for title section
+          layout:
+            title: Layout config for desktop
+            type: object
+            description: Properties & Styles applied for layout section
+          footer:
+            title: Footer config for desktop
+            type: object
+            description: Properties & Styles applied for footer section
+      mobile:
+        title: Template config for mobile
+        type: object
+  style:
+    title: Style configs
+    type: object
+    properties:
+      style_css:
+        title: style css file
+        type: string
+        example: https://vuex.vue.ai/client-data/client/template/style-css/simple-carousel_Copy%20of%20Home%20Page_1498_1649325645.css
+        description: File path of style css
+      custom_css:
+        title: custom css file
+        type: string
+        example: https://vuex.vue.ai/client-data/client/template/custom-css/simple-carousel_Copy%20of%20Home%20Page_1498_1649325645.css
+        description: File path of custom css.If provided, the Custom css will override
+          style css.
+  cta_js:
+    title: Custom CTA JS file
+    type: string
+    example: https://vuex.vue.ai/client-data/client/template/custom-cta/simple-carousel_Copy%20of%20Home%20Page_1498_1649325645.js
+    description: File path of custom css javascript
+  template_html:
+    title: HTML generated for customized template, when template type is product-card
+    type: string
+    description: HTML generated for customized template with image and metadata placeholders, when template type is product-card 
+  catalog_id:
+    title: Id of catalog associated with this template
+    type: string
+    example: C1234
+    description: Id of catalog associated with this template
+  created_ts:
+    type: string
+    example: 2023-03-13T16:40:42.072016
+  updated_ts:
+    type: string
+    example: 2023-03-13T17:40:42.072016

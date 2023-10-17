@@ -1,0 +1,62 @@
+title: AudienceConfig
+required:
+  - dag_id
+  - tasks
+  - tasks_config
+type: object
+properties:
+  dag_id:
+    title: Dag Id
+    type: string
+    description: Unique identifier for the dag in airflow
+  email:
+    title: Email
+    type: array
+    items:
+      type: string
+    description: Emails of the accounts to notify in case of failure of dag
+  email_on_failure:
+    title: Email On Failure
+    type: boolean
+    description: Should there be emails sent on failure
+    default: false
+  owner:
+    title: Owner
+    type: string
+    description: Owner of the dag
+    default: starfire
+  relationships:
+    title: Relationships
+    type: array
+    items:
+      type: array
+      items:
+        type: string
+    description: Show the dependence of the tasks, e.g. [task1, task2] means task1 is parent of task2
+  schedule_interval:
+    title: Schedule Interval
+    type: string
+    description: Schedule interval for the dag. A cron syntax compatible string
+  tags:
+    title: Tags
+    type: array
+    items:
+      type: string
+    description: Tags for better observability of dags
+  tasks:
+    title: Tasks
+    type: object
+    additionalProperties:
+      $ref: 'Task.yaml'
+    description: Config to setup airflow task, e.g. preprocess, score, postprocess, push_to_bronze, explainability
+  time_zone:
+    title: Time Zone
+    type: string
+    description: The timezone for the timestamp column
+    default: UTC
+  tasks_config:
+    title: Tasks Config
+    type: object
+    additionalProperties:
+      $ref: 'Segmentation.yaml'
+    description: Config to be used by spark jobs for a given task

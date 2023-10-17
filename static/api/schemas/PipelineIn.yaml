@@ -1,0 +1,33 @@
+title: PipelineIn
+required:
+- name
+- config
+- source
+- destination
+- pipeline_type
+type: object
+properties:
+  client:
+    title: Client
+    type: string
+  api_key:
+    title: Api Key
+    type: string
+  name:
+    title: Name
+    type: string
+  config:
+    title: Config
+    type: object
+  source:
+    title: Source
+    type: string
+  destination:
+    title: Destination
+    type: string
+  pipeline_type:
+    title: Pipeline Type
+    type: string
+  notebook_path:
+    title: Notebook Path
+    type: object

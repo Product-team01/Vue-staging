@@ -1,0 +1,10 @@
+---
+title: TaxonomyResponse
+required:
+  - taxonomy_id
+type: object
+properties:
+  taxonomy_id:
+    type: integer
+    description: unique identifier of the taxonomy object created
+

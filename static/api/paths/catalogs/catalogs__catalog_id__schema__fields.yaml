@@ -1,0 +1,346 @@
+get:
+  tags:
+  - catalogs
+  summary: Schema Fields Catalog
+  description: schema/fields the catalog
+  operationId: schema_fields
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - in: query
+    name: facet
+    schema:
+      type: boolean
+    description: To retrieve facet enabled fields
+  - in: query
+    name: index
+    schema:
+      type: boolean
+    description: To retrieve index enabled fields
+  - in: query
+    name: search
+    schema:
+      type: boolean
+    description: To retrieve search enabled fields
+  - in: query
+    name: blox_fields
+    schema:
+      type: boolean
+      example: 
+        blox_fields: true
+    description: To get account and  blox fields
+  - in: query
+    name: boost
+    schema:
+      type: boolean
+      example: 
+        blox_fields: true
+    description: To get boost able fields
+  - in: query
+    name: taxonomy_fields
+    schema:
+      type: boolean
+      example: 
+        taxonomy_fields: true
+    description: To get account and  blox taxonomy tags fields
+  - in: query
+    name: meta
+    schema:
+      type: string
+    description: To retrieve meta enabled fields
+  - in: query
+    name: export
+    schema:
+      type: boolean
+    description: To retrieve exportable fields
+  - required: true
+    schema:
+      title: Catalog Id
+      type: string
+    name: catalog_id
+    in: path
+  
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+            - $ref: '../../schemas/ResponseTemplateSuccessNoData.yaml'
+            - type: object
+              properties:
+                data:
+                  type: array
+                  items:
+                    oneOf:
+                      - $ref: '../../schemas/CatalogSchemaFields.yaml'
+                      - $ref: '../../schemas/CatalogSchemaExportFields.yaml'                  
+              required:
+                  - data
+          examples:
+            Example 1:
+              summary: Example 1
+              value: 
+                - name: Body (HTML)
+                  type: string
+                  primary_key: false
+                  mandatory: true
+                  index: true
+                  facet: false
+                  search: true
+                  personalize: false
+                  meta:
+                  fields:
+                  es_type:
+                  dimension:
+                  blox_generated:
+                - name: Variant Taxable
+                  type: boolean
+                  primary_key: false
+                  mandatory: false
+                  index: true
+                  facet: false
+                  search: false
+                  personalize: false
+                  meta:
+                  fields:
+                  es_type:
+                  dimension:
+                  blox_generated:
+                - name: Variant Requires Shipping
+                  type: boolean
+                  primary_key: false
+                  mandatory: true
+                  index: true
+                  facet: false
+                  search: false
+                  personalize: false
+                  meta:
+                  fields:
+                  es_type:
+                  dimension:
+                  blox_generated:
+                - name: Tags
+                  type: string
+                  primary_key: false
+                  mandatory: true
+                  index: true
+                  facet: true
+                  search: true
+                  personalize: true
+                  meta:
+                  fields:
+                  es_type:
+                  dimension:
+                  blox_generated:
+                - name: Handle
+                  type: string
+                  primary_key: true
+                  mandatory: true
+                  index: true
+                  facet: true
+                  search: true
+                  personalize: false
+                  meta: identifier
+                  fields:
+                  es_type:
+                  dimension:
+                  blox_generated:
+                - name: blox_file_modified_time
+                  type: datetime
+                  primary_key:
+                  mandatory:
+                  index: true
+                  facet: true
+                  search: false
+                  personalize:
+                  meta:
+                  fields:
+                  es_type:
+                  dimension:
+                  blox_generated: true
+                - name: Variant Compare At Price
+                  type: integer
+                  primary_key: false
+                  mandatory: false
+                  index: true
+                  facet: false
+                  search: false
+                  personalize: true
+                  meta: price
+                  fields:
+                  es_type:
+                  dimension:
+                  blox_generated:
+                - name: Title
+                  type: string
+                  primary_key: false
+                  mandatory: true
+                  index: true
+                  facet: false
+                  search: true
+                  personalize: false
+                  meta: title
+                  fields:
+                  es_type:
+                  dimension:
+                  blox_generated:
+                - name: Status
+                  type: string
+                  primary_key: false
+                  mandatory: true
+                  index: true
+                  facet: true
+                  search: false
+                  personalize: false
+                  meta:
+                  fields:
+                  es_type:
+                  dimension:
+                  blox_generated:
+                - name: Variant Weight Unit
+                  type: string
+                  primary_key: false
+                  mandatory: false
+                  index: false
+                  facet: false
+                  search: false
+                  personalize: false
+                  meta:
+                  fields:
+                  es_type:
+                  dimension:
+                  blox_generated:
+                - name: Published
+                  type: boolean
+                  primary_key: false
+                  mandatory: true
+                  index: true
+                  facet: true
+                  search: false
+                  personalize: false
+                  meta: availability
+                  fields:
+                  es_type:
+                  dimension:
+                  blox_generated:
+                - name: Variant Price
+                  type: integer
+                  primary_key: false
+                  mandatory: true
+                  index: true
+                  facet: false
+                  search: false
+                  personalize: true
+                  meta: price
+                  fields:
+                  es_type:
+                  dimension:
+                  blox_generated:
+                - name: Vendor
+                  type: string
+                  primary_key: false
+                  mandatory: true
+                  index: true
+                  facet: true
+                  search: true
+                  personalize: true
+                  meta: brand
+                  fields:
+                  es_type:
+                  dimension:
+                  blox_generated:
+                - name: Custom Product Type
+                  type: string
+                  primary_key: false
+                  mandatory: true
+                  index: true
+                  facet: true
+                  search: true
+                  personalize: true
+                  meta: category
+                  fields:
+                  es_type:
+                  dimension:
+                  blox_generated:
+                - name: Gift Card
+                  type: boolean
+                  primary_key: false
+                  mandatory: false
+                  index: true
+                  facet: false
+                  search: false
+                  personalize: false
+                  meta:
+                  fields:
+                  es_type:
+                  dimension:
+                  blox_generated:
+                - name: blox_active
+                  type: boolean
+                  primary_key:
+                  mandatory:
+                  index: true
+                  facet: true
+                  search: false
+                  personalize:
+                  meta:
+                  fields:
+                  es_type:
+                  dimension:
+                  blox_generated: true
+                - name: Page_URL
+                  type: string
+                  primary_key: false
+                  mandatory: true
+                  index: true
+                  facet: false
+                  search: false
+                  personalize: false
+                  meta: page_url
+                  fields:
+                  es_type:
+                  dimension:
+                  blox_generated:
+                - name: Image Src
+                  type: string
+                  primary_key: false
+                  mandatory: true
+                  index: true
+                  facet: false
+                  search: false
+                  personalize: false
+                  meta: primary_image_url
+                  fields:
+                  es_type:
+                  dimension:
+                  blox_generated:
+            Example 2:
+              summary: Example 2
+              value:
+                - label: "label"
+                  field: "field"
+
+
+    '400':
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/PostFailureResponse.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/PostFailureResponse.yaml'

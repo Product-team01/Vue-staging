@@ -1,0 +1,100 @@
+title: Affinity post config request
+required:
+  - name
+  - catalog
+  - algorithm
+  - association_col
+  - userevent_weight
+type: object
+properties:
+  name:
+    title: use case name
+    type: string
+    description: use case name  
+  catalog_id:
+    title: Catalog Id
+    type: string
+    description: Catalog Id
+  algorithm:
+    title: Algorithm
+    type: string
+    enum: ["apriori", "sequential", "price"]
+    default: "apriori"
+    description: Algorithm to use to form associations
+  scorer:
+    title: Scorer
+    type: string
+    enum: ["naive", "kulzenzcy"]
+    default: "naive"
+    description: "Scorer to use in case of apriori algorithm"
+  association_col:
+    title: Association Column
+    type: string
+    description: Catalog column/attribute to form associations
+  group_level_col:
+    title: Association Column
+    type: string
+    description: Catalog column/attribute to group these associations
+  price_col:
+    title: Association Column
+    type: string
+    description: Catalog column/attribute to use in the price affinity algorithm
+  userevent_weight:
+    title: Userevent Weight
+    type: object
+    additionalProperties:
+      type: number
+    description: dict of weightage given to event-name like PDPPageView, Add2cart
+  n_tiles:
+    title: N Tiles
+    type: integer
+    default: 10
+    description: N Tiles
+  start_date:
+    title: Start Date
+    type: string
+    description: Start Date to consider for user events
+  end_date:
+    title: End Date
+    type: string
+    description: End date to consider for user events
+  decay_weight:
+    title: Decay Weight
+    type: number
+    default: 0.000001
+  event_weight_threshold:
+    title: Decay Weight
+    type: number
+    default: 0.0
+  max_itemset_length:
+    title: Max Itemset Length
+    type: integer
+    default: 10
+  output_level_filter_json:
+    title: Output Level Filter
+    type: object
+    description: vizsql compatible filtering json to be applied on events df join products df before any preprocessing
+  min_confidence:
+    title: Minimum Confidence
+    type: number
+    default: 0.0005
+  min_support:
+    title: Minimum Support
+    type: number
+    default: 0.0005
+  max_pattern_length:
+    title: Maximum Pattern Length
+    type: integer
+    default: 5
+  min_threshold:
+    title: Minimum Threshold
+    type: number
+    default: 0
+  num_brands_price_distance:
+    title: num_brands_price_distance
+    type: integer
+    default: 0
+  schedule_interval:
+    title: Schedule Interval
+    type: string
+    description: Setup the schedule of the dag, if not specified its created and requires manual trigger

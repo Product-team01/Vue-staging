@@ -1,0 +1,9 @@
+title: DataTypeOut
+required:
+- supported_data_types
+type: object
+properties:
+  supported_data_types:
+    title: Supported Data Types
+    type: array
+    items: {}

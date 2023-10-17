@@ -1,0 +1,65 @@
+#get:
+#  tags:
+#  - analytics
+#  summary: Get DAG configurations for a client
+#  description: Get DAG configurations for a client
+#  operationId: get_single_dag_config
+#  parameters:
+#  - required: true
+#    schema:
+#      title: DAG ID
+#      type: string
+#      example: wf_1234_MadStreetDen_Metrics
+#    name: dag_id
+#    in: path
+#  responses:
+#    '200':
+#      description: Successful Response
+#      content:
+#        application/json:
+#          schema:
+#            title: Response List Clients Metric Configuration Get
+#            type: array
+#            items:
+#              $ref: '../../schemas/MetricsOutWorkflowSchema.yaml'
+#    '422':
+#      description: Validation Error
+#      content:
+#        application/json:
+#          schema:
+#            $ref: '../../schemas/HTTPValidationError.yaml'
+delete:
+  tags:
+    - analytics
+  summary: Delete DAG configurations for a client
+  description: Delete DAG configurations for a client
+  operationId: get_single_dag_config
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+    - required: true
+      schema:
+        title: Dag ID
+        type: string
+        example: wf_1234_MadStreetDen_Metrics
+      name: dag_id
+      in: path
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            title: Response List Clients Metric Configuration Get
+            type: array
+            items:
+              $ref: '../../schemas/MetricsOutWorkflowSchema.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'

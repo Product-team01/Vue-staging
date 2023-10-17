@@ -1,0 +1,217 @@
+title: Events
+type: object
+properties:
+  event_column:
+    title: Event Column
+    type: string
+    description: events type column in events df
+    default: name
+  view_event:
+    title: View Event
+    type: string
+    description: what is the name of view event
+    default: pageView
+  revenue_days:
+    title: Revenue Days
+    type: array
+    items:
+      type: integer
+    description: calculate revenue for windows of last N days
+    default:
+      - 30
+      - 90
+  cart_addition_event:
+    title: Cart Addition Event
+    type: string
+    description: cart addition event name
+    default: addToCart
+  order_event:
+    title: Order Event
+    type: string
+    description: order event name
+    default: orderConfirmation
+  view_days:
+    title: View Days
+    type: array
+    items:
+      type: integer
+    description: calculate views for wondows of last N days
+    default:
+      - 30
+      - 90
+  user_id_final_column:
+    title: User Id Final Column
+    type: string
+    description: user id final column after doing reverse mapping from maduuiid and user id columns
+    default: user_id_final
+  user_column:
+    title: User Column
+    type: string
+    description: user id column for computation
+    default: user_id
+  product_column_eventsdf:
+    title: Product Column Eventsdf
+    type: string
+    description: product ID column in events df
+    default: source_prodid
+  recommendation_view:
+    title: Recommendation View
+    type: string
+    description: recommendation view event name
+    default: recommendationView
+  if_price_in_metadata:
+    title: If Price In Metadata
+    type: boolean
+    description: is price of product in products df?
+    default: true
+  platform:
+    title: Platform
+    type: string
+    description: column specifying platform
+    default: platform
+  action_column:
+    title: Action Column
+    type: string
+    description: action column
+    default: action
+  page_type:
+    title: Page Type
+    type: string
+    description: page type column
+    default: page_type
+  desktop_use:
+    title: Desktop Use
+    type: string
+    description: value of desktop user in platform column
+    default: desktop
+  user_id_column:
+    title: User Id Column
+    type: string
+    description: user Id column
+    default: user_id
+  session_column:
+    title: Session Column
+    type: string
+    description: session ID column
+    default: session_id
+  order_distinct_column:
+    title: Order Distinct Column
+    type: string
+    description: column to find distinct orders
+    default: epoch
+  recommended_product_view:
+    title: Recommended Product View
+    type: string
+    description: recommendedProductView event name
+    default: recommendedProductView
+  price_column_eventsdf:
+    title: Price Column Eventsdf
+    type: string
+    description: name of price column in events df
+    default: bought_price
+  filter_date:
+    title: Filter Date
+    type: string
+    description: filter data after this date, mostly for debugging
+    default: ''
+  price_column_eventsmetadata:
+    title: Price Column Eventsmetadata
+    type: string
+    description: price key in events metadata json object
+    default: product_price
+  product_page_type:
+    title: Product Page Type
+    type: string
+    description: page type for product
+    default: product
+  order_impression_recos_days:
+    title: Order Impression Recos Days
+    type: array
+    items:
+      type: integer
+    description: calculate order_impression_recos for wondows of last N days
+    default:
+      - 30
+      - 90
+  order_days:
+    title: Order Days
+    type: array
+    items:
+      type: integer
+    description: calculate orders for wondows of last N days
+    default:
+      - 30
+      - 90
+  timestamp_column:
+    title: Timestamp Column
+    type: string
+    description: time stamp column in events df
+    default: epoch
+  product_column_productsdf:
+    title: Product Column Productsdf
+    type: string
+    description: name of product id column in products df
+    default: ext_id
+  mobile_use:
+    title: Mobile Use
+    type: string
+    description: name of mobile user in platform column
+    default: mobile
+  discount_full_price_days:
+    title: Discount Full Price Days
+    type: array
+    items:
+      type: integer
+    description: calculate discount and full price days for wondows of last N days
+    default:
+      - 30
+      - 90
+  click_event:
+    title: Click Event
+    type: string
+    description: click event name
+    default: click
+  apply_user_id_mad_uuid_mapping:
+    title: Apply User Id Mad Uuid Mapping
+    type: boolean
+    description: apply user id mad uuid mapping
+    default: true
+  madid_column:
+    title: Madid Column
+    type: string
+    description: column having uuid in events table
+    default: mad_uuid
+  price_column_productsdf:
+    title: Price Column Productsdf
+    type: string
+    description: price column name in products df
+    default: price
+  pdp_page_type:
+    title: Pdp Page Type
+    type: string
+    description: pdp page type name
+    default: pdp
+  cart_addition_days:
+    title: Cart Addition Days
+    type: array
+    items:
+      type: integer
+    description: calculate cart addition for wondows of last N days
+    default:
+      - 30
+      - 90
+  order_size_days:
+    title: Order Size Days
+    type: array
+    items:
+      type: integer
+    description: calculate order size for wondows of last N days
+    default:
+      - 30
+      - 90
+  envs:
+    title: Envs
+    type: string
+    description: env value that is used to filter the events
+    default: prod
+description: Default values will work for the vuex based schema

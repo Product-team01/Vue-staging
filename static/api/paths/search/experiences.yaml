@@ -1,0 +1,370 @@
+get:
+  tags:
+    - search
+  summary: List all experiences for an account
+  description: |
+    An experience is a customer touchpoint—the point of contact or interaction that a customer has with your recommendations throughout the customer journey.
+
+      - Experience enables you to configure personalized recommendations on any place or position of the page and A/B test different variations to find the best suited one for each customer.
+      - Using Experiences, you can publish module(s) & experiment with different modules on different placements across pages on your platform. 
+      - Optionally, you can set up targeting conditions to specify which customer sees the experience, when and/or even where. 
+    
+    **List Of Targeting Conditions**
+
+      | Target Based On |Targeting Condition| Description                                     |
+      |-----------------|-------------------|-------------------------------------------------|
+      | who             |Audience           | Target a group of defined users who should see the Experience. You will be able to select from a list of predefined Audiences or any created Audiences. Ex: New Visitors                                      |
+      | who             |Device Type        | Target an Experience to users based on the Device or Platform they are using. Ex: Mobile User                                      |
+      | who             |User(s)            | Target a list of custom users which you can add directly via Visitor ID or or MAD ID                                      |
+      | who             |Traffic source     | Target an Experience based on where users have landed on your platform from. Ex: From a Search Engine                                  |
+      | who             |Country            | Target an Experience to users from a specific Country. Ex: Australia |
+      |                 |                   |  |
+      | where           |Attributes         | Target an Experience based on any Attribute marked as ‘Facet’ during Catalog Onboarding. Ex: Brand                                    |
+      |                 |                   |  |
+      | when            |Date               | Target an Experience to be displayed within a particular Date Range. Ex: A sale period                                       |
+      | when            |Day                | Target an Experience to be displayed on particular Day(s). Ex: Weekends                                      |
+      | when            |Time               | Target an Experience to be displayed between a particular Time of Day. Ex: 8 AM to 8 PM                                      |
+
+  operationId: get_experiences
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  responses:
+    "200":
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "../../schemas/ResponseTemplateSuccessNoData.yaml"
+              - type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: "../../schemas/search/experience.yaml"
+                required:
+                  - data
+          example:
+            request_id: string
+            correlation_id: string
+            status: SUCCESS
+            data:
+              - id: bbb23sdasdad-0812-131-1313131
+                name: exp-1
+                page_id: bbb123123sad-0812-131-1313131
+                status: active
+                page_name: pdp
+                trigger_conditions:
+                  - field: day
+                    operator: exact
+                    value:
+                      - 0 0 0 ? * MON *
+                      - 0 0 0 ? * TUE *
+                      - 0 0 0 ? * WED *
+                      - 0 0 0 ? * THU *
+                      - 0 0 0 ? * FRI *
+                      - 0 0 0 ? * SAT *
+                      - 0 0 0 ? * SUN *
+                    type: when
+                    catalog_id: null
+                  - field: date
+                    operator: range
+                    value:
+                      - 1670437800
+                      - 1671647400
+                    type: when
+                    catalog_id: null
+                  - field: time
+                    operator: lt
+                    value: '2022-12-06T09:30:00.320Z'
+                    type: when
+                    catalog_id: null
+                  - field: audience
+                    operator: exact
+                    value: '-1'
+                    type: who
+                    catalog_id: null
+                priority: 1
+                platform_configs:
+                  desktop:
+                    deduplication: false
+                    slots:
+                      slot2:
+                        module: 5438425f-a57c-4d7c-a4ed-d8dc8ff2f9c9
+                        integration_mode: embed_code
+                        business_rules:
+                          - rules:
+                              - field: Title
+                                operator: contains
+                                value: Prada
+                                value_type: null
+                                source_dependent: false
+                            conditions: []
+                            catalog_id: c49b53bf19
+                            title: br1
+                            rules_relation: AND
+                            conditions_relation: AND
+                        status: enabled
+                        trigger: On page load
+                        frequency: On every page view
+                        overlay_behaviour: Open in Overlay
+                        position: page center
+                        button: >-
+                          https://vuedotai.s3.amazonaws.com/blox/staging/assets/buttons/recommendation/button-style-6.svg
+                      slot1:
+                        module: 006890b0-8e7a-4322-89c8-2105fb1757d5
+                        integration_mode: embed_code
+                        business_rules: []
+                        status: enabled
+                        trigger: On page load
+                        frequency: On every page view
+                        overlay_behaviour: Open in Overlay
+                        position: page center
+                        button: >-
+                          https://vuedotai.s3.amazonaws.com/blox/staging/assets/buttons/recommendation/button-style-6.svg
+                    ab_test:
+                      experiment_id: 81686d57-c783-47ab-b765-15880c49f8bb
+                      experiment_name: Test 1
+                      update_time: '2022-12-08 05:28:43.697671'
+                      traffic_split:
+                        - slot: Control
+                          split: 50
+                          control: true
+                        - slot: slot2
+                          split: 50
+                          control: false
+                      status: running
+                      goal: Conversion Rate
+                      metric: Purchase
+                      assign_winning_module: false
+                      expected_confidence: 95
+                      traffic_allocation: manual
+                  mobile:
+                    deduplication: false
+                    slots:
+                      slot2:
+                        module: 006890b0-8e7a-4322-89c8-2105fb1757d5
+                        integration_mode: embed_code
+                        business_rules: []
+                        status: enabled
+                        trigger: On page load
+                        frequency: On every page view
+                        overlay_behaviour: Open in Overlay
+                        position: page center
+                        button: >-
+                          https://vuedotai.s3.amazonaws.com/blox/staging/assets/buttons/recommendation/button-style-6.svg
+                      slot1:
+                        module: 5438425f-a57c-4d7c-a4ed-d8dc8ff2f9c9
+                        integration_mode: embed_code
+                        business_rules: []
+                        status: enabled
+                        trigger: On page load
+                        frequency: On every page view
+                        overlay_behaviour: Open in Overlay
+                        position: page center
+                        button: >-
+                          https://vuedotai.s3.amazonaws.com/blox/staging/assets/buttons/recommendation/button-style-6.svg
+                  android:
+                    deduplication: false
+                    slots: {}
+                  ios:
+                    deduplication: false
+                    slots: {}
+    "400":
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/error_response.yaml"
+    "404":
+      description: Config Not found
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/error_response.yaml"
+    "500":
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/error_response.yaml"
+post:
+  tags:
+    - search
+  summary: Create Experience
+  description: Create Experience for specific account
+  operationId: create_experience
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  requestBody:
+    description: Experience request body
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas/search/experience.yaml"
+  responses:
+    "200":
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "../../schemas/ResponseTemplateSuccessNoData.yaml"
+              - type: object
+                properties:
+                  data:
+                    $ref: "../../schemas/search/experience.yaml"
+                required:
+                  - data
+          example:
+            request_id: string
+            correlation_id: string
+            status: SUCCESS
+            data:
+              - id: bbb23sdasdad-0812-131-1313131
+                name: exp-1
+                page_id: bbb123123sad-0812-131-1313131
+                status: active
+                page_name: pdp
+                trigger_conditions:
+                  - field: day
+                    operator: exact
+                    value:
+                      - 0 0 0 ? * MON *
+                      - 0 0 0 ? * TUE *
+                      - 0 0 0 ? * WED *
+                      - 0 0 0 ? * THU *
+                      - 0 0 0 ? * FRI *
+                      - 0 0 0 ? * SAT *
+                      - 0 0 0 ? * SUN *
+                    type: when
+                    catalog_id: null
+                  - field: date
+                    operator: range
+                    value:
+                      - 1670437800
+                      - 1671647400
+                    type: when
+                    catalog_id: null
+                  - field: time
+                    operator: lt
+                    value: '2022-12-06T09:30:00.320Z'
+                    type: when
+                    catalog_id: null
+                  - field: audience
+                    operator: exact
+                    value: '-1'
+                    type: who
+                    catalog_id: null
+                priority: 1
+                platform_configs:
+                  desktop:
+                    deduplication: false
+                    slots:
+                      slot2:
+                        module: 5438425f-a57c-4d7c-a4ed-d8dc8ff2f9c9
+                        integration_mode: embed_code
+                        business_rules:
+                          - rules:
+                              - field: Title
+                                operator: contains
+                                value: Prada
+                                value_type: null
+                                source_dependent: false
+                            conditions: []
+                            catalog_id: c49b53bf19
+                            title: br1
+                            rules_relation: AND
+                            conditions_relation: AND
+                        status: enabled
+                        trigger: On page load
+                        frequency: On every page view
+                        overlay_behaviour: Open in Overlay
+                        position: page center
+                        button: >-
+                          https://vuedotai.s3.amazonaws.com/blox/staging/assets/buttons/recommendation/button-style-6.svg
+                      slot1:
+                        module: 006890b0-8e7a-4322-89c8-2105fb1757d5
+                        integration_mode: embed_code
+                        business_rules: []
+                        status: enabled
+                        trigger: On page load
+                        frequency: On every page view
+                        overlay_behaviour: Open in Overlay
+                        position: page center
+                        button: >-
+                          https://vuedotai.s3.amazonaws.com/blox/staging/assets/buttons/recommendation/button-style-6.svg
+                    ab_test:
+                      experiment_id: 81686d57-c783-47ab-b765-15880c49f8bb
+                      experiment_name: Test 1
+                      update_time: '2022-12-08 05:28:43.697671'
+                      traffic_split:
+                        - slot: Control
+                          split: 50
+                          control: true
+                        - slot: slot2
+                          split: 50
+                          control: false
+                      status: running
+                      goal: Conversion Rate
+                      metric: Purchase
+                      assign_winning_module: false
+                      expected_confidence: 95
+                      traffic_allocation: manual
+                  mobile:
+                    deduplication: false
+                    slots:
+                      slot2:
+                        module: 006890b0-8e7a-4322-89c8-2105fb1757d5
+                        integration_mode: embed_code
+                        business_rules: []
+                        status: enabled
+                        trigger: On page load
+                        frequency: On every page view
+                        overlay_behaviour: Open in Overlay
+                        position: page center
+                        button: >-
+                          https://vuedotai.s3.amazonaws.com/blox/staging/assets/buttons/recommendation/button-style-6.svg
+                      slot1:
+                        module: 5438425f-a57c-4d7c-a4ed-d8dc8ff2f9c9
+                        integration_mode: embed_code
+                        business_rules: []
+                        status: enabled
+                        trigger: On page load
+                        frequency: On every page view
+                        overlay_behaviour: Open in Overlay
+                        position: page center
+                        button: >-
+                          https://vuedotai.s3.amazonaws.com/blox/staging/assets/buttons/recommendation/button-style-6.svg
+                  android:
+                    deduplication: false
+                    slots: {}
+                  ios:
+                    deduplication: false
+                    slots: {}
+    "400":
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/error_response.yaml"
+    "404":
+      description: Config Not found
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/error_response.yaml"
+    "500":
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/error_response.yaml"

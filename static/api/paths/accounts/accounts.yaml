@@ -1,0 +1,150 @@
+post:
+  tags:
+  - accounts
+  summary: Create Account
+  description: |
+    - Create a new account by providing the organization name, email id and
+    first name, last name details details
+    - Account create api would work with super admin key only 
+  operationId: create_account
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/AccountIn.yaml'
+    required: true
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+            - $ref: '../../schemas/ResponseTemplateSuccessNoData.yaml'
+            - type: object
+              properties:
+                data:
+                  $ref: '../../schemas/AccountOut.yaml'
+              required:
+                  - data
+              example:
+                request_id: 3ccea3ba7a0a11eda3780ea7570d814d
+                correlation_id:
+                status: SUCCESS
+                data:
+                  id: c2cf81fc-33a0-5c6c-860f-adc5e47d26dd
+                  organization_name: TestApi
+                  email_id: TestApi@TestApi.com
+                  first_name: Test
+                  last_name: Api
+                  api_key: bcdff628cc9a49518cc023e7a8b34f0f
+                  status: ACTIVE
+                  url: https://api-dev.madstreetden.xyz
+
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'
+get:
+  tags:
+  - accounts
+  summary: List Accounts
+  description: |
+    - Retrieve specified account when that account api key is passed
+    - Retrieve all accounts when super admin key is passed
+      - query params api_key=true would fetch accounts with api_keys of the accounts
+      - query params allowed_host=true would fetch accounts with allowed_hosts of the accounts
+
+  operationId: get_accounts
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+    - name: api_key
+      required: false
+      in: query
+      schema:
+        title: Api Key
+        description: to list accounts with api key in it.
+        type: boolean
+        enum:
+        - true
+    - name: allowed_host
+      required: false
+      in: query
+      schema:
+        title: Allowed Host
+        description: to list accounts with allowed host in it.
+        type: boolean
+        enum:
+        - true
+
+
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+            - $ref: '../../schemas/ResponseTemplateSuccessNoData.yaml'
+            - type: object
+              properties:
+                data:
+                  type: array
+                  items:
+                    $ref: '../../schemas/AccountOut.yaml'
+              required:
+                  - data
+          examples:
+            without api key:
+              value:
+                request_id: 3ccea3ba7a0a11eda3780ea7570d814d
+                correlation_id: 7a0a11edaa7a0a11eda3780ea7570d814d
+                status: SUCCESS
+                data:
+                  - id: 010d3b5d-d5f9-4f17-95ff-addf9d9f9a90
+                    organization_name: sdk-account-19-may-1
+                    email_id: sdkaccount19-may-1@test.com
+                    first_name: sdk
+                    last_name: account
+                    api_key: UCrwqmWST_fLGgKzALSyY8hUhsfjladkjdlfSJs
+
+            with api key:
+              value:
+                request_id: 3ccea3ba7a0a11eda3780ea7570d814d
+                correlation_id: 7a0a11edaa7a0a11eda3780ea7570d814d
+                status: SUCCESS
+                data:
+                  - id: 72e30c7f-67d2-5073-23fd-10d036499fbb
+                    status: DEACTIVE
+                    first_name: bpoqd
+                    last_name: pvimvlxeoj
+                    client_id: 72e30c7f-67d2-5073-23fd-10d036499fbb
+                    email_id: 1663594461.7186289@automation_test.com
+                    region: us-east-1
+                    created_ts: '2022-09-19T14:01:28.420779'
+                    updated_ts: '2022-12-07T11:26:50.420909'
+                    api_keys:
+                      - api_key: 004f9bf97c4e49cb234sd3fdf39850f8
+                        active: true
+                        client: 72e30c7f-67d2-5073-23fd-10d036499fbb
+                    organization_name: automation_org7_test16635944617
+
+
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'

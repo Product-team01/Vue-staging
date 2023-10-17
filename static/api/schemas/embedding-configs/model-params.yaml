@@ -1,0 +1,13 @@
+---
+title: ModelParams
+required:
+  - architecture_type
+  - loss
+type: object
+properties:
+  architecture_type:
+    type: string
+  loss:
+    type: string
+  optimizer:
+    $ref: './optimizer.yaml'

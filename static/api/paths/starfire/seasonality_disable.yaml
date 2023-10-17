@@ -1,0 +1,32 @@
+post:
+  tags:
+    - seasonality
+  summary: Disable Seasonality
+  operationId: disable_seasonality
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+    - description: unique identifier for the job
+      required: true
+      schema:
+        title: Use Case id
+        type: string
+        description: unique identifier for the job
+      name: use_case_id
+      in: path
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/EmptyResponse.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'

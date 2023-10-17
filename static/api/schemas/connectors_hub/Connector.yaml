@@ -1,0 +1,35 @@
+properties:
+  connectionId:
+    title: Connectionid
+    type: string
+  destinationId:
+    title: Destinationid
+    type: string
+  name:
+    title: Name
+    type: string
+  resourceRequirements:
+    $ref: ../connectors_hub/ResourceRequirements.yaml
+  schedule:
+    $ref: ../connectors_hub/Schedule.yaml
+  scheduleData:
+    $ref: ../connectors_hub/ScheduleData.yaml
+  scheduleType:
+    $ref: ../connectors_hub/scheduleType.yaml
+  sourceId:
+    title: Sourceid
+    type: string
+  status:
+    $ref: ../connectors_hub/ConnectorStatus.yaml
+  streamsToSync:
+    items:
+      $ref: ../connectors_hub/streamConfig.yaml
+    title: Streamstosync
+    type: array
+required:
+- name
+- sourceId
+- destinationId
+- connectionId
+title: Connector
+type: object

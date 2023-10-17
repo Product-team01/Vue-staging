@@ -1,0 +1,35 @@
+type: object
+properties:
+  catalog_id:
+    type: string
+    description: Unique identifier of the catalog to which the input and tags generated be associated.
+  input:
+    type: object
+    additionalProperties:
+      description: Item's specific column/field name 
+      type: string
+      additionalProperties:
+        description: Item's specific column/field value(s)
+        type: string
+    description: Represents columns/fields of an item as per the catalog' schema.
+  rules:
+    type: array
+    items:
+      type: object
+      properties:
+        type:
+          type: string
+          description: |
+            Predefined rule to be applied during the inference process or apply as a filter before returning the output
+            #### Supported Rules
+
+            |rule                    |description|
+            |------------------------|-----------------|
+            |force_taxonomy_hierarchy|When added, the extraction is enforced for this hierarchy. The value object represents the category attribute and the value that should be used to identify the primary object to which generate tags for in an multi-object image.|
+            |persist_object_tags     | When added, the inference of all objects detected in an image is persisted and returned for a given image.|
+
+        values:
+          type: array
+          description: Values to be applied as an input during the rule execution.
+          items:
+            type: string

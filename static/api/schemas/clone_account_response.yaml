@@ -1,0 +1,28 @@
+title: clone_account_response
+type: object
+properties:
+  id:
+    title: Id
+    type: string
+  organization_name:
+    title: Organization Name
+    type: string
+    description: Organization Name is changed
+  email_id:
+    title: Email Id
+    type: string
+  first_name:
+    title: First Name
+    type: string
+  last_name:
+    title: Last Name
+    type: string
+  api_key:
+    title: api_key
+    type: string
+  url:
+    title: url
+    type: string
+  status:
+    title: Status
+    type: string

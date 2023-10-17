@@ -1,0 +1,47 @@
+post:
+  summary: Recommendation Feedback API
+  description: Feedback API for recommendation
+  operationId: recommendation-feedback
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  tags:
+  - feedback
+  requestBody:
+    content:
+      application/json:
+        schema:
+          properties:
+            user_id:
+              title: User id
+              type: string
+              example: user_QA_w0_feedback
+            catalog_id:
+              title: Catalog id
+              type: string
+              example: zyz-1
+            recommendation_list:
+              title: Recommendation List
+              type: array
+              example:
+              - id-1
+              - id-2
+              - id-3
+              items:
+                type: string
+            feedback_data:
+              title: Feedback Data
+              type: array
+              items:
+                $ref: '../../schemas/RecommendataionFeedbackData.yaml'
+    required: true
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            properties: {}

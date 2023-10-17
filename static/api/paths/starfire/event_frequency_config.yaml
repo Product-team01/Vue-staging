@@ -1,0 +1,88 @@
+parameters:
+  - required: true
+    schema:
+      title: Use Case ID
+      type: string
+    name: use_case_id
+    in: path
+get:
+  tags:
+    - event-frequency
+  summary: Get use case config
+  description: Get the specified use case based on the ID
+  operationId: get_event_frequency_config
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+    - name: internal
+      in: query
+      description:
+        A optional flag, when set to true, will return expanded internal config.
+        Default is false
+      required: false
+      schema:
+        type: boolean
+    - name: lite
+      in: query
+      description:
+        An optional flag, when set to false, fetches and expands the starfire
+        workflow config (and also client and catalog config) associated to this
+        use case
+      required: false
+      schema:
+        type: boolean
+  responses:
+    "200":
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "../../schemas/ResponseTemplateSuccessNoData.yaml"
+              - type: object
+                properties:
+                  data:
+                    $ref: "../../schemas/starfire/event_frequency_config.yaml"
+                required:
+                  - data
+    "404":
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/error_response.yaml"
+delete:
+  tags:
+    - event-frequency
+  summary: Delete use case config
+  description: Delete the specified use case based on the ID
+  operationId: delete_event_frequency_config
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+  responses:
+    "200":
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "../../schemas/ResponseTemplateSuccessNoData.yaml"
+              - type: object
+                properties:
+                  data:
+                    $ref: "../../schemas/starfire/event_frequency_config.yaml"
+                required:
+                  - data
+    "404":
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/error_response.yaml"

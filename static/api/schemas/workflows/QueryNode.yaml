@@ -1,0 +1,43 @@
+properties:
+  additional_dataset:
+    default: []
+    description: This is an optional field that represents any additional dataset(s)
+      that are needed to execute the transformation.
+    items: {}
+    title: Additional Dataset
+    type: array
+  query_dict:
+    anyOf:
+    - items: {}
+      type: array
+    - type: object
+    description: This field is a json representation of the query itself. It will
+      provide configurations about the nature of the query that will be executed on
+      the input (source_dataset) to obtain the output (sink_dataset). Different types
+      of queries will have different formats of the metadata or configurations required
+      to execute the transformation.
+    title: Query Dict
+  query_type:
+    description: 'This field describes the type of the query that will be executed
+      on the input (source_dataset) to obtain the output (sink_dataset). Some of the
+      examples of data transformation queries are filter, select, join, groupby, custom
+      queries etc. '
+    title: Query Type
+    type: string
+  sink_dataset:
+    description: This field describes the name of the dataset that will be the sink
+      / output of this query operation or transformation.
+    title: Sink Dataset
+    type: string
+  source_dataset:
+    description: This field describes the name of the dataset that will be the source
+      / input for this query operation or transformation.
+    title: Source Dataset
+    type: string
+required:
+- source_dataset
+- sink_dataset
+- query_type
+- query_dict
+title: QueryNode
+type: object

@@ -1,0 +1,43 @@
+post:
+  tags:
+  - internal
+  summary: User relative affinity towards the events
+  description: user relative affinity towards products
+  operationId: user_relative_affinity
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/user-profile/request/relative-affinity.yaml'
+        example:
+          $ref: '../../examples/user-profile/request/relative-affinity.yaml'
+    required: true
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+            - $ref: '../../schemas/ResponseTemplateSuccessNoData.yaml'
+            - type: object
+              properties:
+                data:
+                  $ref: '../../schemas/user-profile/response/relative-affinity.yaml'
+              required:
+                  - data
+          example:
+            $ref: '../../examples/user-profile/response/relative-affinity.yaml'
+
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'

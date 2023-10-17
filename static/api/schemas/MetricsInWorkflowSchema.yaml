@@ -1,0 +1,21 @@
+title: MetricsInWorkflowSchema
+required:
+- email
+type: object
+properties:
+  email:
+    title: Email
+    type: string
+    description: Email address to send info/alert on workflow
+    example: abc@opsgenie.com
+  email_on_failure:
+    title: Email on Failure
+    type: boolean
+    description: Field to denote if email should be triggered on failure of the workflow
+    example: 'True'
+  schedule_interval:
+    title: Schedule Interval
+    type: string
+    description: Schedule to execute the workflow. This is to be provided in CRON
+      format.
+    example: '0 10 * * *'

@@ -1,0 +1,14 @@
+title: clone_metrics_response
+required:
+- metrics
+- details
+type: object
+properties:
+  metrics:
+    title: metrics
+    type: string
+    description: cloned metric name
+  details:
+    title: details
+    type: string
+    description: details of the cloned metrics if properly cloned or not

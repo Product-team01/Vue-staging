@@ -1,0 +1,29 @@
+title: Success
+type: object
+properties:
+  positive: 
+    title: positive affinities
+    type: object
+    additionalProperties:
+      type: object
+      properties: 
+        recency_frequency:
+          type: number
+        frequency:
+          type: number
+        event_frequency:
+          type: number
+
+  negative: 
+    title: positive affinities
+    type: object
+    additionalProperties:
+      type: object
+    properties:
+        recency_frequency:
+          type: number
+        frequency:
+          type: number
+        event_frequency:
+          type: number
+  

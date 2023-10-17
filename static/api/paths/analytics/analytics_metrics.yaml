@@ -1,0 +1,29 @@
+get:
+  tags:
+  - analytics
+  summary: Fetch list of metrics definitions
+  description: Fetch list of metrics definitions, configured & stored in the config
+    registry
+  operationId: list_analytics_metrics
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            title: Response List Clients Api V1 Clients Get
+            type: array
+            items:
+              $ref: '../../schemas/AnalyticsMetricsOut.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'

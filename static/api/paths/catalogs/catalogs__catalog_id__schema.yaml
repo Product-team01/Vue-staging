@@ -1,0 +1,38 @@
+parameters:
+- name: x-correlation-id
+  in: header
+  description: correlation id to track requests
+  schema:
+    type: string
+- schema:
+    type: string
+  name: catalog_id
+  in: path
+  required: true
+put:
+  summary: Initial catalog schema configuration (does NOT support mutation)
+  operationId: put-api-v1-catalogs-catalog_id-schema
+  responses:
+    '202':
+      description: Accepted
+      content:
+        application/json:
+          schema:
+            allOf:
+            - $ref: '../../schemas/ResponseTemplateSuccessNoData.yaml'
+            - type: object
+              properties:
+                data:
+                  type: array
+                  items:
+                    $ref: '../../schemas/SchemaConfig.yaml'
+      headers: {}
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: '../../schemas/SchemaConfig.yaml'
+  tags:
+  - catalogs

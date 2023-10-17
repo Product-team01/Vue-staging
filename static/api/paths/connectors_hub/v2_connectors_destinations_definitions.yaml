@@ -1,0 +1,48 @@
+get:
+  description: Lists all the supported destinations
+  operationId: list_destination_definitons_api_v2_connectors_destinations_definitions_get
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  responses:
+    '200':
+      content:
+        application/json:
+          schema: {}
+      description: Successful Response
+  summary: List Destination Definitons
+  tags:
+  - connectors
+post:
+  description: Create new destination definition
+  operationId: create_destination_definition_api_v2_connectors_destinations_definitions_post
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../../schemas/connectors_hub/CreateDestinationDefinition.yaml
+    required: true
+  responses:
+    '200':
+      content:
+        application/json:
+          schema: {}
+      description: Successful Response
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/connectors_hub/HTTPValidationError.yaml
+      description: Validation Error
+  summary: Create Destination Definition
+  tags:
+  - connectors

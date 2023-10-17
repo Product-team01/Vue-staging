@@ -1,0 +1,62 @@
+properties:
+  dag_id:
+    description: This field describes the unique identifier for the generated DAG
+      (post deployment) in spark mode of execution.
+    title: Dag Id
+    type: string
+  draft:
+    default: false
+    description: This field describes whether the workflow is in draft state or not.
+    title: Draft
+    type: boolean
+  internal:
+    default: false
+    description: This field tracks whether the given workflow is an internal workflow
+      or not.
+    title: Internal
+    type: boolean
+  owner:
+    default: starfire
+    description: This field describes the service that owns / is responsible for this
+      workflow.
+    title: Owner
+    type: string
+  preset:
+    default: false
+    description: This field is a boolean that is used to describe if a workflow is
+      a preset workflow or not.
+    title: Preset
+    type: boolean
+  schedule_interval:
+    description: This field is a cron-syntax compatible string that denotes the schedule
+      interval for the workflow that will be used post deployment.
+    title: Schedule Interval
+    type: string
+  tags:
+    default: []
+    description: This field describes any set of tags that can be associated to the
+      workflow.
+    items:
+      type: string
+    title: Tags
+    type: array
+  tasks_config:
+    allOf:
+    - $ref: ../workflows/WorkflowCreationConfig.yaml
+    description: This field desribes the config that will be used by the spark or
+      pandas deployments for a given task.
+    title: Tasks Config
+  workflow_description:
+    description: This field provides a description about the workflow.
+    title: Workflow Description
+    type: string
+  workflow_name:
+    description: This field describes the name of the workflow.
+    title: Workflow Name
+    type: string
+required:
+- workflow_name
+- workflow_description
+- tasks_config
+title: Workflow
+type: object

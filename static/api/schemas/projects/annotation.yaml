@@ -1,0 +1,30 @@
+required:
+- id
+- name
+type: object
+properties:
+  id:
+    type: string
+    description: unique identifier of the annotation
+  name:
+    type: string
+    description: name of annotation
+  display_name:
+    type: string
+    description: name of annotation
+  labelled_attribute:
+    type: object
+    properties:
+      id: 
+        type: string
+      name:
+        type: string
+  associated_attributes:
+    type: array
+    items:
+      type: object
+      properties:
+        id: 
+          type: string
+        name:
+          type: string

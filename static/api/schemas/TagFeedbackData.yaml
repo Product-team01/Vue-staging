@@ -1,0 +1,23 @@
+type: object
+properties:
+  user_id:
+    title: User Identifier
+    type: string
+  data:
+    title: Feedback Data
+    type: array
+    example: Includes multiple data feedback objects
+    items:
+      type: object
+      properties:
+        additionalProperties:
+          description: Column name and feedback value
+          type: string
+          additionalProperties:
+            type: string
+        blox_tags:
+          type: array
+          items:
+            $ref: 'TagFeedbackDataMsdInternal.yaml'
+
+

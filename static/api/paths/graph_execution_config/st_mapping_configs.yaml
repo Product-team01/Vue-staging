@@ -1,0 +1,61 @@
+get:
+  tags:
+    - graph-execution-configs
+  summary: Get st_mapping Config
+  operationId: get_st_mapping_config
+  parameters:
+    - required: true
+      schema:
+        title: graph execution config id
+        type: string
+      name: id
+      in: path
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/graph_execution_configs/st_mapping_get_response.yaml'
+
+patch:
+  tags:
+    - graph-execution-configs
+  summary: Update st_mapping Config
+  operationId: update_st_mapping_config
+  parameters:
+    - required: true
+      schema:
+        title: graph execution config id
+        type: string
+      name: id
+      in: path
+  requestBody:
+    description: Request for update curation
+    content:
+      application/json:
+        schema:
+          type: object
+          properties: 
+            structured_mapping:
+              type: boolean
+            input_tags:
+              type: string
+            facet_mapping:
+              type: object
+            source:
+              type: string
+            extras:
+              type: object
+            client_id:
+              type: string
+            client_name:
+              type: string
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/graph_execution_configs/st_mapping_get_response.yaml'
+

@@ -1,0 +1,57 @@
+type: object
+properties:
+  version:
+    type: string
+    description: Represents the version of  string of ML models  used for processing the request
+  catalog_id:
+    type: string
+    description: Unique identifier of the catalog to which the input and tags generated be associated.
+  tag_request_input:
+    type: object
+    additionalProperties:
+      description: Item's specific column/field name 
+      type: string
+      additionalProperties:
+        description: Item's specific column/field value(s)
+        type: string
+    description: Represents columns/fields of an item as per the catalog' schema.
+  msd_tags:
+    type: array
+    description: List of all the tags inferred along with details of hierarchy and confidence scores of the tags.
+    items:
+      type: object
+      description: Represents a specific object identified by the AI model used to infer tags. This can represent a bounding box of an image or specific words in a text data.
+      properties:
+        object_id:
+          type: string
+          description: Unique identifier of the object for which tags are inferred
+        taxonomy_id:
+          type: string
+          description: Unique identifier of the taxonomy used as basis for classification for this inference request            
+        attributes:
+          type: array
+          description: Represents the tag's attribute and value inference information
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                description: Attribute id of the inferred tag. 
+              name:
+                type: string
+                description: Attribute name of the inferred tag.
+              hierarchy:
+                type: string
+                description: Attribute's hierarchy name from root attribute to the current level of the tag inferred. Is delimited by > symbol.
+              hierarchy_ids:
+                type: string
+                description: Attribute's hierarchy id from root attribute to the current level of the tag inferred. Is delimited by > symbol.
+              feedback:
+                type: array
+                description: Feedback values for the given attribute
+                items:
+                  type: object
+                  properties:
+                    value:
+                      type: string
+                      description: value of the attribute

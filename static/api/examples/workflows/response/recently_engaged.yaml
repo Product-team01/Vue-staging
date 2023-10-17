@@ -1,0 +1,66 @@
+request_id: 449018e8bcbf11eda242e61538f91ec7
+status: SUCCESS
+data:
+  inputs: []
+  DAG:
+    members:
+      - node:
+          name: fetch_user_history
+        dependencies: []
+      - node:
+          name: get_pageview_records
+        dependencies:
+          - fetch_user_history
+      - node:
+          name: general_product_assembly
+        dependencies:
+          - get_pageview_records
+  id: 93161fc3-5deb-436b-9c05-03b0042b619d
+  config_schema:
+    - type: temporal
+      field:
+        enum:
+          - lookback
+      value:
+        type: string
+        enum:
+          - weekly
+          - fortnightly
+          - daily
+          - monthly
+          - quarterly
+          - yearly
+        default: daily
+    - type: events
+      field:
+        discoverable: true
+      value:
+        type: float
+        max: 10
+        min: -5
+    - type: event_frequency_use_case
+      field:
+        discoverable: true
+      value:
+        type: float
+        max: 10
+        min: -5
+    - type: event_frequency_counter_event
+      field:
+        enum:
+          - counter_event
+      value:
+        type: string
+        discoverable: true
+    - type: event_frequency_ntile_threshold
+      field:
+        discoverable: true
+      value:
+        type: float
+        min: 1
+  name: Recently Engaged
+  created_ts: "2022-07-27T03:24:56.282894"
+  updated_ts: "2023-03-07T07:38:27.955098"
+  type: Journey-aware
+  required_config:
+    - type: events

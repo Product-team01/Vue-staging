@@ -1,0 +1,37 @@
+post:
+  tags:
+    - trending
+  summary: Create Trending use case config
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+  description: |-
+    Lets one register trending config. If lite is true expected config is TrendingConfigLite else a json string.
+  operationId: post_config_api_v1_trending_configs_post
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/TrendingConfig_Post.yaml'
+    required: true
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/TrendingPostConfigResponse.yaml'
+    '400':
+      description: Error Message.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/starfire_success_response.yaml'
+          example:
+            request_id: 96ee690675f611edae9722bc82d1a906
+            correlation_id: r96ee690675f611edae9722bc82d1a906
+            data:
+              message: 'Failed while creating trending usecase config'

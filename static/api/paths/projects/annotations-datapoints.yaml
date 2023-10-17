@@ -1,0 +1,105 @@
+get:
+  tags:
+    - projects
+  summary: List datapoints in annotation view
+  description: List datapoints in annotation view
+  operationId: listAnnotationDatapoints
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+    - name: x-request-id
+      in: header
+      description: request id to track requests
+      schema:
+        type: string
+    - name: Accept-Encoding
+      in: header
+      description: indicates the content encoding that the client can understand
+      schema:
+        type: string
+        default: gzip
+    - name: project_id
+      in: path
+      description: unique identifier of the project
+      required: true
+      schema:
+        type: string
+    - name: attribute_id
+      in: query
+      description: unique identifier of the attribute
+      required: true
+      schema:
+        type: string
+    - name: sample_ids
+      in: query
+      description: list of sample ids separated by comma
+      required: true
+      schema:
+        type: string
+    - name: page_num
+      in: query
+      description: page number
+      schema:
+        type: integer
+    - name: page_size
+      in: query
+      description: number of results to be returned
+      schema:
+        type: integer
+    - name: sort_field
+      in: query
+      description: holds the field key value for sort
+      schema:
+        type: string
+    - name: sort_order
+      in: query
+      description: holds the field key value for sorting order
+      schema:
+        type: string
+    - name: annotation_ids
+      in: query
+      description: list of annotation ids separated by comma
+      schema:
+        type: string
+    - name: status
+      in: query
+      description: status of the datapoint
+      schema:
+        type: string
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                description: status of the request
+                type: string
+                enum:
+                  - SUCCESS
+                  - FAILURE
+              request_id:
+                description: id to backtrack the request in internal services
+                type: string
+              correlation_id:
+                description: id sent by the caller to backtrack the request
+                type: string
+              data:
+                $ref: '../../schemas/projects/annotated-datapoint-info.yaml'
+    '404':
+      description: returned when project does not exists
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'

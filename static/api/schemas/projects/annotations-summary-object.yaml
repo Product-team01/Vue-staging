@@ -1,0 +1,33 @@
+required:
+- annotations
+- metrics
+type: object
+properties:
+  metrics:
+    type: object
+    properties:
+      confidence:
+        type: string
+        description: holds confidence level of organization of the selected attribute
+        format: int64
+      completion:
+        type: string
+        description: holds completion percentage of organization of the selected attribute
+          and sample
+        format: int64
+  annotations:
+    type: object
+    properties:
+      <annotation_id>:
+        type: object
+        properties:
+          system_predicted:
+            type: integer
+            format: int64
+          manual:
+            type: integer
+            format: int64
+          approved:
+            type: integer
+            format: int64
+        description: holds annotation level count

@@ -1,0 +1,29 @@
+title: CatalogRequest
+type: object
+properties:
+  name:
+    title: Name
+    type: string
+    example: Products123
+  schema:
+    title: schema
+    type: array
+    items:
+      type: object
+      $ref: 'SchemaConfig.yaml'
+  data_sources:
+    title: data-sources
+    type: array
+    items:
+      $ref: 'DataSourceRequest.yaml'
+  metadata:
+    title: metadata
+    type: object
+  extraction_config:
+    title: extraction_config
+    type: array
+    items:
+      type: object
+      $ref: 'ExtractionConfig.yaml'
+required:
+- name

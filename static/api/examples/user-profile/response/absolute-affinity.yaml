@@ -1,0 +1,26 @@
+request_id: 7d1030767b8411edae01f28c070c22cc
+correlation_id: 7d1030767b8411edae01f28c070c22cc
+status: SUCCESS
+data: 
+  positive:
+    Handle:
+      15035065fa:
+        recency_frequency: 0.1295
+        frequency: 1
+        event_frequency: 1
+    Vendor:
+      Victoria Beckham:
+        recency_frequency: 0.1295
+        frequency: 1
+        event_frequency: 1
+    Tags:
+      34 length dress, dresses, women:
+        recency_frequency: 0.1295
+        frequency: 1
+        event_frequency: 1
+    ontology:
+      'null':
+        recency_frequency: 0.1295
+        frequency: 1
+        event_frequency: 1
+  negative: {}

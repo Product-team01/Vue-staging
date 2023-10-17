@@ -1,0 +1,39 @@
+type: object
+properties:
+  request_id:
+    type: string
+  correlation_id:
+    type: string
+  status:
+    type: string
+  data:
+    type: array
+    items:
+      type: object
+      properties:
+        use_case:
+          type: string
+          title: Use Case
+          description: Use case name
+        algorithm:
+          type: string
+          title: Algorithm
+          description: Algorithm used in the use case
+        scorer:
+          type: string
+          title: Scorer
+          description: Scorer used in the use case
+        association_col:
+          type: string
+          title: Association Column
+        group_level_col:
+          type: string
+          title: Group Level Column
+        price_col:
+          type: string
+          title: Price Column
+        catalog:
+          title: Catalog
+          type: string
+  status_code:
+    type: integer

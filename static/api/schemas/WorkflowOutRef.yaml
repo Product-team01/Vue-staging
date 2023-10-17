@@ -1,0 +1,84 @@
+title: Success
+type: object
+properties:
+  DAG:
+    title: DAG detail for workflow
+    type: array
+    items: {}
+  metadata:
+    title: workflow related metadata
+    type: object
+  type:
+    type: string
+  inputs:
+    type: array
+    items:
+      type: object
+      properties:
+        name:
+          type: string
+        required:
+          type: boolean
+        description:
+          type: string
+  config_schema:
+    oneOf:
+      - type: array
+        items:
+          type: object
+          properties:
+            type:
+              type: string
+            name:
+              type: object
+              properties:
+                enum:
+                  type: array
+                  items:
+                    type: string
+                discoverable:
+                  type: boolean
+            value:
+              type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - boolean
+                    - string
+                    - integer
+                    - integer-list
+                    - string-list
+                enum:
+                  type: array
+                  items:
+                    oneOf:
+                      - type: string
+                      - type: integer
+                      - type: number
+                min:
+                  type: integer
+                max:
+                  type: integer
+                default:
+                  oneOf:
+                    - type: array
+                      items:
+                        oneOf:
+                          - type: string
+                          - type: integer
+                          - type: number
+                    - type: string
+                    - type: integer
+                    - type: number
+                    - type: boolean
+                discoverable:
+                  type: boolean
+      - type: object
+        description: This will contain dynamic json schema for `config` param specified in the `strategy` based on the workflow
+  id:
+    title: workflow related metadata
+    type: string
+  name:
+    title: workflow name
+    type: string

@@ -1,0 +1,49 @@
+title: EventTable
+required:
+- event_table
+type: object
+properties:
+  event_table:
+    title: Table Name
+    type: string
+    description: Table name for the generated event table
+    example: buys
+  event_table_catalog_join_right:
+    title: Column for Catalog Table Join
+    type: string
+    description: Join column for the Catalog Table
+    example: ext_id
+  event_table_catalog_join_left:
+    title: Column for Events Table Join
+    type: string
+    description: Join column for the Events Table
+    example: product_id
+  event_table_filter:
+    title: Events Table Filter
+    allOf:
+      - $ref: 'EventFilter.yaml'
+    type: object
+    description: Column to use for filtering in Events table
+    example:
+  event_table_deduplicate_column:
+    title: Events Table De-Duplicate column
+    type: array
+    items:
+      type: string
+    description: Column for Events Table De-Duplication
+    example: ['order_id']
+  event_table_deduplicate_function:
+    title: Events Table De-Duplicate function
+    type: string
+    description: Function for Events Table De-Duplication
+    example: rank
+  event_table_deduplicate_order_column:
+    title: Events Table ordering column
+    type: string
+    description: Column for Events Table Ordering
+    example: timestamp
+  event_table_deduplicate_order_column_mode:
+    title: Events Table ordering mode
+    type: string
+    description: Column for Events Table Ordering mode
+    example: asc

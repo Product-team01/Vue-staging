@@ -1,0 +1,6 @@
+---
+title: ModelLayers
+type: object
+properties:
+  model_name:
+    $ref: './model-config.yaml'

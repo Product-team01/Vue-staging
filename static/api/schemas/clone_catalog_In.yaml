@@ -1,0 +1,19 @@
+title: catalog_clone_post
+required:
+  - dest_client_id
+  - source_catalog_id
+  - source_client_id
+type: object
+properties:
+  dest_client_id:
+    title: dest_client_id
+    type: string
+    description: source_catalog_id in source account
+  source_client_id:
+    title: source_client_id
+    type: string
+    description: client_id of the source account
+  source_catalog_id:
+    title: source_catalog_id
+    type: string
+    description: catalog_id that needs to be cloned

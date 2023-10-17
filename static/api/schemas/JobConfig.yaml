@@ -1,0 +1,52 @@
+title: JobConfig
+required:
+- name
+type: object
+properties:
+  name:
+    title: Name
+    type: string
+  existing_cluster_id:
+    title: Existing Cluster Id
+    type: string
+  new_cluster:
+    $ref: 'ClusterConfig.yaml'
+  libraries:
+    title: Libraries
+    type: array
+    items: {}
+  email_notifications:
+    title: Email Notifications
+    type: object
+  spark_python_task:
+    title: Spark Python Task
+    type: object
+  max_concurrent_runs:
+    title: Max Concurrent Runs
+    type: integer
+  timeout_seconds:
+    title: Timeout Seconds
+    type: integer
+  max_retries:
+    title: Max Retries
+    type: integer
+  schedule:
+    title: Schedule
+    type: object
+  notebook_path:
+    title: Notebook Path
+    type: string
+  base_parameters:
+    title: Base Parameters
+    type: object
+  databricks_config:
+    $ref: 'DatabricksConfig.yaml'
+  create_default_cluster:
+    title: Create Default Cluster
+    type: boolean
+  notebook_task:
+    title: Notebook Task
+    type: object
+  pool_id:
+    title: Pool Id
+    type: string

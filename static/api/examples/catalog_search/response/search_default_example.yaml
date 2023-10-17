@@ -1,0 +1,56 @@
+request_id: 7d1030767b8411edae01f28c070c22cc
+correlation_id: 7d1030767b8411edae01f28c070c22cc
+status: SUCCESS
+data:
+  autocorrect_query:
+  total_count: 998
+  facets: {}
+  page_size: 16
+  page_num: 1
+  range_facet: {}
+  num_of_pages: 63
+  data:
+  - Variant Requires Shipping: true
+    Published: true
+    Variant Compare At Price: 129
+    Image Src: https://cdn.shopify.com/s/files/1/0661/7369/8302/products/58050416JM_12_F.jpg?v=1663092332
+    Page_URL: https://blox-retail-demo.myshopify.com/products/58050416jm
+    Tags: timepieces, women, wrist watch
+    Handle: 58050416jm
+    Custom Product Type: timepieces
+    Variant Price: 129
+    Status: active
+    Vendor: Karl Lagerfeld
+    Gift Card: false
+    blox_active: true
+    blox_file_modified_time: 1666249336000
+    Variant Taxable: true
+    Title: Karl Lagerfeld Women Wrist watch Gold -- --
+    Body (HTML): "<p>rhinestones, logo, deployant clasp, strap material: stainless
+      steel, case material: stainless steel, water resistant</p>"
+    Variant Weight Unit: kg
+    blox_tags:
+    - taxonomy_id: fa455caf-448c-47c8-ab75-54274d13052c
+      attributes: []
+  - Variant Requires Shipping: true
+    Published: true
+    Variant Compare At Price: 207
+    Image Src: https://cdn.shopify.com/s/files/1/0661/7369/8302/products/58050034XL_12_F.jpg?v=1663093153
+    Page_URL: https://blox-retail-demo.myshopify.com/products/58050034xl
+    Tags: timepieces, women, wrist watch
+    Handle: 58050034xl
+    Custom Product Type: timepieces
+    Variant Price: 207
+    Status: active
+    Vendor: Versus Versace
+    Gift Card: false
+    blox_active: true
+    blox_file_modified_time: 1666249336000
+    Variant Taxable: true
+    Title: Versus Versace Women Wrist watch Gold -- --
+    Body (HTML): "<p>rhinestones, logo, deployant clasp, strap material: stainless
+      steel, case material: stainless steel, japanese movement, water resistant</p>"
+    Variant Weight Unit: kg
+    blox_tags:
+    - taxonomy_id: fa455caf-448c-47c8-ab75-54274d13052c
+      attributes: []

@@ -1,0 +1,301 @@
+post:
+  tags:
+    - search
+  summary: Returns a list of search recommendations.
+  description: The results will be returned based on the strategy or module or page name specified in the request.
+  operationId: get_search_results
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  requestBody:
+    description: Recommendations payload
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas/search/search_request.yaml"
+        examples:
+          search_request_strategy_name:
+            value:
+              blox_uuid: 81b7e2a1-4a4b-4523-8a70-964b533d0981
+              user_id: eb471ce220ce834e5843f041035f1bfd97d4fcb36a2f185
+              platform: desktop
+              medium: website
+              integration_mode: embed_code
+              strategy_name: strategy_001
+              catalogs:
+                c49b53bf19:
+                  fields:
+                    - Handle
+                    - Title
+                    - Image Src
+                    - page link
+                    - Vendor
+                  filters:
+                    - field: Vendor
+                      operator: exact
+                      value: Adidas
+                  context:
+                    Handle: 46696836bf
+          search_request_module_name:
+            value:
+              blox_uuid: 81b7e2a1-4a4b-4523-8a70-964b533d0981
+              user_id: eb471ce220ce834e5843f041035f1bfd97d4fcb36a2f185
+              platform: desktop
+              medium: website
+              integration_mode: embed_code
+              module_name: module_001
+              catalogs:
+                c49b53bf19:
+                  fields:
+                    - Handle
+                    - Title
+                    - Image Src
+                    - page link
+                    - Vendor
+                  context:
+                    Handle: 46696836bf
+          search_request_page_name:
+            value:
+              blox_uuid: 81b7e2a1-4a4b-4523-8a70-964b533d0981
+              user_id: eb471ce220ce834e5843f041035f1bfd97d4fcb36a2f185
+              platform: desktop
+              medium: website
+              integration_mode: embed_code
+              page_name: pdp
+              catalogs:
+                c49b53bf19:
+                  fields:
+                    - Handle
+                    - Title
+                    - Image Src
+                    - page link
+                    - Vendor
+                  context:
+                    Handle: 46696836bf
+          search_request_text:
+            value:
+              blox_uuid: 81b7e2a1-4a4b-4523-8a70-964b533d0981
+              user_id: eb471ce220ce834e5843f041035f1bfd97d4fcb36a2f185
+              platform: desktop
+              medium: website
+              integration_mode: embed_code
+              page_name: pdp
+              catalogs:
+                c49b53bf19:
+                  fields:
+                    - Handle
+                    - Title
+                    - Image Src
+                    - page link
+                    - Vendor
+                  context:
+                    Handle: 46696836bf
+                  facets:
+                    - dress
+                  facet_limit: 100
+                  search_query: shirt
+                  search_fields:
+                    - category
+                  sort_by:
+                    field: price
+                    order: desc
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            oneOf:
+              - $ref: "../../schemas/search/search_response_strategy_name.yaml"
+              - $ref: "../../schemas/search/search_response_module_name.yaml"
+              - $ref: "../../schemas/search/search_response_page_name.yaml"
+              - $ref: "../../schemas/search/search_response_simple_text.yaml"
+          examples:
+            strategy_name:
+              value:
+                status: ok
+                message: ''
+                data:
+                  - strategy_name: visually_similar_new
+                    strategy_id: ee51c714-c8f4-40c4-bc7a-f8330ec0ed52
+                    data:
+                      - page link: https://vuex-internal-fashion.myshopify.com/products/46690354ma
+                        Title: Gucci Man Belt Brown 42 inches
+                        Vendor: Gucci
+                        Image Src: >-
+                          https://cdn.shopify.com/s/files/1/0504/9152/3250/products/46690354MA_12_F.jpg?v=1603907998
+                        Handle: 46690354ma
+                      - page link: https://vuex-internal-fashion.myshopify.com/products/46618702mt
+                        Title: Prada Women Belt Brown 36 inches
+                        Vendor: Prada
+                        Image Src: >-
+                          https://cdn.shopify.com/s/files/1/0504/9152/3250/products/46618702MT_12_F.jpg?v=1603874580
+                        Handle: 46618702mt
+                    errors: {}
+                request_id: b9eafaa47bd811edbab84293e19886f8
+                correlation_id: null
+            module_name:
+              value:
+                status: ok
+                message: ''
+                data:
+                  - module_name: dec 13 md
+                    module_id: 284db5d9-6b2f-4b6a-8a05-8dea4be6fff1
+                    module_title: dec 13
+                    slot_id: null
+                    slot_name: null
+                    data:
+                      - page link: https://vuex-internal-fashion.myshopify.com/products/46690354ma
+                        Title: Gucci Man Belt Brown 42 inches
+                        Vendor: Gucci
+                        Image Src: >-
+                          https://cdn.shopify.com/s/files/1/0504/9152/3250/products/46690354MA_12_F.jpg?v=1603907998
+                        Handle: 46690354ma
+                      - page link: https://vuex-internal-fashion.myshopify.com/products/46618702mt
+                        Title: Prada Women Belt Brown 36 inches
+                        Vendor: Prada
+                        Image Src: >-
+                          https://cdn.shopify.com/s/files/1/0504/9152/3250/products/46618702MT_12_F.jpg?v=1603874580
+                        Handle: 46618702mt
+                    errors: {}
+                    tiles:
+                      - name: visually_similar_new
+                        id: ee51c714-c8f4-40c4-bc7a-f8330ec0ed52
+                      - name: visually_similar_new
+                        id: ee51c714-c8f4-40c4-bc7a-f8330ec0ed52
+                    page_size: 2
+                    num_of_pages: 12
+                    page_num: 1
+                request_id: 67a082227bd411eda69df28c070c22cc
+                correlation_id: null
+            page_name:
+              value:
+                status: ok
+                message: ''
+                data:
+                  - module_name: carousel_vr_2
+                    module_id: 28de5d57-e16f-4509-8f38-cac0c8184bec
+                    module_title: VISSUALLY SIMMILAR
+                    slot_id: pos1
+                    slot_name: null
+                    data:
+                      - page link: https://vuex-internal-fashion.myshopify.com/products/46690354ma
+                        Title: Gucci Man Belt Brown 42 inches
+                        Vendor: Gucci
+                        Image Src: >-
+                          https://cdn.shopify.com/s/files/1/0504/9152/3250/products/46690354MA_12_F.jpg?v=1603907998
+                        Handle: 46690354ma
+                      - page link: https://vuex-internal-fashion.myshopify.com/products/46618702mt
+                        Title: Prada Women Belt Brown 36 inches
+                        Vendor: Prada
+                        Image Src: >-
+                          https://cdn.shopify.com/s/files/1/0504/9152/3250/products/46618702MT_12_F.jpg?v=1603874580
+                        Handle: 46618702mt
+                    errors: {}
+                    tiles:
+                      - name: visually_similar_new
+                        id: ee51c714-c8f4-40c4-bc7a-f8330ec0ed52
+                      - name: visually_similar_new
+                        id: ee51c714-c8f4-40c4-bc7a-f8330ec0ed52
+                    page_size: 2
+                    num_of_pages: 12
+                    page_num: 1
+                request_id: e0b2426e7bd811edb4c82ea90644a30b
+                correlation_id: null
+            text_search_call:
+              value:
+                request_id: b68136287c6c11ed9123bee057a13136
+                correlation_id: null
+                status: SUCCESS
+                data:
+                  autocorrect_query: null
+                  total_count: 17172
+                  facets: {}
+                  page_size: 2
+                  page_num: 1
+                  num_of_pages: 8586
+                  data:
+                    - Variant Requires Shipping: true
+                      Published: true
+                      Variant Compare At Price: 119
+                      Image Src: >-
+                        https://cdn.shopify.com/s/files/1/0504/9152/3250/products/62002014WA_12_F.jpg?v=1603884364
+                      Tags: bracelet, jewellery, women
+                      Handle: 62002014wa
+                      Custom Product Type: jewellery
+                      Variant Weight Unit: kg
+                      Variant Inventory Tracker: shopify
+                      Image Position: 1
+                      Option1 Name: Size
+                      Status: active
+                      Vendor: Maison Margiela
+                      Option1 Value: One
+                      Variant Inventory Qty: 100
+                      Gift Card: false
+                      blox_active: true
+                      page link: https://vuex-internal-fashion.myshopify.com/products/62002014wa
+                      Variant Grams: 0
+                      Variant Fulfillment Service: manual
+                      Variant Taxable: true
+                      Title: Maison Margiela Women Bracelet Red -- --
+                      Variant Inventory Policy: deny
+                      Body (HTML): >-
+                        <p>leather, no appliqués, buckle fastening, contains non-textile parts
+                        of animal origin</p>
+                      Variant Price: 119
+                      blox_tags:
+                        - taxonomy_id: fa455caf-448c-47c8-ab75-54274d13052c
+                          attributes: []
+                    - Variant Requires Shipping: true
+                      Published: true
+                      Variant Compare At Price: 296
+                      Image Src: >-
+                        https://cdn.shopify.com/s/files/1/0504/9152/3250/products/58050531WV_12_F.jpg?v=1603907491
+                      Tags: man, timepieces, wrist watch
+                      Handle: 58050531wv
+                      Custom Product Type: timepieces
+                      Variant Weight Unit: kg
+                      Variant Inventory Tracker: shopify
+                      Image Position: 1
+                      Option1 Name: Size
+                      Status: active
+                      Vendor: Michael Kors
+                      Option1 Value: One
+                      Variant Inventory Qty: 100
+                      Gift Card: false
+                      blox_active: true
+                      page link: https://vuex-internal-fashion.myshopify.com/products/58050531wv
+                      Variant Grams: 0
+                      Variant Fulfillment Service: manual
+                      Variant Taxable: true
+                      Title: Michael Kors Man Wrist watch Silver -- --
+                      Variant Inventory Policy: deny
+                      Body (HTML): >-
+                        <p>logo, deployant clasp, strap material: stainless steel, case
+                        material:  stainless steel, water resistant</p>
+                      Variant Price: 296
+                      blox_tags:
+                        - taxonomy_id: fa455caf-448c-47c8-ab75-54274d13052c
+                          attributes: []
+    "400":
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/error_response.yaml"
+    "404":
+      description: Config Not found
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/error_response.yaml"
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/PostFailureResponse.yaml'

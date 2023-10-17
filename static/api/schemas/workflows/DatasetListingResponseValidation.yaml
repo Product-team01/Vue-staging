@@ -1,0 +1,17 @@
+properties:
+  count:
+    description: This field describes the total number of datasets that have been
+      registered.
+    title: Count
+    type: integer
+  results:
+    description: This field describes the list of datasets that have been registered.
+    items:
+      $ref: ../workflows/DatasetListingEntity.yaml
+    title: Results
+    type: array
+required:
+- count
+- results
+title: DatasetListingResponseValidation
+type: object

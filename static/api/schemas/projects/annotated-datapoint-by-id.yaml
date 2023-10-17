@@ -1,0 +1,31 @@
+required:
+  - datapoint_id
+type: object
+properties:
+  datapoint_id:
+    type: string
+    description: unique identifier of the datapoint
+  status:
+    type: string
+    description: approval status of the datapoint
+    enum:
+      - Manually Done
+      - System Generated
+      - User Approved
+      - Incomplete Approval
+  aggregated_confidence:
+    type: string
+    description: aggregated confidence of all the datapoint crops
+  fields:
+    type: array
+    items:
+      type: object
+      properties:
+        column_name:
+          type: string
+        value:
+          type: string
+  datapoint_crops:
+    type: array
+    items:
+      $ref: '../../schemas/projects/datapoint-crops-for-single-datapoint.yaml'

@@ -1,0 +1,66 @@
+title: LiveExperienceResponse
+type: object
+properties:
+  widgets:
+    title: Slot wise module information
+    description: List containing resolved slot wise module informations for a page in a experience and its required parameter for running the module
+    type: array
+    items:
+      type: object
+      properties:
+        slot:
+          title: slot name
+          description: Name of the slot 
+          type: string
+          example: Slot1
+        module:
+          type: object
+          properties:
+            name:
+              title: module name
+              description: Name of the module
+              type: string
+              example: Inspired By Browsing
+            id:
+              title: Module Id
+              type: string
+              description: Unique Id of module
+              example: M1234
+            templates:
+              title: Templates associated to the module
+              description: how the recommendation needs to be shown for each module in the UI.
+              type: array
+              items:
+                type: object
+                example: {}
+            input_params:
+              title: Input params required for module to work
+              description: Input params required for module to work
+              type: object
+              example:
+                catalog_id_1:
+                  - Handle  
+              additionalProperties:
+                type: array
+                items:
+                  type: string
+                  example: product_id
+        business_rule_input_params:
+          title: Input params required to be read from page for business rules. These are grouped by catalog_id
+          description: Input params required to be read from page for business rules. These are grouped by catalog_id  
+          type: object
+          example:
+            catalog_id_1:
+              - category 
+          additionalProperties:
+            type: array
+            items:
+              type: string
+              example: category
+  templates:
+    title: Templates for the live experience
+    description: how the recommendation needs to be shown for each module in the UI.
+    type: object
+    example:
+      Template1: {}
+      Template2: {}

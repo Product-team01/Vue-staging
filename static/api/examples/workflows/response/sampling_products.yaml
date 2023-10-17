@@ -1,0 +1,72 @@
+request_id: 7d1030767b8411edae01f28c070c22cc
+correlation_id: 7d1030767b8411edae01f28c070c22cc
+status: SUCCESS
+data:
+  inputs:
+  - required: false
+    name: query_string
+  - required: false
+    name: facets
+  - required: false
+    name: facet_limit
+  type: Contextual
+  id: b5944680-6676-4c4e-8768-35b10d804172
+  config_schema:
+    items:
+      type: object
+      properties:
+        params:
+          items:
+            anyOf:
+            - type: object
+              properties:
+                type:
+                  const: ordering
+                  description: Parameter used to order the results
+                value:
+                  default: Relevance
+                  enum:
+                  - Relevance
+                  - Trending
+                  - Price low to high
+                  - Price high to low
+                  type: string
+                field:
+                  decription: Order by
+                  const: order_by
+            - type: object
+              properties:
+                type:
+                  const: personalisation
+                  description: Parameter used to personalise the result
+                value:
+                  default: 'false'
+                  type: boolean
+                field:
+                  decription: When enabled, the result will be personalized based on
+                    the user history
+                  const: personalisation
+          type: array
+    type: array
+  name: Sampling Products
+  DAG:
+    members:
+    - node:
+        name: get_text_search_query
+      dependencies: []
+    - node:
+        name: get_es_results
+      dependencies:
+      - get_text_search_query
+    - node:
+        name: text_search_assembly
+      dependencies:
+      - get_es_results
+    - node:
+        name: write_sample_to_s3
+      dependencies:
+      - text_search_assembly
+    - node:
+        name: send_impulse_response
+      dependencies:
+      - write_sample_to_s3

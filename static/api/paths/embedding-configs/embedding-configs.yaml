@@ -1,0 +1,66 @@
+---
+get:
+  tags:
+    - embedding_configs
+  summary: get all embedding configs
+  description: get all embedding configs
+  operationId: getEmbeddingConfigs
+  parameters:
+    - name: page_num
+      in: query
+      description: number or offset to start fetching configs
+      schema:
+        type: integer
+    - name: page_size
+      in: query
+      description: number of results to be returned
+      schema:
+        type: integer
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              request_id:
+                type: string
+              correlation_id:
+                type: string
+              data:
+                type: array
+                items:
+                  $ref: '../../schemas/embedding-configs/embedding-config.yaml'
+post:
+  tags:
+    - embedding_configs
+  summary: Add a new embedding_config
+  description: Add a new embedding_config
+  operationId: embedding_configs
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+  requestBody:
+    description: embedding_config object that needs to be added
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/embedding-configs/add-embedding-config.yaml'
+    required: true
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/embedding-configs/embedding-config-response.yaml'
+  x-codegen-request-body-name: body

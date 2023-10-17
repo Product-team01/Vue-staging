@@ -1,0 +1,67 @@
+type: object
+properties:
+  cpu_limit:
+    type: number
+    format: float
+    minimum: 0
+  cpu_request:
+    type: number
+    format: float
+    minimum: 0
+  memory_request:
+    type: string
+    pattern: ([0-9]+)(Ki|Gi|Mi)
+  memory_limit:
+    type: string
+    pattern: ([0-9]+)(Ki|Gi|Mi)
+  max_replicas:
+    type: integer
+  min_replicas:
+    type: integer
+  replicas:
+    type: integer
+    minimum: 1
+  topic_partitions:
+    type: integer
+    minimum: 1
+  topic_replicas:
+    type: integer
+    minimum: 2
+  data_retention_ms:
+    type: integer
+    minimum: 1
+  job_timeout_ms:
+    type: integer
+    maximum: 900000
+    minimum: 1000
+  workers:
+    type: integer
+    maximum: 10
+    minimum: 1
+  namespace:
+    type: string
+    maxLength: 63
+  env:
+    type: object
+    additionalProperties: {}
+  node_selector:
+    type: object
+    additionalProperties: {}
+  tolerations:
+    type: array
+    items: {}
+  persistent_volume_claim_spec:
+    type: object
+    additionalProperties: {}
+  persistent_volume_spec:
+    type: object
+    additionalProperties: {}
+  volume_mounts:
+    type: object
+    additionalProperties: {}
+  volumes:
+    type: object
+    additionalProperties: {}
+  http_autoscale_threshold:
+    type: string
+    maxLength: 63

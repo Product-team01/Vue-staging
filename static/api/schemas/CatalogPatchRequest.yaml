@@ -1,0 +1,10 @@
+title: CatalogPatchRequest
+type: object
+properties:
+  config:
+    title: config
+    type: object
+  metadata:
+    title: metadata
+    type: object
+

@@ -1,0 +1,65 @@
+parameters:
+  - required: true
+    schema:
+      title: Use Case ID
+      type: string
+    name: use_case_id
+    in: path
+get:
+  tags:
+    - cfcp
+  summary: Get Config
+  operationId: get_config_api_v1_cfcp_configs_get
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+    - description: boolean switch that toggles between lite and not config
+      required: false
+      schema:
+        title: Lite
+        type: boolean
+        description: boolean switch that toggles between lite and not config
+        default: true
+      name: lite
+      in: query
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/CFCPConfigLiteResponse.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'
+
+delete:
+  tags:
+    - cfcp
+  summary: Delete Config
+  operationId: delete_config_api_v1_cfcp_configs_delete
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/EmptyResponse.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'

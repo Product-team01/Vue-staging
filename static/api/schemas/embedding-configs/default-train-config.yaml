@@ -1,0 +1,11 @@
+---
+title: DefaultTrainConfig
+required:
+  - data_dict
+  - model_params
+type: object
+properties:
+  model_params:
+    $ref: './model-params.yaml'
+  data_dict:
+    $ref: './training-data-dict.yaml'

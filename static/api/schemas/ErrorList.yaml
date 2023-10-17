@@ -1,0 +1,9 @@
+type: object
+properties:
+  errors:
+    type: array
+    items:
+      $ref: 'Error.yaml'
+    minItems: 1
+required:
+- errors

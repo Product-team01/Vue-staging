@@ -1,0 +1,14 @@
+properties:
+  dag_id:
+    description: This field describes the unique reference to the deployed DAG.
+    title: Dag Id
+    type: string
+  message:
+    description: This field shows a short message about the output of the API.
+    title: Message
+    type: string
+required:
+- message
+- dag_id
+title: WorkflowDeployEntity
+type: object

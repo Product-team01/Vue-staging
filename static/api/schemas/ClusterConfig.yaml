@@ -1,0 +1,53 @@
+title: ClusterConfig
+type: object
+properties:
+  cluster_name:
+    title: Cluster Name
+    type: string
+  spark_version:
+    title: Spark Version
+    type: string
+  node_type_id:
+    title: Node Type Id
+    type: string
+  num_workers:
+    title: Num Workers
+    type: integer
+  autoscale:
+    $ref: 'AutoScaleConfig.yaml'
+  spark_conf:
+    title: Spark Conf
+    type: object
+  spark_env_vars:
+    title: Spark Env Vars
+    type: object
+  aws_attributes:
+    title: Aws Attributes
+    type: object
+  custom_tags:
+    title: Custom Tags
+    type: object
+  cluster_log_conf:
+    title: Cluster Log Conf
+    type: object
+  autotermination_minutes:
+    title: Autotermination Minutes
+    type: integer
+  enable_elastic_disk:
+    title: Enable Elastic Disk
+    type: boolean
+  driver_instance_pool_id:
+    title: Driver Instance Pool Id
+    type: string
+  instance_pool_id:
+    title: Instance Pool Id
+    type: string
+  enable_local_disk_encryption:
+    title: Enable Local Disk Encryption
+    type: boolean
+  pool_id:
+    title: Pool Id
+    type: string
+  use_defaults:
+    title: Use Defaults
+    type: boolean

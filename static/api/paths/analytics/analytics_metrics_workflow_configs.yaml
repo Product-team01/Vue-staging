@@ -1,0 +1,50 @@
+get:
+  tags:
+  - analytics
+  summary: Get Metric Workflow Config
+  description: Gets the config for the metric workflow definitions
+  operationId: list_configs_api_v1_metrics_configs_list_get
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/MetricsConfig.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'
+#post:
+#  tags:
+#  - analytics
+#  summary: Create Metric Definition Config
+#  description: This is used to create the metrics definition config in config registry.
+#  operationId: create_config_api_v1_metrics_configs_delete
+#  requestBody:
+#    content:
+#      application/json:
+#        schema:
+#          $ref: '../../schemas/MetricsConfigLite.yaml'
+#    required: true
+#  responses:
+#    '200':
+#      description: Successful Response
+#      content:
+#        application/json:
+#          schema:
+#            $ref: '../../schemas/MetricsConfig.yaml'
+#    '422':
+#      description: Validation Error
+#      content:
+#        application/json:
+#          schema:
+#            $ref: '../../schemas/HTTPValidationError.yaml'

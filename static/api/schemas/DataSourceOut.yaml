@@ -1,0 +1,8 @@
+title: DataSourceOut
+required:
+- supported_data_sources
+type: object
+properties:
+  supported_data_sources:
+    title: Supported Data Sources
+    type: object

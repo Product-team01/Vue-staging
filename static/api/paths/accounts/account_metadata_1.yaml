@@ -1,0 +1,151 @@
+get:
+  tags:
+  - accounts
+  summary: Get Account Metadata
+  description: Get Account Metadata
+  operationId: get_account_metadata
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+    - required: true
+      schema:
+        title: Account Id
+        type: string
+      name: account_id
+      in: path
+    - required: true
+      schema:
+        title: Account Metadata Id
+        type: string
+      name: account_metadata_id
+      in: path
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/AccountMetaOut.yaml'
+          example:
+              request_id: 07e0f20eea5b11ed84bb6a951447d9ea,
+              correlation_id: 3ccea3ba7a0a11eda3780ea7570d814d
+              status: "SUCCESS"
+              data:
+                currency": "USD"
+                currency_code": "$"
+                blox_api_url": "string"
+                embed_config": {}
+                region_currency_mapping": []
+                id": cfb2fbeb-f444-4349-baa9-bbd2a45ce4a6
+                client_id": 4dfdf548-a96b-5cb3-bf81-fe930d9a9d8d
+                created_ts": 2023-05-04T09:06:45.328300
+                updated_ts": 2023-05-04T09:06:45.328307
+    '422':
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/ValidationError.yaml'
+delete:
+  tags:
+  - accounts
+  summary: Delete Account Metadata
+  description: Delete Account Metadata
+  operationId: delete_account_metadata
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+    - required: true
+      schema:
+        title: Account Id
+        type: string
+      name: account_id
+      in: path
+    - required: true
+      schema:
+        title: Account Metadata Id
+        type: string
+      name: account_metadata_id
+      in: path
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/ConfigDeleteAccountMeta.yaml'
+          example:
+            request_id: 07e0f20eea5b11ed84bb6a951447d9ea
+            correlation_id: 3ccea3ba7a0a11eda3780ea7570d814d
+            status: "SUCCESS"
+            data:
+              message: "Successfully deleted config"
+    '422':
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/ValidationError.yaml'
+patch:
+  tags:
+  - accounts
+  summary: Update Account Metadata
+  description: Update Account Metadata
+  operationId: update_account_metadata
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+    - required: true
+      schema:
+        title: Account Id
+        type: string
+      name: account_id
+      in: path
+    - required: true
+      schema:
+        title: Account Metadata Id
+        type: string
+      name: account_metadata_id
+      in: path
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/AccountMetaIn.yaml'
+    required: true    
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/AccountMetaOut.yaml'
+          example:
+            request_id: 07e0f20eea5b11ed84bb6a951447d9ea
+            correlation_id: 3ccea3ba7a0a11eda3780ea7570d814d
+            status: "SUCCESS"
+            data:
+              currency": "USD"
+              currency_code": "$"
+              blox_api_url: "string"
+              embed_config: { }
+              region_currency_mapping: [ ]
+              id: cfb2fbeb-f444-4349-baa9-bbd2a45ce4a6
+              client_id: 4dfdf548-a96b-5cb3-bf81-fe930d9a9d8d
+              created_ts: 2023-05-04T09:06:45.328300
+              updated_ts: 2023-05-04T09:06:45.328307
+    '422':
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/ValidationError.yaml'

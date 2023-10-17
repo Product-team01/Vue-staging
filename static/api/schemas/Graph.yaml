@@ -1,0 +1,36 @@
+type: object
+properties:
+  id:
+    type: string
+    readOnly: true
+  name:
+    type: string
+  members:
+    type: array
+    items:
+      $ref: 'GraphMember.yaml'
+  parent_graph_id:
+    type: string
+    nullable: true
+    readOnly: true
+  deployed_region:
+    type: string
+    writeOnly: true
+  tag:
+    type: string
+    nullable: true
+    pattern: ^[a-z0-9A-Z_-]*$
+    maxLength: 55
+  is_deployed:
+    type: boolean
+  description:
+    type: string
+    nullable: true
+  status:
+    type: string
+    nullable: true
+required:
+- id
+- members
+- name
+- parent_graph_id

@@ -1,0 +1,35 @@
+get:
+  summary: Catalog status
+  operationId: get-api-v1-catalogs-catalog_id-status
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  responses:
+    '200':
+      description: Successful status response
+      content:
+        application/json:
+          schema:
+            allOf:
+            - $ref: '../../schemas/ResponseTemplateSuccessNoData.yaml'
+            - type: object
+              properties:
+                data:
+                  type: object
+                  properties:
+                    status:
+                      type: string
+                      enum:
+                      - READY
+                      - NOT-READY
+  tags:
+  - catalogs
+parameters:
+- schema:
+    type: string
+  name: catalog_id
+  in: path
+  required: true

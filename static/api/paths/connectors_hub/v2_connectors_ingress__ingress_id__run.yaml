@@ -1,0 +1,31 @@
+post:
+  description: Run an existing ingress
+  operationId: run_ingress_api_v2_connectors_ingress__ingress_id__run_post
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - in: path
+    name: ingress_id
+    required: true
+    schema:
+      title: Ingress Id
+      type: string
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/connectors_hub/RunIngressResponse.yaml
+      description: Successful Response
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/connectors_hub/HTTPValidationError.yaml
+      description: Validation Error
+  summary: Run Ingress
+  tags:
+  - connectors

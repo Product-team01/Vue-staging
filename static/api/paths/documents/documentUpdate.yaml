@@ -1,0 +1,45 @@
+put:
+  tags:
+    - Documents
+  summary: Update with Feedback
+  operationId: UpdateDocumentWithFeedback
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - required: true
+    schema:
+      title: Document Id
+      type: string
+    name: document_id
+    in: path
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            feedback:
+              type: object
+              additionalProperties: true
+            external_document_type_id:
+              type: string
+          required:
+            - feedback
+  responses:
+    '200':
+      description: Feedback recorded successfully
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              request_id:
+                type: string
+              correlation_id:
+                type: string
+              data:
+                $ref: '../../schemas/documents/DocumentUpdateResponse.yaml'

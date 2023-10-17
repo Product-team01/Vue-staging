@@ -1,0 +1,58 @@
+get:
+  tags:
+  - analytics
+  summary: List DAG configurations for a client
+  description: List DAG configurations for a client
+  operationId: get_dag_config
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            title: Response List Clients Metric Configuration Get
+            type: array
+            items:
+              $ref: '../../schemas/MetricsOutWorkflowSchema.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'
+#post:
+#  tags:
+#  - analytics
+#  summary: Post DAG Configuration
+#  description: 'Create a new DAG configuration for the client '
+#  operationId: create_dag_config
+#  requestBody:
+#    content:
+#      application/json:
+#        schema:
+#          $ref: '../../schemas/MetricsInWorkflowSchema.yaml'
+#    required: true
+#  responses:
+#    '200':
+#      description: Successful Response
+#      content:
+#        application/json:
+#          schema:
+#            title: Metrics response data
+#            type: object
+#            properties:
+#              data:
+#                type: object
+#                $ref: '../../schemas/MetricsOutWorkflowSchema.yaml'
+#    '422':
+#      description: Validation Error
+#      content:
+#        application/json:
+#          schema:
+#            $ref: '../../schemas/HTTPValidationError.yaml'

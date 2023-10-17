@@ -1,0 +1,60 @@
+post:
+  tags:
+  - catalogs
+  summary: Start Catalog Processing.
+  description: Provisions and enables the pipeline to process any incoming data.
+  operationId: catalog_enable
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - required: true
+    schema:
+      title: Catalog Id
+      type: string
+    name: catalog_id
+    in: path
+  responses:
+    '202':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+            - $ref: '../../schemas/ResponseTemplateSuccessNoData.yaml'
+            - type: object
+              properties:
+                data:
+                  $ref: '../../schemas/JobResponse.yaml'
+      headers:
+        Location:
+          schema:
+            type: string
+            example: /api/v1/catalogs/{catalog_id}/jobs/{job_id}
+          description: job id relative url
+    '400':
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/PostFailureResponse.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/PostFailureResponse.yaml'
+parameters:
+- schema:
+    type: string
+  name: catalog_id
+  in: path
+  required: true

@@ -1,0 +1,47 @@
+delete:
+  description: 'This API allows the deletion of any specified workflow.
+
+    It has two functionalities - one being the deletion of just the DAG and updation
+    of the DAG config, and the other being deletion of the workflow metadata from
+    the registry config.
+
+
+    The input to the API is a workflow identifier which is a unique reference to this
+    workflow in the workflow registry.
+
+    The optional confirm_delete parameter is a boolean value that is used by the tool.
+    If set to True, it goes ahead and deletes the workflow DAG and metadata configurations.
+    If False, it generates a prompt that the user can confirm again.'
+  operationId: delete_workflow_api_v1_workflow_configs__workflow_id__delete
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - description: This field describes the ID of the workflow used to query the workflow
+      registry.
+    in: path
+    name: workflow_id
+    required: true
+    schema:
+      description: This field describes the ID of the workflow used to query the workflow
+        registry.
+      title: Workflow Id
+      type: string
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/workflows/WorkflowDeleteResponse.yaml
+      description: Successful Response
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/workflows/HTTPValidationError.yaml
+      description: Validation Error
+  summary: Delete Workflow
+  tags:
+  - Workflows

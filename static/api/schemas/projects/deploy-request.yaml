@@ -1,0 +1,12 @@
+type: object
+properties:
+  docker_image:
+    type: string
+    description: The docker to be used while the graph is deployed
+  config_id:
+    type: string
+    description: Config id defines the resource config that needs to be used in NW3
+      deployment. Check NW3 documentation to know more
+  region:
+    type: string
+    description: It determines which region the NW3 graph is going to be deployed.

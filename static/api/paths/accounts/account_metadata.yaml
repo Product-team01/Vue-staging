@@ -1,0 +1,52 @@
+post:
+  tags:
+  - accounts
+  summary: Create Account Metadata configs
+  description: Create account metadata configs
+  operationId: create_account_metadata
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - required: true
+    schema:
+      title: Account Id
+      type: string
+    name: account_id
+    in: path
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/AccountMetaIn.yaml'
+    required: true
+  responses:
+    '201':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+              $ref: '../../schemas/AccountMetaOut.yaml'
+          example:
+            request_id: 3ccea3ba7a0a11eda3780ea7570d814d
+            correlation_id: 3ccea3ba7a0a11eda3780ea7570d814d
+            status: SUCCESS
+            data:
+              currency: "USD"
+              currency_code: "$"
+              blox_api_url: "string"
+              embed_config: {}
+              region_currency_mapping: []
+              id: cfb2fbeb-f444-4349-baa9-bbd2a45ce4a6
+              client_id: 4dfdf548-a96b-5cb3-bf81-fe930d9a9d8d
+              created_ts: 2023-05-04T09:06:45.328300
+              updated_ts: 2023-05-04T09:06:45.328307
+
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'

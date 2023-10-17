@@ -1,0 +1,40 @@
+post:
+  tags:
+    - audiences
+  summary: Upload
+  description: Upload custom segments.
+  operationId: upload_api_v1_workflows_personalization_audiences_async_upload_post
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          title: Config
+          allOf:
+            - $ref: '../../schemas/Upload.yaml'
+          description: Config to setup the pipeline
+    required: true
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/ExportResponse_Upload.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'
+    '425':
+      description: audience not enabled
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/ErrorResponse.yaml'

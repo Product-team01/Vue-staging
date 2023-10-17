@@ -1,0 +1,47 @@
+title: MetricsInDefinitionSchema
+required:
+- metric_name
+- description
+- event_filters
+- field_name
+- computation
+- level
+- metric_type
+type: object
+properties:
+  metric_name:
+    title: Metric Name
+    type: string
+    description: Metric Name for Custom Definition
+    example: job_count
+  description:
+    title: Description
+    type: string
+    description: Description of Metric
+    example: Total Job Count on SiteLevel
+  event_filters:
+    title: Event Filters
+    type: array
+    description: List of filters to be applied on data.
+    items:
+      $ref: 'EventInputTable.yaml'
+  field_name:
+    title: Field Name
+    type: string
+    description: Field on which metric is computed.
+    example: jobId
+  computation:
+    title: Computation
+    type: string
+    description: Computation Function for the data
+    example: count
+  level:
+    title: Level
+    type: string
+    description: Group By level for the metric.
+    example: audience_id
+  metric_type:
+    title: Metric Type
+    type: string
+    description: Type of Metric.
+    example: non_attribution_metrics

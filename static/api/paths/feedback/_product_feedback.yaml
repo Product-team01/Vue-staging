@@ -1,0 +1,125 @@
+post:
+  summary: Catalog data Feedback API
+  description: Feedback API for tag and metadata
+  operationId: tag-feedback
+  tags:
+  - catalogs
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+    - name: catalog_id
+      in: path
+      description: unique identifier of the catalog
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            user_id:
+              title: User Identifier
+              type: string
+            data:
+              title: Feedback Data
+              type: array
+              items:
+                type: object
+                properties:
+                  column_name:
+                    description: Column name and feedback value
+                    type: string
+                  blox_tags:
+                    description: Tags feedback
+                    type: array
+                    items:
+                      $ref: '../../schemas/TagFeedbackDataMsdInternal.yaml'
+          
+    required: true
+  responses:
+    '200':
+      description: Successful Operation
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              request_id:
+                type: string
+              correlation_id:
+                type: string
+                example: 879b0717-182b-4faa-a9ed-d864d1f50af0
+              status:
+                type: string
+                example: SUCCESS
+              data:
+                type: object
+                properties:
+                  errors:
+                    type: object
+                    example: {}
+                  success:
+                    type: object
+                    example: {"A17KILKA581A": "UPDATING"}
+    '206':
+      description: Partially Successful Operation
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              request_id:
+                type: string
+              correlation_id:
+                type: string
+                example: 879b0717-182b-4faa-a9ed-d864d1f50af0
+              status:
+                type: string
+                example: PARTIAL_SUCCESS
+              data:
+                type: object
+                properties:
+                  errors:
+                    type: object
+                    example: {"A17KILKA581A": "It is in UPDATING status. Try again"}
+                  success:
+                    type: object
+                    example: {"A17KILKA581A": "UPDATING"}
+    '400':
+      description: Failure Operation
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              request_id:
+                type: string
+              correlation_id:
+                type: string
+                example: 879b0717-182b-4faa-a9ed-d864d1f50af0
+              status:
+                type: string
+                example: FAILURE
+              detail:
+                type: string
+                example: No success records
+              data:
+                type: object
+                properties:
+                  errors:
+                    type: object
+                    example: {"A17KILKA581A": "It is in UPDATING status. Try again"}
+                  success:
+                    type: object
+                    example: {}
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/PostFailureResponse.yaml'

@@ -1,0 +1,52 @@
+properties:
+  artifact_config:
+    allOf:
+    - $ref: ../workflows/ModelArtifactConfig.yaml
+    description: Enter artifact config here
+    title: Artifact Config
+  artifact_model:
+    description: This field is a boolean field / flag that acts as an identifier for
+      model artifact nodes. It is a required field and has to be True for model artifact
+      nodes.
+    title: Artifact Model
+    type: boolean
+  artifact_name:
+    description: This field describes the name of the model artifact. This name will
+      be used to register models in the model registry in training workflows and will
+      be used to access model configurations in the inference workflows.
+    title: Artifact Name
+    type: string
+  client:
+    description: This field describes the client details required for the data. This
+      information will be needed to access any client-specific models.
+    title: Client
+    type: string
+  dataset_id:
+    description: This field describes the identifier of the model. This is the entry
+      that will be in the model registry.
+    title: Dataset Id
+    type: string
+  dependent_node_ids:
+    default: []
+    description: This field describes the list of node IDs that are dependent on the
+      current node. This is used to build the workflow DAG.
+    items:
+      type: string
+    title: Dependent Node Ids
+    type: array
+  model_id:
+    description: This field is a unique identifier of the dataset
+    title: Model Id
+    type: string
+  node_id:
+    default: ''
+    description: This field describes the identifier of the corresponding model training
+      node. If it is not present, it will be created.
+    title: Node Id
+    type: string
+required:
+- artifact_model
+- artifact_name
+- client
+title: ModelArtifactNode
+type: object

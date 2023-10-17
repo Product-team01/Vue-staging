@@ -1,0 +1,7 @@
+properties:
+  status:
+    $ref: ../connectors_hub/ConnectorRunStatus.yaml
+required:
+- status
+title: GetEgressRunStatusResponse
+type: object

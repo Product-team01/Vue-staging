@@ -1,0 +1,23 @@
+type: object
+properties:
+  status:
+    type: string
+  request_id:
+    type: string
+  correlation_id:
+    type: string
+  message:
+    type: string
+  data:
+    type: object
+    properties:
+      id:
+        type: string
+      results:
+        type: object
+        properties:
+          data:
+            type: object
+    required:
+      - id
+      - results

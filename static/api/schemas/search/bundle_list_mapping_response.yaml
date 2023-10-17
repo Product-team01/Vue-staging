@@ -1,0 +1,1155 @@
+type: object
+properties:
+  request_id:
+    type: string
+  message:
+    type: string
+  data:
+    type: object
+example:
+  request_id: 7d1030767b8411edae01f28c070c22cc
+  correlation_id: 7d1030767b8411edae01f28c070c22cc
+  status: SUCCESS
+  data:
+    f8a513e7-4853-5dce-968e-b9dc653775fc_2505b9fad3:
+      aliases:
+        f8a513e7-4853-5dce-968e-b9dc653775fc_2505b9fad3: {}
+        f8a513e7-4853-5dce-968e-b9dc653775fc_2505b9fad3_archive_index: {}
+      mappings:
+        dynamic: 'false'
+        properties:
+          _all:
+            type: text
+            fields:
+              completion:
+                type: completion
+                analyzer: simple
+                preserve_separators: true
+                preserve_position_increments: true
+                max_input_length: 50
+              reverse:
+                type: text
+                analyzer: reverse
+              trigram:
+                type: text
+                analyzer: trigram
+          blox_active:
+            type: boolean
+          blox_file_modified_time:
+            type: date
+          contents:
+            type: keyword
+            fields:
+              keyword:
+                type: keyword
+                normalizer: lowercase_normalizer
+              text:
+                type: text
+          curated_facets:
+            type: keyword
+            fields:
+              keyword:
+                type: keyword
+                normalizer: lowercase_normalizer
+              text:
+                type: text
+          curated_tag_weight:
+            type: float
+          facet_pid_mapping:
+            type: object
+          feedback_type:
+            type: keyword
+            fields:
+              keyword:
+                type: keyword
+                normalizer: lowercase_normalizer
+              text:
+                type: text
+          id:
+            type: keyword
+            fields:
+              keyword:
+                type: keyword
+                normalizer: lowercase_normalizer
+              text:
+                type: text
+          mad_id:
+            type: keyword
+            fields:
+              keyword:
+                type: keyword
+                normalizer: lowercase_normalizer
+              text:
+                type: text
+          msd_internal_created_date:
+            type: date
+          msd_internal_date_pt:
+            type: date
+            index: false
+            doc_values: false
+          msd_internal_delta_transformed_color:
+            type: knn_vector
+            doc_values: false
+            dimension: 419
+          msd_internal_derived_data:
+            type: boolean
+            doc_values: false
+            index: false
+          msd_internal_digested:
+            type: boolean
+          msd_internal_edges:
+            type: knn_vector
+            doc_values: false
+            dimension: 64
+          msd_internal_fa455caf-448c-47c8-ab75-54274d13052c_confidences:
+            properties:
+              Base Color:
+                type: float
+              Boot Height:
+                type: float
+              Coat Length:
+                type: float
+              Denim Wash:
+                type: float
+              Design Details:
+                type: float
+              Details:
+                type: float
+              Dress Length:
+                type: float
+              Dress Style:
+                type: float
+              Fabric:
+                type: float
+              Fabric Finish:
+                type: float
+              Features:
+                type: float
+              Fit:
+                type: float
+              Gender:
+                type: float
+              Heel Height:
+                type: float
+              Heel Type:
+                type: float
+              Jacket Length:
+                type: float
+              Length:
+                type: float
+              Metallic Color:
+                type: float
+              Neckline:
+                type: float
+              Occasion:
+                type: float
+              Pattern:
+                type: float
+              Primary Pattern:
+                type: float
+              Secondary Pattern:
+                type: float
+              Sleeve Length:
+                type: float
+              Style:
+                type: float
+              Style & Occasion:
+                type: float
+              Toe Style:
+                type: float
+              Toe Type:
+                type: float
+              Type:
+                type: float
+              productType:
+                type: float
+          msd_internal_fa455caf-448c-47c8-ab75-54274d13052c_tags:
+            properties:
+              Base Color:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Boot Height:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Coat Length:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Denim Wash:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Design Details:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Details:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Dress Length:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Dress Style:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Fabric:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Fabric Finish:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Features:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Fit:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Gender:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Heel Height:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Heel Type:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Jacket Length:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Length:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Metallic Color:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Neckline:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Occasion:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Pattern:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Primary Pattern:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Secondary Pattern:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Sleeve Length:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Style:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Style & Occasion:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Toe Style:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Toe Type:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Type:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              productType:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+          msd_internal_fa455caf-448c-47c8-ab75-54274d13052c_tags_hierarchy:
+            type: object
+          msd_internal_feed_id:
+            type: keyword
+            doc_values: false
+            fields:
+              keyword:
+                type: keyword
+                normalizer: lowercase_normalizer
+              text:
+                type: text
+          msd_internal_feed_ids:
+            type: keyword
+            doc_values: false
+            fields:
+              keyword:
+                type: keyword
+                normalizer: lowercase_normalizer
+              text:
+                type: text
+          msd_internal_ingested_timestamp:
+            type: date
+          msd_internal_ingestion_batch_id:
+            type: keyword
+            doc_values: false
+            fields:
+              keyword:
+                type: keyword
+                normalizer: lowercase_normalizer
+              text:
+                type: text
+          msd_internal_ingestion_txn_id:
+            type: keyword
+            index: false
+            doc_values: false
+          msd_internal_is_latest:
+            type: boolean
+            doc_values: false
+            index: false
+          msd_internal_is_new_record:
+            type: boolean
+            doc_values: false
+            index: false
+          msd_internal_latest_feed_ids:
+            type: keyword
+            doc_values: false
+            fields:
+              keyword:
+                type: keyword
+                normalizer: lowercase_normalizer
+              text:
+                type: text
+          msd_internal_moments_a:
+            type: float
+          msd_internal_moments_b:
+            type: float
+          msd_internal_moments_c:
+            type: float
+          msd_internal_ontology:
+            type: keyword
+            fields:
+              keyword:
+                type: keyword
+                normalizer: lowercase_normalizer
+              text:
+                type: text
+          msd_internal_patterns:
+            type: knn_vector
+            doc_values: false
+            dimension: 24
+          msd_internal_processed_timestamp:
+            type: date
+            index: false
+            doc_values: false
+          msd_internal_project_ids:
+            type: keyword
+            doc_values: false
+            fields:
+              keyword:
+                type: keyword
+                normalizer: lowercase_normalizer
+              text:
+                type: text
+          msd_internal_resized_internal_image_url:
+            type: keyword
+            index: false
+            doc_values: false
+          msd_internal_source:
+            type: keyword
+            index: false
+            doc_values: false
+          msd_internal_updated_date:
+            type: date
+          tags:
+            type: keyword
+            fields:
+              keyword:
+                type: keyword
+                normalizer: lowercase_normalizer
+              text:
+                type: text
+          theme:
+            type: keyword
+            fields:
+              keyword:
+                type: keyword
+                normalizer: lowercase_normalizer
+              text:
+                type: text
+      settings:
+        index:
+          refresh_interval: 60s
+          translog:
+            flush_threshold_size: 10gb
+          knn.algo_param:
+            ef_search: '90'
+            ef_construction: '128'
+            m: '64'
+          blocks:
+            read_only_allow_delete: 'false'
+            write: 'false'
+          provided_name: f8a513e7-4853-5dce-968e-b9dc653775fc_2505b9fad3_v1
+          knn: 'true'
+          creation_date: '1671541355421'
+          analysis:
+            filter:
+              shingle:
+                max_shingle_size: '4'
+                min_shingle_size: '2'
+                type: shingle
+              stop_filter:
+                type: stop
+                stopwords: _english_
+              autocomplete_filter:
+                type: edge_ngram
+                min_gram: '3'
+                max_gram: '10'
+            normalizer:
+              lowercase_normalizer:
+                filter:
+                - lowercase
+                type: custom
+            analyzer:
+              trigram:
+                filter:
+                - lowercase
+                - shingle
+                - stop_filter
+                type: custom
+                tokenizer: standard
+              ngram_analyzer:
+                filter:
+                - lowercase
+                - autocomplete_filter
+                type: custom
+                tokenizer: my_tokenizer
+              reverse:
+                filter:
+                - lowercase
+                - reverse
+                - stop_filter
+                type: custom
+                tokenizer: standard
+              my_analyzer:
+                filter:
+                - lowercase
+                - stop_filter
+                type: custom
+                tokenizer: my_tokenizer
+            tokenizer:
+              my_tokenizer:
+                type: char_group
+                tokenize_on_chars:
+                - whitespace
+                - "-"
+                - ":"
+          number_of_replicas: '2'
+          uuid: evt8GwtvTbCA-ojUO0fK-A
+          version:
+            created: '7100299'
+          number_of_shards: '1'
+          similarity:
+            default:
+              type: boolean
+          merge:
+            policy:
+              segments_per_tier: '3'
+      index: f8a513e7-4853-5dce-968e-b9dc653775fc_2505b9fad3_v1
+    f8a513e7-4853-5dce-968e-b9dc653775fc_291b900687:
+      aliases:
+        f8a513e7-4853-5dce-968e-b9dc653775fc_291b900687: {}
+        f8a513e7-4853-5dce-968e-b9dc653775fc_291b900687_archive_index: {}
+      mappings:
+        dynamic: 'false'
+        properties:
+          _all:
+            type: text
+            fields:
+              completion:
+                type: completion
+                analyzer: simple
+                preserve_separators: true
+                preserve_position_increments: true
+                max_input_length: 50
+              reverse:
+                type: text
+                analyzer: reverse
+              trigram:
+                type: text
+                analyzer: trigram
+          blox_active:
+            type: boolean
+          blox_file_modified_time:
+            type: date
+          facet:
+            type: keyword
+            fields:
+              keyword:
+                type: keyword
+                normalizer: lowercase_normalizer
+              text:
+                type: text
+          id:
+            type: keyword
+            fields:
+              keyword:
+                type: keyword
+                normalizer: lowercase_normalizer
+              text:
+                type: text
+          mad_id:
+            type: keyword
+            fields:
+              keyword:
+                type: keyword
+                normalizer: lowercase_normalizer
+              text:
+                type: text
+          msd_internal_created_date:
+            type: date
+          msd_internal_date_pt:
+            type: date
+            index: false
+            doc_values: false
+          msd_internal_delta_transformed_color:
+            type: knn_vector
+            doc_values: false
+            dimension: 419
+          msd_internal_derived_data:
+            type: boolean
+            doc_values: false
+            index: false
+          msd_internal_digested:
+            type: boolean
+          msd_internal_edges:
+            type: knn_vector
+            doc_values: false
+            dimension: 64
+          msd_internal_fa455caf-448c-47c8-ab75-54274d13052c_confidences:
+            properties:
+              Base Color:
+                type: float
+              Boot Height:
+                type: float
+              Coat Length:
+                type: float
+              Denim Wash:
+                type: float
+              Design Details:
+                type: float
+              Details:
+                type: float
+              Dress Length:
+                type: float
+              Dress Style:
+                type: float
+              Fabric:
+                type: float
+              Fabric Finish:
+                type: float
+              Features:
+                type: float
+              Fit:
+                type: float
+              Gender:
+                type: float
+              Heel Height:
+                type: float
+              Heel Type:
+                type: float
+              Jacket Length:
+                type: float
+              Length:
+                type: float
+              Metallic Color:
+                type: float
+              Neckline:
+                type: float
+              Occasion:
+                type: float
+              Pattern:
+                type: float
+              Primary Pattern:
+                type: float
+              Secondary Pattern:
+                type: float
+              Sleeve Length:
+                type: float
+              Style:
+                type: float
+              Style & Occasion:
+                type: float
+              Toe Style:
+                type: float
+              Toe Type:
+                type: float
+              Type:
+                type: float
+              productType:
+                type: float
+          msd_internal_fa455caf-448c-47c8-ab75-54274d13052c_tags:
+            properties:
+              Base Color:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Boot Height:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Coat Length:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Denim Wash:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Design Details:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Details:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Dress Length:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Dress Style:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Fabric:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Fabric Finish:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Features:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Fit:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Gender:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Heel Height:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Heel Type:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Jacket Length:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Length:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Metallic Color:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Neckline:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Occasion:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Pattern:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Primary Pattern:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Secondary Pattern:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Sleeve Length:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Style:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Style & Occasion:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Toe Style:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Toe Type:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              Type:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+              productType:
+                type: keyword
+                fields:
+                  keyword:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+                  text:
+                    type: text
+          msd_internal_fa455caf-448c-47c8-ab75-54274d13052c_tags_hierarchy:
+            type: object
+          msd_internal_feed_id:
+            type: keyword
+            doc_values: false
+            fields:
+              keyword:
+                type: keyword
+                normalizer: lowercase_normalizer
+              text:
+                type: text
+          msd_internal_feed_ids:
+            type: keyword
+            doc_values: false
+            fields:
+              keyword:
+                type: keyword
+                normalizer: lowercase_normalizer
+              text:
+                type: text
+          msd_internal_ingested_timestamp:
+            type: date
+          msd_internal_ingestion_batch_id:
+            type: keyword
+            doc_values: false
+            fields:
+              keyword:
+                type: keyword
+                normalizer: lowercase_normalizer
+              text:
+                type: text
+          msd_internal_ingestion_txn_id:
+            type: keyword
+            index: false
+            doc_values: false
+          msd_internal_is_latest:
+            type: boolean
+            doc_values: false
+            index: false
+          msd_internal_is_new_record:
+            type: boolean
+            doc_values: false
+            index: false
+          msd_internal_latest_feed_ids:
+            type: keyword
+            doc_values: false
+            fields:
+              keyword:
+                type: keyword
+                normalizer: lowercase_normalizer
+              text:
+                type: text
+          msd_internal_moments_a:
+            type: float
+          msd_internal_moments_b:
+            type: float
+          msd_internal_moments_c:
+            type: float
+          msd_internal_ontology:
+            type: keyword
+            fields:
+              keyword:
+                type: keyword
+                normalizer: lowercase_normalizer
+              text:
+                type: text
+          msd_internal_patterns:
+            type: knn_vector
+            doc_values: false
+            dimension: 24
+          msd_internal_processed_timestamp:
+            type: date
+            index: false
+            doc_values: false
+          msd_internal_project_ids:
+            type: keyword
+            doc_values: false
+            fields:
+              keyword:
+                type: keyword
+                normalizer: lowercase_normalizer
+              text:
+                type: text
+          msd_internal_resized_internal_image_url:
+            type: keyword
+            index: false
+            doc_values: false
+          msd_internal_source:
+            type: keyword
+            index: false
+            doc_values: false
+          msd_internal_updated_date:
+            type: date
+          tag:
+            type: keyword
+            fields:
+              keyword:
+                type: keyword
+                normalizer: lowercase_normalizer
+              text:
+                type: text
+        tag_occurences:
+          type: long
+        weight:
+          type: float
+      settings:
+        index:
+          refresh_interval: 60s
+          translog:
+            flush_threshold_size: 10gb
+          knn.algo_param:
+            ef_search: '90'
+            ef_construction: '128'
+            m: '64'
+          blocks:
+            read_only_allow_delete: 'false'
+            write: 'false'
+          provided_name: f8a513e7-4853-5dce-968e-b9dc653775fc_291b900687_v1
+          knn: 'true'
+          creation_date: '1671541403817'
+          analysis:
+            filter:
+              shingle:
+                max_shingle_size: '4'
+                min_shingle_size: '2'
+                type: shingle
+              stop_filter:
+                type: stop
+                stopwords: _english_
+              autocomplete_filter:
+                type: edge_ngram
+                min_gram: '3'
+                max_gram: '10'
+            normalizer:
+              lowercase_normalizer:
+                filter:
+                - lowercase
+                type: custom
+            analyzer:
+              trigram:
+                filter:
+                - lowercase
+                - shingle
+                - stop_filter
+                type: custom
+                tokenizer: standard
+              ngram_analyzer:
+                filter:
+                - lowercase
+                - autocomplete_filter
+                type: custom
+                tokenizer: my_tokenizer
+              reverse:
+                filter:
+                - lowercase
+                - reverse
+                - stop_filter
+                type: custom
+                tokenizer: standard
+              my_analyzer:
+                filter:
+                - lowercase
+                - stop_filter
+                type: custom
+                tokenizer: my_tokenizer
+            tokenizer:
+              my_tokenizer:
+                type: char_group
+                tokenize_on_chars:
+                - whitespace
+                - "-"
+                - ":"
+          number_of_replicas: '2'
+          uuid: 1XLed3wdR2mIkjUrDoCDUQ
+          version:
+            created: '7100299'
+          number_of_shards: '1'
+          similarity:
+            default:
+              type: boolean
+          merge:
+            policy:
+              segments_per_tier: '3'
+      index: f8a513e7-4853-5dce-968e-b9dc653775fc_291b900687_v1
+
+    

@@ -1,0 +1,15 @@
+title: AccountIn
+required:
+- allowed_host
+type: object
+properties:
+  allowed_host:
+    title: allowed_host
+    type: string
+  active:
+    title: active
+    type: boolean
+example:
+  allowed_host: https://google.com
+  active: true
+

@@ -1,0 +1,22 @@
+properties:
+  end_time:
+    title: End Time
+    type: string
+  ingress_id:
+    title: Ingress Id
+    type: string
+  run_id:
+    title: Run Id
+    type: string
+  start_time:
+    title: Start Time
+    type: string
+  status:
+    title: Status
+    type: string
+required:
+- run_id
+- ingress_id
+- status
+title: IngressRun
+type: object

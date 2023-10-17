@@ -1,0 +1,2358 @@
+title: Graph Execution Configs
+type: object
+properties:
+  request_id:
+    description: id to backtrack the request in internal services
+    type: string
+  correlation_id:
+    description: id sent by the caller to backtrack the request
+    type: string
+  data:
+    type: object
+
+example:
+  request_id: 9f46d4de0b7a11ee8b1b3eb59b78eb53
+  correlation_id:
+  status: SUCCESS
+  data:
+  - id: 0011fc00-be3a-11ed-bf02-4e4439e0243d
+    graph:
+      node_config:
+        request_adapter:
+          s3_image_upload_size_digestion: 512
+          primary_key: product_id
+          s3_base_path: inference/images
+          s3_bucket_name: xblox-backend-925305708877-us-east-1
+          s3_base_cdn_path: images-cdn-euc.vuetag.ai
+        shazam:
+          gender_dict:
+            baby:
+            - bebe
+            - baby
+            - infant
+            - infants
+            - babies
+            baby boy:
+            - baby@boy
+            baby girl:
+            - baby@girl
+            boys:
+            - boy
+            - boys
+            - boys'
+            - boy's
+            girls:
+            - girl
+            - girls
+            - girl's
+            - girls'
+            kids:
+            - kids
+            - kid
+            - kid's
+            - kids'
+            men:
+            - male
+            - men
+            - man
+            - men's
+            - man's
+            - man
+            - mens
+            - him
+            - gentleman
+            - gentlemen
+            teen boys:
+            - tween@boy
+            - youth@boy
+            - teen@boy
+            - adult@boy
+            teen girls:
+            - tween@girl
+            - youth@girl
+            - teen@girl
+            - adult@girl
+            unisex:
+            - unisex
+            women:
+            - female
+            - women
+            - woman
+            - women's
+            - woman's
+            - womans
+            - womens
+            - her
+            - lady
+            - ladies
+          gender_rank_dict:
+            baby: '1'
+            baby boy: '3'
+            baby girl: '3'
+            boys: '2'
+            girls: '2'
+            kids: '1'
+            men: '1'
+            teen boys: '1'
+            teen girls: '1'
+            unisex: '1'
+            women: '1'
+          ontology_weight: 5
+          title_weight: 10
+          combined_weight: 10
+          adjectives:
+          - belt
+          - bow
+          - charm
+          - midi@dress
+          - neck@tie
+          - short
+          - suspender
+          - tie
+          keyword_to_ont_map: s3://vuetag-mapping-automation-dev/staging/keyword_to_ont_map/default_keyword_to_ont_map_v1.json
+          ont_mapping: ont_mapping_digest_client
+          ont_mapping_version:
+            staging_ont_mapping_digest_client_latest: px9Rh041.JsHdamiowfpEdjLSsIlSeLX
+            prod_ont_mapping_digest_client_latest: Tk.Flk9djBArY4ND9Wv41ZM5mXjTBg_n
+            dev_ont_mapping_digest_client_latest: XHDTAfYmGkQP1pVPByu_Q0Xvwy7I.ZWW
+        box_arbiter:
+          wt_conf: 0.3
+          nms_mode: moad-specific
+          ignore_classes:
+          - watch
+          sort_policy: max_conf_size_add
+          wt_area: 0.7
+          boxes: one
+          ul_mode: IOU
+          force_box:
+            policy: exchange_box
+            config:
+              lower_lingerie:
+              - shorts
+              outerwear:
+              - dress
+              - top
+              - jumpsuit
+              - romper
+              pant:
+              - skirt
+              - shorts
+              hat:
+              - bag
+              top:
+              - outerwear
+              - dress
+              - jumpsuit
+              - romper
+              - skirt
+              - upper_lingerie
+              - bag
+              shorts:
+              - pant
+              - skirt
+              bag:
+              - shorts
+              - skirt
+              - upper_lingerie
+              onepiece:
+              - top
+              - dress
+              wrap:
+              - outerwear
+              - bag
+              - belt
+              - dress
+              - footwear
+              - glasses
+              - hat
+              - jewelery
+              - jumpsuit
+              - lower_lingerie
+              - onepiece
+              - pant
+              - romper
+              - shorts
+              - skirt
+              - top
+              - upper_lingerie
+              - watch
+              skirt:
+              - pant
+              - shorts
+              - dress
+              - bag
+              jumpsuit:
+              - outerwear
+              - top
+              - dress
+              - romper
+              - pant
+              dress:
+              - outerwear
+              - top
+              - jumpsuit
+              - romper
+              - onepiece
+              - skirt
+              romper:
+              - outerwear
+              - top
+              - jumpsuit
+              - dress
+              - skirt
+              - shorts
+              upper_lingerie:
+              - top
+            lasso:
+              sy: 0.9
+              sx: 0.8
+              ox: 0
+              dy: 0
+          nms_th: 0.2
+          policy: multi_box
+          text_cat_th: 0.1
+          networks:
+          - Category
+          - UpperLower
+          ul_th: 0.1
+        category:
+          input_mapping:
+          - key: image_url
+            value: img_path
+            image_extras: true
+            catalog_field: ''
+            model_field: ''
+            catalog_meta: ''
+        DenimLower:
+          default_prediction: non-denim
+        graph_inference:
+          branch_mapping:
+            box_arbiter:
+              GlassStyle:
+              - glasses
+              box_arbiter: []
+              OuterwearCategory:
+              - outerwear
+              - top
+              BagType_loc: []
+              EarringsStyle:
+              - jewelery
+              DenimLegStyle:
+              - pant
+              LocalGraphicPrintLowerL3:
+              - pant
+              - shorts
+              - skirt
+              request_adapter: []
+              PatternUW_digest:
+              - bag
+              - belt
+              - dress
+              - footwear
+              - glasses
+              - gloves
+              - hat
+              - jewelery
+              - jumpsuit
+              - jumpsuits
+              - lower_lingerie
+              - onepiece
+              - other
+              - outerwear
+              - pant
+              - romper
+              - rompers
+              - scarves
+              - shorts
+              - skirt
+              - tie
+              - top
+              - upper_lingerie
+              - watch
+              - wrap
+              BagPatternL2Print:
+              - bag
+              SkirtPleated:
+              - skirt
+              SleeveLength:
+              - dress
+              - jumpsuit
+              - jumpsuits
+              - outerwear
+              - romper
+              - rompers
+              - top
+              DenimWash:
+              - pant
+              HeelHeight:
+              - footwear
+              PantFit:
+              - pant
+              category: []
+              SweetheartNeckline:
+              - dress
+              - jumpsuit
+              - jumpsuits
+              - outerwear
+              - romper
+              - rompers
+              - top
+              SkirtType_v2:
+              - skirt
+              GarmentType: []
+              OuterwearSportyStripes:
+              - outerwear
+              - top
+              DressType_v2:
+              - dress
+              image_orientation: []
+              MetalColor:
+              - jewelery
+              OuterwearLinesL2:
+              - outerwear
+              - top
+              isDenimDress:
+              - dress
+              CoatLength:
+              - outerwear
+              ToeType:
+              - footwear
+              OuterwearBlockGraphics:
+              - outerwear
+              - top
+              FootwearOrientation: []
+              StyleDressWomen:
+              - dress
+              consolidator: []
+              SkirtLength:
+              - skirt
+              PantsStyleL1:
+              - pant
+              IsStraw:
+              - hat
+              TopsStyle:
+              - top
+              NecklaceStyle:
+              - jewelery
+              FootwearType:
+              - footwear
+              FootwearDetails:
+              - footwear
+              ToeStyle:
+              - footwear
+              DenimLower:
+              - pant
+              - shorts
+              - skirt
+              PatternLowerL1:
+              - pant
+              - shorts
+              - skirt
+              OuterwearPrintL2:
+              - outerwear
+              - top
+              PantLength:
+              - pant
+              - shorts
+              HeelType:
+              - footwear
+              NonGeometricPrintLowerL3:
+              - pant
+              - shorts
+              - skirt
+              NecklineL1:
+              - dress
+              - jumpsuit
+              - jumpsuits
+              - outerwear
+              - romper
+              - rompers
+              - top
+              PrintLowerL2:
+              - pant
+              - shorts
+              - skirt
+              BraceletStyle:
+              - jewelery
+              NecklineL2:
+              - dress
+              - jumpsuit
+              - jumpsuits
+              - outerwear
+              - romper
+              - rompers
+              - top
+              PlainLowerL2:
+              - pant
+              - shorts
+              - skirt
+              BagDesignDetails: []
+              OccasionDressWomen:
+              - dress
+              BagType:
+              - bag
+              isDenimOW:
+              - outerwear
+              - top
+              HatStyle:
+              - hat
+              PatternUW:
+              - dress
+              - jumpsuit
+              - jumpsuits
+              - outerwear
+              - romper
+              - rompers
+              - top
+              color_tagger:
+              - bag
+              - belt
+              - dress
+              - footwear
+              - glasses
+              - gloves
+              - hat
+              - jewelery
+              - jumpsuit
+              - jumpsuits
+              - lower_lingerie
+              - onepiece
+              - other
+              - outerwear
+              - pant
+              - romper
+              - rompers
+              - shorts
+              - skirt
+              - tie
+              - top
+              - upper_lingerie
+              - watch
+              - wrap
+              DesignDetailsFW:
+              - footwear
+              isMilitaryOW:
+              - outerwear
+              - top
+              DressLength:
+              - dress
+              BootHeight:
+              - footwear
+              PatternLW:
+              - pant
+              - shorts
+              - skirt
+              StyleOccasionWomen:
+              - top
+              OuterwearFeatures:
+              - outerwear
+              - top
+              PlungeNeckline:
+              - dress
+              - jumpsuit
+              - jumpsuits
+              - outerwear
+              - romper
+              - rompers
+              - top
+              DressStyle_v2:
+              - dress
+              PantsStyleL2:
+              - pant
+              BagPatternL1:
+              - bag
+              OuterwearType:
+              - outerwear
+              - top
+              JewelryType:
+              - jewelery
+              RingsStyle:
+              - jewelery
+              RingStyle_binary:
+              - jewelery
+              TShirtVsTankVsSweater:
+              - dress
+              OuterwearPatternL1:
+              - outerwear
+              - top
+              DenimDesignDetails:
+              - pant
+              GeometricPrintLowerL3:
+              - pant
+              - shorts
+              - skirt
+          thresholds:
+            StyleOccasionWomenDresses:
+            - 0.2
+            - 0.5
+            - 0.52
+            - 0.5
+            - 0.34
+            - 0.3
+            - 0.425
+            - 0.26
+            - 0.31
+            - 0.28
+            - 0.385
+            LocalGraphicPrintLowerL3:
+            - 0.5
+            StyleOccasionWomenBottomWear:
+            - 0.525
+            - 0.56
+            - 0.045
+            - 0.77
+            - 0.17
+            - 0.03
+            - 0.1
+            - 0.44
+            - 0.505
+            - 0.055
+            - 0.25
+            BagPatternL2Print:
+            - 0.5
+            - 0.5
+            - 0.5
+            - 0.5
+            SkirtPleated:
+            - 0.36
+            - 0.79
+            - 0.45
+            SweetheartNeckline:
+            - 0.99
+            OuterwearSportyStripes:
+            - 0.99
+            OuterwearLinesL2:
+            - 0.5
+            - 0.5
+            isDenimDress:
+            - 0.7
+            OuterwearBlockGraphics:
+            - 0.94
+            StyleDressWomen:
+            - 0.7
+            - 0.5
+            - 0.8
+            - 0.9
+            - 0.5
+            - 0.7
+            - 0.7
+            - 0.8
+            - 0.6
+            IsStraw:
+            - 0.5
+            NecklaceStyle:
+            - 0.1
+            - 0.3
+            - 0.3
+            - 0.3
+            - 0.1
+            - 0.2
+            - 0.2
+            - 0.57
+            - 0.2
+            - 0.2
+            FootwearDetails:
+            - 0.78
+            - 0.69
+            - 0.6
+            - 0.8
+            - 0.59
+            - 0.93
+            - 0.87
+            - 0.78
+            DenimLower:
+            - 0.5
+            PatternLowerL1:
+            - 0.5
+            - 0.5
+            OuterwearPrintL2:
+            - 0.5
+            - 0.35
+            - 0.5
+            - 0.25
+            - 0.75
+            - 0.25
+            NonGeometricPrintLowerL3:
+            - 0.5
+            - 0.5
+            - 0.5
+            - 0.5
+            - 0.5
+            - 0.5
+            PrintLowerL2:
+            - 0.5
+            - 0.5
+            BraceletStyle:
+            - 0.2
+            - 0.2
+            - 0.2
+            - 0.2
+            - 0.2
+            - 0.2
+            - 0.2
+            - 0.2
+            - 0.4
+            PlainLowerL2:
+            - 0.5
+            - 0.5
+            - 0.5
+            OccasionDressWomen:
+            - 0.7
+            - 0.5
+            - 0.5
+            - 0.5
+            - 0.5
+            - 0.5
+            isDenimOW:
+            - 0.5
+            PatternUW:
+            - 0.30000001192092896
+            - 0.5899999737739563
+            - 0.28999999165534973
+            - 0.2800000011920929
+            - 0.6299999952316284
+            - 0.47999998927116394
+            - 0.4399999976158142
+            - 0.18000000715255737
+            - 0.41999998688697815
+            - 0.3400000035762787
+            - 0.12999999523162842
+            - 0.75
+            - 0.17000000178813934
+            - 0.33000001311302185
+            - 0.46000000834465027
+            - 0.17000000178813934
+            - 0.3499999940395355
+            - 0.12999999523162842
+            - 0.5
+            - 0.3100000023841858
+            - 0.3499999940395355
+            - 0.30000001192092896
+            - 0.5299999713897705
+            - 0.6299999952316284
+            DesignDetailsFW:
+            - 0.93
+            - 0.86
+            - 0.7
+            - 0.95
+            - 0.82
+            - 0.7
+            - 0.58
+            isMilitaryOW:
+            - 0.5
+            StyleOccasionWomen:
+            - 0.5
+            OuterwearFeatures:
+            - 0.37
+            - 0.71
+            - 0.59
+            - 0.7
+            - 0.59
+            - 0.79
+            - 0.66
+            - 0.43
+            - 0.86
+            PlungeNeckline:
+            - 0.92
+            DressStyle_v2:
+            - 0.38
+            - 0.57
+            - 0.69
+            - 0.6
+            - 0.95
+            - 0.58
+            BagPatternL1:
+            - 0.5
+            OuterwearType:
+            - 0.5
+            - 0.5
+            - 0.5
+            - 0.5
+            - 0.5
+            - 0.5
+            - 0.5
+            - 0.5
+            - 0.5
+            - 0.5
+            - 0.5
+            - 0.5
+            - 0.5
+            - 0.5
+            - 0.5
+            - 0.5
+            OuterwearPatternL1:
+            - 0.5
+            - 0.5
+            - 0.5
+            DenimDesignDetails:
+            - 0.5
+            GeometricPrintLowerL3:
+            - 0.5
+            - 0.5
+            - 0.5
+            - 0.5
+            - 0.5
+            - 0.5
+            - 0.5
+            default:
+          nms_thresh:
+            default: 0.1
+          conf_thresh:
+            default: 0.1
+          lasso:
+            StyleOccasionWomenDresses:
+              Category:
+                sy: 1.3
+                ox: 0
+                sx: 1
+                dy: 0.1
+            GlassStyle:
+              Category:
+                sy: 1
+                ox: 0
+                sx: 1
+                dy: 0
+            OuterwearCategory:
+              Category:
+                sy: 1
+                sx: 1
+                dy: 0
+                ox: 0
+            BagType_loc:
+              Category:
+                sy: 1
+                sx: 1
+                dy: 0
+                ox: 0
+            EarringsStyle:
+              Category:
+                sy: 1
+                ox: 0
+                sx: 1
+                dy: 0
+            DenimLegStyle:
+              Category:
+                sy: 1
+                ox: 0
+                sx: 1
+                dy: 0
+            LocalGraphicPrintLowerL3:
+              Category:
+                sy: 1
+                sx: 1
+                dy: 0
+                ox: 0
+            FootwearColor:
+              Category:
+                sy: 1
+                ox: 0
+                sx: 1
+                dy: 0
+            StyleOccasionWomenBottomWear:
+              Category:
+                sy: 1.3
+                ox: 0
+                sx: 1.1
+                dy: 0.1
+            PatternUW_digest:
+              Category:
+                sy: 1
+                ox: 0
+                sx: 1
+                dy: 0
+            BagPatternL2Print:
+              Category:
+                sy: 1
+                sx: 1
+                dy: 0
+                ox: 0
+            SkirtPleated:
+              Category:
+                sy: 1
+                ox: 0
+                sx: 1
+                dy: 0
+            SleeveLength:
+              Category:
+                sy: 2.5
+                ox: 0
+                sx: 2.5
+                dy: 0
+              UpperLower:
+                sy: 2.5
+                ox: 0
+                sx: 2.5
+                dy: 0
+            DenimWash:
+              Category:
+                sy: 1.1
+                ox: 0
+                sx: 1.1
+                dy: 0
+            HeelHeight:
+              Category:
+                sy: 1.2
+                sx: 1.2
+                ox: 0
+                dy: 0
+            PantFit:
+              Category:
+                sy: 1
+                ox: 0
+                sx: 1
+                dy: 0
+            SkirtType_v2:
+              Category:
+                sy: 1.1
+                ox: 0
+                sx: 1.2
+                dy: 0
+            OuterwearSportyStripes:
+              Category:
+                sy: 1
+                sx: 1
+                dy: 0
+                ox: 0
+            DressType_v2:
+              Category:
+                sy: 1
+                ox: 0
+                sx: 1
+                dy: 0
+            MetalColor:
+              Category:
+                sy: 1
+                ox: 0
+                sx: 1
+                dy: 0
+            OuterwearLinesL2:
+              Category:
+                sy: 1
+                sx: 1
+                dy: 0
+                ox: 0
+            isDenimDress:
+              Category:
+                sy: 1
+                sx: 1
+                dy: 0
+                ox: 0
+            CoatLength:
+              Category:
+                sy: 1.15
+                ox: 0
+                sx: 1.05
+                dy: 0
+            ToeType:
+              Category:
+                sy: 1.2
+                ox: 0
+                sx: 1.2
+                dy: 0
+            OuterwearBlockGraphics:
+              Category:
+                sy: 1
+                sx: 1
+                dy: 0
+                ox: 0
+            Gender:
+              Category:
+                sy: 1.22
+                ox: 0
+                sx: 1.22
+                dy: 0
+            StyleDressWomen:
+              Category:
+                sy: 1
+                ox: 0
+                sx: 1
+                dy: 0
+            SkirtLength:
+              Category:
+                sy: 1.5
+                sx: 1
+                dy: 0.25
+                ox: 0
+            PantsStyleL1:
+              Category:
+                sy: 1
+                sx: 1
+                dy: 0
+                ox: 0
+            IsStraw:
+              Category:
+                sy: 1
+                ox: 0
+                sx: 1
+                dy: 0
+            TopsStyle:
+              Category:
+                sy: 1
+                sx: 1
+                dy: 0
+                ox: 0
+            NecklaceStyle:
+              Category:
+                sy: 1
+                ox: 0
+                sx: 1
+                dy: 0
+            FootwearType:
+              Category:
+                sy: 1.2
+                sx: 1.2
+                ox: 0
+                dy: 0
+            FootwearDetails:
+              Category:
+                sy: 1.3
+                sx: 1
+                ox: 0
+                dy: 0.1
+            ToeStyle:
+              Category:
+                sy: 1.2
+                sx: 1.2
+                ox: 0
+                dy: 0
+            DenimLower:
+              Category:
+                sy: 1
+                ox: 0
+                sx: 1
+                dy: 0
+            PatternLowerL1:
+              Category:
+                sy: 1
+                sx: 1
+                dy: 0
+                ox: 0
+            OuterwearPrintL2:
+              Category:
+                sy: 1
+                sx: 1
+                dy: 0
+                ox: 0
+            PantLength:
+              Category:
+                sy: 1.75
+                sx: 1.5
+                ox: 0
+                dy: 0.1
+            HeelType:
+              Category:
+                sy: 1.2
+                ox: 0
+                sx: 1.2
+                dy: 0
+            NonGeometricPrintLowerL3:
+              Category:
+                sy: 1
+                sx: 1
+                dy: 0
+                ox: 0
+            PrintLowerL2:
+              Category:
+                sy: 1
+                sx: 1
+                dy: 0
+                ox: 0
+            BraceletStyle:
+              Category:
+                sy: 1
+                ox: 0
+                sx: 1
+                dy: 0
+            NecklineL2:
+              Category:
+                sy: 1
+                ox: 0
+                sx: 1
+                dy: 0
+            PlainLowerL2:
+              Category:
+                sy: 1
+                sx: 1
+                dy: 0
+                ox: 0
+            BagDesignDetails:
+              Category:
+                sy: 20
+                ox: 0
+                sx: 20
+                dy: 0
+              UpperLower:
+                sy: 2.5
+                ox: 0
+                sx: 2.5
+                dy: 0
+            IsSplit:
+              Category:
+                sy: 1
+                ox: 0
+                sx: 1
+                dy: 0
+            OccasionDressWomen:
+              Category:
+                sy: 1
+                sx: 1
+                dy: 0
+                ox: 0
+            BagType:
+              Category:
+                sy: 1
+                sx: 1
+                dy: 0
+                ox: 0
+            isDenimOW:
+              Category:
+                sy: 1
+                sx: 1
+                dy: 0
+                ox: 0
+            HatStyle:
+              Category:
+                sy: 1
+                ox: 0
+                sx: 1
+                dy: 0
+            PatternUW:
+              Category:
+                sy: 1
+                ox: 0
+                sx: 1
+                dy: 0
+            DesignDetailsFW:
+              Category:
+                sy: 1.2
+                sx: 1.2
+                ox: 0
+                dy: 0
+            isMilitaryOW:
+              Category:
+                sy: 1
+                sx: 1
+                dy: 0
+                ox: 0
+            DressLength:
+              Category:
+                sy: 1.5
+                sx: 1
+                dy: 0.25
+                ox: 0
+            BootHeight:
+              Category:
+                sy: 1
+                ox: 0
+                sx: 1
+                dy: 0
+            PatternLW:
+              Category:
+                sy: 1
+                ox: 0
+                sx: 1
+                dy: 0
+            StyleOccasionWomen:
+              Category:
+                sy: 1
+                ox: 0
+                sx: 1
+                dy: 0
+            OuterwearFeatures:
+              Category:
+                sy: 1
+                sx: 1
+                dy: 0
+                ox: 0
+            DressStyle_v2:
+              Category:
+                sy: 1
+                sx: 1
+                dy: 0
+                ox: 0
+            PantsStyleL2:
+              Category:
+                sy: 1
+                sx: 1
+                dy: 0
+                ox: 0
+            BagPatternL1:
+              Category:
+                sy: 1
+                sx: 1
+                dy: 0
+                ox: 0
+            OuterwearType:
+              Category:
+                sy: 1
+                sx: 1
+                dy: 0
+                ox: 0
+            JewelryType:
+              Category:
+                sy: 1
+                ox: 0
+                sx: 1
+                dy: 0
+            RingsStyle:
+              Category:
+                sy: 1
+                ox: 0
+                sx: 1
+                dy: 0
+            RingStyle_binary:
+              Category:
+                sy: 1
+                ox: 0
+                sx: 1
+                dy: 0
+            TShirtVsTankVsSweater:
+              Category:
+                sy: 1
+                sx: 1
+                dy: 0
+                ox: 0
+            OuterwearPatternL1:
+              Category:
+                sy: 1
+                sx: 1
+                dy: 0
+                ox: 0
+            GeometricPrintLowerL3:
+              Category:
+                sy: 1
+                sx: 1
+                dy: 0
+                ox: 0
+            default:
+              dy: 0
+              ox: 0
+              sx: 1
+              sy: 1
+        color_tagger:
+          color_config:
+            skin_removal_facets:
+            - upper_lingerie
+            - lower_lingerie
+            - top
+            - dress
+            - outerwear
+            get_color_version: v2
+          facet_lasso:
+            handkerchief:
+            - y2: 1
+              sy: 0.6
+              sx: 0.6
+              name: default
+              notes: center
+              dy: 0.05
+              y1: 0
+              ox: 0
+              x2: 1
+              x1: 0
+            pant:
+            - y2: 0.7
+              sy: 0.4
+              sx: 0.5
+              name: default
+              notes: center
+              dy: -0.2
+              y1: 0.3
+              ox: 0
+              x2: 0.65
+              x1: 0.35
+            jewelery:
+            - y2: 0.7
+              sy: 0.5
+              sx: 0.4
+              name: default
+              notes: center
+              dy: -0.1
+              y1: 0.3
+              ox: 0
+              x2: 0.65
+              x1: 0.35
+            - y2: 0.7
+              sy: 0.5
+              sx: 0.5
+              name: stone_color
+              y1: 0.3
+              notes: run on top of stone color
+              dy: 0
+              source: StoneColor
+              ox: 0
+              x2: 0.65
+              x1: 0.35
+            top:
+            - y2: 0.7
+              sy: 0.5
+              sx: 0.6
+              name: default
+              notes: center
+              dy: 0
+              y1: 0.3
+              ox: 0
+              x2: 0.65
+              x1: 0.35
+            scarves:
+            - y2: 1
+              sy: 0.6
+              sx: 0.6
+              name: default
+              notes: center
+              dy: 0.05
+              y1: 0
+              ox: 0
+              x2: 1
+              x1: 0
+            wrap:
+            - y2: 1
+              sy: 0.6
+              sx: 0.6
+              name: default
+              notes: center
+              dy: 0.05
+              y1: 0
+              ox: 0
+              x2: 1
+              x1: 0
+            dress:
+            - y2: 1
+              sy: 0.6
+              sx: 0.6
+              name: default
+              notes: center
+              dy: 0.05
+              y1: 0
+              ox: 0
+              x2: 1
+              x1: 0
+            rompers:
+            - y2: 1
+              sy: 0.6
+              sx: 0.6
+              name: default
+              notes: center
+              dy: 0.05
+              y1: 0
+              ox: 0
+              x2: 1
+              x1: 0
+            upper_lingerie:
+            - y2: 0.7
+              sy: 0.4
+              sx: 0.8
+              name: default
+              notes: center
+              dy: 0.2
+              y1: 0.3
+              ox: 0
+              x2: 0.65
+              x1: 0.35
+            skirt:
+            - y2: 0.7
+              sy: 0.4
+              sx: 0.4
+              name: default
+              notes: center
+              dy: -0.1
+              y1: 0.3
+              ox: 0
+              x2: 0.65
+              x1: 0.35
+            onepiece:
+            - y2: 0.7
+              sy: 0.5
+              sx: 0.4
+              name: default
+              notes: center
+              dy: 0
+              y1: 0.3
+              ox: 0
+              x2: 0.65
+              x1: 0.35
+            lower_lingerie:
+            - y2: 0.7
+              sy: 0.5
+              sx: 0.7
+              name: default
+              notes: center
+              dy: 0.05
+              y1: 0.3
+              ox: 0
+              x2: 0.65
+              x1: 0.35
+            swimwear:
+            - y2: 1
+              sy: 0.6
+              sx: 0.6
+              name: default
+              notes: center
+              dy: 0.05
+              y1: 0
+              ox: 0
+              x2: 1
+              x1: 0
+            other:
+            - y2: 0.7
+              sy: 0.5
+              sx: 0.4
+              name: default
+              notes: center
+              dy: -0.1
+              y1: 0.3
+              ox: 0
+              x2: 0.65
+              x1: 0.35
+            sleepwear:
+            - y2: 1
+              sy: 0.6
+              sx: 0.6
+              name: default
+              notes: center
+              dy: 0.05
+              y1: 0
+              ox: 0
+              x2: 1
+              x1: 0
+            tie:
+            - y2: 1
+              sy: 0.6
+              sx: 0.6
+              name: default
+              notes: center
+              dy: 0.05
+              y1: 0
+              ox: 0
+              x2: 1
+              x1: 0
+            belt:
+            - y2: 0.7
+              sy: 0.5
+              sx: 0.4
+              name: default
+              notes: center
+              dy: -0.1
+              y1: 0.3
+              ox: 0
+              x2: 0.65
+              x1: 0.35
+            hat:
+            - y2: 0.7
+              sy: 0.5
+              sx: 0.4
+              name: default
+              notes: center
+              dy: -0.1
+              y1: 0.3
+              ox: 0
+              x2: 0.65
+              x1: 0.35
+            umbrella:
+            - y2: 1
+              sy: 0.6
+              sx: 0.6
+              name: default
+              notes: center
+              dy: 0.05
+              y1: 0
+              ox: 0
+              x2: 1
+              x1: 0
+            outerwear:
+            - y2: 0.7
+              sy: 0.3
+              sx: 0.3
+              name: default
+              notes: right
+              dy: -0.1
+              y1: 0.3
+              ox: 0.25
+              x2: 0.65
+              x1: 0.35
+            - sy: 0.3
+              sx: 0.3
+              name: left
+              notes: left
+              dy: -0.1
+              ox: -0.25
+            - sy: 0.3
+              sx: 0.1
+              name: center
+              notes: center
+              dy: -0.1
+              ox: 0.25
+            shorts:
+            - y2: 0.7
+              sy: 0.4
+              sx: 0.5
+              name: default
+              notes: center
+              dy: -0.1
+              y1: 0.3
+              ox: 0
+              x2: 0.65
+              x1: 0.35
+            watch:
+            - y2: 0.7
+              sy: 0.5
+              sx: 0.4
+              name: default
+              notes: center
+              dy: -0.1
+              y1: 0.3
+              ox: 0
+              x2: 0.65
+              x1: 0.35
+            jumpsuit:
+            - y2: 1
+              sy: 0.6
+              sx: 0.6
+              name: default
+              notes: center
+              dy: 0.05
+              y1: 0
+              ox: 0
+              x2: 1
+              x1: 0
+            hair_accessories:
+            - y2: 1
+              sy: 0.6
+              sx: 0.6
+              name: default
+              notes: center
+              dy: 0.05
+              y1: 0
+              ox: 0
+              x2: 1
+              x1: 0
+            swatches:
+            - y2: 1
+              sy: 1
+              sx: 1
+              name: default
+              notes: center
+              dy: 0
+              y1: 0
+              ox: 0
+              x2: 1
+              x1: 0
+            activewear:
+            - y2: 1
+              sy: 0.6
+              sx: 0.6
+              name: default
+              notes: center
+              dy: 0.05
+              y1: 0
+              ox: 0
+              x2: 1
+              x1: 0
+            bow:
+            - y2: 1
+              sy: 0.6
+              sx: 0.6
+              name: default
+              notes: center
+              dy: 0.05
+              y1: 0
+              ox: 0
+              x2: 1
+              x1: 0
+            bag:
+            - y2: 0.8
+              sy: 0.6
+              sx: 0.6
+              name: default
+              notes: center
+              dy: 0
+              y1: 0.5
+              ox: 0
+              x2: 0.65
+              x1: 0.35
+            gloves:
+            - y2: 1
+              sy: 0.6
+              sx: 0.6
+              name: default
+              notes: center
+              dy: 0.05
+              y1: 0
+              ox: 0
+              x2: 1
+              x1: 0
+            footwear:
+            - y2: 0.8
+              sy: 0.6
+              sx: 0.6
+              name: default
+              notes: center
+              dy: 0
+              y1: 0.5
+              ox: 0
+              x2: 0.65
+              x1: 0.35
+            jumpsuits:
+            - y2: 1
+              sy: 0.6
+              sx: 0.6
+              name: default
+              notes: center
+              dy: 0.05
+              y1: 0
+              ox: 0
+              x2: 1
+              x1: 0
+            romper:
+            - y2: 1
+              sy: 0.6
+              sx: 0.6
+              name: default
+              notes: center
+              dy: 0.05
+              y1: 0
+              ox: 0
+              x2: 1
+              x1: 0
+            glasses:
+            - y2: 0.7
+              sy: 0.5
+              sx: 0.4
+              name: default
+              notes: center
+              dy: -0.1
+              y1: 0.3
+              ox: 0
+              x2: 0.65
+              x1: 0.35
+        epochs:
+          dff4809a-3187-4c69-bbc6-08377c4dbb0e:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: category
+              netname: MoadAccess
+              input_layer: ''
+              is_text: false
+              model_type: model
+          801dca10-5e61-47f6-a7aa-341b19025a6a:
+            l1_localizer: true
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: BagType_loc
+              netname: TRI_bagtype_iter2_Lod1ccedd7
+              input_layer: ''
+              is_text: false
+              model_type: model
+          2128b2c3-90af-433c-896e-b23df070ef8b:
+            l1_localizer: true
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: NecklineL1
+              netname: Neckline_v8
+              input_layer: ''
+              is_text: false
+              model_type: model
+          9e4890aa-f86f-4b61-a269-2b7fcfd3eb30:
+            l1_localizer: false
+            l1_classifier: true
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: GarmentType
+              netname: Resnet18_Full
+              input_layer: ''
+              is_text: false
+              model_type: basenet
+          880ea06f-f3b0-4565-aa41-c6c575622764:
+            l1_localizer: false
+            l1_classifier: true
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: ImageType
+              netname: Vestua_iter3
+              input_layer: ''
+              is_text: false
+              model_type: basenet
+          6d84a231-c83a-479d-8a41-1558f8c1a48a:
+            l1_localizer: false
+            l1_classifier: true
+            l2_localizer: false
+            is_basenet_adaptor: true
+            model_config:
+              model_name: FootwearOrientation
+              netname: vestua
+              input_layer: avgpool
+              is_text: false
+              model_type: adaptor
+            basenet: 312ad544-2d12-4fb1-9982-090aac9dbd42
+          3d356cd8-cc8c-4b41-aa5c-9050cda8de07:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: FootwearType
+              netname: FootwearType
+              input_layer: ''
+              is_text: false
+              model_type: basenet
+          2cae561e-0052-4073-8b25-307b9d0bfe92:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: HeelHeight
+              netname: HeelHeight
+              input_layer: ''
+              is_text: false
+              model_type: basenet
+          5b02acf7-d449-4ebd-bfaf-99ba2f526e2e:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: HeelType
+              netname: HeelType
+              input_layer: ''
+              is_text: false
+              model_type: basenet
+          a2da3816-a644-4620-a799-ec2159ef012d:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: ToeType
+              netname: ToeType
+              input_layer: ''
+              is_text: false
+              model_type: basenet
+          ea76bc26-9027-45e1-9ff7-601a288fdf85:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: ToeStyle
+              netname: ToeStyle
+              input_layer: ''
+              is_text: false
+              model_type: basenet
+          c6be1dc2-e8d4-4a67-8644-3cebbf0a9859:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: DesignDetailsFW
+              netname: FW_DD_Zara_retrain
+              input_layer: ''
+              is_text: false
+              model_type: basenet
+          b88736ac-33f5-4a71-8921-405a40be5a6c:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: BootHeight
+              netname: BootHeight
+              input_layer: ''
+              is_text: false
+              model_type: basenet
+          eb0f9fa0-371f-4c5a-8ac9-d5555e83a177:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: FootwearDetails
+              netname: FWdetails_retrain_final
+              input_layer: ''
+              is_text: false
+              model_type: basenet
+          df6226cc-17d1-4b60-9a93-e157f0c16653:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: OuterwearCategory
+              netname: OWcat_i3_data
+              input_layer: ''
+              is_text: false
+              model_type: basenet
+          d3358c45-245b-4ffe-93a9-96ee2eed3c55:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: OuterwearType
+              netname: hepsitrain
+              input_layer: ''
+              is_text: false
+              model_type: basenet
+          f45e8e00-7cfd-4b5d-bf06-cc64eed49788:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: isMilitaryOW
+              netname: isMilitaryOW
+              input_layer: ''
+              is_text: false
+              model_type: basenet
+          5e2bbac2-d687-42d8-a61c-d009fb00ea08:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: isDenimOW
+              netname: isDenimOW
+              input_layer: ''
+              is_text: false
+              model_type: basenet
+          ea0a5358-ed6b-434a-b85e-0c69cc84f68b:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: BagType
+              netname: bagtype_iter4
+              input_layer: ''
+              is_text: false
+              model_type: basenet
+          618de8d2-3e06-428b-9820-66c3cba26801:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: BagDesignDetails
+              netname: BagDesignDetails
+              input_layer: ''
+              is_text: false
+              model_type: darknet
+          d847e938-7f8f-48ab-8106-e32403c9f7a5:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: BagPatternL1
+              netname: BagPatternL1
+              input_layer: ''
+              is_text: false
+              model_type: basenetadaptor
+          e391923a-ebac-4420-b027-7695810a9b19:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: BagPatternL2Print
+              netname: BagPatternL2Print
+              input_layer: ''
+              is_text: false
+              model_type: basenetadaptor
+          7190109d-548e-49aa-9b80-fe5ab21b5086:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: isDenimDress
+              netname: ISDenimDress_TRI-feedback-data
+              input_layer: ''
+              is_text: false
+              model_type: basenet
+          f08a859c-9d94-461f-ba2b-4d141f684dec:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: DressStyle_v2
+              netname: DressStyle_retrain_sigmoid_TRI_aL_ss_zara_v2k
+              input_layer: ''
+              is_text: false
+              model_type: basenet
+          c0dfc6ce-5222-45ee-9761-fe2f5037763a:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: TShirtVsTankVsSweater
+              netname: TTS-with-TRi-zara-Al-SS-V2k
+              input_layer: ''
+              is_text: false
+              model_type: basenet
+          f52f3758-8ec5-4753-a5f9-886e3a2d1833:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: DressLength
+              netname: lasso_sy2_applied_to_bottom
+              input_layer: ''
+              is_text: false
+              model_type: basenet
+          192735da-4347-4906-8525-9c6b22ffb6fc:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: DressType_v2
+              netname: dresstype_neww
+              input_layer: ''
+              is_text: false
+              model_type: basenet
+          0d5f845d-250a-49ef-a704-a9716e9fd52d:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: PlungeNeckline
+              netname: Plunge_revamped_labels
+              input_layer: ''
+              is_text: false
+              model_type: basenet
+          89ff2208-58f1-435c-981b-e75f797dba78:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: GlassStyle
+              netname: GlassStyle
+              input_layer: ''
+              is_text: false
+              model_type: basenet
+          e131ae5f-d7aa-48a0-a4d6-994cf586a35b:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: HatStyle
+              netname: HatStyle
+              input_layer: ''
+              is_text: false
+              model_type: basenet
+          ae705eff-9b2b-4485-8ca6-4bb46d519023:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: IsStraw
+              netname: IsStraw
+              input_layer: ''
+              is_text: false
+              model_type: basenet
+          bdc7931f-4365-448c-8beb-b5360c993ad4:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: SweetheartNeckline
+              netname: Neckline_sweetheart_retrain
+              input_layer: ''
+              is_text: false
+              model_type: basenet
+          2aaa567d-17cf-4281-8fbd-496673b38320:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: SleeveLength
+              netname: SleeveLength
+              input_layer: ''
+              is_text: false
+              model_type: basenet
+          e1325c32-1139-4df7-be77-9228cbe4fbf6:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: NecklineL2
+              netname: L2softmax_without_others_retrain
+              input_layer: ''
+              is_text: false
+              model_type: basenet
+          320bf803-c558-42e3-8d43-237c0ed91ee8:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: PatternUW_digest
+              netname: PatternUW
+              input_layer: ''
+              is_text: false
+              model_type: ''
+          0afb5d15-1d2d-434d-bca1-29e721c99e8d:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: PatternUW
+              netname: PatternUW
+              input_layer: ''
+              is_text: false
+              model_type: basenet
+          8a128f56-3235-409c-8fdd-f9ba7e97f058:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: StyleDressWomen
+              netname: dress_style_iter3
+              input_layer: ''
+              is_text: false
+              model_type: basenet
+          7a575ad3-7958-486e-90e5-dcfd4dffb369:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: true
+            model_config:
+              model_name: OuterwearPatternL1
+              netname: OuterwearPatternL1
+              input_layer: layer3
+              is_text: false
+              model_type: adaptor
+            basenet: 6a4c43fb-610d-4a47-a319-bf7e564498f6
+          ab08c9f8-e0df-41a9-bf83-b86c319d6767:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: OuterwearLinesL2
+              netname: Resnext50_Full
+              input_layer: ''
+              is_text: false
+              model_type: basenet
+          e62b88a8-5758-4694-997d-4ef7ea8ef1a0:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: OuterwearPrintL2
+              netname: Resnext50_Full
+              input_layer: ''
+              is_text: false
+              model_type: basenet
+          aae44dd5-f6ae-4590-bdad-8196e7f0b1e3:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: OuterwearSportyStripes
+              netname: Resnet50_Full
+              input_layer: ''
+              is_text: false
+              model_type: basenet
+          15b42a85-4cc6-40b9-abf4-0b577e5b3303:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: OuterwearBlockGraphics
+              netname: Resnext50_Full
+              input_layer: ''
+              is_text: false
+              model_type: basenet
+          fe6e71a9-b7e0-4c88-8e28-ff032dd9e622:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: OuterwearFeatures
+              netname: Resnet50_Full
+              input_layer: ''
+              is_text: false
+              model_type: basenet
+          7f5315a4-59ea-4404-8d1f-0ec96c78576a:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: true
+            model_config:
+              model_name: OccasionDressWomen
+              netname: iter61
+              input_layer: avgpool
+              is_text: false
+              model_type: adaptor
+            basenet: 312ad544-2d12-4fb1-9982-090aac9dbd42
+          c0af6509-9aaf-46f6-967a-828602e5c711:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: TopsStyle
+              netname: TRI_Topstyle_locca4c75ff
+              input_layer: ''
+              is_text: false
+              model_type: model
+          cecc4c35-2ab7-4d16-b4d5-917efe3f6428:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: true
+            model_config:
+              model_name: StyleOccasionWomen
+              netname: trainnew
+              input_layer: avgpool
+              is_text: false
+              model_type: adaptor
+            basenet: 312ad544-2d12-4fb1-9982-090aac9dbd42
+          e547b3d7-3ebe-4bf1-a734-a881b6be78ec:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: CoatLength
+              netname: TRI-Zara-basenet-softmax
+              input_layer: ''
+              is_text: false
+              model_type: basenet
+          fd649084-2266-45fe-a029-cbe194448751:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: PatternLW
+              netname: PatternLW
+              input_layer: ''
+              is_text: false
+              model_type: basenet
+          a96e4ef9-f542-4bb3-a603-fed9ed76ab44:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: PatternLowerL1
+              netname: PatternLowerL1_v2
+              input_layer: ''
+              is_text: false
+              model_type: basenet
+          80fd7520-7e73-4e47-a2e5-d98621770865:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: true
+            model_config:
+              model_name: PlainLowerL2
+              netname: plain_lower
+              input_layer: avgpool
+              is_text: false
+              model_type: adaptor
+            basenet: ea9165e9-2c6c-47d4-978a-b4db0f062c71
+          71fa0f6d-af97-4190-a6af-8867d7efd815:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: PrintLowerL2
+              netname: Resnext50_Full
+              input_layer: ''
+              is_text: false
+              model_type: basenet
+          f9e5658f-0616-4331-9003-a1b8c851fffc:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: GeometricPrintLowerL3
+              netname: Resnext50_Full
+              input_layer: ''
+              is_text: false
+              model_type: basenet
+          565438e0-1711-475e-918e-1416e7bc23eb:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: NonGeometricPrintLowerL3
+              netname: Resnext50_Full
+              input_layer: ''
+              is_text: false
+              model_type: basenet
+          1f7c8835-6473-48ee-8ff0-31e6eaa10e4d:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: true
+            model_config:
+              model_name: LocalGraphicPrintLowerL3
+              netname: LocalGraphicPrintLowerL3
+              input_layer: avgpool
+              is_text: false
+              model_type: adaptor
+            basenet: ea9165e9-2c6c-47d4-978a-b4db0f062c71
+          4ccdbb6e-bbcb-47eb-b7cf-4044ac8a5158:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: true
+            model_config:
+              model_name: PantsStyleL1
+              netname: pantsStyleAdapt
+              input_layer: avgpool
+              is_text: false
+              model_type: adaptor
+            basenet: 312ad544-2d12-4fb1-9982-090aac9dbd42
+          ddc69608-4246-41d1-a159-8d965cf97773:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: true
+            model_config:
+              model_name: PantsStyleL2
+              netname: binary
+              input_layer: avgpool
+              is_text: false
+              model_type: adaptor
+            basenet: 312ad544-2d12-4fb1-9982-090aac9dbd42
+          49257b74-c3a0-44b2-9714-1a5c6cd6d3b5:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: PantFit
+              netname: Resnet34_Full
+              input_layer: ''
+              is_text: false
+              model_type: basenet
+          5c26be37-af2c-4990-9c0e-10488710d5a3:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: DenimLower
+              netname: DenimLower
+              input_layer: ''
+              is_text: false
+              model_type: basenet
+          b9cfea58-fbf5-47a6-9bb0-6d0b5109f430:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: DenimWash
+              netname: basenetsoftmax
+              input_layer: ''
+              is_text: false
+              model_type: basenet
+          c17fe97f-8419-4779-9ad5-a01d1989d3f2:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: DenimLegStyle
+              netname: Tup-basenet-jeantype
+              input_layer: ''
+              is_text: false
+              model_type: basenet
+          c2e0decf-7e60-428e-9b19-4f33da1b48e1:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: true
+            model_config:
+              model_name: DenimDesignDetails
+              netname: with_negative_and_more_added_data_from_tup
+              input_layer: avgpool
+              is_text: false
+              model_type: adaptor
+            basenet: 312ad544-2d12-4fb1-9982-090aac9dbd42
+          f21ede08-8e9d-4bd4-b1b5-3ccbfea36296:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: PantLength
+              netname: Resnet18_Full
+              input_layer: ''
+              is_text: false
+              model_type: basenet
+          e4356ded-4756-4667-83a8-184094d76429:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: SkirtPleated
+              netname: skirttype_iter4
+              input_layer: ''
+              is_text: false
+              model_type: basenet
+          00b36f38-7c1b-4ae3-bd53-c10ce59cd54d:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: SkirtType_v2
+              netname: skirttype_iter4
+              input_layer: ''
+              is_text: false
+              model_type: basenet
+          b01699e8-8dc8-4e36-8c6d-e85987b07118:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: SkirtLength
+              netname: lasso_sy2_bottom
+              input_layer: ''
+              is_text: false
+              model_type: basenet
+          5c19b877-998a-43f5-a192-b945c150c677:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: JewelryType
+              netname: JewelryType_carousel
+              input_layer: ''
+              is_text: false
+              model_type: basenet
+          3d73d5d9-3c9e-48a2-80f8-f6684dba842a:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: EarringsStyle
+              netname: EarringsStyle_retrain_i3
+              input_layer: ''
+              is_text: false
+              model_type: basenet
+          429371a9-ec90-411c-9f51-5198050eba51:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: BraceletStyle
+              netname: Resnet18_Full
+              input_layer: ''
+              is_text: false
+              model_type: basenet
+          0c29ed5d-41cf-4b0e-8f26-f32d002449b8:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: NecklaceStyle
+              netname: NecklaceStyle_revamp_iter
+              input_layer: ''
+              is_text: false
+              model_type: basenet
+          276067f5-acd1-4c86-b073-1c292cf7b832:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: RingsStyle
+              netname: iter3
+              input_layer: ''
+              is_text: false
+              model_type: basenet
+          22dac731-8e15-4c0f-bff3-19448cf26384:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: Ringstyle_binary
+              netname: RingsStyle_binary_Carousell_aug
+              input_layer: ''
+              is_text: false
+              model_type: basenet
+          d4171344-8e68-4cba-ab5d-bc7d28157241:
+            l1_localizer: false
+            l1_classifier: false
+            l2_localizer: false
+            is_basenet_adaptor: false
+            model_config:
+              model_name: MetalColor
+              netname: Resnet50_Full
+              input_layer: ''
+              is_text: false
+              model_type: basenet
+        communicator:
+          structured_mapping: 'true'
+          input_tags: network_tags
+          facet_mapping:
+            task_order:
+            - validation_check_json: facet_mapping_msdtags
+              task_type:
+              - client_tags
+              task_name: ST_mapping_digest_client
+              structure_mapping_key: prod/structure_mapping/ST_mapping_digest_client/ST_mapping_digest_client.xlsx
+              allow_direct_tags:
+              - Sustainable Feature
+              - Material composition (%)
+              - Color Hex
+              - Lining (%)
+              - Padding (%)
+              - Washing Instructions
+          source: search
+          extras:
+            compute_tnd: 'true'
+          multivalues_enabled: []
+          main_tags:
+            productType: PRODUCT GROUP
+          client_id: 332
+          client_name: twoface
+          last_updated_time: '2020-07-08 09:43:19.176575'
+    created_ts: '2023-02-17T14:24:24.632623'
+    updated_ts: '2023-03-09T08:55:43.293483'
+    source: search

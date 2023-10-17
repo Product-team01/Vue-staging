@@ -1,0 +1,16 @@
+type: object
+properties:
+  config:
+    type: integer
+    nullable: true
+  region:
+    allOf:
+    - $ref: 'Region.yaml'
+    readOnly: true
+  config_data:
+    allOf:
+    - $ref: 'Config.yaml'
+    readOnly: true
+required:
+- config_data
+- region

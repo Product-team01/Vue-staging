@@ -1,0 +1,44 @@
+post:
+  tags:
+    - analytics
+  summary: Enable Preset Configs for a Client
+  operationId: enable_api_v1_workflows_personalization_analytics_enable_post
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - required: true
+    schema:
+      title: Segment
+      type: string
+      example: retail
+    name: segment
+    in: path
+  - required: true
+    schema:
+      title: Catalog ID
+      type: string
+      example: retail
+    name: catalog_id
+    in: query
+  requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/MetricsInWorkflowSchema.yaml'
+      required: true
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/EmptyResponse.yaml'
+    '404':
+      description: config does not exist
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/ErrorResponse.yaml'

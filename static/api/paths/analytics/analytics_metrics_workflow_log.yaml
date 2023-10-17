@@ -1,0 +1,35 @@
+get:
+  tags:
+  - analytics
+  summary: Get the latest DAG log given the client
+  description: Get the latest DAG log for a client
+  operationId: get_dag_log
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - required: true
+    schema:
+      title: Client Key
+      type: string
+      example: 3765_MadStreetDen
+    name: client
+    in: query
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            title: Response List Clients Metric Configuration Get
+            type: array
+            items:
+              $ref: '../../schemas/AnalyticsMetricsOut.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'

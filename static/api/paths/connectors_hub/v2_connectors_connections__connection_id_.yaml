@@ -1,0 +1,98 @@
+delete:
+  description: Delete the given connector
+  operationId: delete_connector_api_v2_connectors_connections__connection_id__delete
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - in: path
+    name: connection_id
+    required: true
+    schema:
+      title: Connection Id
+      type: string
+  responses:
+    '200':
+      content:
+        application/json:
+          schema: {}
+      description: Successful Response
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/connectors_hub/HTTPValidationError.yaml
+      description: Validation Error
+  summary: Delete Connector
+  tags:
+  - connectors
+get:
+  description: Returns connector for a given connection_id
+  operationId: get_connector_api_v2_connectors_connections__connection_id__get
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - in: path
+    name: connection_id
+    required: true
+    schema:
+      title: Connection Id
+      type: string
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/connectors_hub/Connector.yaml
+      description: Successful Response
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/connectors_hub/HTTPValidationError.yaml
+      description: Validation Error
+  summary: Get Connector
+  tags:
+  - connectors
+patch:
+  description: Update the given connector
+  operationId: update_connector_api_v2_connectors_connections__connection_id__patch
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - in: path
+    name: connection_id
+    required: true
+    schema:
+      title: Connection Id
+      type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../../schemas/connectors_hub/UpdateConnector.yaml
+    required: true
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/connectors_hub/Connector.yaml
+      description: Successful Response
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/connectors_hub/HTTPValidationError.yaml
+      description: Validation Error
+  summary: Update Connector
+  tags:
+  - connectors

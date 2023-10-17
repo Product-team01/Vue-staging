@@ -1,0 +1,74 @@
+
+get:
+  tags:
+    - Jobs
+  summary: List jobs
+  description: List jobs
+  operationId: ListJobs
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - name: limit
+    in: query
+    description:  Number of jobs per page 
+    
+    schema:
+      type: number
+      default: 10
+  - name: page_no
+    in: query
+    description: Page number for pagination
+    
+    schema:
+      type: number
+      default: 1
+  - name: sort_by
+    in: query
+    description: Field to sort jobs by 
+    schema:
+      type: string
+  - name: order
+    in: query
+    description: Sorting order (asc or desc)
+    
+    schema:
+      type: string
+      default: asc
+  - name: job_ids
+    in: query
+    description: Filter jobs by job ids
+    schema:
+      type: string
+
+  - name: job_statuses
+    in: query
+    description: Filter jobs by job status
+    schema:
+      type: string
+  - name: search
+    in: query
+    description: Search jobs by job id
+    schema:
+      type: string
+  - name: workflow_id
+    in: query
+    description: Filter jobs by workflow id
+    schema:
+      type: number
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              request_id:
+                type: string
+              correlation_id:
+                type: string
+              data:
+                $ref: '../../schemas/jobs/JobsResponse.yaml'

@@ -1,0 +1,121 @@
+parameters:
+  - required: true
+    schema:
+      title: Curation ID
+      type: string
+    name: curation_id
+    in: path
+get:
+  tags:
+    - search
+  summary: Get curation
+  description: Retrieve specific curation by ID
+  operationId: get_curation_by_id
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  responses:
+    "200":
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "../../schemas/ResponseTemplateSuccess.yaml"
+              - type: object
+                properties:
+                  data:
+                    $ref: "../../schemas/search/curation.yaml"
+                required:
+                  - data
+    "404":
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/error_response.yaml"
+patch:
+  tags:
+    - search
+  summary: Update curation
+  description: Update curation
+  operationId: update_curation
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  requestBody:
+    description: Request for update curation
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas/search/curation.yaml"
+  responses:
+    "200":
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "../../schemas/ResponseTemplateSuccess.yaml"
+              - type: object
+                properties:
+                  data:
+                    $ref: "../../schemas/search/curation.yaml"
+                required:
+                  - data
+    "404":
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/error_response.yaml"
+    "422":
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/validation_error_response.yaml"
+delete:
+  tags:
+    - search
+  summary: Delete curation
+  description: Delete specific curation
+  operationId: delete_curation
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+    - required: true
+      schema:
+        title: Curation ID
+        type: string
+      name: curation_id
+      in: path
+  responses:
+    "200":
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "../../schemas/ResponseTemplateSuccess.yaml"
+              - type: object
+                properties:
+                  data:
+                    $ref: "../../schemas/search/curation.yaml"
+                required:
+                  - data
+    "404":
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/error_response.yaml"

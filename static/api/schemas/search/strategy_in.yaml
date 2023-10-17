@@ -1,0 +1,173 @@
+title: Strategy
+type: object
+properties:
+  name:
+    description: Unique name of the strategy
+    type: string
+  workflow_id:
+    description:
+      Id of the `workflow` that this strategy uses. This is the same `workflow_id`
+      from the 'parent' *preset* strategy that this strategy is based on.
+    type: string
+  catalog_id:
+    description: Id of an `catalog` that this strategy operates on
+    type: string
+  config:
+    type: array
+    items:
+      type: object
+      properties:
+        params:
+          type: array
+          items:
+            type: object
+            properties:
+              field:
+                type: string
+              value:
+                anyOf:
+                  - type: array
+                    items:
+                      anyOf:
+                        - type: string
+                        - type: number
+                        - type: integer
+                  - type: boolean
+                  - type: string
+                  - type: number
+              type:
+                type: string
+        conditions:
+          type: array
+          items:
+            type: object
+            properties:
+              field:
+                type: string
+              value:
+                type: array
+                items:
+                  anyOf:
+                    - type: string
+                    - type: integer
+                    - type: number
+              operator:
+                type: string
+  business_rules:
+    type: array
+    items:
+      type: object
+      properties:
+        rules:
+          type: array
+          items:
+            type: object
+            properties:
+              field:
+                type: string
+              value:
+                oneOf:
+                  - type: array
+                    items:
+                      anyOf:
+                        - type: string
+                        - type: number
+                        - type: integer
+                  - type: string
+                  - type: number
+                  - type: integer
+                  - type: boolean
+              operator:
+                type: string
+                enum:
+                  - eq
+                  - ne
+                  - gt
+                  - lt
+                  - lte
+                  - range
+                  - exact
+                  - not-exact
+                  - contains
+                  - not-contains
+              source_dependent:
+                type: boolean
+                enum:
+                  - true
+                  - false
+        catalog_id:
+          description: Id of an `catalog` that this rule operates on
+          type: string
+        rules_relation:
+          type: string
+          enum:
+            - AND
+            - OR
+        conditions:
+          type: array
+          items:
+            type: object
+            properties:
+              field:
+                type: string
+              value:
+                oneOf:
+                  - type: array
+                    items:
+                      anyOf:
+                        - type: string
+                        - type: number
+                        - type: integer
+                  - type: string
+                  - type: number
+                  - type: integer
+                  - type: boolean
+              operator:
+                type: string
+                enum:
+                  - eq
+                  - ne
+                  - gt
+                  - lt
+                  - lte
+                  - range
+                  - exact
+                  - not-exact
+                  - contains
+                  - not-contains
+        conditions_relation:
+          type: string
+          enum:
+            - AND
+            - OR
+  preset:
+    description: |
+      wether strategy is default strategy or client created strategy
+    type: boolean
+  description:
+    description: |
+      explains what is the strategy for
+    type: string
+  metadata:
+    description: |
+      meta detail for strategy execution
+    type: object
+    properties:
+      max_content:
+        description: |
+          maximum content of product to be returned of strategy
+        type: integer
+      min_content:
+        description: |
+          minimum content of product to be returned of strategy
+        type: integer
+      max_bundle:
+        type: integer
+      min_bundle:
+        type: integer
+      unbundle:
+        type: boolean
+required:
+  - name
+  - workflow_id
+  - catalog_id

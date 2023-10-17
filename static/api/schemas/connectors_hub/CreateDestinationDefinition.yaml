@@ -1,0 +1,11 @@
+properties:
+  destinationDefinition:
+    $ref: ../connectors_hub/DestinationDefinition.yaml
+  workspaceId:
+    title: Workspaceid
+    type: string
+required:
+- workspaceId
+- destinationDefinition
+title: CreateDestinationDefinition
+type: object

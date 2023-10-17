@@ -1,0 +1,21 @@
+title: JobOut
+required:
+- id
+- name
+- source
+- destination
+type: object
+properties:
+  id:
+    title: Id
+    type: integer
+  name:
+    title: Name
+    type: string
+  source:
+    $ref: 'DatapointCatalogOutput.yaml'
+  destination:
+    $ref: 'DatapointCatalogOutput.yaml'
+  config:
+    title: Config
+    type: object

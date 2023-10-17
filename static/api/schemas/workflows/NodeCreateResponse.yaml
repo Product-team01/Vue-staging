@@ -1,0 +1,35 @@
+properties:
+  config:
+    allOf:
+    - $ref: ../workflows/NodeConfigValidation.yaml
+    description: This field describes all the metadata sent in the input payload,
+      along with a node ID that can be used as a unique reference to this node.
+    title: Config
+  correlation_id:
+    description: This field describes the correlation ID of input payload.
+    title: Correlation Id
+    type: string
+  data:
+    allOf:
+    - $ref: ../workflows/NodeCreateEntity.yaml
+    description: This field describes the response of the create API. The output is
+      a dictionary that contains both the node ID (that is a unique reference to the
+      registered node) and a workflow ID (that is a unique reference to the registered
+      worflow that the node corresponds to).
+    title: Data
+  request_id:
+    description: This field describes the request ID of input payload.
+    title: Request Id
+    type: string
+  status:
+    description: This field describes the create API response status.
+    title: Status
+    type: string
+required:
+- status
+- request_id
+- correlation_id
+- data
+- config
+title: NodeCreateResponse
+type: object

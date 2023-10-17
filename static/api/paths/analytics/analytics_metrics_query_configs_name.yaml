@@ -1,0 +1,45 @@
+get:
+  tags:
+    - analytics
+  summary: Filter Metrics Query configs by Metric Name and Source
+  description: Filter Metrics Query configs by Metric Name and Source
+  operationId: get_metrics_query_configs_by_metric_query_config_name
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: stringparameters:
+    - required: false
+      schema:
+        title: Metrics Query Config Name
+        type: string
+      name: name
+      in: query
+    - required: false
+      schema:
+        title: Source table 
+        type: string
+      name: source
+      in: query
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            title: Metric Query Config
+            allOf:
+            - $ref: '../../schemas/ResponseTemplateSuccessNoData.yaml'
+            - type: object
+              properties:
+                data:
+                  type: object
+                  $ref: '../../schemas/MetricsQueryConfig.yaml'
+
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'

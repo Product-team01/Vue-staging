@@ -1,0 +1,57 @@
+get:
+  tags:
+    - graph-execution-configs
+  summary: Get shazam Config
+  operationId: get_shazam_config
+  parameters:
+    - required: true
+      schema:
+        title: graph execution config id
+        type: string
+      name: id
+      in: path
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/graph_execution_configs/shazam_get_response.yaml'
+
+patch:
+  tags:
+    - graph-execution-configs
+  summary: Update shazam Config
+  operationId: update_shazam_config
+  parameters:
+    - required: true
+      schema:
+        title: graph execution config id
+        type: string
+      name: id
+      in: path
+  requestBody:
+    description: Request for update curation
+    content:
+      application/json:
+        schema:
+          type: object
+          properties: 
+            gender_dict:
+              type: object
+            gender_rank_dict:
+              type: object
+            ontology_weight:
+              type: object
+            title_weight:
+              type: object
+            combined_weight:
+              type: object
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/graph_execution_configs/graph_execution_configs_response.yaml'
+

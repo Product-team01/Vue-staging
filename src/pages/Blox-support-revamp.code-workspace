@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "Blox-support-revamp",
+			"path": "../.."
+		}
+	],
+	"settings": {
+		"emmet.includeLanguages": {
+			"mdx": "javascriptreact"
+		}
+	}
+}

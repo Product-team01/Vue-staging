@@ -1,0 +1,11 @@
+title: clone_starfire_response
+type: object
+properties:
+  use_case:
+    title: use_case
+    type: string
+    description: cloned use_case name
+  details:
+    title: details
+    type: string
+    description: details of the use_case if it is configured or not

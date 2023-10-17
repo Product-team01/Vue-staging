@@ -1,0 +1,59 @@
+title: Curation
+type: object
+properties:
+  request_id:
+    type: string
+  status:
+    type: string
+  data:
+    type: array
+    items:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        name:
+          title: Name of the curation
+          type: string
+        catalog_id:
+          title: Catalog id associated to this curation
+          type: string
+        feature:
+          title: curation or shop the look
+          type: string
+        metadata:
+          title: Other metadata associated with the curation
+          type: object
+        curations_data:
+          title: Option to add moodboard images and content ids
+          type: object
+          properties:
+            image_urls:
+              title: links to moodboard images
+              type: array
+              items:
+                type: string
+            content_ids:
+              title: list of content ids
+              type: array
+              items:
+                type: string
+        gender:
+          title: gender of the curation
+          type: object
+          properties:
+            field:
+              title: catalog's gender field name
+              type: string
+            value:
+              title: gender field value
+              type: string
+        boost_by:
+          title: boost params
+          type: array
+          items:
+            type: string
+      required:
+        - catalog_id
+        - name

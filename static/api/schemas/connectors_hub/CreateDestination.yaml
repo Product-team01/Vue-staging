@@ -1,0 +1,16 @@
+properties:
+  connectionConfiguration:
+    title: Connectionconfiguration
+    type: object
+  destinationDefinitionId:
+    title: Destinationdefinitionid
+    type: string
+  name:
+    title: Name
+    type: string
+required:
+- destinationDefinitionId
+- connectionConfiguration
+- name
+title: CreateDestination
+type: object

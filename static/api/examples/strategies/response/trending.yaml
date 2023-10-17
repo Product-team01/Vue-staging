@@ -1,0 +1,18 @@
+request_id: 7d1030767b8411edae01f28c070c22cc
+correlation_id: 7d1030767b8411edae01f28c070c22cc
+status: SUCCESS
+data:
+  id: f8a76b6b-9412-4e81-8421-ed4b6e5d6d45
+  workflow_id: ecdfc6f5-639a-415d-84eb-529ec08f301a
+  description: 'Recommends products that were most popular during a specified time period. '
+  name: Trending
+  preset: true
+  client: global
+  catalog_id: test_catalog
+  metadata:
+    max_content: 16
+  config:
+  - params:
+    - value: msd_internal_trending
+      type: trending_use_case
+      field: trending_use_case_name

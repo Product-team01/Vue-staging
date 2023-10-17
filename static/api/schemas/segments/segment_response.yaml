@@ -1,0 +1,13 @@
+
+      type: object
+      properties:
+        request_id:
+          type: string
+        correlation_id:
+          type: string
+        data:
+          type: object
+          properties:
+            segment_id:
+              type: string
+              example: ''

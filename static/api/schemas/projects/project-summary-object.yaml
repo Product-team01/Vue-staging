@@ -1,0 +1,73 @@
+required:
+- attribute_level_count
+type: object
+properties:
+  metrics:
+    type: object
+    properties:
+      average_confidence_of_project:
+        type: string
+        description: holds confidence level of organization of the selected attribute
+        format: int64
+      completion_percentage_of_sample:
+        type: string
+        description: holds completion percentage of organization of the selected attribute
+          and sample
+        format: int64
+  datapoints:
+    type: object
+    properties:
+      total_datapoints_in_project:
+        type: integer
+        description: holds project level datapoints count
+        format: int64
+      total_valid_datapoints_in_sample:
+        type: integer
+        description: holds sample level datapoints count
+        format: int64
+      total_invalid_datapoints_in_sample:
+        type: integer
+        description: holds sample level datapoints count
+        format: int64
+      labelled_datapoints_in_sample:
+        type: integer
+        description: holds labelled datapoints count
+        format: int64
+      count_by_attribute:
+        type: array
+        items:
+          type: object
+          properties:
+            attribute_id:
+              type: string
+            sample:
+              type: object
+              properties:
+                predicted:
+                  type: integer
+                  format: int64
+                labelled:
+                  type: integer
+                  format: int64
+                accepted:
+                  type: integer
+                  format: int64
+                total:
+                  type: integer
+                  format: int64
+            project:
+              type: object
+              properties:
+                predicted:
+                  type: integer
+                  format: int64
+                labelled:
+                  type: integer
+                  format: int64
+                accepted:
+                  type: integer
+                  format: int64
+                total:
+                  type: integer
+                  format: int64
+        description: holds attribute level count

@@ -1,0 +1,16 @@
+properties:
+  instance_pool_template_key:
+    default: starfire
+    description: This field describes the name of the instance pool in databricks.
+      All starfire jobs run on the instance pool template that can be accessed using
+      this key to query stephanie.
+    title: Instance Pool Template Key
+    type: string
+  job_template:
+    default: starfire_vizsql
+    description: This field describes the job template that is used for workflow execution.
+      The job template can be accessed using this key to query stephanie.
+    title: Job Template
+    type: string
+title: JobConfig
+type: object

@@ -1,0 +1,31 @@
+title: Catalog
+required:
+- id
+- name
+- client
+type: object
+properties:
+  id:
+    title: Id
+    type: string
+  name:
+    title: Name
+    type: string
+  client:
+    title: Client
+    type: string
+  schema:
+    title: Schema
+    type: object
+  derived_fields:
+    title: Derived Fields
+    type: object
+  config:
+    title: Config
+    type: object
+  solr_config:
+    title: Solr Config
+    type: object
+  version:
+    title: Version
+    type: string

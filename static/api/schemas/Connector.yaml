@@ -1,0 +1,71 @@
+title: Connector
+type: object
+properties:
+  name:
+    title: Name
+    type: string
+    example: s3_connector
+  type:
+    title: Type
+    type: string
+    example: s3
+  config:
+    title: Config
+    type: object
+required:
+- name
+- type
+- config
+x-examples:
+  example-1:
+    name: s3_connector
+    type: s3
+    config:
+      properties:
+        path:
+          type: string
+          example: s3://catalog/products/data
+          title: path
+        format:
+          type: string
+          example: csv
+          title: string
+          enum:
+          - csv
+          - jsonl
+        key:
+          type: string
+          description: AWS Access Key ID to access the s3 bucket. Required if the
+            s3 bucket is not public and if token is not provided.
+          title: key
+        secret:
+          type: string
+          description: AWS Access Key ID to access the s3 bucket. Required if the
+            s3 bucket is not public and if token is not provided.
+          title: secret
+        token:
+          type: string
+          description: AWS Access Token to access the s3 bucket. Required if the s3
+            bucket is not public and if key and secret are not provided.
+          title: token
+        required:
+        - path
+        - format
+  example-2:
+    name: kafka_connector
+    type: kafka
+    config:
+      properties:
+        kafka_brokers:
+          type: array
+          example:
+          - b-2.kafka.eu-central-1.amazonaws.com:9092
+          - b-1.kafka.eu-central-1.amazonaws.com:9092
+          title: array-kafka brokers
+        security_protocol:
+          type: string
+          example: PLAINTEXT
+          title: security protocol
+      required:
+      - kafka_brokers
+      - security_protocol

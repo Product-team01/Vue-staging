@@ -1,0 +1,11 @@
+---
+title: Osptimizer
+required:
+  - name
+  - params
+type: object
+properties:
+  name:
+    type: string
+  params:
+    $ref: './optimizer-params.yaml'

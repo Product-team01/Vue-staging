@@ -1,0 +1,43 @@
+type: object
+properties:
+  request_id:
+    type: string
+  correlation_id:
+    type: string
+  status:
+    type: string
+  data:
+    type: array
+    items:
+      type: object
+      properties:
+        use_case:
+          type: string
+          title: Use Case
+          description: Use case name
+        indexing:
+          type: string
+          title: Indexing
+        params:
+          type: object
+          properties:
+            field_name:
+              type: string
+              title: ES field name
+              description: Field name in ES
+            catalog_id:
+              title: Catalog Id
+              type: string
+  status_code:
+    type: integer
+
+example:
+  request_id: 96ee690675f611edae9722bc82d1a906
+  correlation_id: r96ee690675f611edae9722bc82d1a906
+  status: SUCCESS 
+  data:
+    use_case: rarity-test-9-2
+    indexing: elasticsearch
+    params:
+      field_name: rarity_5
+      catalog_id: 53bcbe723d

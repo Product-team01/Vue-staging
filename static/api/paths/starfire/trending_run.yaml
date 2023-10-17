@@ -1,0 +1,42 @@
+parameters:
+  - required: true
+    schema:
+      title: Use Case ID
+      type: string
+    name: use_case_id
+    in: path
+post:
+  tags:
+    - trending
+  summary: Run
+  description: Trigger a dag for the specific use case.
+  operationId: run_api_v1_trending_async_run_post
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/starfire_success_response.yaml'
+          example:
+            request_id: 96ee690675f611edae9722bc82d1a906
+            correlation_id: r96ee690675f611edae9722bc82d1a906
+            data:
+              message: 'Triggered Job for Trending use_case id b0e2c556-88ec-4299-997e-6e47fc6df57f'
+    '400':
+      description: Error Message.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/starfire_success_response.yaml'
+          example:
+            request_id: 96ee690675f611edae9722bc82d1a906
+            correlation_id: r96ee690675f611edae9722bc82d1a906
+            data:
+              message: 'Job already running for use case'

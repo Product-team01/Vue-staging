@@ -1,0 +1,14 @@
+properties:
+  count:
+    title: Count
+    type: integer
+  data:
+    items:
+      $ref: ../connectors_hub/IngressRun.yaml
+    title: Data
+    type: array
+required:
+- count
+- data
+title: ListIngressRunResponse
+type: object

@@ -1,0 +1,43 @@
+post:
+  tags:
+    - internal
+  summary: make extraction config active/inactive for  a segment by id
+  description: make extraction config active/inactive for  a segment by id
+  operationId: manageAssociationOfExtractionConfigBySegment
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+    - name: segment_id
+      in: path
+      description: uniqueidentifier of the segment
+      required: true
+      schema:
+        type: integer
+        format: int64
+    - name: extraction_config_id
+      in: path
+      description: uniqueidentifier of the extraction config
+      required: true
+      schema:
+        type: integer
+        format: int64
+  requestBody:
+    description: segment name that needs to be updated
+    content:
+      application/json:
+        schema:
+          properties:
+            active:
+              title: Make the association active or inactive
+              type: boolean
+              example: true
+    required: true
+  responses:
+    '200':
+      description: successful operation
+      content: {}
+
+  x-codegen-request-body-name: body

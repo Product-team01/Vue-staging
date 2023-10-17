@@ -1,0 +1,53 @@
+allOf:
+  - $ref: search_request_common.yaml
+  - type: object
+    properties:
+      catalogs:
+        type: object
+        description: "`catalogs` has one entry per `catalog-id` to its respective associated `fields`, `filters`, and page `context`"
+        additionalProperties:
+          type: object
+          properties:
+            fields:
+              description: metadata fields that needs to be sent in the response
+              type: array
+              items:
+                type: string
+            filters:
+              description: filters to be applied while serving recommendations
+              type: array
+              items:
+                type: object
+                properties:
+                  field:
+                    type: string
+                  value:
+                    type: array
+                    items:
+                      oneOf:
+                        - type: string
+                        - type: number
+                        - type: integer
+                  operator:
+                    type: string
+            context:
+              description: contains catalog fields for the respective catalog_id
+              type: object
+      max_content:
+        description: maximum no of recommendations needs to be served
+        type: integer
+      min_content:
+        description: minimum no of recommendations needs to be served
+        type: integer
+      min_bundles:
+        title: Min Bundle
+        description: In case of bundling recommendations ,Minimum bundled  recommendation that needs to be served 
+        type: integer
+      max_bundles:
+        title: Max bundle
+        description: In case of bundling recommendations ,Maximum bundled  recommendation that needs to be served 
+        type: integer
+      unbundle:
+        title: Unbundle
+        description: Setting this true will flatten out the recommendations served
+        type: boolean

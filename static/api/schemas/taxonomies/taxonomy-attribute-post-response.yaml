@@ -1,0 +1,18 @@
+---
+title: TaxonomyPostResponse
+required:
+  - attributes
+  - parent_taxonomy_id
+  - taxonomy_id
+type: object
+properties:
+  error_attributes:
+    type: array
+    items:
+      $ref: './taxonomy-attributes-without-children.yaml'
+  attributes:
+    type: array
+    items:
+      $ref: './taxonomy-attributes-without-children.yaml'
+  metadata:
+    $ref: './taxonomy_metadata.yaml'

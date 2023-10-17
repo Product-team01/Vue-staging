@@ -1,0 +1,36 @@
+type: object
+properties:
+  request_id:
+    type: string
+  correlation_id:
+    type: string
+  status:
+    type: string
+  data:
+    type: array
+    items:
+      type: object
+      properties:
+        use_case:
+          type: string
+          title: Use Case
+          description: Use case name
+        tiles:
+          type: array
+          items:
+            type: object
+            properties:
+              product_type:
+                type: array
+                items:
+                  type: number
+
+
+example:
+  request_id: 96ee690675f611edae9722bc82d1a906
+  correlation_id: r96ee690675f611edae9722bc82d1a906
+  status: SUCCESS 
+  data:
+    use_case: ef-9-2
+    tiles: 
+      shirt: [1, 2, 5, 10]

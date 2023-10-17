@@ -1,0 +1,33 @@
+title: Body_update_segments_api_v1_workflows_personalization_audiences_segments_put
+required:
+  - client
+  - use_case
+type: object
+properties:
+  client:
+    title: Client
+    type: string
+    description: unique identifier for the client (currently it is <client_id>_<client_name>)
+  use_case:
+    title: Use Case
+    type: string
+    description: unique identifier for the client's usecase e.g. segmentation_1, segmentation_2
+  preset_names:
+    title: Preset Names
+    type: array
+    items:
+      type: string
+    description: preset names that are to be added
+    default: []
+  segments:
+    title: Segments
+    type: array
+    items:
+      $ref: 'Segment.yaml'
+    description: File type segments to be added
+    default: []
+  overwrite:
+    title: Overwrite
+    type: boolean
+    description: overwrite all the segments
+    default: false

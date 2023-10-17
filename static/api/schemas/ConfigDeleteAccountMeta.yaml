@@ -1,0 +1,6 @@
+title: ConfigDelete
+type: object
+properties:
+  message:
+    title: message
+    type: string

@@ -1,0 +1,49 @@
+get:
+  tags:
+  - events
+  summary: Get job for a events
+  description: Get job_id details
+  operationId: get-jobs-job_id
+  parameters:
+  - required: true
+    schema:
+      title: job id
+      type: string
+    name: job_id
+    in: path
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+            - $ref: '../../schemas/ResponseTemplateSuccessNoData.yaml'
+            - type: object
+              properties:
+                data:
+                  $ref: '../../schemas/EventsAsyncJobResponse.yaml'
+    '400':
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'
+parameters:
+- schema:
+    type: string
+  name: job_id
+  in: path
+  required: true

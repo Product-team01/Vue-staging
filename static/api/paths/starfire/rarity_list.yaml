@@ -1,0 +1,19 @@
+get:
+  tags:
+    - rarity
+  summary: List Configs
+  description: Lists the info for the configs filtered by the values in the argument. If no filter specified all keys are returned.
+  operationId: list_configs_api_v1_rarity_list_get
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/starfire/rarity_list_config_response.yaml'

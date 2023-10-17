@@ -1,0 +1,184 @@
+get:
+  tags:
+  - accounts
+  summary: Allowed host Account
+  description: 'Archives the account and other related data.
+    Account api_key is required to authenticate the archival of the client'
+  operationId: get_allowed_host_id_account
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - required: true
+    schema:
+      title: Account Id
+      type: string
+    name: account_id
+    in: path
+  - required: true
+    schema:
+      title: allowed host id
+      type: string
+    name: allowed_host_id
+    in: path
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+            - $ref: '../../schemas/ResponseTemplateSuccessNoData.yaml'
+            - type: object
+              properties:
+                data:
+                  type: array
+                  items:
+                    $ref: "../../schemas/AccountAllowedHostOut.yaml"
+              required:
+                  - data
+          example:
+            request_id: 361616f07a2a11ed906d0ea7570d814d
+            correlation_id: 361616f07a2a11ed906d0ea7570d814d
+            status: SUCCESS
+            data:
+              - allowed_host: testDomain1.com
+                active: true
+                id: 32f9c74c-6755-457a-8335-888d89302ef0
+                client: 85f89538-20f3-55e5-9b61-5886cb490052
+                created_ts: '2022-12-12T14:35:23.495058'
+                updated_ts: '2022-12-12T14:35:23.495069'
+
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'
+
+
+patch:
+  tags:
+  - accounts
+  summary: Allowed host Account
+  description: |
+    Patch allowed host is used to make a allowed_host to be active true or false
+    It is kind of used to enable or disable particular allowed host
+  operationId: patch_allowed_host_account
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - required: true
+    schema:
+      title: Account Id
+      type: string
+    name: account_id
+    in: path
+  - required: true
+    schema:
+      title: allowed host
+      type: string
+    name: allowed_host_id
+    in: path
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/AccountAllowedHostPatch.yaml'
+    required: true
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+            - $ref: '../../schemas/ResponseTemplateSuccessNoData.yaml'
+            - type: object
+              properties:
+                data:
+                  type: array
+                  items:
+                    $ref: "../../schemas/AccountAllowedHostOut.yaml"
+              required:
+                  - data
+          example:
+            request_id: 361616f07a2a11ed906d0ea7570d814d
+            correlation_id: 361616f07a2a11ed906d0ea7570d814d
+            status: SUCCESS
+            data:
+              - allowed_host: testDomain1.com
+                active: true
+                id: 32f9c74c-6755-457a-8335-888d89302ef0
+                client: 85f89538-20f3-55e5-9b61-5886cb490052
+                created_ts: '2022-12-12T14:35:23.495058'
+                updated_ts: '2022-12-12T14:35:23.495069'
+
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'
+
+
+delete:
+  tags:
+  - accounts
+  summary: Allowed host Account
+  description: 'Delete allowed host account 
+    Account api_key or allowed is required to delete client'
+  operationId: delete_allowed_host_account
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - required: true
+    schema:
+      title: Account Id
+      type: string
+    name: account_id
+    in: path
+  - required: true
+    schema:
+      title: allowed host
+      type: string
+    name: allowed_host_id
+    in: path
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+            - $ref: '../../schemas/ResponseTemplateSuccessNoData.yaml'
+            - type: object
+              properties:
+                data:
+                  type: object
+                  properties:
+                    message:
+                      type: string
+              required:
+                  - data
+          example:
+            request_id: 361616f07a2a11ed906d0ea7570d814d
+            correlation_id: 361616f07a2a11ed906d0ea7570d814d
+            status: SUCCESS
+            data:
+              message: Allowed host deleted successfully
+
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'

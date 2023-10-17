@@ -1,0 +1,73 @@
+get:
+  tags:
+  - search
+  summary: Returns the workflow configs for a client
+  description: Fetch any config - Decide if we want these to be called out separate
+    or keep a single config api
+  operationId: get_workflow
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+            - $ref: '../../schemas/ResponseTemplateSuccessNoData.yaml'
+            - type: object
+              properties:
+                data:
+                  type: array
+                  items:
+                    $ref: '../../schemas/WorkflowOut.yaml'
+              required:
+                  - data
+
+post:
+  tags:
+  - internal
+  summary: Set a workflow  search-config
+  description: Set any configuration
+  operationId: set_workflow
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/WorkflowIn.yaml'
+        example:
+          $ref: '../../examples/workflows/request/workflow_sample.yaml'
+    required: true
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+            - $ref: '../../schemas/ResponseTemplateSuccessNoData.yaml'
+            - type: object
+              properties:
+                data:
+                  $ref: '../../schemas/WorkflowOut.yaml'
+              required:
+                  - data
+          example:
+            $ref: '../../examples/workflows/response/recommended_for_you.yaml'
+
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'

@@ -1,0 +1,141 @@
+parameters:
+  - required: true
+    schema:
+      title: Experiment Id
+      type: string
+    name: experiment_id
+    in: path
+  - required: true
+    schema:
+      title: Experience Id
+      type: string
+    name: experience_id
+    in: path
+get:
+  tags:
+    - search
+  summary: Get Experiment
+  description: Get specific Experiment for an Experience 
+  operationId: get_experiment_by_id
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  responses:
+    "200":
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "../../schemas/ResponseTemplateSuccessNoData.yaml"
+              - type: object
+                properties:
+                  data:
+                    $ref: "../../schemas/search/experiment.yaml"
+                required:
+                  - data
+          example:
+            request_id: 66578bc47ba011ed9f55f28c070c22cc
+            status: SUCCESS
+            data:
+              experiment_id: 05ac04e4-1a40-4ef9-9711-1760911e2701
+              experiment_name: Test 1
+              update_time: '2022-12-06 12:19:49.660495'
+              traffic_split:
+                - slot: Control
+                  split: 50
+                  control: true
+                - slot: slot2
+                  split: 50
+                  control: false
+              status: running
+              goal: Conversion Rate
+              metric: Purchase
+              assign_winning_module: false
+              expected_confidence: 95
+              traffic_allocation: manual
+    "404":
+      description: Config Not found
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/error_response.yaml"
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/error_response.yaml'
+patch:
+  tags:
+    - search
+  summary: Update experiment
+  description: Update experiment for an experience
+  operationId: update_experiment
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  requestBody:
+    description: Request for updating experiment
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas/search/experiment.yaml"
+  responses:
+    "200":
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "../../schemas/ResponseTemplateSuccessNoData.yaml"
+              - type: object
+                properties:
+                  data:
+                    $ref: "../../schemas/search/experiment.yaml"
+                required:
+                  - data
+          example:
+            request_id: 66578bc47ba011ed9f55f28c070c22cc
+            status: SUCCESS
+            data:
+              experiment_id: 05ac04e4-1a40-4ef9-9711-1760911e2701
+              experiment_name: Test 1
+              update_time: '2022-12-06 12:19:49.660495'
+              traffic_split:
+                - slot: Control
+                  split: 50
+                  control: true
+                - slot: slot2
+                  split: 50
+                  control: false
+              status: running
+              goal: Conversion Rate
+              metric: Purchase
+              assign_winning_module: false
+              expected_confidence: 95
+              traffic_allocation: manual
+    "400":
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/error_response.yaml"
+    "404":
+      description: Config Not found
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/error_response.yaml"
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/error_response.yaml'

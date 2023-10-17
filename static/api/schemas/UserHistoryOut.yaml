@@ -1,0 +1,31 @@
+title: ResponseTemplateSuccess
+type: object
+description:
+  Standard template to be used for user history response.
+properties:
+  request_id:
+    type: string
+    description: Id to track request
+  status:
+    type: string
+    description: state of the response
+    enum:
+      - SUCCESS
+      - FAILURE
+  data:
+    type: object
+    description: Dict of events, each has list of product_id and epoch timestamp
+    additionalProperties:
+      type: array
+      items:
+        type: array
+        items:
+          allOf:
+            - type: string
+              description: catalog primary key
+            - type: number
+              description: timestamp 
+    example:
+      PDPPageView: [['<product_id>', 1660843626.756383]]
+      Buy: [['<product_id>', 1660843627.756383]]
+

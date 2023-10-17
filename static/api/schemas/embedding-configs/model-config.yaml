@@ -1,0 +1,13 @@
+---
+title: ModelConfig
+required:
+  - epoch_id
+  - layer_list
+type: object
+properties:
+  epoch_id:
+    type: string
+  layer_list:
+    type: array
+    items:
+      type: string

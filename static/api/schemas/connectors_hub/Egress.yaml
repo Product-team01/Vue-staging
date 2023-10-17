@@ -1,0 +1,28 @@
+properties:
+  created_ts:
+    title: Created Ts
+    type: string
+  dataset_id:
+    title: Dataset Id
+    type: string
+  destination_id:
+    title: Destination Id
+    type: string
+  egress_id:
+    title: Egress Id
+    type: string
+  name:
+    title: Name
+    type: string
+  updated_ts:
+    title: Updated Ts
+    type: string
+required:
+- name
+- destination_id
+- dataset_id
+- egress_id
+- created_ts
+- updated_ts
+title: Egress
+type: object

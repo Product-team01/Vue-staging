@@ -1,0 +1,20 @@
+properties:
+  cpu_limit:
+    title: Cpu Limit
+    type: string
+  cpu_request:
+    title: Cpu Request
+    type: string
+  memory_limit:
+    title: Memory Limit
+    type: string
+  memory_request:
+    title: Memory Request
+    type: string
+required:
+- cpu_request
+- cpu_limit
+- memory_request
+- memory_limit
+title: ResourceRequirements
+type: object

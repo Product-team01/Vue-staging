@@ -1,0 +1,143 @@
+title: Experiment
+type: object
+properties:
+  assign_winning_module:
+    title: Assign AB test to to winning module
+    description: Setting it true means assign AB test to the winning entity
+    type: boolean
+    example: false
+  winning_entity:
+    title: Assign winning entity
+    description: This is the winning slot or module for the conducted AB test experiment
+    type: string
+    example: slot2
+  goal:
+    title: Goal of the AB test
+    description: Goal which is targetted to reach in a AB test experiment
+    type: string
+    example: Conversion Rate
+  metric:
+    title: Metric considered for the AB test goal
+    description: Metric considered for the AB test goal
+    type: string
+    example: Purchase
+  expected_confidence:
+    title: Metric considered for the AB test goal
+    description: expected confidence for the goal to be attained in AB test
+    type: integer
+    example: 95
+  confidence:
+    title: confidence metric of the AB test
+    type: array
+    example:
+      - slot: Control
+        confidence: 50
+      - slot: slot2
+        confidence: 50
+    items:
+      title: Confidence values
+      type: object
+      additionalProperties:
+        oneOf:
+          - type: object
+            properties:
+              confidence:
+                title: confidence value
+                description: confidence value
+                type: integer
+              slot:
+                title: slot
+                description: slot to which confidence is calculated
+                type: string
+          - type: object
+            properties:
+              confidence:
+                title: confidence value
+                description: confidence value
+                type: integer
+              module:
+                title: module
+                description: module to which confidence is calculated
+                type: string
+  experiment_id:
+    title: Id of the AB test
+    description: Unique Id of experiment
+    type: string
+    example: 81686d57-c783-47ab-b765-15880c49f8bb
+  experiment_name:
+    title: Name of the AB test
+    description: Name of the experiment
+    type: string
+    example: Test1
+  status:
+    title: status of the AB test
+    description: denotes whether experiment is running or stopped
+    type: string
+    example: running
+    enum:
+    - running
+    - stopped
+  update_time:
+    title: update time of the AB test
+    description: latest updated time of the AB test experiment
+    type: string
+    example: '2022-12-08 05:28:43.697671'
+  traffic_allocation:
+    title: allocation method of the AB test
+    description: method of allocation of AB tes experiment
+    type: string
+    example: manual
+    enum:
+    - manual
+    - dynamic
+  traffic_split:
+    title: Traffic configuration
+    type: array
+    example:
+      - slot: Control
+        split: 50
+        control: true
+      - slot: slot2
+        split: 50
+        control: false
+    items:
+      title: Traffic
+      type: object
+      additionalProperties:
+        oneOf:
+          - type: object
+            properties:
+              split:
+                title: split
+                description: denotes the split percentage to be assigned for each experiment
+                type: integer
+                maximum: 99
+                minimum: 1
+              slot:
+                title: slot
+                description: slot to which experiment allocate based on split percentage
+                type: string
+              control:
+                title: Controls the test
+                description: Setting this true denotes that it is a no show of the particular slot or module for that user
+                type: boolean
+          - type: object
+            properties:
+              split:
+                title: split
+                description: denotes the split percentage to be assigned for each experiment
+                type: integer
+                maximum: 99
+                minimum: 1
+              module:
+                title: module
+                description: module to which experiment allocate based on split percentage
+                type: string
+              control:
+                title: Controls the test
+                description: Setting this true denotes that it is a no show of the particular slot or module for that user
+                type: boolean
+
+required:
+  - experiment_id
+  - experience_id

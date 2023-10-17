@@ -1,0 +1,27 @@
+title: SlotConfig
+type: object
+properties:
+  name:
+    title: slot_name
+    type: string
+    example: SlotA
+  placement:
+    title: Placement of slot
+    type: object
+    properties:
+      path:
+        title: path of the element
+        type: string
+        example: html > body > div:nth-of-type(2)
+      position:
+        title: position of the slot
+        type: string
+        example: above
+      type:
+        title: position of the slot
+        type: string
+        example: inline
+  slot_behaviour:
+    title: slot_behaviour
+    type: string
+    example: single

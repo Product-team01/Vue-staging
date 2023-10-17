@@ -1,0 +1,29 @@
+title: RarityPostConfigResponse
+type: object
+properties:
+  request_id:
+    description: id to backtrack the request in internal services
+    type: string
+  correlation_id:
+    description: id sent by the caller to backtrack the request
+    type: string
+  status:
+    description: status of the request
+    type: string
+    enum:
+      - SUCCESS
+      - FAILURE
+  data:
+    type: object
+    properties:
+      message:
+        description: response message for disabling use_case
+        type: string
+
+example:
+  request_id: 96ee690675f611edae9722bc82d1a906
+  correlation_id: r96ee690675f611edae9722bc82d1a906
+  status: SUCCESS 
+  data:
+    message: 
+      status: Rarity Disabled for 2c14f558-aacf-57fd-9f9f-8aef29940248 - rarity-test-9-1

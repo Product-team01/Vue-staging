@@ -1,0 +1,6 @@
+description: An enumeration.
+enum:
+- ingress
+- egress
+title: ConnectionType
+type: string

@@ -1,0 +1,61 @@
+get:
+  tags:
+    - audiences
+  summary: Status
+  description: Get status of the latest dag run.
+  operationId: status_api_v1_workflows_personalization_audiences_status_get
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+    - required: false
+      schema:
+        title: Dag Id
+        type: string
+      name: dag_id
+      in: query
+    - required: false
+      schema:
+        title: Dag Run Id
+        type: string
+      name: dag_run_id
+      in: query
+    - required: false
+      schema:
+        title: Use Case
+        type: string
+      name: use_case
+      in: query
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/StatusResponse.yaml'
+    '400':
+      description: client does not exist
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/ErrorResponse.yaml'
+    '404':
+      description: config not found
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/ErrorResponse.yaml'
+    '409':
+      description: a run already in progress.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/ErrorResponse.yaml'
+    '425':
+      description: audience not enabled
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/ErrorResponse.yaml'

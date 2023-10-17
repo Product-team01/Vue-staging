@@ -1,0 +1,10 @@
+description: An enumeration.
+enum:
+- PENDING
+- RUNNING
+- COMPLETED
+- FAILED
+- CANCELLING
+- CANCELLED
+title: ConnectorRunStatus
+type: string

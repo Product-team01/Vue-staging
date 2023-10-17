@@ -1,0 +1,19 @@
+title: AccountApiKeyOut
+type: object
+properties:
+  api_key:
+    title: api_key
+    type: string
+  client:
+    title: client
+    type: string
+  active:
+    title: active
+    type: boolean
+  created_ts:
+    title: created time stamp
+    type: string
+  updated_ts:
+    title: updated time stamp
+    type: string
+

@@ -1,0 +1,15 @@
+title: Body_run_api_v1_workflows_personalization_audiences_async_run_post
+required:
+  - correlation_id
+type: object
+properties:
+  correlation_id:
+    title: Correlation Id
+    type: string
+    description: correlation_id for the request
+  segment_names:
+    title: Segment Names
+    type: array
+    items:
+      type: string
+    description: If no segment name is specified all the segments are triggered for computation that are already there in the config.

@@ -1,0 +1,148 @@
+title: ShazamGetResponse
+type: object
+properties:
+  request_id:
+    description: id to backtrack the request in internal services
+    type: string
+  correlation_id:
+    description: id sent by the caller to backtrack the request
+    type: string
+  data:
+    type: object
+
+example:
+  request_id: 516ab81e0b6d11ee8cfb927f024fed49
+  correlation_id: 7d1030767b8411edae01f28c070c22cc 
+  status: SUCCESS
+  data:
+    gender_dict:
+      baby:
+      - bebe
+      - baby
+      - infant
+      - infants
+      - babies
+      baby boy:
+      - baby@boy
+      baby girl:
+      - baby@girl
+      boys:
+      - boy
+      - boys
+      - boys'
+      - boy's
+      girls:
+      - girl
+      - girls
+      - girl's
+      - girls'
+      kids:
+      - kids
+      - kid
+      - kid's
+      - kids'
+      men:
+      - male
+      - men
+      - man
+      - men's
+      - man's
+      - man
+      - mens
+      - him
+      - gentleman
+      - gentlemen
+      teen boys:
+      - tween@boy
+      - youth@boy
+      - teen@boy
+      - adult@boy
+      teen girls:
+      - tween@girl
+      - youth@girl
+      - teen@girl
+      - adult@girl
+      unisex:
+      - unisex
+      women:
+      - female
+      - women
+      - woman
+      - women's
+      - woman's
+      - womans
+      - womens
+      - her
+      - lady
+      - ladies
+    gender_rank_dict:
+      baby: '1'
+      baby boy: '3'
+      baby girl: '3'
+      boys: '2'
+      girls: '2'
+      kids: '1'
+      men: '1'
+      teen boys: '1'
+      teen girls: '1'
+      unisex: '1'
+      women: '1'
+    ontology_weight: 5
+    title_weight: 10
+    combined_weight: 10
+    adjectives:
+    - belt
+    - bow
+    - charm
+    - midi@dress
+    - neck@tie
+    - short
+    - suspender
+    - tie
+    keyword_to_ont_map: s3://vuetag-mapping-automation-dev/staging/keyword_to_ont_map/default_keyword_to_ont_map_v1.json
+    ont_mapping: ont_mapping_digest_client
+    ont_mapping_version:
+      staging_ont_mapping_digest_client_latest: px9Rh041.JsHdamiowfpEdjLSsIlSeLX
+      prod_ont_mapping_digest_client_latest: Tk.Flk9djBArY4ND9Wv41ZM5mXjTBg_n
+      dev_ont_mapping_digest_client_latest: XHDTAfYmGkQP1pVPByu_Q0Xvwy7I.ZWW
+      box_arbiter:
+        wt_conf: 0.3
+        nms_mode: moad-specific
+        ignore_classes:
+        - watch
+      category:
+        input_mapping:
+        - key: image_url
+          value: img_path
+          image_extras: true
+          catalog_field: ''
+          model_field: ''
+          catalog_meta: ''
+      DenimLower:
+        default_prediction: non-denim
+      communicator:
+        structured_mapping: 'true'
+        input_tags: network_tags
+        facet_mapping:
+          task_order:
+          - validation_check_json: facet_mapping_msdtags
+            task_type:
+            - client_tags
+            task_name: ST_mapping_digest_client
+            structure_mapping_key: prod/structure_mapping/ST_mapping_digest_client/ST_mapping_digest_client.xlsx
+            allow_direct_tags:
+            - Sustainable Feature
+            - Material composition (%)
+            - Color Hex
+            - Lining (%)
+            - Padding (%)
+            - Washing Instructions
+        source: search
+        extras:
+          compute_tnd: 'true'
+        multivalues_enabled: []
+        main_tags:
+          productType: PRODUCT GROUP
+        client_id: 332
+        client_name: twoface
+        last_updated_time: '2020-07-08 09:43:19.176575'

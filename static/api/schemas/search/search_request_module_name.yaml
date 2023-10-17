@@ -1,0 +1,8 @@
+allOf:
+  - type: object
+    title: "Module Name Request"
+    properties:
+      module_name:
+        description: Name of the module to be executed
+        type: string
+  - $ref: search_request_common_non_text.yaml

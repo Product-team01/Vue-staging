@@ -1,0 +1,11 @@
+description: An enumeration.
+enum:
+- integer
+- string
+- float
+- bool
+- datetime
+- array
+- object
+title: ColumnDataType
+type: string

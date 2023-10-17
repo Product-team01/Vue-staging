@@ -1,0 +1,32 @@
+post:
+  tags:
+    - seasonality
+  summary: Post Config
+  description: |-
+    Lets one register a feature seasonality config
+  operationId: post_seasonality_config
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/starfire/seasonality_lite.yaml'
+    required: true
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+           $ref: '../../schemas/starfire/seasonality_get_config_response.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'

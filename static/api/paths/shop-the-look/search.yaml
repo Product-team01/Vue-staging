@@ -1,0 +1,38 @@
+post:
+  tags:
+    - shop-the-look
+  summary: Shop The Look Search
+  description: shop-the-look image search
+  operationId: shop-the-look_image_search
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  requestBody:
+    description: Curation request body
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas/shop-the-look/search.yaml"
+  responses:
+    "200":
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "../../schemas/ResponseTemplateSuccess.yaml"
+              - type: object
+                properties:
+                  data:
+                    $ref: "../../schemas/shop-the-look/search_response.yaml"
+                required:
+                  - data
+    "422":
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/validation_error_response.yaml"

@@ -1,0 +1,21 @@
+type: object
+properties:
+  status:
+    type: string
+  request_id:
+    type: string
+  correlation_id:
+    type: string
+  data:
+    type: object
+    properties:
+        file_path:
+          type: string
+        status:
+          type: string
+          enum:
+            - READY
+            - NOT_READY
+            - FAILED
+        job_id:
+          type: string

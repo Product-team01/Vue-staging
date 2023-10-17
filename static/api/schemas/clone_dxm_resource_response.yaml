@@ -1,0 +1,14 @@
+title: clone_metrics_resource_response
+type: object
+required:
+- cloned
+- clone_errors
+properties:
+  cloned:
+    type: string
+    description: detailed msg regarding the cloning of dxm resource
+  clone_errors:
+    type: array
+    items:
+      $ref: "clone_resource_error_response.yaml"
+    description: config clone which was not done for each enitity ( curation_errors | module_errors | strategy_errors | |template_errors )

@@ -1,0 +1,23 @@
+type: object
+properties:
+  model_deployment_id:
+    type: string
+    format: uuid
+    readOnly: true
+  epoch_id:
+    type: string
+    format: uuid
+    nullable: true
+  code_node:
+    type: string
+    format: uuid
+    nullable: true
+  deployment_data:
+    type: array
+    items:
+      $ref: 'DeploymentData.yaml'
+    writeOnly: true
+  docker_image:
+    type: string
+required:
+- model_deployment_id

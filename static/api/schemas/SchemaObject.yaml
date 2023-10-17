@@ -1,0 +1,39 @@
+title: SchemaObject
+type: object
+properties:
+  field:
+    title: field
+    type: string
+    example: item_id
+  datatype:
+    title: datatype
+    type: string
+    example: string
+  mandatory:
+    title: mandatory
+    type: boolean
+    example: true
+  validation:
+    title: validation
+    type: string
+    example: isNotNull
+  alias:
+    title: alias
+    type: string
+    example: product_id
+  mapping_field:
+    title: mapping_field
+    type: string
+    example: source_prodid
+  catalog_id:
+    title: catalog_id
+    type: string
+    example: asdasc3124
+  catalog_key:
+    title: catalog_key
+    type: string
+    example: ext_id
+required:
+- field
+- datatype
+- mandatory

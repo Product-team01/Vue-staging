@@ -1,0 +1,39 @@
+title: FileInfo
+required:
+  - file_type
+  - file_path
+type: object
+properties:
+  file_type:
+    title: File Type
+    type: string
+    description: type of file delta, parquet, csv
+  file_path:
+    title: File Path
+    type: string
+    description: path to the file
+  mode:
+    title: Mode
+    type: string
+    description: Mode used to write the file, append, overwrite
+    default: overwrite
+  df_type:
+    title: Df Type
+    type: string
+  field_mapping:
+    title: Field Mapping
+    type: array
+    items:
+      $ref: 'FieldMapping.yaml'
+    description: field mapping to rename columns of some table
+    default: []
+  partitionBy:
+    title: Partitionby
+    type: string
+    description: partition the data before saving using this column
+    default: ''
+  overwriteSchema:
+    title: Overwriteschema
+    type: string
+    description: overwrite the schema or not
+    default: 'false'

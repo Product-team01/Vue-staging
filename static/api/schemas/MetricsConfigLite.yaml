@@ -1,0 +1,47 @@
+title: MetricsConfigLite
+required:
+- date_configs
+- events_tbl_key_column
+- event_table
+- attribution_table
+- metrics_def
+type: object
+properties:
+  date_configs:
+    title: Date Configs
+    type: array
+    items:
+      type: string
+      example: ['2022-06-01', '2022-06-30']
+    description: Date Configuration for minimum and maximum run dates
+  push_to_rds:
+    title: Push to RDS
+    type: boolean
+    example: False
+    description: Date Configuration for minimum and maximum run dates
+  events_tbl_key_column:
+    title: Key Column in Events Table
+    type: string
+    example: 'mad_uuid'
+    description: Date Configuration for minimum and maximum run dates
+  event_table:
+    title: Event Table
+    type: array
+    items:
+      $ref: 'EventTable.yaml'
+    description: The List of event tables generated - table_name, filter, deduplicate,
+      join_for_products, columns_to_extract, preset
+  attribution_table:
+    title: Attribution Table
+    type: array
+    items:
+      $ref: 'AttributionTable.yaml'
+    description: The List of attribution tables generated - table_name, left_join,
+      right_join, attribution_column
+  metrics_def:
+    title: Metrics Def
+    type: array
+    items:
+      $ref: 'MetricsDefinitionConfig.yaml'
+    description: The List of metrics generated - metric_name, metric_type, table_name,
+      computation, field_name, level_name

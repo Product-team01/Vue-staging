@@ -1,0 +1,33 @@
+
+get:
+  tags:
+    - Jobs
+  summary: Job details
+  description: Job details
+  operationId: getJob
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - required: true
+    schema:
+      title: Job Id
+      type: string
+    name: job_id
+    in: path
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              request_id:
+                type: string
+              correlation_id:
+                type: string
+              data:
+                $ref: '../../schemas/jobs/JobResponse.yaml'

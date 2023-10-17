@@ -1,0 +1,10 @@
+request_id: 7d1030767b8411edae01f28c070c22cc
+correlation_id: 7d1030767b8411edae01f28c070c22cc
+status: SUCCESS
+data:
+  0e38d8e4-0a83-469d-a42a-91b1f1cefab3202210271666872422:
+    PDPPageView: 1
+    date: 27/10/2022
+  0e38d8e4-0a83-469d-a42a-91b1f1cefab3202210281666947838:
+    PDPPageView: 2
+    date: 28/10/2022

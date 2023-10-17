@@ -1,0 +1,101 @@
+title: Success
+type: object
+properties:
+  name:
+    title: workflow name
+    type: string
+  DAG:
+    title: DAG detail for workflow
+    type: array
+    description: |
+      contains code node name which has to be executed with their dependency
+      for their execution
+    items: 
+      type: object
+  metadata:
+    title: workflow related metadata
+    description: contains metadata info for a workflow
+    type: object
+  type:
+    description: |
+      Determines which type of workflow it is, like a Journey-aware or a contextual
+    type: string
+  inputs:
+    type: array
+    items:
+      type: object
+      properties:
+        name:
+          type: string
+        required:
+          type: boolean
+        description:
+          type: string
+  config_schema:
+    description: |
+      Gives the schema type for the input params for the strategies that has to use this workflow
+    oneOf:
+      - type: array
+        items:
+          type: object
+          properties:
+            type:
+              type: string
+            name:
+              type: object
+              properties:
+                enum:
+                  type: array
+                  items:
+                    type: string
+                discoverable:
+                  type: boolean
+            value:
+              type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - boolean
+                    - string
+                    - integer
+                    - integer-list
+                    - string-list
+                enum:
+                  type: array
+                  items:
+                    oneOf:
+                      - type: string
+                      - type: integer
+                      - type: number
+                min:
+                  type: integer
+                max:
+                  type: integer
+                default:
+                  oneOf:
+                    - type: array
+                      items:
+                        oneOf:
+                          - type: string
+                          - type: integer
+                          - type: number
+                    - type: string
+                    - type: integer
+                    - type: number
+                    - type: boolean
+                discoverable:
+                  type: boolean
+      - type: object
+        description: This will contain dynamic json schema for `config` param specified in the `strategy` based on the workflow
+  description:
+    type: string
+  required_config:
+    type: array
+    description: |
+      required config type on the strategy for the workflow to work seamlessly
+    items:
+      type: object
+      properties:
+        type:
+          type: string

@@ -1,0 +1,24 @@
+post:
+  tags:
+    - cfcp
+  summary: Discover Cfcp Use Cases for a Client
+  operationId: discover_cfcp
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/CFCPDiscover.yaml'
+    '404':
+      description: config does not exist
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/ErrorResponse.yaml'

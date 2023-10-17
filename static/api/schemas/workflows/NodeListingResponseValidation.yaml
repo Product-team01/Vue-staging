@@ -1,0 +1,16 @@
+properties:
+  count:
+    description: This field describes the total number of nodes that have been registered.
+    title: Count
+    type: integer
+  results:
+    description: This field describes the list of nodes that have been registered.
+    items:
+      $ref: ../workflows/NodeListingEntity.yaml
+    title: Results
+    type: array
+required:
+- count
+- results
+title: NodeListingResponseValidation
+type: object

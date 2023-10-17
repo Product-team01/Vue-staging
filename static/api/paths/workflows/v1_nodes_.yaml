@@ -1,0 +1,158 @@
+get:
+  description: 'This API lists the total number of nodes that have been registered
+    in the node registry, with its corresponding name and identifiers.
+
+    The goal of this API is to provide the registered nodes in a convenient format
+    that allows the user to browse and discover all entries in the registry.
+
+
+    There is no input required to invoke this API.
+
+    The output of this API is a count of the total number of nodes registered and
+    a list of all these nodes in the form of a dictionary - the key of the dictionary
+    being the n identifier and the value being the name of the node.'
+  operationId: list_nodes_api_v1_nodes__get
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - description: This query parameter describes whether we need to list either internal
+      nodes, external nodes or all nodes.
+    in: query
+    name: internal
+    required: false
+    schema:
+      description: This query parameter describes whether we need to list either internal
+        nodes, external nodes or all nodes.
+      title: Internal
+      type: boolean
+  - description: This query parameter describes whether we need to list either preset
+      nodes, custom nodes or all nodes.
+    in: query
+    name: preset
+    required: false
+    schema:
+      description: This query parameter describes whether we need to list either preset
+        nodes, custom nodes or all nodes.
+      title: Preset
+      type: boolean
+  - description: This query parameter enables the user to search for nodes in the
+      node registry based on tags.
+    in: query
+    name: tags
+    required: false
+    schema:
+      description: This query parameter enables the user to search for nodes in the
+        node registry based on tags.
+      title: Tags
+      type: string
+  - description: This query parameter allows you to search for nodes in the node registry.
+    in: query
+    name: search
+    required: false
+    schema:
+      description: This query parameter allows you to search for nodes in the node
+        registry.
+      title: Search
+      type: string
+  - description: This query parameter allows you to sort the listing query based on
+      a particular field.
+    in: query
+    name: sort_field
+    required: false
+    schema:
+      description: This query parameter allows you to sort the listing query based
+        on a particular field.
+      title: Sort Field
+      type: string
+  - description: This query parameter allows you to sort the listing query based on
+      ascending or descending order.
+    in: query
+    name: sort_order
+    required: false
+    schema:
+      description: This query parameter allows you to sort the listing query based
+        on ascending or descending order.
+      title: Sort Order
+      type: string
+  - description: This query parameter allows you to define the number of records that
+      must be skipped before selection for the listing query.
+    in: query
+    name: page_offset
+    required: false
+    schema:
+      description: This query parameter allows you to define the number of records
+        that must be skipped before selection for the listing query.
+      title: Page Offset
+      type: integer
+  - description: This query parameter allows you to limit the number of records returned
+      from the listing query.
+    in: query
+    name: page_limit
+    required: false
+    schema:
+      description: This query parameter allows you to limit the number of records
+        returned from the listing query.
+      title: Page Limit
+      type: integer
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/workflows/NodeListingResponse.yaml
+      description: Successful Response
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/workflows/HTTPValidationError.yaml
+      description: Validation Error
+  summary: List Nodes
+  tags:
+  - Nodes
+post:
+  description: "This API is used to register any node along with metadata configurations\
+    \ pertaining to it in the node registry.\nThe metadata for this node holds information\
+    \ about the node and its functionality in the workflow it is a part of.\nThe node\
+    \ registry also helps in isolating and composing nodes as entities that can be\
+    \ used to build and orchestrate workflows.\nWhile a node is created, the API also\
+    \ allows implicit referencing to the workflow of which it is a part of\n\nThe\
+    \ input to this API is:\n    1. a dictionary containing all the metadata about\
+    \ the node - name, description, and any other configurations that drives its functionality.\n\
+    \    2. a dictionary containing all the metadata about the workflow that the node\
+    \ is a part of which is required to be updated with the new node metadata configuration.\n\
+    The output is a node identifier which is a unique reference to this node in the\
+    \ node registry, and a config which is the same as the input along with the generated\
+    \ identifier."
+  operationId: create_node_api_v1_nodes__post
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../../schemas/workflows/Body_create_node_api_v1_nodes__post.yaml
+    required: true
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/workflows/NodeCreateResponse.yaml
+      description: Successful Response
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/workflows/HTTPValidationError.yaml
+      description: Validation Error
+  summary: Create Node
+  tags:
+  - Nodes

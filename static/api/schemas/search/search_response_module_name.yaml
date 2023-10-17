@@ -1,0 +1,91 @@
+type: object
+title: Module Search Response 
+properties:
+  request_id:
+      type: string
+      description: Id to track a request
+      example: fa5232-4342-424879b2-0717
+  correlation_id:
+    type: string
+    example: 879b2-0717fa5232-4342-424879b2-0717
+  status:
+    description: state of the request
+    type: string
+    example: ok
+  message:
+    type: string
+  
+  data:
+    type: array
+    items:
+      type: object
+      properties:
+        tiles:
+          type: array
+          description: place holder which denotes where each recommendation needs to be places with respect to UI.
+          items:
+            type: object
+            properties:
+              name:
+                description: name of the strategy from which recommendations are served
+                type: string
+              id:
+                description: Id of the strategy from which recommendations are served
+                type: string
+        errors:
+          description: Specifies any errors that occured while executing search call.
+          type: object
+        page_num:
+          description: In case of pagination this denotes the no of page user has navigated to. 
+          type: integer
+        page_size:
+          description: Denotes the length of recommendations served for s specific page. 
+          type: integer
+        num_of_pages: 
+          description: In case of pagination the total no of pages a user can navigate
+          type: integer
+        module_name:
+          description: Name of the module executed for serving recommendations
+          type: string
+        module_id:
+          description: Id of the module executed for serving recommendations
+          type: string
+        module_title:
+          description: Title of the module executed for serving recommendations
+          type: string
+        data:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              description: Contains any catalog fields for the specific catalog from which recommendations are served
+              items:
+                oneOf:
+                  - type: array
+                    items:
+                      anyOf:
+                        - type: string
+                        - type: number
+                        - type: integer
+                  - type: string
+                  - type: number
+                  - type: integer
+                  - type: boolean
+            example:
+              blox_tags:
+                - taxonomy_id: Id
+                  attributes: 
+                    - hierarchy: category>dress>typ 
+                      hierarchy_id: 123>456>789
+                      name: type
+                      id: abfa9a19-1004-4f96-84c9-91f79e5c10d1
+                      reviewed_status: APPROVED
+                      results:
+                        - confidence: 0.982
+                          value: aline
+                          value_id : b6504efb-cfb7-4cbf-b921-bcf0020b1a26
+                      prediction_value_box: null
+                
+                
+
+

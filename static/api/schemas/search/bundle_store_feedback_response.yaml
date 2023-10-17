@@ -1,0 +1,27 @@
+type: object
+title: Store feedback Response
+properties:
+  request_id:
+    type: string
+    description: Id to track a request
+    example: fa5232-4342-424879b2-0717
+  correlation_id:
+    type: string
+    example: 879b2-0717fa5232-4342-424879b2-0717
+  status:
+    description: state of the request
+    type: string
+    example: ok
+  data:
+    type: object
+    description: Response with key as strategy id and data as value. Empty dict is the expected.
+    example:
+      60957415-941b-4620-b0e9-0bc1a67f5a9b:
+        bundle_id: combined_collections_47430e39-76cb-5b2e-8e18-f122e9999a1c_pt-tata-run-1
+        Products:
+          {}
+    properties:
+      Products:
+        type: array
+        items:
+          type: object

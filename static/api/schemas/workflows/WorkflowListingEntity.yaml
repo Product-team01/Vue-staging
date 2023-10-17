@@ -1,0 +1,32 @@
+properties:
+  created_ts:
+    description: This field describes the initial date of creation of the workflow.
+    title: Created Ts
+    type: string
+  tags:
+    default: []
+    description: This field describes any set of tags that can be associated to the
+      workflow.
+    items:
+      type: string
+    title: Tags
+    type: array
+  updated_ts:
+    description: This field describes the latest date of updation of the workflow.
+    title: Updated Ts
+    type: string
+  workflow_id:
+    description: This field describes the identifier of the workflow.
+    title: Workflow Id
+    type: string
+  workflow_name:
+    description: This field describes the name of the workflow.
+    title: Workflow Name
+    type: string
+required:
+- workflow_id
+- workflow_name
+- created_ts
+- updated_ts
+title: WorkflowListingEntity
+type: object

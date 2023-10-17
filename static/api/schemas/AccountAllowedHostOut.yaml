@@ -1,0 +1,26 @@
+title: AllowedHostOut
+required:
+- id
+- name
+- client
+type: object
+properties:
+  id:
+    title: id
+    type: string
+  allowed_host:
+    title: allowed_host
+    description: allowed_host should entire url not the specific domain check example for reference
+    type: string
+  client:
+    title: account
+    type: string
+  active:
+    title: active
+    type: boolean
+  created_ts:
+    title: created time stamp
+    type: string
+  updated_ts:
+    title: updated time stamp
+    type: string

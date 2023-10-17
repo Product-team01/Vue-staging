@@ -1,0 +1,12 @@
+title: AutoScaleConfig
+required:
+- min_workers
+- max_workers
+type: object
+properties:
+  min_workers:
+    title: Min Workers
+    type: integer
+  max_workers:
+    title: Max Workers
+    type: integer

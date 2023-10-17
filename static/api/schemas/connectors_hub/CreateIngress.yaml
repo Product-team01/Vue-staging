@@ -1,0 +1,19 @@
+properties:
+  name:
+    title: Name
+    type: string
+  resource_requirements:
+    $ref: ../connectors_hub/ResourceRequirements.yaml
+  source_id:
+    title: Source Id
+    type: string
+  streams_to_sync:
+    items:
+      $ref: ../connectors_hub/streamConfig.yaml
+    title: Streams To Sync
+    type: array
+required:
+- name
+- source_id
+title: CreateIngress
+type: object

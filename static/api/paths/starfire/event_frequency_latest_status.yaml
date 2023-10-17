@@ -1,0 +1,49 @@
+parameters:
+  - required: true
+    schema:
+      title: Use Case ID
+      type: string
+    name: use_case_id
+    in: path
+get:
+  tags:
+    - event-frequency
+  summary: Get status of latest use case run
+  description: Get status of latest use case run
+  operationId: get_latest_status_event_frequency
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            properties:
+              request_id:
+                title: Request Id
+                type: string
+                description: request_id generated internally
+              correlation_id:
+                title: Correlation Id
+                type: string
+                description: correlation_id for the request
+              status:
+                title: Status
+                type: string
+                description: status for the request
+              data:
+                type: object
+                anyOf:
+                  - $ref: '../../schemas/DagStatus.yaml'
+                  - $ref: '../../schemas/EmptyDataResponse.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'

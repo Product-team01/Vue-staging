@@ -1,0 +1,19 @@
+title: Filter
+required:
+  - field
+  - type
+  - value
+type: object
+properties:
+  field:
+    title: Field
+    type: string
+  type:
+    title: Type
+    type: string
+  value:
+    title: Value
+    anyOf:
+      - type: string
+      - type: integer
+      - type: number

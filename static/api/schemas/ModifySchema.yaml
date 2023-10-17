@@ -1,0 +1,18 @@
+title: ModifySchema
+type: object
+properties:
+  add:
+    title: Add fields to schema
+    type: array
+    items:
+      $ref: 'SchemaConfig.yaml'
+  update:
+    title: Update fields in schema
+    type: array
+    items:
+      $ref: 'SchemaConfig.yaml'
+  delete:
+    title: Delete fields from schema
+    type: array
+    items:
+      type: string

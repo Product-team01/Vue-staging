@@ -1,0 +1,35 @@
+title: save_shop-the-look_outfit_request
+type: object
+properties:
+  catalogs:
+    type: object
+    properties:
+      catalog_id:
+        type: object
+        properties:
+          curations:
+            type: string
+          image_urls:
+            type: array
+            items:
+              type: string 
+          data:
+            type: object
+            properties:
+              pids:
+                type: array
+                items:
+                  type: string 
+
+example:
+  catalogs:
+    ac44a502b2:
+      curations: 374a01d5-9e37-4c31-aafa-60ff311abc71
+      image_urls:
+      - https://api.diesel.com/on/demandware.static/-/Sites-diesel-master-catalog/default/dw6e6c3349/images/large/A11154_0BIAF_9BX_C.jpg
+      data:
+        pids:
+        - id: 12435161pr
+        - id: 35340812hx
+        - id: 11797468ru
+        - id: 55019160mi

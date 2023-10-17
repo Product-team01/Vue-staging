@@ -1,0 +1,32 @@
+type: array
+items:
+  type: object
+  properties:
+    field:
+      type: string
+      description: |
+        The field mentioned here should be part of catalog and index attribute must be true
+    value:
+      oneOf:
+      - type: array
+        items:
+          anyOf:
+          - type: string
+          - type: number
+          - type: integer
+      - type: string
+      - type: number
+      - type: integer
+      - type: boolean
+    operator:
+      type: string
+      enum:
+        - eq
+        - ne
+        - gt
+        - lt
+        - lte
+        - exact
+        - not-exact
+        - contains
+        - not-contains

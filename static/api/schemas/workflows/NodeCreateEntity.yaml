@@ -1,0 +1,15 @@
+properties:
+  node_id:
+    description: This field describes the identifier of the node.
+    title: Node Id
+    type: string
+  workflow_id:
+    description: This field describes the identifier of the workflow that the node
+      corresponds to.
+    title: Workflow Id
+    type: string
+required:
+- node_id
+- workflow_id
+title: NodeCreateEntity
+type: object

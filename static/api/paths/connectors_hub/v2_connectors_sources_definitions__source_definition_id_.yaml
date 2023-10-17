@@ -1,0 +1,30 @@
+get:
+  description: Returns source defintion for a given source
+  operationId: get_source_definition_api_v2_connectors_sources_definitions__source_definition_id__get
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - in: path
+    name: source_definition_id
+    required: true
+    schema:
+      title: Source Definition Id
+      type: string
+  responses:
+    '200':
+      content:
+        application/json:
+          schema: {}
+      description: Successful Response
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/connectors_hub/HTTPValidationError.yaml
+      description: Validation Error
+  summary: Get Source Definition
+  tags:
+  - connectors

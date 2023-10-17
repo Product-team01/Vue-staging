@@ -1,0 +1,93 @@
+get:
+  tags:
+    - mail
+  summary: Image API
+  description: API to create image from the module recommendations
+  operationId: image_api
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+    - required: true
+      schema:
+        title: API Key
+        type: string
+        description: Client API key
+        example: b28c94b2195c8ed259f0b415aaee3f39b0b2
+      name: api_key
+      in: query
+    - required: true
+      schema:
+        title: User Id
+        type: string
+        example: b28c94b2195c8ed259f0b415aaee3f39b0b2
+      name: user_id
+      in: query
+    - required: true
+      schema:
+        title: Timestamp
+        type: string
+        example: 2022-12-23 12:23:00
+      name: timestamp
+      in: query
+    - required: true
+      schema:
+        title: Image Number
+        type: integer
+        minimum: 0
+        example: 3
+      name: image_no
+      in: query
+    - required: true
+      schema:
+        title: Module Name
+        type: string
+        example: recommended_for_you
+      name: module_name
+      in: query
+    - required: true
+      schema:
+        title: Catalog Id
+        type: string
+        example: 42975384dd
+      name: catalog_id
+      in: query
+    - required: false
+      schema:
+        title: Primary Key
+        type: string
+        description: Incase of Similar products module, primary key will be required
+        example: WIJN0612
+      name: primary_key
+      in: query
+    - required: false
+      schema:
+        title: Filters
+        type: string
+        description: Use this filter option only if you want to test it on the fly.
+        example: "[{'field'='Vendor','value'=['Vilshenko'],'operator'='not-exact'}]"
+      name: filters
+      in: query
+  responses:
+    "200":
+      description: Successful Response, This will return the image requested in the image/png format
+      content:
+        image/png:
+          schema:
+            type: string
+            format: binary
+    "401":
+      description: If the api_key passed is invalid
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+              request_id:
+                type: string
+              correlation_id:
+                type: string

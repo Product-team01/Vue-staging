@@ -1,0 +1,18 @@
+properties:
+  input_features:
+    default: []
+    description: This field describes a list of the fields present in the data which
+      are input features / independent variables required to train the model.
+    items: {}
+    title: Input Features
+    type: array
+  output:
+    description: This field describes an output or target field present in the data
+      which is considered as the target variable / dependent variable during model
+      training.
+    title: Output
+    type: string
+required:
+- output
+title: TrainDataConfig
+type: object

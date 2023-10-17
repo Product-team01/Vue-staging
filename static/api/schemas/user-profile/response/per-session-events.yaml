@@ -1,0 +1,11 @@
+title: Success
+type: object
+additionalProperties:
+  type: object
+  properties: 
+    timestamp:
+      type: string
+    time:
+      type: string
+    metadata:
+      type: object

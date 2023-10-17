@@ -1,0 +1,24 @@
+title: TrackEventIn
+required:
+- event_name
+- timestamp
+type: object
+properties:
+  blox_uuid:
+    title: uuid of the user
+    type: string
+  user_id:
+    title: id of the user
+    type: string
+  product_id:
+    title: identifier of the product
+    type: string
+  platform:
+    title: desktop or mobile
+    type: string
+  event_name:
+    title: Name of event registered
+    type: string
+  timestamp:
+    title: Timestamp of the event
+    type: integer

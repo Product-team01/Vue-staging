@@ -1,0 +1,12 @@
+type: object
+description: Represents the error details encountered
+properties:
+  code:
+    type: string
+    description: Unique identifier of the error code in the system
+  message:
+    type: string
+    description: Description of error code for human interpretation
+required:
+- code
+- message

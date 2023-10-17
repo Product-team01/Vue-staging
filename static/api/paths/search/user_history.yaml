@@ -1,0 +1,48 @@
+post:
+  tags:
+  - search
+  summary: Search User History
+  description: Get the user history for the given list of events
+  operationId: search_user_history
+  parameters:
+    - name: x-correlation-id
+      in: header
+      description: correlation id to track requests
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/UserHistoryIn.yaml'
+        example:
+          catalog_id : c49b53bf19
+          user_id: 49b53bf19-c49b53bf19
+          blox_uuid: 81b7e2a1-4a4b-4523-8a70-964b533d0981
+          events:
+          - Buy
+          - PDPPageview
+    required: true
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/UserHistoryOut.yaml'
+          example:
+            request_id: 81b7e2a1-4a4b-4523-8a70-964b533d0981
+            status: SUCCESS
+            data:
+              PDPPageView:
+                - - <product_id>
+                  - 1660843626.756383
+              Buy:
+                - - <product_id>
+                  - 1660843627.756383
+    '400':
+      description: Bad Request response
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'

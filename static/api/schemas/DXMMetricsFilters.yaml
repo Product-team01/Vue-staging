@@ -1,0 +1,19 @@
+title: DXM Metrics Filters
+type: "array"
+items:
+  type: object
+  properties:
+    name:
+      title: DXM Filter Name
+      type: string
+      description: Name of the DXM Metric
+      example: platform
+    options:
+      title: Options for the DXM Filter
+      description: List of values for which the DXM Filter can be applied
+      type: array
+      example:
+      - desktop
+      - mobile
+      items:
+        type: string

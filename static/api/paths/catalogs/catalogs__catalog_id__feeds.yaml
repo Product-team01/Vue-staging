@@ -1,0 +1,90 @@
+get:
+  tags:
+  - catalogs
+  summary: Get details of feeds processed.
+  description: Returns feeds processed in last 10 days or last 10 feeds whichever
+    is lesser in number.
+  operationId: get_feeds
+  parameters:
+  - name: x-correlation-id
+    in: header
+    description: correlation id to track requests
+    schema:
+      type: string
+  - required: true
+    schema:
+      title: Catalog Id
+      type: string
+    name: catalog_id
+    in: path
+  - required: false
+    schema:
+      title: Page Size
+      type: integer
+    description: Max number of feeds to be returned (default 10)
+    example: 10
+    name: page_size
+    in: query
+  - required: false
+    schema: 
+      title: Page Number
+      type: integer
+    description: The page number for the results
+    example: 2
+    name: page_num
+    in: query
+  - required: false
+    schema:
+      title: Exclude
+      type: string
+    description: List of feed_ids to be excluded from the response
+    name: exclude
+    in: query
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+            - $ref: '../../schemas/ResponseTemplateSuccessNoData.yaml'
+            - type: object
+              properties:
+                data:
+                  title: Data
+                  type: object
+                  properties:
+                    feeds:
+                      title: Feeds
+                      description: List of feeds for the catalog
+                      type: array
+                      items:
+                        $ref: '../../schemas/FeedResponse.yaml'
+                    total_count:
+                      title: Total Count
+                      description: Total number of feeds for the catalog
+                      type: integer
+                      example: 10
+                    count:
+                      title: Count
+                      description: Number of feeds in the response
+                      type: integer
+                      example: 5
+    '400':
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'
+    '422':
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/HTTPValidationError.yaml'
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/errors/failure-response.yaml'
