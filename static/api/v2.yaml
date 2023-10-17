@@ -76,8 +76,8 @@ paths:
     $ref: paths/mail/link.yaml
   /api/v1/mail/preview:
     $ref: paths/mail/preview.yaml
-  /api/v1/mail/template_preview:
-    $ref: paths/mail/template_preview.yaml  
+  # /api/v1/mail/template_preview:
+  #   $ref: paths/mail/template_preview.yaml  
 
 components:
   parameters:
