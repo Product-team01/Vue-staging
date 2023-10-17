@@ -37,6 +37,7 @@ get:
         title: Image Number
         type: integer
         minimum: 0
+        description: The index goes from 0 to (num_results - 1)
         example: 3
       name: image_no
       in: query

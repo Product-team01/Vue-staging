@@ -36,6 +36,7 @@ get:
       schema:
         title: Image Number
         type: integer
+        description: The index goes from 0 to (num_results - 1)
         minimum: 0
         example: 3
       name: image_no

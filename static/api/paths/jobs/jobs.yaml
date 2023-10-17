@@ -48,6 +48,12 @@ get:
     description: Filter jobs by job status
     schema:
       type: string
+
+  - name: review_statuses
+    in: query
+    description: Filter jobs by review status
+    schema:
+      type: string
   - name: search
     in: query
     description: Search jobs by job id
@@ -58,6 +64,11 @@ get:
     description: Filter jobs by workflow id
     schema:
       type: number
+  - name: metadata
+    in: query
+    description: Filter jobs by associated metadata
+    schema:
+      type: object
   responses:
     '200':
       description: successful operation

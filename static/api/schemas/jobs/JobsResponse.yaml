@@ -42,6 +42,8 @@ properties:
               type: string
             customer_account:
               type: string
+            metadata:
+              type: object
              
           required:
             - id

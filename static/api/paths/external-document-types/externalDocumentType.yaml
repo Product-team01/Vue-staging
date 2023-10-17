@@ -11,6 +11,37 @@ get:
     description: correlation id to track requests
     schema:
       type: string 
+
+  - name: limit
+    in: query
+    description:  Number of external document types per page 
+    schema:
+      type: number
+      default: 10
+  - name: page_no
+    in: query
+    description: Page number for pagination
+    schema:
+      type: number
+      default: 1
+  - name: sort_by
+    in: query
+    description: Field to sort external document types by 
+    schema:
+      type: string
+
+  - name: order
+    in: query
+    description: Sorting order (asc or desc)
+    schema:
+      type: string
+      default: asc
+  - name: search
+    in: query
+    description: Search external document types by name
+    schema:
+      type: string
+
   responses:
     '200':
       description: successful operation

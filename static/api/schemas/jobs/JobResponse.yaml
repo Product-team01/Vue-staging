@@ -32,6 +32,8 @@ properties:
         type: object
       summary:
         type: object
+      metadata:
+        type: object
              
     required:
       - id

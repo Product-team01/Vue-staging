@@ -1,3 +1,4 @@
+title: List External Document Types
 type: object
 properties:
   status:
@@ -7,17 +8,42 @@ properties:
   correlation_id:
     type: string
   data:
-    type: array
-    items:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-    required:
-      - id
-      - name
+    type: object
+    properties:
+      count:
+        type: integer
+      next:
+        type: string
+        nullable: true
+      previous:
+        type: string
+        nullable: true
+      results:
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              type: string
+            name:
+              type: string
+            document_count:
+              type: integer
+            created_ts:
+              type: string
+              format: date-time
+            modified_ts:
+              type: string
+              format: date-time
+          required:
+            - id
+            - name
+            - document_count
+            - created_ts
+            - modified_ts
+
+    required: [count, results]
+
   message:
     type: string
 required:
