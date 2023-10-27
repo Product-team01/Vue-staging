@@ -402,9 +402,8 @@ Catalogs can be retrieved from your Amazon S3 buckets. The configurations needed
 
 **Note**: Make sure the file path is publicly accessible.
 
-5. Fill all the mandatory fields for the selected upload method type
 
-6. Click on “Test Connection”.
+5. Click on “Test Connection”.
 
 **Note:** The connection must be successful in order to proceed to the next step. If ‘Test Connection’ fails please check the details provided and try again
 :::
@@ -430,6 +429,36 @@ To establish a successful connection for retrieving data from a Kafka cluster, f
 4. Choose a Security Protocol - PLAINTEXT or SSL
 
 5. Click on "Test Connection."
+
+**Note:** The connection must be successful in order to proceed to the next step. If 'Test Connection' fails, please review the details provided and try again.
+
+
+
+
+
+:::
+
+### RDS Upload method
+
+
+
+To establish a successful connection to retrieve data from RDS, follow the configuration steps outlined below:
+
+1. Choose "RDS" as the Data Source from the dropdown.
+
+2.  Choose the file format: either CSV or JSON.
+
+**Note:**  A sample file for the selected format can be downloaded by clicking on the “Download Sample File” CTA
+
+3. Toggle Multiline for the JSON Type
+
+4. Fill all the mandatory fields - Host, Port.
+
+5. Enter the Username , Password and database
+
+6. Click on "Test Connection."
+
+7. Enter the table path.
 
 **Note:** The connection must be successful in order to proceed to the next step. If 'Test Connection' fails, please review the details provided and try again.
 
