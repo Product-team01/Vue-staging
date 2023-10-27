@@ -406,8 +406,8 @@ const config = {
       navbar: {
         logo: {
           href: '/',
-          src: '/logo/1-1.png',
-          srcDark: '/logo/1-1.png',
+          src: '/logo/new-D.png',
+          srcDark: '/logo/new-w.png',
           alt: 'Blox',
           height: '40px',
           width: '101px',
