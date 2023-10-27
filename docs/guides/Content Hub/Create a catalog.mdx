@@ -371,11 +371,12 @@ Catalogs can be manually uploaded to Blox. These files can either be in the CSV 
 1. Enter the Upload Method Name for the connector
 1. Choose the Manual as the Upload method type from the dropdown
 
-**Note**: The configuration fields will be displayed for the Manual upload method.
 
 3.  Choose the file format: either CSV or JSON.
 
 **Note**: A sample file for the selected format can be downloaded by clicking on the “Download Sample File” CTA
+
+
 
 4.  Upload the file by either dragging and dropping onto the upload space or by clicking on the browse CTA.
 
@@ -389,13 +390,13 @@ Catalogs can be retrieved from your Amazon S3 buckets. The configurations needed
 
 1. Choose the Amazon S3  as the Upload method type from the dropdown
 
-**Note**: The configuration fields will be displayed for the Manual upload method.
 
 2.  Choose the file format: either CSV or JSON.
 
 **Note**: A sample file for the selected format can be downloaded by clicking on the “Download Sample File” CTA
 
-3. Enter the Secret, Token and Key for the S3 bucket
+3. Toggle Multiline if JSON type is selected
+4. Enter the Secret, Token and Key for the S3 bucket
 
 4. Enter the File path.
 
@@ -418,20 +419,17 @@ To establish a successful connection for retrieving data from a Kafka cluster, f
 
 1. Choose "Kafka" as the Data Source from the dropdown.
 
-**Note:** The configuration fields will be displayed for the Manual setup method.
-
-2. Choose the data format: JSON.
+**Note:** : Only JSON file format is supported 
 
 **Note:**  A sample file for the selected format can be downloaded by clicking on the “Download Sample File” CTA
 
+2. Toggle Multiline for the JSON Type
 
-3. Enter the Kafka broker details, including the host and port.
+3. Fill all the mandatory fields - Host. Port, Topic
 
-4. Enter the necessary credentials or authentication information, such as username and password, if required.
+4. Choose a Security Protocol - PLAINTEXT or SSL
 
-5. Fill all the mandatory fields for the selected upload method type
-
-6. Click on "Test Connection."
+5. Click on "Test Connection."
 
 **Note:** The connection must be successful in order to proceed to the next step. If 'Test Connection' fails, please review the details provided and try again.
 
