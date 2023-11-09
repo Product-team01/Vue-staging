@@ -426,7 +426,14 @@ const config = {
               value: sdksHTML,
               className: 'dyte-dropdown',
             }, ],
+            items: [{
+              href: 'https://example.com/custom-link',
+              label: 'Custom Button',
+              
+            }, ],
           },
+        
+          
           // {
           //   label: 'REST API',
           //   to: '/api/',
@@ -456,12 +463,12 @@ const config = {
           //   position: 'right',
           //   className: 'navbar-book-demo',
           // },
-          // {
-          //   label: 'Sign Up',
-          //   href: 'https://dev.dyte.io/register',
-          //   position: 'right',
-          //   className: 'dev-portal-signup dev-portal-link',
-          // },
+          {
+            label: 'Raise A Ticket',
+            href: 'https://dev.dyte.io/register',
+            position: 'right',
+            className: 'dev-portal-signup dev-portal-link',
+          },
         ],
       },
       footer: {

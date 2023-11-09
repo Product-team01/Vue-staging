@@ -9,7 +9,12 @@ import styles from './styles.module.css';
 
 function getPrettyPath(path) {
   return path.slice(-1) === '/' ? path.slice(0, -1) : path;
+    // Define a function to handle the button click
+  const handleButtonClick = () => {
+    alert('Button clicked!'); // You can replace this with your custom logic
+  };
 }
+<button type="submit" name="submit-button" value="clicked">Submit</button>
 
 export default function SidebarMenu() {
   const router = useHistory();
