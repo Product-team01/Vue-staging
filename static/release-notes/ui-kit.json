@@ -8,5 +8,45 @@
     "features": [
       "Welcome to Bloxy"
     ]
+  },
+  {
+    "version": "1.15.0",
+    "createdAt": 1687324800,
+    "fixes": [
+      "Resolved an issue causing unexpected behavior in certain edge cases of media device detection.",
+      "Addressed a bug where the participant's video feed would freeze during prolonged screen sharing sessions."
+    ],
+    "features": [
+      "Introducing dynamic background blur for video feeds, providing a polished and professional look during virtual meetings.",
+      "Enhanced network resilience to ensure a smoother experience in low-bandwidth environments.",
+      "Added support for customizable meeting themes, allowing users to personalize their meeting environment."
+    ]
+  },
+  {
+    "version": "1.16.0",
+    "createdAt": 1688150400,
+    "fixes": [
+      "Fixed a rare issue causing audio distortion in specific network conditions.",
+      "Improved the accuracy of participant status updates during high-traffic meetings."
+    ],
+    "features": [
+      "Rolling out a new set of emojis for chat reactions, making virtual conversations more expressive.",
+      "Introduced an AI-driven noise cancellation feature to enhance audio quality during meetings.",
+      "Added real-time language translation for cross-language communication in the meeting chat."
+    ]
+  },
+  {
+    "version": "1.17.0",
+    "createdAt": 1688976000,
+    "fixes": [
+      "Addressed an issue causing occasional synchronization errors between audio and video streams.",
+      "Resolved a bug leading to intermittent connection drops for participants on slower networks."
+    ],
+    "features": [
+      "Launched a virtual background gallery with a variety of professional and fun backgrounds to choose from.",
+      "Implemented a participant engagement analytics dashboard for meeting hosts to track audience interactions.",
+      "Introduced support for live transcription and closed captions to enhance accessibility."
+    ]
   }
+  
 ]
