@@ -223,7 +223,7 @@ export default function FAQPage() {
                         and other industries. Join us in driving growth and
                         efficiency with our cutting-edge A.I. solutions.
                       </p>
-                      <img src='https://d1r1e7xjkfj7nz.cloudfront.net/release1.png'></img>
+                      <img src="https://d1r1e7xjkfj7nz.cloudfront.net/release1.png"></img>
 
                       {/* <li>View the list of created source and manage them.</li>
         <li>Creation & Configuration of the source</li>
@@ -299,11 +299,49 @@ export default function FAQPage() {
                         <li>
                           configure connection sync settings, sync schedule
                         </li>
+                        <li>configure schema, data validations</li>
+                      </ol>
+                      <p>
+                        For more detailed information, please refer to our user
+                        guide.
+                      </p>
+                      <h3>Content Hub</h3>
+                      <p>
+                        Presenting Content Hub, where catalog management is now
+                        a breeze. As a catalog manager, you now have the ability
+                        to upload and enrich your catalog data, which is then
+                        used for powering strategies to tailor personalized
+                        experiences for your customers. With Content Hub, you
+                        can easily upload, configure, and manage your catalogs.
+                        Whether it's a one-time upload or a continuously updated
+                        catalog, we've got you covered with our flexible sync
+                        schedules. Additionally, you can standardize your
+                        catalog, fix any errors, and have full control over your
+                        content. And that's not all - Content Hub also allows
+                        you to build and deploy image classification models
+                        using your catalog data. Get ready for seamless catalog
+                        management with Content Hub.
+                      </p>
+                      <img src="https://d1r1e7xjkfj7nz.cloudfront.net/Screenshot%202023-04-06%20at%208.18.59%20AM.png "></img>
+                      <h2>Here’s the host of features that await you!</h2>
+                      <h3>Explore</h3>
+                      <ol>
+                        <p>
+                          From a centralized dashboard, create catalogs - either
+                          from scratch or from segment presets - and manage the
+                          content, enriched data, and data errors across
+                          catalogs.
+                        </p>
                         <li>
-                        configure schema, data validations
-
-
+                          View the list of created connections and manage them.{' '}
                         </li>
+                        <li>Creation & Configuration of the connections</li>
+                        <li>Creation & Configuration of the destination</li>
+                        <li>select the source & destination</li>
+                        <li>
+                          configure connection sync settings, sync schedule
+                        </li>
+                        <li>configure schema, data validations</li>
                       </ol>
                       <p>
                         For more detailed information, please refer to our user
@@ -348,7 +386,7 @@ export default function FAQPage() {
                     </div>
                   </div>
 
-                  {/* Add more ChangelogItem components for other versions */}
+                  Add more ChangelogItem components for other versions
                   <div className="item">
                     <div className="timeline">
                       <div>
