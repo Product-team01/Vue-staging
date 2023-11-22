@@ -158,13 +158,12 @@ export default function FAQPage() {
       <>
         <link rel="stylesheet" href="relase.css" />
         <body>
-       
-
           <div id="page-container">
             <h1>Release Notes</h1>
             <section>
               <div id="changelogs">
                 <div id="items">
+                  {/* Version 1.0.1 */}
                   <div className="item">
                     <div className="timeline">
                       <div>
@@ -190,14 +189,12 @@ export default function FAQPage() {
                       </div>
                       <div className="feature">
                         <div className="tag fixes">Fixes</div>
-                        <p>
-                          If there was anything broken, it wouldn't be
-                          anymore... 🙂
-                        </p>
+                        <p>If there was anything broken, it wouldn't be anymore... 🙂</p>
                       </div>
                     </div>
                   </div>
-
+  
+                  {/* Version 1.0.0 */}
                   <div className="item">
                     <div className="timeline has-next">
                       <div>
@@ -211,47 +208,133 @@ export default function FAQPage() {
                       </div>
                     </div>
                     <div className="content">
-                      <h3>Welcome to our new way of sharing release notes!</h3>
+                      <h3>Welcome to Vue!</h3>
+                      <ol>
+        <li>View the list of created source and manage them.</li>
+        <li>Creation & Configuration of the source</li>
+        <li>configure source details & credentials</li>
+        <li>configure sync settings, sync schedulem</li>
+    
+    </ol>
+                      <h3>Connectors Hub</h3>
                       <p>
-                        From here on out, this will be the go-to place to see
-                        new changes! Make sure to <b>subscribe</b> to never miss
-                        out on anything going on.
+                        {/* More content for Version 1.0.0 */}
+                      </p>
+                    </div>
+                  </div>
+  
+                  {/* Version 2.0 */}
+                  <div className="item">
+                    <div className="timeline">
+                      <div>
+                        <div className="meta">
+                          <div className="version">Version 2.0.0</div>
+                          <div className="release-date">New Release Date</div>
+                        </div>
+                        <div className="connector">
+                          <div></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="content">
+                      <h3>New features in Version 2.0.0! 🚀</h3>
+                      <p>Describe the new features and changes in version 2.0.0.</p>
+                      <div className="feature">
+                        <div className="tag new">New</div>
+                        <p>Highlight any new additions.</p>
+                      </div>
+                      <div className="feature">
+                        <div className="tag enhancements">Enhancement</div>
+                        <p>Describe any enhancements or improvements.</p>
+                      </div>
+                      <div className="feature">
+                        <div className="tag fixes">Fixes</div>
+                        <p>Mention any bug fixes or issues that have been addressed.</p>
+                      </div>
+                    </div>
+                  </div>
+   
+                  {/* Add more ChangelogItem components for other versions */}
+                  <div className="item">
+                    <div className="timeline">
+                      <div>
+                        <div className="meta">
+                          <div className="version">Version 2.0.0</div>
+                          <div className="release-date">New Release Date</div>
+                        </div>
+                        <div className="connector">
+                          <div></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="content">
+                      <h3>New features in Version 2.0.0! 🚀</h3>
+                      <p>Describe the new features and changes in version 2.0.0.</p>
+                      <div className="feature">
+                        <div className="tag new">New</div>
+                        <p>Highlight any new additions.</p>
+                      </div>
+                      <div className="feature">
+                        <div className="tag enhancements">Enhancement</div>
+                        <p>Describe any enhancements or improvements.</p>
+                      </div>
+                      <div className="feature">
+                        <div className="tag fixes">Fixes</div>
+                        <p>Mention any bug fixes or issues that have been addressed.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="item">
+                    <div className="timeline has-next">
+                      <div>
+                        <div className="meta">
+                          <div className="version">Version 1.0.0</div>
+                          <div className="release-date">2 Weeks Ago</div>
+                        </div>
+                        <div className="connector">
+                          <div></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="content">
+                      <h3>Welcome to Vue!</h3>
+                      <p>
+                        {/* Content for Version 1.0.0 */}
+                        Welcome to Connectors Hub, which enables you to connect to any data sources and create datasets. Whether you are a IT head or data scientist or site merchandizer or analyst, you now have the ability to onboard your data, for consumption or analysis downstream or to simply unify, transform & write to any destination.
+
+With Connector Hub, you can easily upload, configure, and manage datasets. Onboard data from over 200+ data sources by creating source, destination & connections, by configuring schema, data validations, sync mode & schedule and manage your data. Data management made effortless.
+
+Here’s the host of features that await you!
+                      </p>
+                      <h3>Connectors Hub</h3>
+                      <p>
+                        {/* More content for Version 1.0.0 */}
+                        Welcome to Connectors Hub, which enables you to connect to any data sources and create datasets. Whether you are a IT head or data scientist or site merchandizer or analyst, you now have the ability to onboard your data, for consumption or analysis downstream or to simply unify, transform & write to any destination.
+
+With Connector Hub, you can easily upload, configure, and manage datasets. Onboard data from over 200+ data sources by creating source, destination & connections, by configuring schema, data validations, sync mode & schedule and manage your data. Data management made effortless.
+
+Here’s the host of features that await you!
                       </p>
                     </div>
                   </div>
                 </div>
-
-                <div id="pagination" tabIndex="0">
-                 
-                </div>
+                <div id="pagination" tabIndex="0"></div>
               </div>
-
+  
               <form id="subscribe">
                 <div>
                   <h2>Keep up to date!</h2>
                   <div>Want to be the first to hear about changes?</div>
-                  <input
-                    type="text"
-                    id="email"
-                    name="email"
-                    placeholder="Email..."
-                  />
-                  <button className="button" type="button" id="submit">
-                    Subscribe
-                  </button>
+                  <input type="text" id="email" name="email" placeholder="Email..." />
+                  <button className="button" type="button" id="submit">Subscribe</button>
                 </div>
               </form>
             </section>
-            {/* <footer>
-              Copyright <span id="year"></span>, All Rights Reserved.
-            </footer> */}
           </div>
+          <script src="relase.js"></script>
         </body>
-        <script src="relase.js"></script>
       </>
-
       <HelpSection className="relative z-10 border border-solid border-secondary-700" />
-    
     </Layout>
   );
 }
