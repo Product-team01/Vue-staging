@@ -10,6 +10,10 @@ import './relase.css';
 import FAQs from '../faq';
 import { useEffect } from 'react';
 import HelpSection from '../components/homepage/HelpSection';
+import {
+  PaddingDown20Filled,
+  PaddingLeft20Filled,
+} from '@fluentui/react-icons';
 
 const tags = FAQs.reduce((allTags, faq) => {
   if (!faq.tags) return allTags;
@@ -164,45 +168,13 @@ export default function FAQPage() {
               <div id="changelogs">
                 <div id="items">
                   {/* Version 1.0.1 */}
-                  <div className="item">
-                    <div className="timeline">
-                      <div>
-                        <div className="meta">
-                          <div className="version">Version 1.0.1</div>
-                          <div className="release-date">Today</div>
-                        </div>
-                        <div className="connector">
-                          <div></div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="content">
-                      <h3>A new timeline release! 🎉</h3>
-                      <p>New release includes a new fresh timeline and tags!</p>
-                      <div className="feature">
-                        <div className="tag new">New</div>
-                        <p>Snazzy new timeline and tag types!</p>
-                      </div>
-                      <div className="feature">
-                        <div className="tag enhancements">Enhancement</div>
-                        <p>Implemented new fixed header!</p>
-                      </div>
-                      <div className="feature">
-                        <div className="tag fixes">Fixes</div>
-                        <p>
-                          If there was anything broken, it wouldn't be
-                          anymore... 🙂
-                        </p>
-                      </div>
-                    </div>
-                  </div>
 
                   {/* Version 1.0.0 */}
                   <div className="item">
                     <div className="timeline has-next">
                       <div>
                         <div className="meta">
-                          <div className="version">Version 1.0.0</div>
+                          <div className="version"> Blox v1</div>
                           <div className="release-date">2 Weeks Ago</div>
                         </div>
                         <div className="connector">
@@ -355,8 +327,8 @@ export default function FAQPage() {
                     <div className="timeline">
                       <div>
                         <div className="meta">
-                          <div className="version">Version 2.0.0</div>
-                          <div className="release-date">New Release Date</div>
+                          <div className="version">Blox v2</div>
+                          <div className="release-date"> today</div>
                         </div>
                         <div className="connector">
                           <div></div>
@@ -364,30 +336,57 @@ export default function FAQPage() {
                       </div>
                     </div>
                     <div className="content">
-                      <h3>New features in Version 2.0.0! 🚀</h3>
-                      <p>
-                        Describe the new features and changes in version 2.0.0.
-                      </p>
+                      <h3> Content Hub - Catalog Create 🚀</h3>
+
+                      <p></p>
                       <div className="feature">
                         <div className="tag new">New</div>
-                        <p>Highlight any new additions.</p>
+
+                        <p>
+                          Customers can now connect and manage multiple data
+                          sources within the same catalog
+                        </p>
                       </div>
                       <div className="feature">
                         <div className="tag enhancements">Enhancement</div>
-                        <p>Describe any enhancements or improvements.</p>
+                        <p>
+                          Add multiple connectors to the same catalog Manage and
+                          organize data from multiple sources in one place
+                        </p>
+                      </div>
+                      <div className="feature">
+                        <h3> Content Hub - Catalog Explore </h3>
+                      </div>
+                      <div className="feature">
+                        <div className="tag new">New</div>
+
+                        <p>
+                          <b>Manually upload adhoc files:</b>
+                          You will now be able to upload Catalog data in either
+                          csv or json formats o any existing Catalog with a
+                          ‘Manual’ data source
+                        </p>
+                      </div>
+                      <div className="feature">
+                        <div className="tag enhancements">Enhancement</div>
+                        <p>
+                          Customers can add files using manual upload method
+                        </p>
+                      </div>
+                      <div className="feature">
+                        <h3> Content Hub - Enrich </h3>
                       </div>
                       <div className="feature">
                         <div className="tag fixes">Fixes</div>
                         <p>
-                          Mention any bug fixes or issues that have been
-                          addressed.
+                        improve the accuracy and performance of the image classification process. 
                         </p>
                       </div>
+                     
                     </div>
                   </div>
 
-                  Add more ChangelogItem components for other versions
-                  <div className="item">
+                  {/* <div className="item">
                     <div className="timeline">
                       <div>
                         <div className="meta">
@@ -420,13 +419,13 @@ export default function FAQPage() {
                         </p>
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                   <div className="item">
                     <div className="timeline has-next">
                       <div>
                         <div className="meta">
-                          <div className="version">Version 1.0.0</div>
-                          <div className="release-date">2 Weeks Ago</div>
+                          <div className="version">Blox v3</div>
+                          <div className="release-date"></div>
                         </div>
                         <div className="connector">
                           <div></div>
