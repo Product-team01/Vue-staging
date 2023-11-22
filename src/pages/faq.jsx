@@ -6,7 +6,7 @@ import { useMemo } from 'react';
 import { Minus, Plus, Search } from 'react-feather';
 import { paramCase } from 'param-case';
 import ReactMarkdown from 'react-markdown';
-
+import './relase.css';
 import FAQs from '../faq';
 import { useEffect } from 'react';
 import HelpSection from '../components/homepage/HelpSection';
@@ -155,77 +155,103 @@ export default function FAQPage() {
   return (
     <Layout wrapperClassName="faq-page bg-secondary-1000" noFooter>
       {/* Hero? */}
-      <section className="noise-bg px-6 py-24">
-        <div className="mx-auto flex max-w-7xl flex-col place-items-center justify-center">
-          <div className="font-semibold text-zinc-800 dark:text-zinc-300">
-            Frequently Asked Questions
-          </div>
-          <div className="my-8 text-center text-4xl font-bold leading-tight text-zinc-800 dark:text-zinc-100 lg:text-6xl">
-            <div>Any questions?</div>
-            <div>We got you.</div>
-          </div>
-          <div className="relative flex w-full max-w-md items-center text-zinc-700 dark:text-white">
-            <Search className="z-10 h-5 w-5 translate-x-1.5" />
-            <input
-              type="text"
-              className="-ml-5 h-10 flex-1 rounded-md border border-solid border-zinc-200 bg-white px-3 pl-8 text-sm text-zinc-700 dark:border-zinc-800 dark:bg-secondary-1000 dark:text-zinc-200"
-              placeholder="Search your query...(sdk, api, write code)"
-              value={query}
-              onInput={(e) => setQuery(e.currentTarget.value)}
-            />
-          </div>
-        </div>
-      </section>
+      <>
+        <link rel="stylesheet" href="relase.css" />
+        <body>
+       
 
-      <section className="mb-20 px-6 py-12">
-        <div className="mx-auto max-w-7xl">
-          {query.trim() !== '' ? (
-            filteredFAQs.length === 0 ? (
-              <div className="mb-12 text-2xl font-semibold">
-                😢 Sorry, no results matched your search terms
-              </div>
-            ) : (
-              <div className="mb-12 text-xl font-semibold">
-                🙌 Showing {filteredFAQs.length} results for &quot;{query}&quot;
-              </div>
-            )
-          ) : (
-            <div className="inline-flex items-center gap-2 rounded-lg bg-zinc-100 p-2 dark:bg-zinc-800">
-              <Pill tag="All" />
-              {tags.map((tag) => (
-                <Pill tag={tag} key={tag} />
-              ))}
-            </div>
-          )}
+          <div id="page-container">
+            <h1>Release Notes</h1>
+            <section>
+              <div id="changelogs">
+                <div id="items">
+                  <div className="item">
+                    <div className="timeline">
+                      <div>
+                        <div className="meta">
+                          <div className="version">Version 1.0.1</div>
+                          <div className="release-date">Today</div>
+                        </div>
+                        <div className="connector">
+                          <div></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="content">
+                      <h3>A new timeline release! 🎉</h3>
+                      <p>New release includes a new fresh timeline and tags!</p>
+                      <div className="feature">
+                        <div className="tag new">New</div>
+                        <p>Snazzy new timeline and tag types!</p>
+                      </div>
+                      <div className="feature">
+                        <div className="tag enhancements">Enhancement</div>
+                        <p>Implemented new fixed header!</p>
+                      </div>
+                      <div className="feature">
+                        <div className="tag fixes">Fixes</div>
+                        <p>
+                          If there was anything broken, it wouldn't be
+                          anymore... 🙂
+                        </p>
+                      </div>
+                    </div>
+                  </div>
 
-          {/* FAQs */}
-          <div className="mt-12 flex flex-col gap-3">
-            {filteredFAQs.map((faq) => {
-              const id = paramCase(faq.question);
-              return (
-                <Accordion
-                  title={faq.question}
-                  tags={faq.tags || []}
-                  key={faq.question}
-                  open={activeFAQ === id}
-                  onOpen={() => {
-                    setActiveFAQ(id);
-                  }}
-                  onClose={() => {
-                    setActiveFAQ('');
-                  }}
-                >
-                  <ReactMarkdown>{faq.answer}</ReactMarkdown>
-                </Accordion>
-              );
-            })}
+                  <div className="item">
+                    <div className="timeline has-next">
+                      <div>
+                        <div className="meta">
+                          <div className="version">Version 1.0.0</div>
+                          <div className="release-date">2 Weeks Ago</div>
+                        </div>
+                        <div className="connector">
+                          <div></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="content">
+                      <h3>Welcome to our new way of sharing release notes!</h3>
+                      <p>
+                        From here on out, this will be the go-to place to see
+                        new changes! Make sure to <b>subscribe</b> to never miss
+                        out on anything going on.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="pagination" tabIndex="0">
+                 
+                </div>
+              </div>
+
+              <form id="subscribe">
+                <div>
+                  <h2>Keep up to date!</h2>
+                  <div>Want to be the first to hear about changes?</div>
+                  <input
+                    type="text"
+                    id="email"
+                    name="email"
+                    placeholder="Email..."
+                  />
+                  <button className="button" type="button" id="submit">
+                    Subscribe
+                  </button>
+                </div>
+              </form>
+            </section>
+            {/* <footer>
+              Copyright <span id="year"></span>, All Rights Reserved.
+            </footer> */}
           </div>
-        </div>
-      </section>
+        </body>
+        <script src="relase.js"></script>
+      </>
 
       <HelpSection className="relative z-10 border border-solid border-secondary-700" />
-
-      <HomeFooter className="-mt-20 pt-32 pb-12" />
+    
     </Layout>
   );
 }
