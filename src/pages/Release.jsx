@@ -189,11 +189,14 @@ export default function FAQPage() {
                       </div>
                       <div className="feature">
                         <div className="tag fixes">Fixes</div>
-                        <p>If there was anything broken, it wouldn't be anymore... 🙂</p>
+                        <p>
+                          If there was anything broken, it wouldn't be
+                          anymore... 🙂
+                        </p>
                       </div>
                     </div>
                   </div>
-  
+
                   {/* Version 1.0.0 */}
                   <div className="item">
                     <div className="timeline has-next">
@@ -209,20 +212,106 @@ export default function FAQPage() {
                     </div>
                     <div className="content">
                       <h3>Welcome to Vue!</h3>
-                      <ol>
-        <li>View the list of created source and manage them.</li>
+                      <p>
+                        Experience the transformative power of Vue's Enterprise
+                        AI (AI in a Box). Our solution revolutionizes businesses
+                        through process automation and delivers
+                        hyper-personalized experiences at scale, in real-time.
+                        With Vue AI, a dynamic and fully customizable system, we
+                        have successfully tackled complex challenges across
+                        retail, healthcare, finance, education, entertainment,
+                        and other industries. Join us in driving growth and
+                        efficiency with our cutting-edge A.I. solutions.
+                      </p>
+                      <img src='https://d1r1e7xjkfj7nz.cloudfront.net/release1.png'></img>
+
+                      {/* <li>View the list of created source and manage them.</li>
         <li>Creation & Configuration of the source</li>
         <li>configure source details & credentials</li>
-        <li>configure sync settings, sync schedulem</li>
-    
-    </ol>
+        <li>configure sync settings, sync schedulem</li> */}
+
                       <h3>Connectors Hub</h3>
                       <p>
                         {/* More content for Version 1.0.0 */}
+                        Welcome to Connectors Hub, which enables you to connect
+                        to any data sources and create datasets. Whether you are
+                        a IT head or data scientist or site merchandizer or
+                        analyst, you now have the ability to onboard your data,
+                        for consumption or analysis downstream or to simply
+                        unify, transform & write to any destination. With
+                        Connector Hub, you can easily upload, configure, and
+                        manage datasets. Onboard data from over 200+ data
+                        sources by creating source, destination & connections,
+                        by configuring schema, data validations, sync mode &
+                        schedule and manage your data. Data management made
+                        effortless. Here’s the host of features that await you!
+                      </p>
+                      <h3>Source</h3>
+                      <p>
+                        A simplified interface that enables you to, create
+                        source to connect to data source to onboard data.
+                      </p>
+                      <ol>
+                        <li>
+                          View the list of created source and manage them.
+                        </li>
+                        <li>Creation & Configuration of the source</li>
+                        <li>configure source details & credentials</li>
+                        <li>configure sync settings, sync schedule</li>
+                      </ol>
+                      <p>
+                        For more detailed information, please refer to our user
+                        guide.
+                      </p>
+                      <h3>Destination</h3>
+                      <p>
+                        A simplified interface that enables you to, create
+                        destination to export your transformed data.
+                      </p>
+                      <ol>
+                        <li>
+                          View the list of created destination and manage them.
+                        </li>
+                        <li>
+                          View the list of created destination and manage them.
+                        </li>
+                        <li>Creation & Configuration of the destination</li>
+                        <li>configure destination details & credentials</li>
+                        <li>configure sync settings, sync schedule</li>
+                      </ol>
+                      <p>
+                        For more detailed information, please refer to our user
+                        guide.
+                      </p>
+                      <h3>Connection</h3>
+                      <p>
+                        A simplified interface that enables you to, create
+                        connections to connect a source to destination to ingest
+                        data
+                      </p>
+                      <ol>
+                        <li>
+                          View the list of created connections and manage them.{' '}
+                        </li>
+                        <li>Creation & Configuration of the connections</li>
+                        <li>Creation & Configuration of the destination</li>
+                        <li>select the source & destination</li>
+                        <li>
+                          configure connection sync settings, sync schedule
+                        </li>
+                        <li>
+                        configure schema, data validations
+
+
+                        </li>
+                      </ol>
+                      <p>
+                        For more detailed information, please refer to our user
+                        guide.
                       </p>
                     </div>
                   </div>
-  
+
                   {/* Version 2.0 */}
                   <div className="item">
                     <div className="timeline">
@@ -238,7 +327,9 @@ export default function FAQPage() {
                     </div>
                     <div className="content">
                       <h3>New features in Version 2.0.0! 🚀</h3>
-                      <p>Describe the new features and changes in version 2.0.0.</p>
+                      <p>
+                        Describe the new features and changes in version 2.0.0.
+                      </p>
                       <div className="feature">
                         <div className="tag new">New</div>
                         <p>Highlight any new additions.</p>
@@ -249,11 +340,14 @@ export default function FAQPage() {
                       </div>
                       <div className="feature">
                         <div className="tag fixes">Fixes</div>
-                        <p>Mention any bug fixes or issues that have been addressed.</p>
+                        <p>
+                          Mention any bug fixes or issues that have been
+                          addressed.
+                        </p>
                       </div>
                     </div>
                   </div>
-   
+
                   {/* Add more ChangelogItem components for other versions */}
                   <div className="item">
                     <div className="timeline">
@@ -269,7 +363,9 @@ export default function FAQPage() {
                     </div>
                     <div className="content">
                       <h3>New features in Version 2.0.0! 🚀</h3>
-                      <p>Describe the new features and changes in version 2.0.0.</p>
+                      <p>
+                        Describe the new features and changes in version 2.0.0.
+                      </p>
                       <div className="feature">
                         <div className="tag new">New</div>
                         <p>Highlight any new additions.</p>
@@ -280,7 +376,10 @@ export default function FAQPage() {
                       </div>
                       <div className="feature">
                         <div className="tag fixes">Fixes</div>
-                        <p>Mention any bug fixes or issues that have been addressed.</p>
+                        <p>
+                          Mention any bug fixes or issues that have been
+                          addressed.
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -300,33 +399,54 @@ export default function FAQPage() {
                       <h3>Welcome to Vue!</h3>
                       <p>
                         {/* Content for Version 1.0.0 */}
-                        Welcome to Connectors Hub, which enables you to connect to any data sources and create datasets. Whether you are a IT head or data scientist or site merchandizer or analyst, you now have the ability to onboard your data, for consumption or analysis downstream or to simply unify, transform & write to any destination.
-
-With Connector Hub, you can easily upload, configure, and manage datasets. Onboard data from over 200+ data sources by creating source, destination & connections, by configuring schema, data validations, sync mode & schedule and manage your data. Data management made effortless.
-
-Here’s the host of features that await you!
+                        Welcome to Connectors Hub, which enables you to connect
+                        to any data sources and create datasets. Whether you are
+                        a IT head or data scientist or site merchandizer or
+                        analyst, you now have the ability to onboard your data,
+                        for consumption or analysis downstream or to simply
+                        unify, transform & write to any destination. With
+                        Connector Hub, you can easily upload, configure, and
+                        manage datasets. Onboard data from over 200+ data
+                        sources by creating source, destination & connections,
+                        by configuring schema, data validations, sync mode &
+                        schedule and manage your data. Data management made
+                        effortless. Here’s the host of features that await you!
                       </p>
                       <h3>Connectors Hub</h3>
                       <p>
                         {/* More content for Version 1.0.0 */}
-                        Welcome to Connectors Hub, which enables you to connect to any data sources and create datasets. Whether you are a IT head or data scientist or site merchandizer or analyst, you now have the ability to onboard your data, for consumption or analysis downstream or to simply unify, transform & write to any destination.
-
-With Connector Hub, you can easily upload, configure, and manage datasets. Onboard data from over 200+ data sources by creating source, destination & connections, by configuring schema, data validations, sync mode & schedule and manage your data. Data management made effortless.
-
-Here’s the host of features that await you!
+                        Welcome to Connectors Hub, which enables you to connect
+                        to any data sources and create datasets. Whether you are
+                        a IT head or data scientist or site merchandizer or
+                        analyst, you now have the ability to onboard your data,
+                        for consumption or analysis downstream or to simply
+                        unify, transform & write to any destination. With
+                        Connector Hub, you can easily upload, configure, and
+                        manage datasets. Onboard data from over 200+ data
+                        sources by creating source, destination & connections,
+                        by configuring schema, data validations, sync mode &
+                        schedule and manage your data. Data management made
+                        effortless. Here’s the host of features that await you!
                       </p>
                     </div>
                   </div>
                 </div>
                 <div id="pagination" tabIndex="0"></div>
               </div>
-  
+
               <form id="subscribe">
                 <div>
                   <h2>Keep up to date!</h2>
                   <div>Want to be the first to hear about changes?</div>
-                  <input type="text" id="email" name="email" placeholder="Email..." />
-                  <button className="button" type="button" id="submit">Subscribe</button>
+                  <input
+                    type="text"
+                    id="email"
+                    name="email"
+                    placeholder="Email..."
+                  />
+                  <button className="button" type="button" id="submit">
+                    Subscribe
+                  </button>
                 </div>
               </form>
             </section>
