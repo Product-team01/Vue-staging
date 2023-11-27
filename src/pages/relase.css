@@ -150,22 +150,27 @@ body #page-container section > #changelogs > #items > .item .content {
 }
 body #page-container section > #changelogs > #items > .item .content .feature {
   display: flex;
+  
 }
 body #page-container section > #changelogs > #items > .item .content .feature .tag {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 24px;
+  height: 20px;
+  width: 100px;
   /* Stop tag from strinking or stretching */
-  min-width: 80px;
-  max-width: 80px;
-  border-radius: 12px;
+  /* min-width: 80px; */
+  max-width: 100px;
+  border-radius: 8px;
   color: white;
-  font-size: 9px;
+  font-size: 12px;
   margin-top: 4px;
+  font-weight: bolder;
+ 
 }
 body #page-container section > #changelogs > #items > .item .content .feature .tag.new {
   background: #7769e4;
+  outline-width: 50px;
 }
 body #page-container section > #changelogs > #items > .item .content .feature .tag.enhancements {
   background: #64d4d6;
@@ -174,7 +179,7 @@ body #page-container section > #changelogs > #items > .item .content .feature .t
   background: #ff7a86;
 }
 body #page-container section > #changelogs > #items > .item .content .feature p {
-  margin-left: 16px;
+  margin-left: 18px;
 }
 body #page-container section > #changelogs > #items > .item .content > *:not(:last-child) {
   margin-bottom: 16px;
