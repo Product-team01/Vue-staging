@@ -23,3 +23,22 @@
     font-size: 25px; /* Adjust the font size as needed */
     color: #374151; 
 }
+.tabs {
+    display: inline-flex;
+     flex-direction: column;
+     position: absolute;
+     padding-right: 40px;
+    gap: 0.5rem; /* Adjust the gap as needed */
+    border-radius: 0.5rem; /* Adjust the border radius as needed */
+    background-color: #f3f4f6; /* Equivalent to bg-zinc-100 in light mode */
+    padding: 0.5rem; /* Adjust the padding as needed */
+    left: 0;
+    margin-top: 50px;
+    margin-left:50px;
+    
+}
+
+/* Dark mode styles (assuming a dark mode class is applied at a higher level) */
+.dark-mode .tabs {
+    background-color: #1f2937; /* Equivalent to bg-zinc-800 in dark mode */
+}

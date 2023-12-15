@@ -189,7 +189,7 @@ export default function FAQPage() {
               </div>
             )
           ) : (
-            <div className="inline-flex items-center gap-2 rounded-lg bg-zinc-100 p-2 dark:bg-zinc-800">
+            <div className="tabs">
               <Pill tag="All" />
               {tags.map((tag) => (
                 <Pill tag={tag} key={tag} />
