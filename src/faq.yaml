@@ -112,20 +112,20 @@
   answer: Navigate to DXM -> Metrics -> Performance -> Strategy -> < Search using strategy name>
 
 - question: How can I integrate Vue on my platform?
-  tags: ['Vue', 'dxm']
-  answer: Please click [here](https://support.vue.ai) to find detailed instructions on how to integrate Vue onto your platform.
+  tags: ['Vue']
+  answer: Please click [here](https://support.vue.ai/Integration) to find detailed instructions on how to integrate Vue onto your platform.
 
 - question: What is API integration? How does it work?
-  tags: ['Vue', 'dxm']
-  answer: Please click [here](https://support.vue.ai) to find detailed instructions on Vue API integrations.
+  tags: ['Vue']
+  answer: Please click [here](https://support.vue.ai/api/) to find detailed instructions on Vue API integrations.
 
 - question: What is embed code integration? How does it work?
-  tags: ['Vue', 'dxm']
-  answer: Please click [here](https://support.vue.ai) to find detailed instructions on Vue Embed code integration.
+  tags: ['Vue']
+  answer: Please click [here](https://support.vue.ai/Integration/Embed%20Code) to find detailed instructions on Vue Embed code integration.
 
 - question: Does Vue have support for android & iOS integration?
-  tags: ['Vue', 'dxm']
-  answer: We support android & iOS via API integration. Please click [here](https://support.vue.ai) to find detailed instructions on Vue API integrations.
+  tags: ['Vue']
+  answer: We support android & iOS via API integration. Please click [here](https://support.vue.ai/Integration) to find detailed instructions on Vue API integrations.
 
 - question: What is a strategy? How can I create/edit a strategy?
   tags: ['Vue', 'dxm']
@@ -139,25 +139,18 @@
   tags: ['Vue', 'dxm']
   answer: A Template is a structure and layout for how you want recommendations content to look like on your website. You can either use any one of our built-in templates or build your own custom template. Please click [here](https://support.vue.ai) to find detailed instructions on how to configure a template.
 
-- question: Can I create my own template on Vue?
-  tags: ['Vue', 'dxm']
-  answer: No, currently it’s not possible to create custom Templates via Vue. Please click [here](https://support.vue.ai) to contact us to create custom templates for you.
-
-- question: What is a module? How can I create/edit a module?
-  tags: ['Vue', 'dxm']
-  answer: A Module enables you to combine strategy(s) & content with a template and configure the number of results & where on the template should each strategy/content be rendered. Please click [here](https://support.vue.ai) to find detailed instructions on how to configure a module.
 
 - question: Can I add more than one template to a module?
   tags: ['Vue', 'dxm']
-  answer: No, you can only use one template in a module. Please click [here](https://support.vue.ai) to find detailed instructions on how to configure a module.
+  answer: No, you can only use one template in a module. Please click [here](https://support.vue.ai/guides/DXM%20hub/Template) to find detailed instructions on how to configure a module.
 
 - question: Can I add more than one strategy to a module?
   tags: ['Vue', 'dxm']
-  answer: Yes, you can use more than one strategy or content in a module. Please click [here](https://support.vue.ai) to find detailed instructions on how to configure a module.
+  answer: Yes, you can use more than one strategy or content in a module. Please click [here](https://support.vue.ai/guides/DXM%20hub/Modules/Module%20Creation) to find detailed instructions on how to configure a module.
 
 - question: Can I use a module to display static content without recommendation or personalization?
   tags: ['Vue', 'dxm']
-  answer: Yes, you can configure a module purely with content without any strategy. Please click [here](https://support.vue.ai) to find detailed instructions on how to configure a module.
+  answer: Yes, you can configure a module purely with content without any strategy. Please click [here](https://support.vue.ai/guides/DXM%20hub/Modules/Module%20Creation) to find detailed instructions on how to configure a module.
 
 - question: What are pages and page types?
   tags: ['Vue', 'dxm']
@@ -165,7 +158,7 @@
 
 - question: How can I configure a page in Vue?
   tags: ['Vue', 'dxm']
-  answer: Please click [here](https://support.vue.ai) to find detailed instructions on how to configure a page.
+  answer: Please click [here](https://support.vue.ai/guides/DXM%20hub/Pages) to find detailed instructions on how to configure a page.
 
 - question: Is there a limit to the number of pages that can be added to Vue?
   tags: ['Vue', 'dxm']
@@ -177,7 +170,7 @@
 
 - question: Can I add more than one module to an experience?
   tags: ['Vue', 'dxm']
-  answer: Yes, you can link multiple modules to an Experience. Please click [here](https://support.vue.ai) to find detailed instructions on how to configure an Experience.
+  answer: Yes, you can link multiple modules to an Experience. Please click [here](https://support.vue.ai/guides/DXM%20hub/Pages) to find detailed instructions on how to configure an Experience.
 
 - question: Can I create different experiences for different platforms?
   tags: ['Vue', 'dxm']
@@ -193,15 +186,15 @@
 
 - question: Can I create different journeys for different platforms?
   tags: ['Vue', 'dxm']
-  answer: Yes, you can create different journeys tailored for different platforms. Please click [here](https://support.vue.ai) to find detailed instructions on how to configure a Journey.
+  answer: Yes, you can create different journeys tailored for different platforms. Please click [here](https://support.vue.ai/guides/DXM%20hub/Experience/Experience%20Creation) to find detailed instructions on how to configure a Journey.
 
 - question: Do I need to add all the website pages to my journey?
   tags: ['Vue', 'dxm']
-  answer: No, it's not necessary to add all website pages to a journey. You can select specific pages based on your requirements. Please click [here](https://support.vue.ai) to find detailed instructions on how to configure a Journey.
+  answer: No, it's not necessary to add all website pages to a journey. You can select specific pages based on your requirements. Please click [here](https://support.vue.ai/guides/DXM%20hub/Experience/Experience%20Creation) to find detailed instructions on how to configure a Journey.
 
 - question: Can I perform an experiment between 2 or more modules?
   tags: ['Vue', 'dxm']
-  answer: Yes, you can set up experiments between 2 or more modules and/or Control, but also between 2 or more placements. Please click [here](https://support.vue.ai) to find detailed instructions on how to configure an Experiment.
+  answer: Yes, you can set up experiments between 2 or more modules and/or Control, but also between 2 or more placements. Please click [here](https://support.vue.ai/guides/DXM%20hub/Experience/Experience%20Creation) to find detailed instructions on how to configure an Experiment.
 
 - question: Is control mandatory in an Experiment?
   tags: ['Vue', 'dxm']
@@ -209,7 +202,7 @@
 
 - question: Can I experiment between more than 2 variations at the same time?
   tags: ['Vue', 'dxm']
-  answer: Yes, you can configure an experiment between 2 or more variations. Please click [here](https://support.vue.ai) to find detailed instructions on how to configure an Experiment.
+  answer: Yes, you can configure an experiment between 2 or more variations. 
 
 - question: How do I split the traffic? Is it automatic or can I manually override?
   tags: ['Vue', 'dxm']
@@ -217,8 +210,7 @@
 
 - question: Can I pause or stop & resume the test at any point?
   tags: ['Vue', 'dxm']
-  answer: Yes, you can stop or start an experiment at any time. Please click [here](https://support.vue.ai) to find detailed instructions on how to configure an Experiment.
-
+  answer: Yes, you can stop or start an experiment at any time. 
 - question: What are the metrics that I can use to optimize my experiments?
   tags: ['Vue', 'dxm']
   answer: Metrics such as Conversion rate, Average Order Value (AOV), Average Revenue Per User (ARPU), User Engagement Rate, Average Order Size (A
@@ -251,11 +243,11 @@
 
 - question: How do I create a Catalog?
   tags: ['Vue', 'content hub']
-  answer: You can create a Catalog by clicking on ‘Create New’ in the Explore screen. Click [here](https://support.vue.ai) to find detailed instructions on how to create a Catalog.
+  answer: You can create a Catalog by clicking on ‘Create New’ in the Explore screen. Click [here](https://support.vue.ai/guides/Audience%20Hub/Getting%20started) to find detailed instructions on how to create a Catalog.
 
 - question: How can I access a Catalog’s Content?
   tags: ['Vue', 'content hub']
-  answer: In the Catalog listing table, either click on the Catalog Name or on the ‘info’ icon. Click [here](https://support.vue.ai) to find detailed instructions on how to access & manage Catalog content.
+  answer: In the Catalog listing table, either click on the Catalog Name or on the ‘info’ icon. Click [here](https://support.vue.ai/guides/Audience%20Hub/Getting%20started) to find detailed instructions on how to access & manage Catalog content.
 
 - question: What are the types of data sources supported?
   tags: ['Vue', 'content hub']
@@ -263,7 +255,7 @@
 
 - question: Can I upload data from Shopify feed?
   tags: ['Vue', 'content hub']
-  answer: No, we currently don’t support Shopify feed as a data source. Please check our list of currently supported [here](https://support.vue.ai).
+  answer: No, we currently don’t support Shopify feed as a data source. Please check our list of currently supported [here](https://support.vue.ai/guides/Audience%20Hub/Getting%20started).
 
 - question: What is a schema?
   tags: ['Vue', 'content hub']
@@ -283,7 +275,7 @@
 
 - question: What are the segments supported?
   tags: ['Vue', 'content hub']
-  answer: We currently support a host of segments. Please find the list [here](https://support.vue.ai).
+  answer: We currently support a host of segments. Please find the list [here](https://support.vue.ai/guides/Audience%20Hub/Getting%20started).
 
 - question: What does ‘Test Connection’ do?
   tags: ['Vue', 'content hub']
@@ -303,7 +295,7 @@
 
 - question: What are the sync options available for a Catalog?
   tags: ['Vue', 'content hub']
-  answer: We support a variety of sync & schedule options as part of the Catalog. Please click [here](https://support.vue.ai) to learn more about sync.
+  answer: We support a variety of sync & schedule options as part of the Catalog. Please click [here](https://support.vue.ai/guides/Audience%20Hub/Getting%20started) to learn more about sync.
 
 - question: If a data file from a customer has duplicate column headers, what is the default behavior in handling it?
   tags: ['Vue', 'content hub']
@@ -365,7 +357,7 @@
 
 - question: How can I access the Audience Overlap Information?
   tags: ['Vue', 'Audience Hub']
-  answer: Click on the ‘overlap’ icon next to each Audience name from the Audience Listing Table. Please click [here](https://support.vue.ai) to find details about Audience Overlap.
+  answer: Click on the ‘overlap’ icon next to each Audience name from the Audience Listing Table. Please click [here](https://support.vue.ai/guides/Audience%20Hub/Getting%20started) to find details about Audience Overlap.
 
 - question: Can I create a custom Audience?
   tags: ['Vue', 'Audience Hub']
@@ -388,4 +380,4 @@
 
 - question: How to access SDK?
   tags: ['Vue']
-  answer: Please visit [here](https://support.vue.ai) to learn about how to access SDK.
+  answer: Please visit [here](https://vue-staging.vercel.app/Integration) to learn about how to access SDK.
