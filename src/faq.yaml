@@ -357,7 +357,7 @@
   answer: After labeling a few data points, clicking on the STL icon will apply the learnings to all data points in the taxonomy.
 - question: What is an Audience?
   tags: ['blox', 'Audience Hub']
-  answer: An Audience refers to a specific segment of users who share common attributes & behavior patterns. Example: Desktop Visitors, High-value spenders.
+  answer: An Audience refers to a specific segment of users who share common attributes & behavior patterns. Example Desktop Visitors, High-value spenders.
 
 - question: What is Audience Overlap Information?
   tags: ['blox', 'Audience Hub']
