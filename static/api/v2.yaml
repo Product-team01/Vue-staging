@@ -1,30 +1,30 @@
 openapi: 3.0.2
 info:
-  title: Blox APIs
+  title: Vue APIs
   version: 1.0.0
   description: |
     **Introduction**
 
-      This document contains the Blox API Reference. The document details out the different Blox entities and the actions that can be performed on them.
+      This document contains the Vue API Reference. The document details out the different Vue entities and the actions that can be performed on them.
       It also explains the various outputs in detail. Our APIs adhere to REST principles and the request and responses support JSON format.
     
     **Authentication**
 
-      The Blox APIs expects API Keys to be passed in the header for every request. Each API Key is associated to a specific account and will be handed over during onboarding by our sales team.
+      The Vue APIs expects API Keys to be passed in the header for every request. Each API Key is associated to a specific account and will be handed over during onboarding by our sales team.
     
     **Correlation and Request Identifiers**
       
       * Correlation Identifier
-        For every Blox API, we recommend to pass the correlation id in the request header. Our systems add this to our log traces which will help to debug information in case of errors. This is not a mandatory field but is recommended strongly to serve better.
+        For every Vue API, we recommend to pass the correlation id in the request header. Our systems add this to our log traces which will help to debug information in case of errors. This is not a mandatory field but is recommended strongly to serve better.
       
       * Request Identifier
-        In every Blox API, we generate a request identifier and associate it to the request even before we start processing the request. Our systems add this to our log traces which will help to debug information in case of errors. 
+        In every Vue API, we generate a request identifier and associate it to the request even before we start processing the request. Our systems add this to our log traces which will help to debug information in case of errors. 
 
       We return the request and correlation identifier in all the responses subject to availability.
 
     **Error Handling**
     
-      The Blox API error responses follow a standard response format and the status codes are standard HTTP response code.
+      The Vue API error responses follow a standard response format and the status codes are standard HTTP response code.
 
       For the different response codes we return, please refer the table below:
 

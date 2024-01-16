@@ -59,7 +59,7 @@ export default function Home() {
   return (
     <Layout
       title="API Reference"
-      description="Blox API Reference"
+      description="Vue API Reference"
       noFooter
       wrapperClassName="api-reference"
     >

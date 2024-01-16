@@ -5,8 +5,8 @@ const code_themes = {
 
 /** @type {import('@docusaurus/types').Config} */
 const meta = {
-  title: 'Blox',
-  tagline: 'Blox support',
+  title: 'Vue',
+  tagline: 'Vue support',
   url: 'https://getblox.ai/',
   baseUrl: '/',
   favicon: '/favi.svg',
@@ -408,7 +408,7 @@ const config = {
           href: '/',
           src: '/logo/new-D.png',
           srcDark: '/logo/new-w.png',
-          alt: 'Blox',
+          alt: 'Vue',
           height: '40px',
           width: '101px',
         },

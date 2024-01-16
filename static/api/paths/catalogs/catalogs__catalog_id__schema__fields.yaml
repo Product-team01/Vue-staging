@@ -31,7 +31,7 @@ get:
       type: boolean
       example: 
         blox_fields: true
-    description: To get account and  blox fields
+    description: To get account and  Vue fields
   - in: query
     name: boost
     schema:
@@ -45,7 +45,7 @@ get:
       type: boolean
       example: 
         taxonomy_fields: true
-    description: To get account and  blox taxonomy tags fields
+    description: To get account and  Vue taxonomy tags fields
   - in: query
     name: meta
     schema:

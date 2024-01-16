@@ -4,7 +4,7 @@ post:
   summary: Create Template
   description: 'The Template describes a rendering format - a visual layout for products
     on the webpage. This api is to create a template based on one of the template
-    types supported. The templates are created in Blox app and used by embed code
+    types supported. The templates are created in Vue app and used by embed code
     for rendering. '
   operationId: create_template
   parameters:

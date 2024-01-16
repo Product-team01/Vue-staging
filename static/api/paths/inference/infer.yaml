@@ -68,7 +68,7 @@ post:
     '422':
       description: Returned if we are unable to process the request due to internal issues. This is a temporary state and our support team will fix this as and when we encounter these issues.
     '500':
-      description: Something went wrong on Blox's end. (These are rare, will be identified, fixed and communicated within a reasonable SLA based on complexity.)
+      description: Something went wrong on Vue's end. (These are rare, will be identified, fixed and communicated within a reasonable SLA based on complexity.)
       content:
         application/json:
           schema:

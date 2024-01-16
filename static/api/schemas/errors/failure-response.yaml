@@ -8,7 +8,7 @@ required:
 type: object
 properties:
   request_id:
-    description: Unique identifier attached to the request by the blox system
+    description: Unique identifier attached to the request by the Vue system
     type: string
   correlation_id:
     description: Unique identifier attached to the request from the source

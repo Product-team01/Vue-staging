@@ -2,7 +2,7 @@ type: object
 description: This response encapsulates the details of input data and respective tags inferred for that data when processing is complete.
 properties:
   request_id:
-    description: Unique identifier attached to the request by the blox system
+    description: Unique identifier attached to the request by the Vue system
     type: string
   correlation_id:
     description: Unique identifier attached to the request from the source

@@ -20,7 +20,7 @@ properties:
       preview_url:
         title: preview url of the page
         type: string
-        example: https://s3.amazonaws.com/blox/example.jpg
+        example: https://s3.amazonaws.com/Vue/example.jpg
       page_identifier:
         title: preview url of the page
         type: object

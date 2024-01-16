@@ -2,7 +2,7 @@ title: Success
 type: object
 properties:
   blox_uuid: 
-    title: blox uuid
+    title: Vue uuid
     type: string
   user_id:
     title: user_id

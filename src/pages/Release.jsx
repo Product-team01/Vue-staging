@@ -177,7 +177,7 @@ export default function FAQPage() {
                     <div className="timeline">
                       <div>
                         <div className="meta">
-                          <div className="version">Blox v2</div>
+                          <div className="version">Vue v2</div>
                           <div className="release-date"> today</div>
                         </div>
                         <div className="connector">
@@ -274,7 +274,7 @@ export default function FAQPage() {
                     <div className="timeline has-next">
                       <div>
                         <div className="meta">
-                          <div className="version">Blox v3</div>
+                          <div className="version">Vue v3</div>
                           <div className="release-date"></div>
                         </div>
                         <div className="connector">

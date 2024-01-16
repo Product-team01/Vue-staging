@@ -114,7 +114,7 @@ get:
                         overlay_behaviour: Open in Overlay
                         position: page center
                         button: >-
-                          https://vuedotai.s3.amazonaws.com/blox/staging/assets/buttons/recommendation/button-style-6.svg
+                          https://vuedotai.s3.amazonaws.com/Vue/staging/assets/buttons/recommendation/button-style-6.svg
                       slot1:
                         module: 006890b0-8e7a-4322-89c8-2105fb1757d5
                         integration_mode: embed_code
@@ -125,7 +125,7 @@ get:
                         overlay_behaviour: Open in Overlay
                         position: page center
                         button: >-
-                          https://vuedotai.s3.amazonaws.com/blox/staging/assets/buttons/recommendation/button-style-6.svg
+                          https://vuedotai.s3.amazonaws.com/Vue/staging/assets/buttons/recommendation/button-style-6.svg
                     ab_test:
                       experiment_id: 81686d57-c783-47ab-b765-15880c49f8bb
                       experiment_name: Test 1
@@ -156,7 +156,7 @@ get:
                         overlay_behaviour: Open in Overlay
                         position: page center
                         button: >-
-                          https://vuedotai.s3.amazonaws.com/blox/staging/assets/buttons/recommendation/button-style-6.svg
+                          https://vuedotai.s3.amazonaws.com/Vue/staging/assets/buttons/recommendation/button-style-6.svg
                       slot1:
                         module: 5438425f-a57c-4d7c-a4ed-d8dc8ff2f9c9
                         integration_mode: embed_code
@@ -167,7 +167,7 @@ get:
                         overlay_behaviour: Open in Overlay
                         position: page center
                         button: >-
-                          https://vuedotai.s3.amazonaws.com/blox/staging/assets/buttons/recommendation/button-style-6.svg
+                          https://vuedotai.s3.amazonaws.com/Vue/staging/assets/buttons/recommendation/button-style-6.svg
                   android:
                     deduplication: false
                     slots: {}
@@ -290,7 +290,7 @@ post:
                         overlay_behaviour: Open in Overlay
                         position: page center
                         button: >-
-                          https://vuedotai.s3.amazonaws.com/blox/staging/assets/buttons/recommendation/button-style-6.svg
+                          https://vuedotai.s3.amazonaws.com/Vue/staging/assets/buttons/recommendation/button-style-6.svg
                       slot1:
                         module: 006890b0-8e7a-4322-89c8-2105fb1757d5
                         integration_mode: embed_code
@@ -301,7 +301,7 @@ post:
                         overlay_behaviour: Open in Overlay
                         position: page center
                         button: >-
-                          https://vuedotai.s3.amazonaws.com/blox/staging/assets/buttons/recommendation/button-style-6.svg
+                          https://vuedotai.s3.amazonaws.com/Vue/staging/assets/buttons/recommendation/button-style-6.svg
                     ab_test:
                       experiment_id: 81686d57-c783-47ab-b765-15880c49f8bb
                       experiment_name: Test 1
@@ -332,7 +332,7 @@ post:
                         overlay_behaviour: Open in Overlay
                         position: page center
                         button: >-
-                          https://vuedotai.s3.amazonaws.com/blox/staging/assets/buttons/recommendation/button-style-6.svg
+                          https://vuedotai.s3.amazonaws.com/Vue/staging/assets/buttons/recommendation/button-style-6.svg
                       slot1:
                         module: 5438425f-a57c-4d7c-a4ed-d8dc8ff2f9c9
                         integration_mode: embed_code
@@ -343,7 +343,7 @@ post:
                         overlay_behaviour: Open in Overlay
                         position: page center
                         button: >-
-                          https://vuedotai.s3.amazonaws.com/blox/staging/assets/buttons/recommendation/button-style-6.svg
+                          https://vuedotai.s3.amazonaws.com/Vue/staging/assets/buttons/recommendation/button-style-6.svg
                   android:
                     deduplication: false
                     slots: {}
