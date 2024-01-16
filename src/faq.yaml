@@ -24,7 +24,7 @@
 
 - question: How to add team members to the Vue account?
   tags: ['Vue']
-  answer: "Currently, it’s not possible for you to invite more members to Vue. Please reach out to us at [insert email], and we’ll be happy to create logins for you."
+  answer: "Currently, it’s not possible for you to invite more members to Vue. Please reach out to us at vuesupport@madstreetden.com, and we’ll be happy to create logins for you."
 
 - question: What are the user permissions available for a Vue account?
   tags: ['Vue']
@@ -37,7 +37,7 @@
 
 - question: How do I publish a product recommendation strategy on my website?
   tags: ['Vue', 'dxm']
-  answer: Please click [here](https://support.vue.ai) to visit our knowledge base with step-by-step instructions on how to create & publish personalized recommendations.
+  answer: Please click [here](https://support.vue.ai/guides/DXM%20hub/Strategy/Predifined%20strategy) to visit our knowledge base with step-by-step instructions on how to create & publish personalized recommendations.
 
 - question: Where can I find my recommendation metrics?
   tags: ['Vue', 'dxm']
@@ -45,11 +45,11 @@
 
 - question: I have created a strategy, but nothing is being displayed on my website?
   tags: ['Vue', 'dxm']
-  answer: Please click [here](https://support.vue.ai) to visit our knowledge base with step-by-step instructions on how to create & publish personalized recommendations.
+  answer: Please click [here](https://support.vue.ai/guides/DXM%20hub/Strategy/Creating%20a%20strategy) to visit our knowledge base with step-by-step instructions on how to create & publish personalized recommendations.
 
 - question: The recommendation I have created is working on my website but not on my app. How can I fix it?
   tags: ['Vue', 'dxm']
-  answer: Recommendation on the application only works via API implementation. Please click [here](https://support.vue.ai) to find detailed instructions on how to implement API & receive recommendation data.
+  answer: Recommendation on the application only works via API implementation. Please click [here](https://support.vue.ai/api/#) to find detailed instructions on how to implement API & receive recommendation data.
 
 - question: Can I modify/update the parameters?
   tags: ['Vue', 'dxm']
@@ -65,7 +65,7 @@
 
 - question: How can I display recommendations only on a page/page type?
   tags: ['Vue', 'dxm']
-  answer: You can configure an Experience to render only on a particular page. Please click [here](https://support.vue.ai) to find detailed instructions on how to configure an Experience.
+  answer: You can configure an Experience to render only on a particular page. Please click [here](https://support.vue.ai/guides/DXM%20hub/Pages) to find detailed instructions on how to configure an Experience.
 
 - question: Can I change my template type for an existing template?
   tags: ['Vue', 'dxm']
