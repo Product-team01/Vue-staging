@@ -1,14 +1,14 @@
 - question: How can I sign up for Vue?
   tags: ['Vue']
-  answer: "Please reach out to one of our sales representatives via [vuesupport@madstreetden.com]. We’ll get back to you with details."
+  answer: "Please reach out to one of our sales representatives via [vuesupport]. We’ll get back to you with details."
 
 - question: Is it possible to have a free trial account for Vue?
   tags: ['Vue']
-  answer: "Sorry, currently, we are not offering a free trial account for Vue. However, you can reach us at [insert contact details], and we’ll get back to you with a POC."
+  answer: "Sorry, currently, we are not offering a free trial account for Vue. However, you can reach us at [vuesupport@madstreetden.com], and we’ll get back to you with a POC."
 
 - question: How do I set my password for Vue?
   tags: ['Vue']
-  answer: "As a part of account setup, we will provide you with login credentials. If you need additional logins created, please reach us at [insert contact details]."
+  answer: "As a part of account setup, we will provide you with login credentials. If you need additional logins created, please reach us at [vuesupport@madstreetden.com]."
 
 - question: Lost password and can’t sign in?
   tags: ['Vue']
@@ -16,7 +16,7 @@
 
 - question: How can I sign up for a trail?
   tags: ['Vue']
-  answer: "Sorry, currently, we are not offering a free trial account for Vue. However, you can reach us at [insert contact details], and we’ll get back to you with a POC."
+  answer: "Sorry, currently, we are not offering a free trial account for Vue. However, you can reach us at [vuesupport@madstreetden.com], and we’ll get back to you with a POC."
 
 - question: How can I change my Vue account password?
   tags: ['Vue']
