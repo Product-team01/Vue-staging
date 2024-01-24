@@ -459,12 +459,12 @@ const config = {
           //   position: 'right',
           //   className: 'navbar-book-demo',
           // },
-          {
-            label: 'Raise A Ticket',
-            href: 'https://dev.dyte.io/register',
-            position: 'right',
-            className: 'dev-portal-signup dev-portal-link',
-          },
+          // {
+          //   label: 'Raise A Ticket',
+          //   href: 'https://dev.dyte.io/register',
+          //   position: 'right',
+          //   className: 'dev-portal-signup dev-portal-link',
+          // },
         ],
       },
       footer: {
