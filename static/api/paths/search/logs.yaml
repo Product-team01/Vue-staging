@@ -2,7 +2,7 @@ post:
   tags:
   - search
   summary: Get config logs
-  description: Retrieves all configs set & made live by user for Dxm. This includes Pages, Strategies, Modules, Experiences.
+  description: Retrieves all configs set & made live by user for DXM. This includes Pages, Strategies, Modules, Experiences.
   operationId: get_logs
   parameters:
   - name: x-correlation-id

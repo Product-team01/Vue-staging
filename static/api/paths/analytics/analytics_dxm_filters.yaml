@@ -2,7 +2,7 @@ get:
   tags:
   - analytics
   summary: Get DXM Filters for a Client
-  description: Gets the filters for the dxm metrics for a client
+  description: Gets the filters for the DXM metrics for a client
   operationId: list_filters_api_v1_metrics_filters_list_get
   parameters:
   - name: x-correlation-id

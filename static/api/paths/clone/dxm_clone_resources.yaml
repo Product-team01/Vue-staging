@@ -1,7 +1,7 @@
 post:
   tags:
   - clone
-  summary: Clone any one of Dxm resource ( strategies, templates, curations, pages, modules, experiences, dcm ) at a time
+  summary: Clone any one of DXM resource ( strategies, templates, curations, pages, modules, experiences, dcm ) at a time
   description: |
     - Clone a single DXM resource
     - Account create api would work with super admin key only
@@ -19,7 +19,7 @@ post:
       name: resource
       in: path
   requestBody:
-    description: Clone dxm api request body
+    description: Clone DXM api request body
     content:
       application/json:
         schema:

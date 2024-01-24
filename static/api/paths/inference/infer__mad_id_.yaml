@@ -10,7 +10,7 @@ get:
     description: Unique identifier attached to the request from the source
     schema:
       type: string
-  - name: msd_id
+  - name: mad_id
     in: path
     description: Represents the unique identifier of a specific input
     required: true
@@ -34,9 +34,9 @@ get:
     '400':
       description: |
         Bad request:
-        - If given msd_id is not valid
+        - If given mad_id is not valid
         - If given catalog_id is not valid
-        - If given input payload does not match with the msd_id
+        - If given input payload does not match with the mad_id
         - If output is invalid structure or information that cannot be processed
       content:
         application/json:
@@ -47,7 +47,7 @@ get:
     '404':
       description: |
         Returned while:
-        - If given msd_id is not valid
+        - If given mad_id is not valid
         - If given catalog_id is not valid
       content:
         application/json:
@@ -78,7 +78,7 @@ put:
     description: Unique identifier attached to the request from the source
     schema:
       type: string
-  - name: msd_id
+  - name: mad_id
     in: path
     description: Represents the unique identifier of a specific input
     required: true
@@ -116,9 +116,9 @@ put:
     '400':
       description: |
         Bad request:
-        - If given msd_id is not valid
+        - If given mad_id is not valid
         - If given catalog_id is not valid
-        - If given input payload does not match with the msd_id
+        - If given input payload does not match with the mad_id
         - If output is invalid structure or information that cannot be processed
       content:
         application/json:
@@ -129,7 +129,7 @@ put:
     '404':
       description: |
         Returned while:
-        - If given msd_id is not valid
+        - If given mad_id is not valid
         - If given catalog_id is not valid
       content:
         application/json:

@@ -22,7 +22,7 @@ properties:
       version:
         type: string
         description: Represents the version of AI network used for processing the request
-      msd_id:
+      mad_id:
         type: string
         description: Represents the unique identifier of a specific input data
       catalog_id:

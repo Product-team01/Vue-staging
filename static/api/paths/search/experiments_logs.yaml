@@ -2,7 +2,7 @@ post:
   tags:
     - search
   summary: Get experiments for the requested timeframe
-  description: Retrieves all experiment configs set & made live by user for Dxm
+  description: Retrieves all experiment configs set & made live by user for DXM
   operationId: get_experiments
   parameters:
   - name: x-correlation-id

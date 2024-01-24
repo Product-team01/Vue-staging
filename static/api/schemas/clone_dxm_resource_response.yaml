@@ -6,7 +6,7 @@ required:
 properties:
   cloned:
     type: string
-    description: detailed msg regarding the cloning of dxm resource
+    description: detailed msg regarding the cloning of DXM resource
   clone_errors:
     type: array
     items:

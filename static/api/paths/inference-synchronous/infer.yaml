@@ -34,12 +34,12 @@ post:
     '400':
       description: |
         Bad request:
-        - If given msd_id is not valid
+        - If given mad_id is not valid
         - If given catalog_id is not valid
         - If input fields does not match catalog
         schema.
         - If rules provided are not supported.
-        - If given input payload does not match with the msd_id
+        - If given input payload does not match with the mad_id
         - If output is invalid structure or information that cannot be processed
       content:
         application/json:
@@ -50,7 +50,7 @@ post:
     '404':
       description: |
         Returned while:
-        - If given msd_id is not valid
+        - If given mad_id is not valid
         - If given catalog_id is not valid
       content:
         application/json:

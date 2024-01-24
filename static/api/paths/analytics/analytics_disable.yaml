@@ -13,9 +13,9 @@ delete:
       schema:
         title: Workflow Type
         type: string
-        example: "dxm"
+        example: "DXM"
         enum:
-          - dxm
+          - DXM
           - tag
       name: workflow_type
       in: path

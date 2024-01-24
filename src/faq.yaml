@@ -36,79 +36,79 @@
   answer: "Yes, multiple users can log in with their unique logins and simultaneously access & make changes within Vue."
 
 - question: How do I publish a product recommendation strategy on my website?
-  tags: ['Vue', 'dxm']
+  tags: ['Vue', 'DXM']
   answer: Please click [here](https://support.vue.ai/guides/DXM%20hub/Strategy/Predifined%20strategy) to visit our knowledge base with step-by-step instructions on how to create & publish personalized recommendations.
 
 - question: Where can I find my recommendation metrics?
-  tags: ['Vue', 'dxm']
+  tags: ['Vue', 'DXM']
   answer: You can find all Metrics under the ‘Metrics’ section. Navigate to the Metrics section by clicking on ‘Metrics’ in the top navigation bar.
 
 - question: I have created a strategy, but nothing is being displayed on my website?
-  tags: ['Vue', 'dxm']
+  tags: ['Vue', 'DXM']
   answer: Please click [here](https://support.vue.ai/guides/DXM%20hub/Strategy/Creating%20a%20strategy) to visit our knowledge base with step-by-step instructions on how to create & publish personalized recommendations.
 
 - question: The recommendation I have created is working on my website but not on my app. How can I fix it?
-  tags: ['Vue', 'dxm']
+  tags: ['Vue', 'DXM']
   answer: Recommendation on the application only works via API implementation. Please click [here](https://support.vue.ai/api/#) to find detailed instructions on how to implement API & receive recommendation data.
 
 - question: Can I modify/update the parameters?
-  tags: ['Vue', 'dxm']
+  tags: ['Vue', 'DXM']
   answer: You can click on the ‘edit’ icon next to “Configure Model Parameters” within a Strategy configuration. Here you can add or remove any attribute or even adjust the slider for the attribute you want to change the score.
 
 - question: How can I change the weightage score of strategy model parameters?
-  tags: ['Vue', 'dxm']
+  tags: ['Vue', 'DXM']
   answer: You can click on the ‘edit’ icon next to “Configure Model Parameters” within a Strategy configuration. Adjust the slider for the attribute you want to change the score.
 
 - question: Can I modify any live feature item?
-  tags: ['Vue', 'dxm']
+  tags: ['Vue', 'DXM']
   answer: Yes, you can edit and update the configuration for any live item. Note Any changes made to an experiment configuration will automatically reset the test.
 
 - question: How can I display recommendations only on a page/page type?
-  tags: ['Vue', 'dxm']
+  tags: ['Vue', 'DXM']
   answer: You can configure an Experience to render only on a particular page. Please click [here](https://support.vue.ai/guides/DXM%20hub/Pages) to find detailed instructions on how to configure an Experience.
 
 - question: Can I change my template type for an existing template?
-  tags: ['Vue', 'dxm']
+  tags: ['Vue', 'DXM']
   answer: No, once a template configuration has been created it’s not possible to modify the template type. The same template, however, can be used for different types of content.
 
 - question: Can I change/edit my template while configuring a module?
-  tags: ['Vue', 'dxm']
+  tags: ['Vue', 'DXM']
   answer: No, it’s not possible to directly edit a template from within a module config screen.
 
 - question: Can I link multiple different strategies and/or content on the same template & module?
-  tags: ['Vue', 'dxm']
+  tags: ['Vue', 'DXM']
   answer: Yes, as part of module configuration, you can link multiple Strategies and/or Content to the same template.
 
 - question: How can I set a goal, metric & confidence score for an Experiment?
-  tags: ['Vue', 'dxm']
+  tags: ['Vue', 'DXM']
   answer: While configuring an Experience, within the Experiment Settings, you can set a goal, metric & confidence score for a particular Experiment.
 
 - question: How can I create & publish an experience across all the pages on my website?
-  tags: ['Vue', 'dxm']
+  tags: ['Vue', 'DXM']
   answer: Currently, it’s not possible to publish a single Experience across all pages on your website.
 
 - question: For collaborative filtering strategy, can I combine two different models into the same strategy?
-  tags: ['Vue', 'dxm']
+  tags: ['Vue', 'DXM']
   answer: Yes, simply select the models you’d want to be part of the Collaborative Filtering Strategy and finish the strategy setup.
 
 - question: Why don’t I have ‘Configure model parameters’ & ‘Apply personalisation’ options for all strategy models?
-  tags: ['Vue', 'dxm']
+  tags: ['Vue', 'DXM']
   answer: Certain models like ‘Recently Engaged’ don’t have the option to ‘Configure model parameters’ because...
 
 - question: What is an Experiment?
-  tags: ['Vue', 'dxm']
+  tags: ['Vue', 'DXM']
   answer: An Experiment is simply comparing two or more variations of similar items (with or without a Control group) to identify the best possible variation to use on a particular page, placement, and for a particular user group or individual user.
 
 - question: What does ‘Goal’ & ‘Metric (KPI)’ represent?
-  tags: ['Vue', 'dxm']
+  tags: ['Vue', 'DXM']
   answer: Goal & Metric represent the value selected as part of the Experiment setup. They help determine which variation is having the best performance against all others.
 
 - question: Why is there no data in Vue.ai impact metrics?
-  tags: ['Vue', 'dxm']
+  tags: ['Vue', 'DXM']
   answer: If you are a new customer, after the initial integration of Vue on your platform, please wait for up to 24 hours before data is made available in the metrics section. Existing customer, if no data is available it may be due to no item being live during the selected date range. If the problem persists, please reach us at - vuesupport@gmail.com.
 
 - question: Where can I find the performance metrics for the strategy I created?
-  tags: ['Vue', 'dxm']
+  tags: ['Vue', 'DXM']
   answer: Navigate to DXM -> Metrics -> Performance -> Strategy -> < Search using strategy name>
 
 - question: How can I integrate Vue on my platform?
@@ -128,224 +128,224 @@
   answer: We support android & iOS via API integration. Please click [here](https://support.vue.ai/Integration) to find detailed instructions on Vue API integrations.
 
 - question: What is a strategy? How can I create/edit a strategy?
-  tags: ['Vue', 'dxm']
+  tags: ['Vue', 'DXM']
   answer: A Strategy is the foundation that provides the logic behind all personalized recommendations & search content from Vue. Strategy is powered by different base models. Please click [here](https://support.vue.ai) to find detailed instructions on how to configure a strategy.
 
 - question: What is a business rule? How can I use it?
-  tags: ['Vue', 'dxm']
+  tags: ['Vue', 'DXM']
   answer: A Business rule allows you to filter the results provided by a strategy. You can decide to either include or exclude certain items from your recommendations results. Please click [here](https://support.vue.ai) to find detailed instructions on how to configure a business rule.
 
 - question: What is a template?
-  tags: ['Vue', 'dxm']
+  tags: ['Vue', 'DXM']
   answer: A Template is a structure and layout for how you want recommendations content to look like on your website. You can either use any one of our built-in templates or build your own custom template. Please click [here](https://support.vue.ai) to find detailed instructions on how to configure a template.
 
 
 - question: Can I add more than one template to a module?
-  tags: ['Vue', 'dxm']
+  tags: ['Vue', 'DXM']
   answer: No, you can only use one template in a module. Please click [here](https://support.vue.ai/guides/DXM%20hub/Template) to find detailed instructions on how to configure a module.
 
 - question: Can I add more than one strategy to a module?
-  tags: ['Vue', 'dxm']
+  tags: ['Vue', 'DXM']
   answer: Yes, you can use more than one strategy or content in a module. Please click [here](https://support.vue.ai/guides/DXM%20hub/Modules/Module%20Creation) to find detailed instructions on how to configure a module.
 
 - question: Can I use a module to display static content without recommendation or personalization?
-  tags: ['Vue', 'dxm']
+  tags: ['Vue', 'DXM']
   answer: Yes, you can configure a module purely with content without any strategy. Please click [here](https://support.vue.ai/guides/DXM%20hub/Modules/Module%20Creation) to find detailed instructions on how to configure a module.
 
 - question: What are pages and page types?
-  tags: ['Vue', 'dxm']
+  tags: ['Vue', 'DXM']
   answer: Page types help us identify between the different types of pages. Pages help us understand on which URL or screens to publish experiences. Please click [here](https://support.vue.ai) to find detailed instructions on how to configure a page.
 
 - question: How can I configure a page in Vue?
-  tags: ['Vue', 'dxm']
+  tags: ['Vue', 'DXM']
   answer: Please click [here](https://support.vue.ai/guides/DXM%20hub/Pages) to find detailed instructions on how to configure a page.
 
 - question: Is there a limit to the number of pages that can be added to Vue?
-  tags: ['Vue', 'dxm']
+  tags: ['Vue', 'DXM']
   answer: No, there is no limit to the number of pages that can be configured on Vue.
 
 - question: What is an experience? How can I create/edit an experience?
-  tags: ['Vue', 'dxm']
+  tags: ['Vue', 'DXM']
   answer: An Experience is the final touchpoint that enables you to link different modules to different placements on a page and configure which user group should see the content, when it should be displayed, and on which particular pages should it display. Please click [here](https://support.vue.ai) to find detailed instructions on how to configure an Experience.
 
 - question: Can I add more than one module to an experience?
-  tags: ['Vue', 'dxm']
+  tags: ['Vue', 'DXM']
   answer: Yes, you can link multiple modules to an Experience. Please click [here](https://support.vue.ai/guides/DXM%20hub/Pages) to find detailed instructions on how to configure an Experience.
 
 - question: Can I create different experiences for different platforms?
-  tags: ['Vue', 'dxm']
+  tags: ['Vue', 'DXM']
   answer: There’s no need for that. With Vue, using one experience you can configure different or the same content between different platforms. Please click [here](https://support.vue.ai) to find detailed instructions on how to configure an Experience.
 
 - question: What is a Journey? How can I create/edit a journey?
-  tags: ['Vue', 'dxm']
+  tags: ['Vue', 'DXM']
   answer: A Journey is a sequence of experiences that guide a user through different interactions on your platform. Please click [here](https://support.vue.ai) to find detailed instructions on how to configure a Journey.
 
 - question: Can I add more than one experience to a journey?
-  tags: ['Vue', 'dxm']
+  tags: ['Vue', 'DXM']
   answer: Yes, you can add multiple experiences to a Journey. Please click [here](https://support.vue.ai) to find detailed instructions on how to configure a Journey.
 
 - question: Can I create different journeys for different platforms?
-  tags: ['Vue', 'dxm']
+  tags: ['Vue', 'DXM']
   answer: Yes, you can create different journeys tailored for different platforms. Please click [here](https://support.vue.ai/guides/DXM%20hub/Experience/Experience%20Creation) to find detailed instructions on how to configure a Journey.
 
 - question: Do I need to add all the website pages to my journey?
-  tags: ['Vue', 'dxm']
+  tags: ['Vue', 'DXM']
   answer: No, it's not necessary to add all website pages to a journey. You can select specific pages based on your requirements. Please click [here](https://support.vue.ai/guides/DXM%20hub/Experience/Experience%20Creation) to find detailed instructions on how to configure a Journey.
 
 - question: Can I perform an experiment between 2 or more modules?
-  tags: ['Vue', 'dxm']
+  tags: ['Vue', 'DXM']
   answer: Yes, you can set up experiments between 2 or more modules and/or Control, but also between 2 or more placements. Please click [here](https://support.vue.ai/guides/DXM%20hub/Experience/Experience%20Creation) to find detailed instructions on how to configure an Experiment.
 
 - question: Is control mandatory in an Experiment?
-  tags: ['Vue', 'dxm']
+  tags: ['Vue', 'DXM']
   answer: Control is optional during Experience/Experiment setup. If Control is not selected as part of the experiment, then confidence is calculated against zero as a baseline.
 
 - question: Can I experiment between more than 2 variations at the same time?
-  tags: ['Vue', 'dxm']
+  tags: ['Vue', 'DXM']
   answer: Yes, you can configure an experiment between 2 or more variations. 
 
 - question: How do I split the traffic? Is it automatic or can I manually override?
-  tags: ['Vue', 'dxm']
+  tags: ['Vue', 'DXM']
   answer: When configuring an experiment, we will automatically split & assign traffic to each of the variations. You can, however, manually change the traffic allocation percentage to any or all of the variations. 
 
 - question: Can I pause or stop & resume the test at any point?
-  tags: ['Vue', 'dxm']
+  tags: ['Vue', 'DXM']
   answer: Yes, you can stop or start an experiment at any time. 
 - question: What are the metrics that I can use to optimize my experiments?
-  tags: ['Vue', 'dxm']
+  tags: ['Vue', 'DXM']
   answer: Metrics such as Conversion rate, Average Order Value (AOV), Average Revenue Per User (ARPU), User Engagement Rate, Average Order Size (A
 - question: What are metrics?
-  tags: ['Vue', 'dxm']
+  tags: ['Vue', 'DXM']
   answer: Metrics provide you with data that shares insight into the performance & impact of Vue on your platform. It also provides data about the performance of your platform. Please click [here](<<insert url>>) to find detailed instructions on how to access Metrics.
 
 - question: Can I set different confidence levels for the experiment?
-  tags: ['Vue', 'dxm']
+  tags: ['Vue', 'DXM']
   answer: As part of the experiment settings, you can provide any value as the confidence score. Please click [here](<<insert url>>) to find detailed instructions on how to configure an Experiment.
 
 - question: What are the default metrics that are measured?
-  tags: ['Vue', 'dxm']
+  tags: ['Vue', 'DXM']
   answer: Please click [here](<<insert url>>) to find detailed instructions on how to access Metrics.
 
 - question: Can there be custom metrics defined?
-  tags: ['Vue', 'dxm']
+  tags: ['Vue', 'DXM']
   answer: Currently, it’s not possible for you to define custom metrics.
 
 - question: What does Control do in Experiment?
-  tags: ['Vue', 'dxm']
+  tags: ['Vue', 'DXM']
   answer: ‘Control’ is used as a baseline to test against something during an Experiment. For example, you can test the performance of recommendation against your default platform. Here, ‘your default platform’ is “Control.”
 
 - question: What is a placement?
-  tags: ['Vue', 'dxm']
+  tags: ['Vue', 'DXM']
   answer: A ‘Placement’ is a position that is configured on a page as part of the setup process. When configuring Experience, you can decide on which placement to link any module. Please contact us here <<email>> to manage existing placements or create new ones.
 - question: What is Content Hub? What does it do?
-  tags: ['Vue', 'content hub']
+  tags: ['Vue', 'Content Hub']
   answer: Content Hub enables you to create Catalogs by uploading data from different datasources, manage Catalog content, and enrich Catalog content.
 
 - question: How do I create a Catalog?
-  tags: ['Vue', 'content hub']
+  tags: ['Vue', 'Content Hub']
   answer: You can create a Catalog by clicking on ‘Create New’ in the Explore screen. Click [here](https://support.vue.ai/guides/Audience%20Hub/Getting%20started) to find detailed instructions on how to create a Catalog.
 
 - question: How can I access a Catalog’s Content?
-  tags: ['Vue', 'content hub']
+  tags: ['Vue', 'Content Hub']
   answer: In the Catalog listing table, either click on the Catalog Name or on the ‘info’ icon. Click [here](https://support.vue.ai/guides/Audience%20Hub/Getting%20started) to find detailed instructions on how to access & manage Catalog content.
 
 - question: What are the types of data sources supported?
-  tags: ['Vue', 'content hub']
+  tags: ['Vue', 'Content Hub']
   answer: We currently support Amazon S3, SFTP, Kafka, and Manual File upload.
 
 - question: Can I upload data from Shopify feed?
-  tags: ['Vue', 'content hub']
+  tags: ['Vue', 'Content Hub']
   answer: No, we currently don’t support Shopify feed as a data source. Please check our list of currently supported [here](https://support.vue.ai/guides/Audience%20Hub/Getting%20started).
 
 - question: What is a schema?
-  tags: ['Vue', 'content hub']
+  tags: ['Vue', 'Content Hub']
   answer: A schema represents how the Catalog data is organized in the database; the relationship between entities like table name, field, attribute, field type, etc.
 
 - question: What is a feed?
-  tags: ['Vue', 'content hub']
+  tags: ['Vue', 'Content Hub']
   answer: A feed is a collection of data.
 
 - question: Can I edit a Catalog after ‘Submit’?
-  tags: ['Vue', 'content hub']
+  tags: ['Vue', 'Content Hub']
   answer: Yes, click on the ‘edit’ icon next to each Catalog name in the listing table or click on the ‘Update Catalog settings’ CTA from the Catalog Explore screen.
 
 - question: What are the types of Catalog supported?
-  tags: ['Vue', 'content hub']
+  tags: ['Vue', 'Content Hub']
   answer: We currently support four types of Catalog. Product Catalog, Document Catalog, Banner Catalog, and Offer Catalog.
 
 - question: What are the segments supported?
-  tags: ['Vue', 'content hub']
+  tags: ['Vue', 'Content Hub']
   answer: We currently support a host of segments. Please find the list [here](https://support.vue.ai/guides/Audience%20Hub/Getting%20started).
 
 - question: What does ‘Test Connection’ do?
-  tags: ['Vue', 'content hub']
+  tags: ['Vue', 'Content Hub']
   answer: Test Connection verifies if all the details provided as part of the Catalog creation process are valid. Test connection must be successful to proceed to finish configuring the Catalog.
 
 - question: Can I change the Primary Key after a Catalog has been Submitted?
-  tags: ['Vue', 'content hub']
+  tags: ['Vue', 'Content Hub']
   answer: No, it’s not possible to change the Primary key after the Catalog has been submitted.
 
 - question: What are the data types supported for Primary Key?
-  tags: ['Vue', 'content hub']
+  tags: ['Vue', 'Content Hub']
   answer: Currently, we only support “String” data type for the primary key.
 
 - question: When will the catalog sync during the initial setup? Is it based on the sync schedule?
-  tags: ['Vue', 'content hub']
+  tags: ['Vue', 'Content Hub']
   answer: Initial sync happens immediately. Following ones happen according to the schedule.
 
 - question: What are the sync options available for a Catalog?
-  tags: ['Vue', 'content hub']
+  tags: ['Vue', 'Content Hub']
   answer: We support a variety of sync & schedule options as part of the Catalog. Please click [here](https://support.vue.ai/guides/Audience%20Hub/Getting%20started) to learn more about sync.
 
 - question: If a data file from a customer has duplicate column headers, what is the default behavior in handling it?
-  tags: ['Vue', 'content hub']
+  tags: ['Vue', 'Content Hub']
   answer: If they are mapped to different fields, then they will be treated as different.
 
 - question: How can I update the mapping after a Catalog has been Submitted?
-  tags: ['Vue', 'content hub']
+  tags: ['Vue', 'Content Hub']
   answer: Yes, click on the ‘edit’ icon next to each Catalog name in the listing table or click on the ‘Update Catalog settings’ CTA from the Catalog Explore screen. And update mapping as required.
 
 - question: How can I enrich a Catalog Content?
-  tags: ['Vue', 'content hub']
+  tags: ['Vue', 'Content Hub']
   answer: In the Enrich screen, click on ‘Create New’ to create a Project for a Catalog & enrich the content.
 
 - question: Can I create a Project without a Catalog?
-  tags: ['Vue', 'content hub']
+  tags: ['Vue', 'Content Hub']
   answer: No, it’s not possible to create a Project without a Catalog.
 
 - question: Can I use multiple Catalogs in the same Project?
-  tags: ['Vue', 'content hub']
+  tags: ['Vue', 'Content Hub']
   answer: No, a Project can be created for only one Catalog.
 
 - question: If a Catalog is used in multiple Projects & Strategies, What happens to all the entities if the Catalog is deleted?
-  tags: ['Vue', 'content hub']
+  tags: ['Vue', 'Content Hub']
   answer: Only the Catalog is deleted, Projects & Strategies are unaffected. However, the Project cannot be used to further enrich new content, already enriched content is still available for access.
 
 - question: What does Index in catalog creation do? Where is it used in the tool?
-  tags: ['Vue', 'content hub']
+  tags: ['Vue', 'Content Hub']
   answer: Index means that the fields will be indexed in the database & filtering operations are enabled. Fields will be available for querying (to retrieve metadata).
 
 - question: What does Facet in catalog creation do? Where is it used in the tool?
-  tags: ['Vue', 'content hub']
+  tags: ['Vue', 'Content Hub']
   answer: Facet enables grouping and sorting operations on the field. Any field that is faceted will show up on the list of facets (typically found on the left side of a search result page) that people can use to narrow down the search results.
 
 - question: What does Search in catalog creation do? Where is it used in the tool?
-  tags: ['Vue', 'content hub']
+  tags: ['Vue', 'Content Hub']
   answer: The data in this field will show up in search results.
 
 - question: What does Personalize in catalog creation do? Where is it used in the tool?
-  tags: ['Vue', 'content hub']
+  tags: ['Vue', 'Content Hub']
   answer: These fields can be used for personalization strategies.
 
 - question: What is a Taxonomy?
-  tags: ['Vue', 'content hub']
+  tags: ['Vue', 'Content Hub']
   answer: A Taxonomy is a hierarchical structure of attributes to tag the data against. The taxonomy provides a structure and flow to organize your data from root to leaf nodes. For example, ‘color’ is an attribute, while the actual colors ‘red’, ‘blue’, etc are
 - question: What is Feed Sampling?
-  tags: ['Vue', 'content hub']
+  tags: ['Vue', 'Content Hub']
   answer: Every time a feed is imported into a Project, only a random sample of 3000 items are digested for enrichment.
 
 - question: What is short term learning (STL)?
-  tags: ['Vue', 'content hub']
+  tags: ['Vue', 'Content Hub']
   answer: After labeling a few data points, clicking on the STL icon will apply the learnings to all data points in the taxonomy.
 - question: What is an Audience?
   tags: ['Vue', 'Audience Hub']

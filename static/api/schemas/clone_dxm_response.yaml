@@ -3,7 +3,7 @@ type: object
 properties:
   msg:
     type: string
-    description: detailed msg regarding the cloning of dxm entity
+    description: detailed msg regarding the cloning of DXM entity
   clone_errors:
     type: array
     items:

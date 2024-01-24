@@ -1,7 +1,7 @@
 post:
   tags:
   - clone
-  summary: Clone Dxm Resources
+  summary: Clone DXM Resources
   description: | 
     - Clone All DXM resources
     - Account create api would work with super admin key only
@@ -13,7 +13,7 @@ post:
       schema:
         type: string
   requestBody:
-    description: Clone dxm api request body
+    description: Clone DXM api request body
     content:
       application/json:
         schema:

@@ -153,7 +153,7 @@ properties:
     example: 2
   source:
      title: source
-     description: Table in which the query needs to be performed (This is required, because, audience metrics, dxm metrics and review mode metrics will be stored in separate tables)
+     description: Table in which the query needs to be performed (This is required, because, audience metrics, DXM metrics and review mode metrics will be stored in separate tables)
      type: string
      example: blox_metrics
      enum:
