@@ -1,91 +1,1028 @@
-openapi: 3.0.2
+# 
+
+openapi: 3.0.3
 info:
-  title: Vue APIs
+  title: Retail Events Template
+  description: >-
+    **Some noted before you begin:**
+
+
+    - The value sent in `blox_uuid` in the track & search APIs should be the
+    same for the same request. The same is true for `user_id` (when `user_id` is
+    available).
+
+    - `resolution_id` is a unique string that is to be generated and sent on
+    every search API call. This ID is to be sent in the header of the
+    corresponding track call for events generated in correspondence with that
+    search API.
+
+    - `page_name` that is sent in a search API needs to be the same in the
+    corresponding track APIs .
+
+    - `viewed_prodid`, `clicked_prodid` sent in events track and `product_id`
+    sent in search should be as same as the catalog primary key
+        
+
+    **A/B Test Usecase :**
+
+
+    | Parameter | Comments | Values |
+
+    | --- | --- | --- |
+
+    | module_name | For MSD journey: To be parsed from recommendation response
+    sent from vue.ai and sent in track payload for MSD assigned users. For
+    journey: Refer values column | Provide the respective values. |
+
+    | module_id | To be sent only for journey. (module_id should be unique for
+    each module) | Provide the respective values. |
+
+    | strategy_id | To be parsed from recommendation response sent from vue.ai
+    and sent in track payload for MSD assigned users. | For Journey it can be
+    "-". |
+
+
+    **Glossary:**
+
+
+    | **Parameter** | **Description** | **Type** | **Source** | **Value** |
+    **Comments** |
+
+    | --- | --- | --- | --- | --- | --- |
+
+    | blox_uuid | Unique ID is generated for a user per device the first time
+    the user enters the site. This ID will be retained unless the user clears
+    the cache. | Dynamic |  |  |  |
+
+    | X-RESOLUTION-ID | Unique id per page load | Dynamic | To be sent in
+    headers of the track call |  | The sequence of events from the same page
+    should have the same resolution-id. |
+
+    | user_id | User ID will be generated upon the user's login to the site. |
+    Dynamic |  |  |  |
+
+    | referrer | The preceding URL, or if the user is entering the site for the
+    first time in a session, it will be empty. | Dynamic |  |  |  |
+
+    | url | The URL of the current page. | Dynamic |  |  |  |
+
+    | platform | Platform used by the user to access the site. | Dynamic |  | \-
+    desktop  <br>\- mobile  <br>\- iOS  <br>\- android  <br>\- email |  |
+
+    | source | Indicates whether the user was assigned to MSD journey or Quince
+    Journey. | Dynamic |  | \- msd  <br>\- quince |  |
+
+    | medium | Source of the events being triggered. | Dynamic |  | \- website 
+    <br>\- application  <br>\- email  <br>\- offline |  |
+
+    | env | Indicates whether the data is sourced from staging or production. |
+    Static |  | \- production  <br>\- staging |  |
+
+    | level | Indicates whether the data was requested at a page level call |
+    Static |  | page |  |
+
+    | module_name | Module name of the widget. | Dynamic | Seach response |  |
+    To be parsed from response sent from vue.ai and sent in payload for MSD
+    assigned users. |
+
+    | module_id | Module name of the widget. | Static |  |  | module_id to be
+    sent only for .  <br>(Id should be unique for each module) |
+
+    | region | Track call triggered from the respective region. | Static |  | 
+    |  |
+
+    | strategy_id | To be parsed from response sent from vue.ai and sent in
+    payload. | Dynamic | Search response |  | To be parsed from response sent
+    from vue.ai and sent in payload for MSD assigned users.  <br>  <br>Need not
+    be sent for . |
+
+    | viewed_prodid | product_id of the product being viewed. | Dynamic |  |  | 
+    |
+
+    | clicked_product_id | product_id of the product when clicked on the widget.
+    | Dynamic |  |  |  |
+
+    | position_of_click | Captures the position of the recommendation on the
+    recommendation carousel. | Dynamic |  |  |  |
+
+    | product_price | price of the product. | Dynamic |  |  | For the
+    recommendedProductView event, the product price should be the price of the
+    clicked product ID. |
+
+    | size | size of the product when selected. | Dynamic |  |  |  |
+
+    | order_id | Unique id per purchase. | Dynamic |  |  |  |
+
+    | utm_source | Campaign’s source from which user lands into the site. |
+    Dynamic |  |  |  |
+
+    | utm_campaign | Name of the campaigns from which user lands into the site.
+    | Dynamic |  |  |  |
   version: 1.0.0
-  description: |
-    **Introduction**
-
-      This document contains the Vue API Reference. The document details out the different Vue entities and the actions that can be performed on them.
-      It also explains the various outputs in detail. Our APIs adhere to REST principles and the request and responses support JSON format.
-    
-    **Authentication**
-
-      The Vue APIs expects API Keys to be passed in the header for every request. Each API Key is associated to a specific account and will be handed over during onboarding by our sales team.
-    
-    **Correlation and Request Identifiers**
-      
-      * Correlation Identifier
-        For every Vue API, we recommend to pass the correlation id in the request header. Our systems add this to our log traces which will help to debug information in case of errors. This is not a mandatory field but is recommended strongly to serve better.
-      
-      * Request Identifier
-        In every Vue API, we generate a request identifier and associate it to the request even before we start processing the request. Our systems add this to our log traces which will help to debug information in case of errors. 
-
-      We return the request and correlation identifier in all the responses subject to availability.
-
-    **Error Handling**
-    
-      The Vue API error responses follow a standard response format and the status codes are standard HTTP response code.
-
-      For the different response codes we return, please refer the table below:
-
-      | Status Code | Description                                     |
-      |-------------|-------------------------------------------------|
-      | 200         | Successful                                      |
-      | 401         | Unauthorized Access                                      |
-      | 400         | Bad Request - Any issues with the input payload                                      |
-      | 404         | Entity is not available.                                  |
-      | 422         | Unable to process the request: If we are unable to process the request. |
-      | 500         | Internal Server Error                                    |
-      | 502         | Bad Gateway                                      |
-      | 504         | Gateway Timeout                                      |
+  contact: {}
 servers:
-  - url: https://api-dev.madstreetden.xyz
-    description: Dev Server
-security:
-  - ApiKeyAuth: []
-tags:
-  - name: search
-    description: This section describes the APIs to integrate for product recommendations for any strategy or module. 
-  - name: inference
-    description: |
-      This section describes the APIs to integrate for inferring tag information for any given input.
-      
-      In general, there are two modes of usage:
-      * **Synchronous:** For responses that are required in near-real time. This is typically used when there are individual packets that are sent (serial or through parallel calls) which require tagging results per packet. These typically are used in situations where input is either in the form of streams or when the tagging is part of a larger workflow where the content to be tagged flows through the workflow in a non-batched manner.
-      * **Asynchronous:** For requests that can be processed asynchronously. The requests will be queued up for processing and the results fetched at a later point in time asynchronously. The responses can be either fetched from our system using a get api, or using a callback integration where our system will invoke your system with the results, when ready.
+  - url: https://<region>1.vue.ai
 paths:
   /api/v1/events/track:
-    $ref: paths/events/events_track.yaml
-
-  /api/v1/search/:
-    $ref: paths/search/search.yaml
-
-  /api/v1/search/configs/metadata-pages:
-    $ref: paths/search/metadata_pages.yaml
-
-
-  /api/v1/inference?is_sync=True:
-    $ref: paths/inference-synchronous/infer.yaml
-  /api/v1/inference?is_sync=False:
-    $ref: paths/inference-asynchronous/infer.yaml
-  /api/v1/inference/{catalog_id}/{msd_id}:
-    $ref: paths/inference/infer__mad_id_.yaml
-  /api/v1/mail/image:
-    $ref: paths/mail/image.yaml
-  /api/v1/mail/link:
-    $ref: paths/mail/link.yaml
-  /api/v1/mail/preview:
-    $ref: paths/mail/preview.yaml
-  # /api/v1/mail/template_preview:
-  #   $ref: paths/mail/template_preview.yaml  
-
+    post:
+      tags:
+        - OrderConfirmation
+      summary: recommendationView
+      description: recommendationView
+      operationId: recommendationview
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: ''
+          description: Please provide the repective API Key
+        - name: X-RESOLUTION-ID
+          in: header
+          schema:
+            type: string
+            example: ''
+          description: Should be an unique string value
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                blox_uuid:
+                  type: string
+                  example: 5fbeac07-f385-4145-a690-e98571ae985e
+                env:
+                  type: string
+                  example: production
+                event_name:
+                  type: string
+                  example: orderConfirmation
+                level:
+                  type: string
+                  example: page
+                medium:
+                  type: string
+                  example: website
+                order_id:
+                  type: string
+                  example: ord-1001
+                page_name:
+                  type: string
+                  example: Order Confirmation
+                platform:
+                  type: string
+                  example: desktop
+                product_price:
+                  type: array
+                  items:
+                    type: string
+                    example: '23.9'
+                  example:
+                    - '23.9'
+                    - '34'
+                quantity:
+                  type: array
+                  items:
+                    type: number
+                    example: 1
+                  example:
+                    - 1
+                    - 2
+                referrer:
+                  type: string
+                  example: ''
+                size:
+                  type: array
+                  items:
+                    type: string
+                    example: s
+                  example:
+                    - s
+                    - regular
+                source:
+                  type: string
+                  example: msd
+                url:
+                  type: string
+                  example: example.com
+                user_id:
+                  type: string
+                  example: ''
+                viewed_prodid:
+                  type: array
+                  items:
+                    type: string
+                    example: sku-1
+                  example:
+                    - sku-1
+                    - sku-2
+            examples:
+              addToCart:
+                value:
+                  blox_uuid: 5fbeac07-f385-4145-a690-e98571ae985e
+                  clicked_prodid: sku-4
+                  env: production
+                  event_name: addToCart
+                  level: page
+                  medium: website
+                  page_name: Home
+                  platform: desktop
+                  product_price: '23.9'
+                  referrer: ''
+                  size: s
+                  source: msd
+                  url: example.com
+                  user_id: ''
+              addToWishlist:
+                value:
+                  blox_uuid: 5fbeac07-f385-4145-a690-e98571ae985e
+                  clicked_prodid: sku-4
+                  env: production
+                  event_name: addToWishlist
+                  level: page
+                  medium: website
+                  page_name: Home
+                  platform: desktop
+                  product_price: '23.9'
+                  referrer: ''
+                  size: s
+                  source: msd
+                  url: example.com
+                  user_id: ''
+              leftSwipe:
+                value:
+                  blox_uuid: 5fbeac07-f385-4145-a690-e98571ae985e
+                  env: production
+                  event_name: leftSwipe
+                  level: page
+                  medium: website
+                  module_id: Recommended For You
+                  module_name: Recommended For You
+                  page_name: Search
+                  platform: desktop
+                  referrer: ''
+                  source: msd
+                  url: example.com
+                  user_id: ''
+              orderConfirmation:
+                value:
+                  blox_uuid: 5fbeac07-f385-4145-a690-e98571ae985e
+                  env: production
+                  event_name: orderConfirmation
+                  level: page
+                  medium: website
+                  order_id: ord-1001
+                  page_name: Order Confirmation
+                  platform: desktop
+                  product_price:
+                    - '23.9'
+                    - '34'
+                  quantity:
+                    - 1
+                    - 2
+                  referrer: ''
+                  size:
+                    - s
+                    - regular
+                  source: msd
+                  url: example.com
+                  user_id: ''
+                  viewed_prodid:
+                    - sku-1
+                    - sku-2
+              pageView:
+                value:
+                  blox_uuid: 5fbeac07-f385-4145-a690-e98571ae985e
+                  env: production
+                  event_name: pageView
+                  level: page
+                  medium: website
+                  page_name: Home
+                  platform: desktop
+                  referrer: ''
+                  source: msd
+                  url: example.com
+                  user_id: ''
+              recommendationView:
+                value:
+                  blox_uuid: 5fbeac07-f385-4145-a690-e98571ae985e
+                  env: production
+                  event_name: recommendationView
+                  level: page
+                  medium: website
+                  module_id: Recommended For You
+                  module_name: Recommended For You
+                  page_name: Search
+                  platform: desktop
+                  referrer: ''
+                  source: msd
+                  url: example.com
+                  user_id: ''
+              recommendedProductView:
+                value:
+                  blox_uuid: 5fbeac07-f385-4145-a690-e98571ae985e
+                  clicked_prodid: sku-4
+                  env: production
+                  event_name: recommendedProductView
+                  level: page
+                  medium: website
+                  module_id: Recommended For You
+                  module_name: Recommended For You
+                  page_name: Search
+                  platform: desktop
+                  position_of_click: 2
+                  product_price: '23.9'
+                  referrer: ''
+                  source: msd
+                  strategy_id: '1001'
+                  url: example.com
+                  user_id: ''
+              removeFromCart:
+                value:
+                  blox_uuid: 5fbeac07-f385-4145-a690-e98571ae985e
+                  clicked_prodid: sku-4
+                  env: production
+                  event_name: removeFromCart
+                  level: page
+                  medium: website
+                  page_name: Home
+                  platform: desktop
+                  product_price: '23.9'
+                  referrer: ''
+                  size: s
+                  source: msd
+                  url: example.com
+                  user_id: ''
+              removeFromWishlist:
+                value:
+                  blox_uuid: 5fbeac07-f385-4145-a690-e98571ae985e
+                  clicked_prodid: sku-4
+                  env: production
+                  event_name: removeFromWishlist
+                  level: page
+                  medium: website
+                  page_name: Home
+                  platform: desktop
+                  product_price: '23.9'
+                  referrer: ''
+                  size: s
+                  source: msd
+                  url: example.com
+                  user_id: ''
+              rightSwipe:
+                value:
+                  blox_uuid: 5fbeac07-f385-4145-a690-e98571ae985e
+                  env: production
+                  event_name: rightSwipe
+                  level: page
+                  medium: website
+                  module_id: Recommended For You
+                  module_name: Recommended For You
+                  page_name: Search
+                  platform: desktop
+                  referrer: ''
+                  source: msd
+                  url: example.com
+                  user_id: ''
+          text/plain:
+            examples:
+              addToWishlist:
+                value: |-
+                  {
+                    "blox_uuid" : "<blox_uuid>",
+                    "user_id" : "<user_id>",
+                    "referrer" : "<referrer>",
+                    "url" : "<url>",
+                    "platform" : "<platform>",
+                    "page_name" : "Home",
+                    "event_name" : "addToWishlist",
+                    "clicked_prodid" : "<clicked_prodid>",
+                    "product_price" : "<product_price>", 
+                    "quantity" : "<quantity>",  // optional
+                    "region" : "<region>",
+                    "medium" : "<medium>",
+                    "source" : "<env>",
+                    "env" : "<env>",
+                    "level" : "<level>"
+                  }
+              orderConfirmation:
+                value: |-
+                  {
+                    "blox_uuid" : "<blox_uuid>",
+                    "user_id" : "<user_id>",
+                    "referrer" : "<referrer>",
+                    "url" : "<url>",
+                    "region" : "<region>",
+                    "platform" : "<platform>",
+                    "page_name" : "Order Confirmation",
+                    "event_name" : "orderConfirmation",
+                    "order_id" : "<order_id>",
+                    "viewed_prodid" :  [{{_product_ids}}], // list of product_ids, String Datatype ["product_id1","product_id2"]
+                    "product_price" : [{{_product_price}}], // list of product_price w.r.t the product_ids ["product_price1","product_price2"]
+                    "quantity" : [{{_quantity}}], // list of product_qty w.r.t the product_ids, Integer DataType [product_qty1,product_qty2]
+                    "size" : [{{_size}}],  // list of product_size w.r.t the product_size, String Datatype ["product_size1","product_size2"]
+                    "medium" : {{_medium}},
+                    "source" : {{_source}},
+                    "env" : {{_env}},
+                    "level" : {{_level}}
+                  }
+              recommendedProductView:
+                value: |-
+                  {
+                    "blox_uuid" : "<blox_uuid>",
+                    "user_id" : "<user_id>",
+                    "referrer" : "<referrer>",
+                    "url" : "<url>",
+                    "platform" : "<platform>",
+                    "page_name" : "Search",
+                    "module_name" : "<module_name>",
+                    "strategy_id" : "<strategy_id>",
+                    "event_name" : "recommendedProductView",
+                    "clicked_prodid" : "<clicked_prodid>",
+                    "product_price" : "<product_price>", 
+                    "position_of_click" : "<position_of_click>", // Integer Datatype
+                    "medium" : "<medium>",
+                    "source" : "<env>",
+                    "env" : "<env>",
+                    "level" : "<level>"
+                  }
+              removeFromCart:
+                value: |-
+                  {
+                    "blox_uuid" : "<blox_uuid>",
+                    "user_id" : "<user_id>",
+                    "referrer" : "<referrer>",
+                    "url" : "<url>",
+                    "platform" : "<platform>",
+                    "page_name" : "Search",
+                    "event_name" : "removeFromCart",
+                    "clicked_prodid" : "<clicked_prodid>",
+                    "product_price" : "<product_price>", 
+                    "quantity" : "<quantity>", // optional
+                    "region" : "<region>",
+                    "medium" : "<medium>",
+                    "source" : "<env>",
+                    "env" : "<env>",
+                    "level" : "<level>"
+                  }
+              removeFromWishlist:
+                value: |-
+                  {
+                    "blox_uuid" : "<blox_uuid>",
+                    "user_id" : "<user_id>",
+                    "referrer" : "<referrer>",
+                    "url" : "<url>",
+                    "platform" : "<platform>",
+                    "page_name" : "Search",
+                    "event_name" : "removeFromWishlist",
+                    "clicked_prodid" : "<clicked_prodid>",
+                    "product_price" : "<product_price>", 
+                    "quantity" : "<quantity>", // optional
+                    "region" : "<region>",
+                    "medium" : "<medium>",
+                    "source" : "<env>",
+                    "env" : "<env>",
+                    "level" : "<level>"
+                  }
+      responses:
+        '200':
+          description: >-
+            recommendationView / recommendedProductView / leftSwipe / rightSwipe
+            / addToCart / addToWishlist / removeFromCart / removeFromWishlist /
+            pageView / addToCart / addToWishlist / removeFromCart /
+            removeFromWishlist / recommendationView / recommendedProductView /
+            leftSwipe / rightSwipe / addToCart / addToWishlist / removeFromCart
+            / removeFromWishlist / pageView / addToCart / addToWishlist /
+            removeFromCart / removeFromWishlist / recommendationView /
+            recommendedProductView / leftSwipe / rightSwipe / addToCart /
+            addToWishlist / removeFromCart / removeFromWishlist / pageView /
+            addToCart / addToWishlist / removeFromCart / removeFromWishlist /
+            recommendationView / recommendedProductView / leftSwipe / rightSwipe
+            / addToCart / addToWishlist / removeFromCart / removeFromWishlist /
+            pageView / addToCart / addToWishlist / removeFromCart /
+            removeFromWishlist / orderConfirmation
+          headers:
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Content-Length:
+              schema:
+                type: string
+                example: '778'
+            Date:
+              schema:
+                type: string
+                example: Mon, 15 Jan 2024 17:31:16 GMT
+            Server:
+              schema:
+                type: string
+                example: nginx/1.18.0
+            access-control-allow-headers:
+              schema:
+                type: string
+                example: '*'
+            access-control-allow-methods:
+              schema:
+                type: string
+                example: GET, HEAD, OPTIONS, POST
+            access-control-allow-origin:
+              schema:
+                type: string
+                example: '*'
+            cache-control:
+              schema:
+                type: string
+                example: no-cache, no-store, must-revalidate, max-age=0
+            content-security-policy:
+              schema:
+                type: string
+                example: script-src 'self'; object-src 'self'
+            expires:
+              schema:
+                type: string
+                example: '0'
+            pragma:
+              schema:
+                type: string
+                example: no-cache
+            referrer-policy:
+              schema:
+                type: string
+                example: no-referrer, strict-origin-when-cross-origin
+            strict-transport-security:
+              schema:
+                type: string
+                example: max-age=63072000; includeSubdomains
+            x-content-type-options:
+              schema:
+                type: string
+                example: nosniff
+            x-frame-options:
+              schema:
+                type: string
+                example: DENY
+            x-xss-protection:
+              schema:
+                type: string
+                example: 1; mode=block
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            data:
+                              type: object
+                              properties:
+                                blox_uuid:
+                                  type: string
+                                  example: 5fbeac07-f385-4145-a690-e98571ae985e
+                                catalog_id:
+                                  nullable: true
+                                  example: null
+                                client_id:
+                                  type: string
+                                  example: d5091c7f-d0f6-51ce-aa00-dfb4cd50a7b3
+                                date:
+                                  type: string
+                                  example: '2024-01-15'
+                                env:
+                                  type: string
+                                  example: production
+                                epoch:
+                                  type: number
+                                  example: 1705325690
+                                event_id:
+                                  type: string
+                                  example: 2c11b88332ac9627fd29bc373a2d5734
+                                event_name:
+                                  type: string
+                                  example: recommendationView
+                                level:
+                                  type: string
+                                  example: page
+                                medium:
+                                  type: string
+                                  example: website
+                                module_id:
+                                  type: string
+                                  example: Recommended For You
+                                module_name:
+                                  type: string
+                                  example: Recommended For You
+                                os:
+                                  type: string
+                                  example: Other
+                                page_name:
+                                  type: string
+                                  example: Home
+                                platform:
+                                  type: string
+                                  example: desktop
+                                referrer:
+                                  type: string
+                                  example: ''
+                                resolution_id:
+                                  type: string
+                                  example: '"qwerty"'
+                                source:
+                                  type: string
+                                  example: msd
+                                url:
+                                  type: string
+                                  example: example.com
+                                user_agent:
+                                  type: string
+                                  example: Other / Other / Other
+                                user_id:
+                                  type: string
+                                  example: ''
+                        example:
+                          - data:
+                              blox_uuid: 5fbeac07-f385-4145-a690-e98571ae985e
+                              catalog_id: null
+                              client_id: d5091c7f-d0f6-51ce-aa00-dfb4cd50a7b3
+                              date: '2024-01-15'
+                              env: production
+                              epoch: 1705325690
+                              event_id: 2c11b88332ac9627fd29bc373a2d5734
+                              event_name: recommendationView
+                              level: page
+                              medium: website
+                              module_id: Recommended For You
+                              module_name: Recommended For You
+                              os: Other
+                              page_name: Home
+                              platform: desktop
+                              referrer: ''
+                              resolution_id: '"qwerty"'
+                              source: msd
+                              url: example.com
+                              user_agent: Other / Other / Other
+                              user_id: ''
+                      status:
+                        type: string
+                        example: OK
+                      warnings:
+                        type: array
+                        items: {}
+                        example: []
+                  meta:
+                    type: object
+                    properties:
+                      code:
+                        type: number
+                        example: 200
+                      message:
+                        type: string
+                        example: OK
+              examples:
+                addToCart:
+                  value:
+                    data:
+                      data:
+                        - data:
+                            blox_uuid: 5fbeac07-f385-4145-a690-e98571ae985e
+                            catalog_id: 56e85ed906
+                            clicked_prodid: sku-4
+                            client_id: d5091c7f-d0f6-51ce-aa00-dfb4cd50a7b3
+                            date: '2024-01-15'
+                            env: production
+                            epoch: 1705329030
+                            event_id: 183275079fcc6a910fa09f886c958be0
+                            event_name: addToCart
+                            level: page
+                            medium: website
+                            msd_internal_product_price: 23.9
+                            os: Other
+                            page_name: Home
+                            platform: desktop
+                            product_price: '23.9'
+                            referrer: ''
+                            resolution_id: '"qwerty"'
+                            size: s
+                            source: msd
+                            url: example.com
+                            user_agent: Other / Other / Other
+                            user_id: ''
+                      status: OK
+                      warnings: []
+                    meta:
+                      code: 200
+                      message: OK
+                addToWishlist:
+                  value:
+                    data:
+                      data:
+                        - data:
+                            blox_uuid: 5fbeac07-f385-4145-a690-e98571ae985e
+                            catalog_id: 56e85ed906
+                            clicked_prodid: sku-4
+                            client_id: d5091c7f-d0f6-51ce-aa00-dfb4cd50a7b3
+                            date: '2024-01-15'
+                            env: production
+                            epoch: 1705329048
+                            event_id: 7368a99dd6ef1f57d020f06be9fab78e
+                            event_name: addToWishlist
+                            level: page
+                            medium: website
+                            msd_internal_product_price: 23.9
+                            os: Other
+                            page_name: Home
+                            platform: desktop
+                            product_price: '23.9'
+                            referrer: ''
+                            resolution_id: '"qwerty"'
+                            source: msd
+                            url: example.com
+                            user_agent: Other / Other / Other
+                            user_id: ''
+                      status: OK
+                      warnings: []
+                    meta:
+                      code: 200
+                      message: OK
+                leftSwipe:
+                  value:
+                    data:
+                      data:
+                        - data:
+                            blox_uuid: 5fbeac07-f385-4145-a690-e98571ae985e
+                            catalog_id: null
+                            client_id: d5091c7f-d0f6-51ce-aa00-dfb4cd50a7b3
+                            date: '2024-01-15'
+                            env: production
+                            epoch: 1705330481
+                            event_id: 57fb51a5ef169616e35e81546a9459e4
+                            event_name: leftSwipe
+                            level: page
+                            medium: website
+                            module_id: Recommended For You
+                            module_name: Recommended For You
+                            os: Other
+                            page_name: Search
+                            platform: desktop
+                            referrer: ''
+                            resolution_id: zdhkd32794924
+                            source: msd
+                            url: example.com
+                            user_agent: Other / Other / Other
+                            user_id: ''
+                      status: OK
+                      warnings: []
+                    meta:
+                      code: 200
+                      message: OK
+                orderConfirmation:
+                  value:
+                    data:
+                      data:
+                        - data:
+                            blox_uuid: 5fbeac07-f385-4145-a690-e98571ae985e
+                            catalog_id: 56e85ed906
+                            client_id: d5091c7f-d0f6-51ce-aa00-dfb4cd50a7b3
+                            date: '2024-01-15'
+                            env: production
+                            epoch: 1705339876
+                            event_id: 081d7775d2e709784d43a79e3292a148
+                            event_name: orderConfirmation
+                            level: page
+                            medium: website
+                            msd_internal_product_price: 23.9
+                            order_id: ord-1001
+                            os: Other
+                            page_name: Order Confirmation
+                            platform: desktop
+                            product_price: '23.9'
+                            quantity: 1
+                            referrer: ''
+                            resolution_id: zdhkd32794924
+                            size: s
+                            source: msd
+                            url: example.com
+                            user_agent: Other / Other / Other
+                            user_id: ''
+                            viewed_prodid: sku-1
+                      status: OK
+                      warnings: []
+                    meta:
+                      code: 200
+                      message: OK
+                pageView:
+                  value:
+                    data:
+                      data:
+                        - data:
+                            blox_uuid: 5fbeac07-f385-4145-a690-e98571ae985e
+                            catalog_id: 56e85ed906
+                            client_id: d5091c7f-d0f6-51ce-aa00-dfb4cd50a7b3
+                            date: '2024-01-15'
+                            env: production
+                            epoch: 1705329018
+                            event_id: e03e7d44b6627b6792e379262c93c119
+                            event_name: pageView
+                            level: page
+                            medium: website
+                            os: Other
+                            page_name: Home
+                            platform: desktop
+                            referrer: ''
+                            resolution_id: '"qwerty"'
+                            source: msd
+                            url: example.com
+                            user_agent: Other / Other / Other
+                            user_id: ''
+                      status: OK
+                      warnings: []
+                    meta:
+                      code: 200
+                      message: OK
+                recommendationView:
+                  value:
+                    data:
+                      data:
+                        - data:
+                            blox_uuid: 5fbeac07-f385-4145-a690-e98571ae985e
+                            catalog_id: null
+                            client_id: d5091c7f-d0f6-51ce-aa00-dfb4cd50a7b3
+                            date: '2024-01-15'
+                            env: production
+                            epoch: 1705330439
+                            event_id: 7b430cdff5e47e33ee20ade1d2996082
+                            event_name: recommendationView
+                            level: page
+                            medium: website
+                            module_id: Recommended For You
+                            module_name: Recommended For You
+                            os: Other
+                            page_name: Search
+                            platform: desktop
+                            referrer: ''
+                            resolution_id: qwerty
+                            source: msd
+                            url: example.com
+                            user_agent: Other / Other / Other
+                            user_id: ''
+                      status: OK
+                      warnings: []
+                    meta:
+                      code: 200
+                      message: OK
+                recommendedProductView:
+                  value:
+                    data:
+                      data:
+                        - data:
+                            blox_uuid: 5fbeac07-f385-4145-a690-e98571ae985e
+                            catalog_id: 56e85ed906
+                            clicked_prodid: sku-4
+                            client_id: d5091c7f-d0f6-51ce-aa00-dfb4cd50a7b3
+                            date: '2024-01-15'
+                            env: production
+                            epoch: 1705330459
+                            event_id: a9a0634e15b360333491a3c731c05cc0
+                            event_name: recommendedProductView
+                            level: page
+                            medium: website
+                            module_id: Recommended For You
+                            module_name: Recommended For You
+                            msd_internal_product_price: 23.9
+                            os: Other
+                            page_name: Search
+                            platform: desktop
+                            position_of_click: 2
+                            product_price: '23.9'
+                            referrer: ''
+                            resolution_id: qwerty
+                            source: msd
+                            strategy_id: '1001'
+                            url: example.com
+                            user_agent: Other / Other / Other
+                            user_id: ''
+                      status: OK
+                      warnings: []
+                    meta:
+                      code: 200
+                      message: OK
+                removeFromCart:
+                  value:
+                    data:
+                      data:
+                        - data:
+                            blox_uuid: 5fbeac07-f385-4145-a690-e98571ae985e
+                            catalog_id: 56e85ed906
+                            clicked_prodid: sku-4
+                            client_id: d5091c7f-d0f6-51ce-aa00-dfb4cd50a7b3
+                            date: '2024-01-15'
+                            env: production
+                            epoch: 1705329093
+                            event_id: 89e0f97dda70a670fcf9b30816cce71e
+                            event_name: removeFromCart
+                            level: page
+                            medium: website
+                            msd_internal_product_price: 23.9
+                            os: Other
+                            page_name: Home
+                            platform: desktop
+                            product_price: '23.9'
+                            referrer: ''
+                            resolution_id: '"qwerty"'
+                            source: msd
+                            url: example.com
+                            user_agent: Other / Other / Other
+                            user_id: ''
+                      status: OK
+                      warnings: []
+                    meta:
+                      code: 200
+                      message: OK
+                removeFromWishlist:
+                  value:
+                    data:
+                      data:
+                        - data:
+                            blox_uuid: 5fbeac07-f385-4145-a690-e98571ae985e
+                            catalog_id: 56e85ed906
+                            clicked_prodid: sku-4
+                            client_id: d5091c7f-d0f6-51ce-aa00-dfb4cd50a7b3
+                            date: '2024-01-15'
+                            env: production
+                            epoch: 1705329131
+                            event_id: 7dcd2c763784e1d3d832367212cdf931
+                            event_name: removeFromWishlist
+                            level: page
+                            medium: website
+                            msd_internal_product_price: 23.9
+                            os: Other
+                            page_name: Home
+                            platform: desktop
+                            product_price: '23.9'
+                            referrer: ''
+                            resolution_id: '"qwerty"'
+                            source: msd
+                            url: example.com
+                            user_agent: Other / Other / Other
+                            user_id: ''
+                      status: OK
+                      warnings: []
+                    meta:
+                      code: 200
+                      message: OK
+                rightSwipe:
+                  value:
+                    data:
+                      data:
+                        - data:
+                            blox_uuid: 5fbeac07-f385-4145-a690-e98571ae985e
+                            catalog_id: null
+                            client_id: d5091c7f-d0f6-51ce-aa00-dfb4cd50a7b3
+                            date: '2024-01-15'
+                            env: production
+                            epoch: 1705330501
+                            event_id: a3a2416b9f8999175b950e3604a62b7c
+                            event_name: rightSwipe
+                            level: page
+                            medium: website
+                            module_id: Recommended For You
+                            module_name: Recommended For You
+                            os: Other
+                            page_name: Search
+                            platform: desktop
+                            referrer: ''
+                            resolution_id: zdhkd32794924
+                            source: msd
+                            url: example.com
+                            user_agent: Other / Other / Other
+                            user_id: ''
+                      status: OK
+                      warnings: []
+                    meta:
+                      code: 200
+                      message: OK
+      security:
+        - {}
 components:
-  parameters:
-    $ref: parameters/_index.yaml
-  securitySchemes:
-    ApiKeyAuth:
-      type: apiKey
-      name: x-api-key
-      in: header
-  schemas:
-    $ref: schemas/_index.yaml
+  securitySchemes: {}
+tags:
+  - name: Home
+  - name: Trigger events on widget actions
+  - name: Trigger events on non-widget interactions.
+  - name: PDP
+  - name: Trigger events on widget actions1
+  - name: Trigger events on non-widget interactions.1
+  - name: Cart
+  - name: Trigger events on widget actions12
+  - name: Trigger events on non-widget interactions.12
+  - name: Search
+  - name: Trigger events on widget actions123
+  - name: Trigger events on non-widget interactions.123
+  - name: OrderConfirmation

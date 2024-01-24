@@ -13,7 +13,9 @@ export default function V2API() {
         pathname: '/api',
         search: 'v=v2',
         hash: router.location.hash,
-      }}
+      }
+    }
     />
+    
   );
 }

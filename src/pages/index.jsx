@@ -16,11 +16,13 @@ export default function Homepage() {
     <Layout wrapperClassName="homepage flex flex-col" noFooter>
       <Head>
         <link rel="prefetch" href="/assets/css/elements.min.css" />
+
       </Head>
 
       <HeroSection />
 
       <GuidesAndSamples />
+
 
       <SDKs />
 
@@ -30,10 +32,11 @@ export default function Homepage() {
         <ResourcesSection />
         <HelpSection className="-mb-48" />
       </div>
-
       <CommunitySection />
 
       <HomeFooter />
+
+
     </Layout>
   );
 }

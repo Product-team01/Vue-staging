@@ -68,7 +68,15 @@ export default function Home() {
         <link rel="preload" href="/assets/css/elements.min.css" as="style" />
         <link rel="stylesheet" href="/assets/css/elements.min.css" />
       </Head>
-
+      <Head>
+        {/* Load styles for Stoplight Elements */}
+        <link rel="preload" href="/assets/css/elements.min.css" as="style" />
+        <link rel="stylesheet" href="/assets/css/elements.min.css" />
+      </Head>
+      <div className="flex flex-col items-center justify-center gap-4 border-b py-12 text-sm lg:hidden">
+        <Monitor className="h-12 w-12" />
+        This page is best viewed in a desktop browser.
+      </div>
       <div className="flex flex-col items-center justify-center gap-4 border-b py-12 text-sm lg:hidden">
         <Monitor className="h-12 w-12" />
         This page is best viewed in a desktop browser.
@@ -107,5 +115,7 @@ export default function Home() {
         currentVersion={currentVersion}
       />
     </Layout>
+    
   );
+  
 }
