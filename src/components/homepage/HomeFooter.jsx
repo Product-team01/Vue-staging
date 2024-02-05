@@ -21,8 +21,8 @@ export default function HomeFooter({ className }) {
             alt="Logo"
             className="h-10"
           />
+                  {/* <script data-jsd-embedded data-key="2bdf156b-05e4-4505-b0b5-fed52583c53c" data-base-url="https://jsd-widget.atlassian.com" src="https://jsd-widget.atlassian.com/assets/embed.js"></script> */}
                   <script data-jsd-embedded data-key="2bdf156b-05e4-4505-b0b5-fed52583c53c" data-base-url="https://jsd-widget.atlassian.com" src="https://jsd-widget.atlassian.com/assets/embed.js"></script>
-
         </div>
         <div className="flex items-center gap-3">
           <Link href="https://community.dyte.io" aria-label="Discord community">
