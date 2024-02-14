@@ -381,3 +381,34 @@
 - question: How to access SDK?
   tags: ['Vue']
   answer: Please visit [here](https://vue-staging.vercel.app/Integration) to learn about how to access SDK.
+- question: To upload a new audience, is CSV the only supported format?
+  tags: ['Vue', 'Audience Hub']
+  answer: At this point, only CSV. We can support more formats in future releases.
+
+- question: What is an Audience Builder?
+  tags: ['Vue', 'Audience Hub']
+  answer: Audience Builder, is a feature that allows you to segment visitors based on various criteria and therefore creating a custom audience.
+
+- question: How do I create an audience segment?
+  tags: ['Vue', 'Audience Hub']
+  answer: To create an audience segment, navigate to the Audience Builder section in the Audience Manager, select the desired criteria, set the parameters, and save the segment. It may involve understanding business objectives, analyzing available data, and considering relevant customer attributes.
+
+- question: What criteria can I use to create audience segments?
+  tags: ['Vue', 'Audience Hub']
+  answer: You can create audience segments based on any one of the available parameters such as demographics, location, device type, user behavior, purchase history and affinity around content, predictions, affinity to treatment/strategy.
+
+- question: Can I combine multiple criteria to create a segment?
+  tags: ['Vue', 'Audience Hub']
+  answer: Yes, you can combine multiple criteria or attributes to create highly specific and targeted audience segments. This allows for greater customization and precision in personalizing user experiences.
+
+- question: Can I define a sequence of events to create an audience segment?
+  tags: ['Vue', 'Audience Hub']
+  answer: Yes, you can define a sequence of events to create an audience segment. This helps to understand user behavior.
+
+- question: Can I exclude certain users from an audience segment?
+  tags: ['Vue', 'Audience Hub']
+  answer: Yes, you can exclude specific users from an audience segment by defining exclusion criteria based on attributes that you want to exclude from the segment for personalized experiences.
+
+- question: Can I customize the time frame between events based on my business requirements?
+  tags: ['Vue', 'Audience Hub']
+  answer: Yes, you can customize the time frame between events based on business requirements. This capability allows you to consider different time intervals and assess the impact of time delays between each step in the sequence.
