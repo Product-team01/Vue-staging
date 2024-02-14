@@ -5,49 +5,86 @@ sidebar_position: 3
 
 ## Audience Builder
 
-**Audience Builder** allows you to segment your visitors into different audiences by defining custom audiences based on your business goals. An audience consists of a group of visitors who share similar characteristics. You can measure the health of the business, publish recommendations, and conduct experiments using Audiences.
+Audience Builder lets you segment your visitors into different audiences by defining custom audiences based on your business goals. An audience consists of a group of visitors who share similar characteristics. You can measure the health of the business, publish recommendations, and conduct experiments using Audiences.
 
 ### Getting to Audience Builder
 
-**Navigation**: To Access Audience Builder, navigate to the Menu Bar, click on the App Drawer icon and Click on Audience Manager -> Click on Audience Builder. Alternatively on the navigation bar, click on Audience Manager -> click on Audience Builder.
+#### Navigation
+To Access Audience Builder, navigate to the Menu Bar, click on the App Drawer icon, and Click on Audience Manager -> Click on Audience Builder.
+Alternatively on the navigation bar, click on Audience Manager -> click on Audience Builder.
 
 ### Creating an Audience
 
-To create an audience, click on the 'Create Audience' CTA on the Audience Listing Screen. Click on ‘Build via form’ to create a custom audience by configuring conditions. Alternatively, click on ‘Upload via CSV’ to upload a csv file with visitors IDs to create a custom audience.
+To create an audience, click on the 'Create Audience' CTA on the Audience Listing Screen. 
 
-### Audience Details:
+- Click on ‘Build via form’ to create a custom audience by configuring conditions.
+- Alternatively, click on ‘Upload via CSV’ to upload a csv file with visitors IDs to create a custom audience.
 
-**Audience Name:** Give a unique name for the Audience.  
-**Description:** Give a brief description of the audience.  
+### Audience Details
 
-**Duration Settings:**
-- **Refresh Frequency:** Refers to how often the audience data should be computed and updated.
-- **Lookback Period:** Refers to the time period up to which the system should lookback for visitor data.
+- **Audience Name:** Give a unique name for the Audience
+- **Description:** Give a brief description of the audience.
+- **Duration Settings:**
+  - **Refresh Frequency:** Refers to how often the audience data should be computed and updated.
+  - **Lookback Period:** Refers to the time period up to which the system should look back for visitor data.
 
 ### Define the audience criteria to form the audience in condition/sequence groups.
 
-**Audience Criteria** consists of Parameters. A parameter is a dimension or a field that describes a visitor/user such as demographics, interests, affinity, etc.
+- **Audience Criteria** consists of Parameters. A parameter is a dimension or a field that describes a visitor/user such as demographics, interests, affinity etc. An audience can be defined using any one of the available parameters.
 
-**Examples of parameters:** Gender, Number of Visits
+### Examples of parameters:
 
-**A condition group** consists of one or more rules. Each rule will have features defined in the same level.
+- Gender
+- Number of Visits
 
-**A sequence group** consists of one or more rules (Events) defined with time intervals between each event.
+### Note:
+
+- A rule can be deleted by clicking on the ‘Delete Rule’ button.
+- A condition can be deleted using the delete icon.
 
 ### Audience Creation via CSV Upload
 
-You can also upload an audience via CSV. Click on the down arrow on ‘Create Audience’ CTA in the audience listing Page. Click on the ‘Upload via CSV’ option. Provide Name and Description for the audience. Download the template for uploading the audience in the desired format.
+You can also upload an audience via CSV. 
+
+- Click on the down arrow on ‘Create Audience’ CTA in the audience listing Page. 
+- Click on the ‘Upload via CSV’ option.
+- Provide Name and Description for the audience
+- Download the template for uploading the audience in the desired format.
+- Either drag & drop a CSV file with audience data or click on ‘browse’ and upload the file from the local location.
+- Click on ‘Upload’ CTA
 
 ### Audience Information
 
 In the audience listing table, click on the audience Name or ‘Info’ icon to view the details about the audience, metrics and visitor overlap details with other audiences.
 
-### Glossary
+In addition to the Audience Metrics, a detailed report can offer a comprehensive view of key performance indicators. This includes metrics such as the number of sessions, revenue generated from the audience, number of purchases, average order value, average order size, and average revenue per user. These metrics provide deeper insights into the audience's engagement, conversion rates, and financial contribution to the business.
 
-- **Parameter:** A dimension or a field that describes a visitor/user.
-- **Parameter Group:** A logical grouping/bundling of parameters.
-- **Sequences:** A specific series of interactions done by users.
-- **Conditions:** A criterion which consists of a parameter, an operator and one or more values.
-- **Rule:** Consists of one or more conditions. It will be inside a group.
-- **Group:** Consists of one or more rules in which conditions are defined.
+By examining these metrics, businesses can gauge the effectiveness and profitability of their defined audiences. It allows businesses to make data-driven decisions, refine their targeting strategies, and optimize their marketing efforts to drive better results. Understanding the performance of specific audience segments is crucial for enhancing customer experiences, maximizing revenue, and achieving marketing objectives.
 
+## Glossary
+
+| Term              | Definition                                                                                                                                                  |
+|-------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Parameter         | A dimension or a field that describes a visitor/user such as demographics, interests, affinity, etc. An audience can be defined using any one of the available parameters. Examples include Gender, Number of Visits, Number of Buys, or Affinity towards electronics category. |
+| Parameter Group   | A logical grouping/bundling of parameters. For example, Gender and Age come under the ‘Demographics’ parameter group.                                      |
+| Sequences         | A specific series of interactions done by users. An audience can be defined as a group of users that have the specified sequences in their history. Examples include Users who added Nike shoes to cart and bought them within 1 day.  |
+| Conditions        | A criterion consisting of a parameter, an operator, and one or more values used to define an audience. Examples include Brand ‘Equals’ Nike.                     |
+| Boolean Operator  | Operators used for combining two or more conditions or Rules or Groups. They include:                                                                                                                                              |
+|                   | - **AND:** Checks if both conditions are true.                                                                                                                                                                              |
+|                   | - **OR:** Checks if either one or both of the conditions are true.                                                                                                                                                           |
+| Time Operator     | Operators specifying the time interval between two events. They include:                                                                                                                                                     |
+|                   | - **None:** No time interval between two events.                                                                                                                                                                             |
+|                   | - **Between:** Calculates the visitors between the specified duration.                                                                                                                                                       |
+|                   | - **After:** Calculates the visitors after the specified duration.                                                                                                                                                            |
+|                   | - **Within:** Calculates the visitors within the specified duration.                                                                                                                                                         |
+| Logical Operator  | Operators used for comparison. They include:                                                                                                                                                                                  |
+|                   | - **Equals:** Calculates if the value is exactly equal to the given value.                                                                                                                                                   |
+|                   | - **Greater than:** Calculates if the value is greater than the given value.                                                                                                                                                 |
+|                   | - **Greater than/Equals:** Calculates if the value is greater than or equal to the given value.                                                                                                                              |
+|                   | - **Less than:** Calculates if the value is less than the given value.                                                                                                                                                       |
+|                   | - **Less than/Equals:** Calculates if the value is lesser than or equal to the given value.                                                                                                                                  |
+|                   | - **Not equal to:** Calculates excluding the given value.                                                                                                                                                                   |
+|                   | - **Is any of:** Calculates with any of the given values.                                                                                                                                                                    |
+| Rule              | Consists of one or more conditions and is inside a group. Each rule is separated by either ‘AND’ or ‘OR’ operator.                                                                                                           |
+| Group             | Consists of one or more rules in which conditions are defined. There are two types of groups: Condition Group and Sequence Group.                                                                                          |
+| Audience Status   | The status of an audience, including Draft, Creating, Processing, Saved, Complete, and Error.                                                                                                                              |
