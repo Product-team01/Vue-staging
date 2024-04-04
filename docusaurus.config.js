@@ -55,16 +55,16 @@ const docs = [
   //     },
   //   },
   // },
-  {
-    id: 'Integration',
-    path: 'docs/Integration',
-    routeBasePath: '/Integration',
-    versions: {
-      current: {
-        label: '1.x.x',
-      },
-    },
-  },
+  // {
+  //   id: 'Integration',
+  //   path: 'docs/Integration',
+  //   routeBasePath: '/Integration',
+  //   versions: {
+  //     current: {
+  //       label: '1.x.x',
+  //     },
+  //   },
+  // },
   // {
   //   id: 'angular-ui-kit',
   //   path: 'docs/angular-ui-kit',
@@ -77,27 +77,27 @@ const docs = [
   // },
 
   // Web Core
-  // {
-  //   id: 'web-core',
-  //   path: 'docs/web-core',
-  //   routeBasePath: '/web-core',
-  //   versions: {
-  //     current: {
-  //       label: '1.x.x',
-  //     },
-  //   },
-  // },
+  {
+    id: 'web-core',
+    path: 'docs/web-core',
+    routeBasePath: '/web-core',
+    versions: {
+      current: {
+        label: '1.x.x',
+      },
+    },
+  },
   // React Web Core
-  // {
-  //   id: 'react-web-core',
-  //   path: 'docs/react-web-core',
-  //   routeBasePath: '/react-web-core',
-  //   versions: {
-  //     current: {
-  //       label: '1.x.x',
-  //     },
-  //   },
-  // },
+  {
+    id: 'react-web-core',
+    path: 'docs/react-web-core',
+    routeBasePath: '/react-web-core',
+    versions: {
+      current: {
+        label: '1.x.x',
+      },
+    },
+  },
 
   // Mobile Core
   // {
@@ -385,7 +385,7 @@ const config = {
           ignorePatterns: ['/tags/**'],
         },
         googleTagManager: {
-          containerId: 'GTM-5FDFFSS',
+          containerId: 'GTM-5Z42H36M',
         },
       }),
     ],

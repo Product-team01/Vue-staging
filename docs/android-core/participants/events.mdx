@@ -1,0 +1,129 @@
+---
+title: Participant Events
+description: >-
+  Dive into the details of handling participant events in your Android
+  application using Dyte's comprehensive documentation.
+sidebar_position: 3
+tags:
+  - mobile-core
+  - participants
+  - self
+---
+
+You can subscribe to events for all participants by implementing
+`DyteParticipantEventsListener` callback and then passing that object to
+`meeting.addParticipantEventsListener(dyteParticipantEventsListener)` method.
+Here are the supported methods:
+
+## Participant joined
+
+Triggers an event when any participant joins the meeting.
+
+```kotlin
+    private val participantEventsListener = object : DyteParticipantEventsListener {
+        override fun onParticipantJoin(participant: DyteMeetingParticipant) {
+            // your code here to handle new participant
+        }
+    }
+```
+
+## Participant left
+
+Triggers an event when any participant leaves the meeting.
+
+```kotlin
+    private val participantEventsListener = object : DyteParticipantEventsListener {
+        override fun onParticipantLeave(participant: DyteMeetingParticipant) {
+            // your code here to handle participant left from meeting
+        }
+    }
+```
+
+## Video update
+
+Trigger an event when any participant starts / stops video.
+
+```kotlin
+    private val participantEventsListener = object : DyteParticipantEventsListener {
+        override fun onVideoUpdate(videoEnabled: Boolean, participant: DyteMeetingParticipant) {
+            // your code here to handle participant video toggle update
+        }
+    }
+```
+
+## Audio update
+
+Trigger an event when any participant starts / stops audio.
+
+```kotlin
+    private val participantEventsListener = object : DyteParticipantEventsListener {
+        override fun onAudioUpdate(audioEnabled: Boolean, participant: DyteMeetingParticipant) {
+            // your code here to handle participant audio toggle update
+        }
+    }
+```
+
+## Screenshare updates
+
+Triggers an event when there is any change in screenshares in a meeting.
+
+```kotlin
+    private val participantEventsListener = object : DyteParticipantEventsListener {
+        override fun onScreenSharesUpdated() {
+            // your code here to handle screenshares from meeting
+            // you can use `meeting.participants.screenshares` to get latest screenshare participants
+        }
+
+        override fun onScreenShareStarted(participant: DyteJoinedMeetingParticipant) {
+            // participant stared presenting screen in the meeting
+        }
+
+        override fun onScreenShareEnded(participant: DyteJoinedMeetingParticipant) {
+            // participant stopped presenting screen in the meeting
+        }
+    }
+```
+
+## Active speaker
+
+Trigger an event when any is change in active speaker in the meeting.
+
+```kotlin
+    private val participantEventsListener = object : DyteParticipantEventsListener {
+        override fun onActiveSpeakerChanged(participant: DyteMeetingParticipant) {
+            // your code here to handle active speaker
+        }
+
+        override fun onNoActiveSpeaker() {
+            // your code here to handle no active speaker
+        }
+    }
+```
+
+## Pinned participant
+
+Trigger an event when any is change in pinned participant in the meeting.
+
+```kotlin
+    private val participantEventsListener = object : DyteParticipantEventsListener {
+        override fun onParticipantPinned(participant: DyteMeetingParticipant) {
+            // your code here to show pinned participant
+        }
+
+        override fun onParticipantUnpinned() {
+            // your code here to remove pinned participant
+        }
+    }
+```
+
+## Active participants list change
+
+Triggers an event when any is change in active participants list in the meeting.
+
+```kotlin
+    private val participantEventsListener = object : DyteParticipantEventsListener {
+        override fun onActiveParticipantsChanged(active: List<DyteMeetingParticipant>) {
+            // your code here to refresh active participants
+        }
+    }
+```

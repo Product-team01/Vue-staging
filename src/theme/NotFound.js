@@ -8,7 +8,7 @@ export default function NotFound() {
       <PageMetadata
         title={translate({
           id: 'theme.NotFound.title',
-          message: 'Page Not Found',
+          message: 'loading',
         })}
       />
       <Layout>
